@@ -20,594 +20,832 @@ import Data.StrMap as StrMap
 import AWS.Request as Request
 import AWS.Request.Types as Types
 
-serviceName = "APIGateway" :: String
-
 
 -- | <p>Create an <a>ApiKey</a> resource. </p> <div class="seeAlso"><a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/create-api-key.html">AWS CLI</a></div>
 createApiKey :: forall eff. CreateApiKeyRequest -> Aff (exception :: EXCEPTION | eff) ApiKey
-createApiKey = Request.request serviceName "createApiKey" 
+createApiKey = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "createApiKey"
 
 
 -- | <p>Adds a new <a>Authorizer</a> resource to an existing <a>RestApi</a> resource.</p> <div class="seeAlso"><a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/create-authorizer.html">AWS CLI</a></div>
 createAuthorizer :: forall eff. CreateAuthorizerRequest -> Aff (exception :: EXCEPTION | eff) Authorizer
-createAuthorizer = Request.request serviceName "createAuthorizer" 
+createAuthorizer = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "createAuthorizer"
 
 
 -- | <p>Creates a new <a>BasePathMapping</a> resource.</p>
 createBasePathMapping :: forall eff. CreateBasePathMappingRequest -> Aff (exception :: EXCEPTION | eff) BasePathMapping
-createBasePathMapping = Request.request serviceName "createBasePathMapping" 
+createBasePathMapping = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "createBasePathMapping"
 
 
 -- | <p>Creates a <a>Deployment</a> resource, which makes a specified <a>RestApi</a> callable over the internet.</p>
 createDeployment :: forall eff. CreateDeploymentRequest -> Aff (exception :: EXCEPTION | eff) Deployment
-createDeployment = Request.request serviceName "createDeployment" 
+createDeployment = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "createDeployment"
 
 
 createDocumentationPart :: forall eff. CreateDocumentationPartRequest -> Aff (exception :: EXCEPTION | eff) DocumentationPart
-createDocumentationPart = Request.request serviceName "createDocumentationPart" 
+createDocumentationPart = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "createDocumentationPart"
 
 
 createDocumentationVersion :: forall eff. CreateDocumentationVersionRequest -> Aff (exception :: EXCEPTION | eff) DocumentationVersion
-createDocumentationVersion = Request.request serviceName "createDocumentationVersion" 
+createDocumentationVersion = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "createDocumentationVersion"
 
 
 -- | <p>Creates a new domain name.</p>
 createDomainName :: forall eff. CreateDomainNameRequest -> Aff (exception :: EXCEPTION | eff) DomainName
-createDomainName = Request.request serviceName "createDomainName" 
+createDomainName = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "createDomainName"
 
 
 -- | <p>Adds a new <a>Model</a> resource to an existing <a>RestApi</a> resource.</p>
 createModel :: forall eff. CreateModelRequest -> Aff (exception :: EXCEPTION | eff) Model
-createModel = Request.request serviceName "createModel" 
+createModel = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "createModel"
 
 
 -- | <p>Creates a <a>ReqeustValidator</a> of a given <a>RestApi</a>.</p>
 createRequestValidator :: forall eff. CreateRequestValidatorRequest -> Aff (exception :: EXCEPTION | eff) RequestValidator
-createRequestValidator = Request.request serviceName "createRequestValidator" 
+createRequestValidator = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "createRequestValidator"
 
 
 -- | <p>Creates a <a>Resource</a> resource.</p>
 createResource :: forall eff. CreateResourceRequest -> Aff (exception :: EXCEPTION | eff) Resource
-createResource = Request.request serviceName "createResource" 
+createResource = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "createResource"
 
 
 -- | <p>Creates a new <a>RestApi</a> resource.</p>
 createRestApi :: forall eff. CreateRestApiRequest -> Aff (exception :: EXCEPTION | eff) RestApi
-createRestApi = Request.request serviceName "createRestApi" 
+createRestApi = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "createRestApi"
 
 
 -- | <p>Creates a new <a>Stage</a> resource that references a pre-existing <a>Deployment</a> for the API. </p>
 createStage :: forall eff. CreateStageRequest -> Aff (exception :: EXCEPTION | eff) Stage
-createStage = Request.request serviceName "createStage" 
+createStage = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "createStage"
 
 
 -- | <p>Creates a usage plan with the throttle and quota limits, as well as the associated API stages, specified in the payload. </p>
 createUsagePlan :: forall eff. CreateUsagePlanRequest -> Aff (exception :: EXCEPTION | eff) UsagePlan
-createUsagePlan = Request.request serviceName "createUsagePlan" 
+createUsagePlan = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "createUsagePlan"
 
 
 -- | <p>Creates a usage plan key for adding an existing API key to a usage plan.</p>
 createUsagePlanKey :: forall eff. CreateUsagePlanKeyRequest -> Aff (exception :: EXCEPTION | eff) UsagePlanKey
-createUsagePlanKey = Request.request serviceName "createUsagePlanKey" 
+createUsagePlanKey = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "createUsagePlanKey"
 
 
 -- | <p>Creates a VPC link, under the caller's account in a selected region, in an asynchronous operation that typically takes 2-4 minutes to complete and become operational. The caller must have permissions to create and update VPC Endpoint services.</p>
 createVpcLink :: forall eff. CreateVpcLinkRequest -> Aff (exception :: EXCEPTION | eff) VpcLink
-createVpcLink = Request.request serviceName "createVpcLink" 
+createVpcLink = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "createVpcLink"
 
 
 -- | <p>Deletes the <a>ApiKey</a> resource.</p>
 deleteApiKey :: forall eff. DeleteApiKeyRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteApiKey = Request.request serviceName "deleteApiKey" 
+deleteApiKey = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "deleteApiKey"
 
 
 -- | <p>Deletes an existing <a>Authorizer</a> resource.</p> <div class="seeAlso"><a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/delete-authorizer.html">AWS CLI</a></div>
 deleteAuthorizer :: forall eff. DeleteAuthorizerRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteAuthorizer = Request.request serviceName "deleteAuthorizer" 
+deleteAuthorizer = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "deleteAuthorizer"
 
 
 -- | <p>Deletes the <a>BasePathMapping</a> resource.</p>
 deleteBasePathMapping :: forall eff. DeleteBasePathMappingRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteBasePathMapping = Request.request serviceName "deleteBasePathMapping" 
+deleteBasePathMapping = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "deleteBasePathMapping"
 
 
 -- | <p>Deletes the <a>ClientCertificate</a> resource.</p>
 deleteClientCertificate :: forall eff. DeleteClientCertificateRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteClientCertificate = Request.request serviceName "deleteClientCertificate" 
+deleteClientCertificate = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "deleteClientCertificate"
 
 
 -- | <p>Deletes a <a>Deployment</a> resource. Deleting a deployment will only succeed if there are no <a>Stage</a> resources associated with it.</p>
 deleteDeployment :: forall eff. DeleteDeploymentRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteDeployment = Request.request serviceName "deleteDeployment" 
+deleteDeployment = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "deleteDeployment"
 
 
 deleteDocumentationPart :: forall eff. DeleteDocumentationPartRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteDocumentationPart = Request.request serviceName "deleteDocumentationPart" 
+deleteDocumentationPart = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "deleteDocumentationPart"
 
 
 deleteDocumentationVersion :: forall eff. DeleteDocumentationVersionRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteDocumentationVersion = Request.request serviceName "deleteDocumentationVersion" 
+deleteDocumentationVersion = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "deleteDocumentationVersion"
 
 
 -- | <p>Deletes the <a>DomainName</a> resource.</p>
 deleteDomainName :: forall eff. DeleteDomainNameRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteDomainName = Request.request serviceName "deleteDomainName" 
+deleteDomainName = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "deleteDomainName"
 
 
 -- | <p>Clears any customization of a <a>GatewayResponse</a> of a specified response type on the given <a>RestApi</a> and resets it with the default settings.</p>
 deleteGatewayResponse :: forall eff. DeleteGatewayResponseRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteGatewayResponse = Request.request serviceName "deleteGatewayResponse" 
+deleteGatewayResponse = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "deleteGatewayResponse"
 
 
 -- | <p>Represents a delete integration.</p>
 deleteIntegration :: forall eff. DeleteIntegrationRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteIntegration = Request.request serviceName "deleteIntegration" 
+deleteIntegration = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "deleteIntegration"
 
 
 -- | <p>Represents a delete integration response.</p>
 deleteIntegrationResponse :: forall eff. DeleteIntegrationResponseRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteIntegrationResponse = Request.request serviceName "deleteIntegrationResponse" 
+deleteIntegrationResponse = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "deleteIntegrationResponse"
 
 
 -- | <p>Deletes an existing <a>Method</a> resource.</p>
 deleteMethod :: forall eff. DeleteMethodRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteMethod = Request.request serviceName "deleteMethod" 
+deleteMethod = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "deleteMethod"
 
 
 -- | <p>Deletes an existing <a>MethodResponse</a> resource.</p>
 deleteMethodResponse :: forall eff. DeleteMethodResponseRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteMethodResponse = Request.request serviceName "deleteMethodResponse" 
+deleteMethodResponse = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "deleteMethodResponse"
 
 
 -- | <p>Deletes a model.</p>
 deleteModel :: forall eff. DeleteModelRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteModel = Request.request serviceName "deleteModel" 
+deleteModel = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "deleteModel"
 
 
 -- | <p>Deletes a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
 deleteRequestValidator :: forall eff. DeleteRequestValidatorRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteRequestValidator = Request.request serviceName "deleteRequestValidator" 
+deleteRequestValidator = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "deleteRequestValidator"
 
 
 -- | <p>Deletes a <a>Resource</a> resource.</p>
 deleteResource :: forall eff. DeleteResourceRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteResource = Request.request serviceName "deleteResource" 
+deleteResource = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "deleteResource"
 
 
 -- | <p>Deletes the specified API.</p>
 deleteRestApi :: forall eff. DeleteRestApiRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteRestApi = Request.request serviceName "deleteRestApi" 
+deleteRestApi = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "deleteRestApi"
 
 
 -- | <p>Deletes a <a>Stage</a> resource.</p>
 deleteStage :: forall eff. DeleteStageRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteStage = Request.request serviceName "deleteStage" 
+deleteStage = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "deleteStage"
 
 
 -- | <p>Deletes a usage plan of a given plan Id.</p>
 deleteUsagePlan :: forall eff. DeleteUsagePlanRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteUsagePlan = Request.request serviceName "deleteUsagePlan" 
+deleteUsagePlan = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "deleteUsagePlan"
 
 
 -- | <p>Deletes a usage plan key and remove the underlying API key from the associated usage plan.</p>
 deleteUsagePlanKey :: forall eff. DeleteUsagePlanKeyRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteUsagePlanKey = Request.request serviceName "deleteUsagePlanKey" 
+deleteUsagePlanKey = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "deleteUsagePlanKey"
 
 
 -- | <p>Deletes an existing <a>VpcLink</a> of a specified identifier.</p>
 deleteVpcLink :: forall eff. DeleteVpcLinkRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteVpcLink = Request.request serviceName "deleteVpcLink" 
+deleteVpcLink = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "deleteVpcLink"
 
 
 -- | <p>Flushes all authorizer cache entries on a stage.</p>
 flushStageAuthorizersCache :: forall eff. FlushStageAuthorizersCacheRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-flushStageAuthorizersCache = Request.request serviceName "flushStageAuthorizersCache" 
+flushStageAuthorizersCache = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "flushStageAuthorizersCache"
 
 
 -- | <p>Flushes a stage's cache.</p>
 flushStageCache :: forall eff. FlushStageCacheRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-flushStageCache = Request.request serviceName "flushStageCache" 
+flushStageCache = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "flushStageCache"
 
 
 -- | <p>Generates a <a>ClientCertificate</a> resource.</p>
 generateClientCertificate :: forall eff. GenerateClientCertificateRequest -> Aff (exception :: EXCEPTION | eff) ClientCertificate
-generateClientCertificate = Request.request serviceName "generateClientCertificate" 
+generateClientCertificate = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "generateClientCertificate"
 
 
 -- | <p>Gets information about the current <a>Account</a> resource.</p>
 getAccount :: forall eff. GetAccountRequest -> Aff (exception :: EXCEPTION | eff) Account
-getAccount = Request.request serviceName "getAccount" 
+getAccount = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getAccount"
 
 
 -- | <p>Gets information about the current <a>ApiKey</a> resource.</p>
 getApiKey :: forall eff. GetApiKeyRequest -> Aff (exception :: EXCEPTION | eff) ApiKey
-getApiKey = Request.request serviceName "getApiKey" 
+getApiKey = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getApiKey"
 
 
 -- | <p>Gets information about the current <a>ApiKeys</a> resource.</p>
 getApiKeys :: forall eff. GetApiKeysRequest -> Aff (exception :: EXCEPTION | eff) ApiKeys
-getApiKeys = Request.request serviceName "getApiKeys" 
+getApiKeys = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getApiKeys"
 
 
 -- | <p>Describe an existing <a>Authorizer</a> resource.</p> <div class="seeAlso"><a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizer.html">AWS CLI</a></div>
 getAuthorizer :: forall eff. GetAuthorizerRequest -> Aff (exception :: EXCEPTION | eff) Authorizer
-getAuthorizer = Request.request serviceName "getAuthorizer" 
+getAuthorizer = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getAuthorizer"
 
 
 -- | <p>Describe an existing <a>Authorizers</a> resource.</p> <div class="seeAlso"><a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html">AWS CLI</a></div>
 getAuthorizers :: forall eff. GetAuthorizersRequest -> Aff (exception :: EXCEPTION | eff) Authorizers
-getAuthorizers = Request.request serviceName "getAuthorizers" 
+getAuthorizers = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getAuthorizers"
 
 
 -- | <p>Describe a <a>BasePathMapping</a> resource.</p>
 getBasePathMapping :: forall eff. GetBasePathMappingRequest -> Aff (exception :: EXCEPTION | eff) BasePathMapping
-getBasePathMapping = Request.request serviceName "getBasePathMapping" 
+getBasePathMapping = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getBasePathMapping"
 
 
 -- | <p>Represents a collection of <a>BasePathMapping</a> resources.</p>
 getBasePathMappings :: forall eff. GetBasePathMappingsRequest -> Aff (exception :: EXCEPTION | eff) BasePathMappings
-getBasePathMappings = Request.request serviceName "getBasePathMappings" 
+getBasePathMappings = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getBasePathMappings"
 
 
 -- | <p>Gets information about the current <a>ClientCertificate</a> resource.</p>
 getClientCertificate :: forall eff. GetClientCertificateRequest -> Aff (exception :: EXCEPTION | eff) ClientCertificate
-getClientCertificate = Request.request serviceName "getClientCertificate" 
+getClientCertificate = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getClientCertificate"
 
 
 -- | <p>Gets a collection of <a>ClientCertificate</a> resources.</p>
 getClientCertificates :: forall eff. GetClientCertificatesRequest -> Aff (exception :: EXCEPTION | eff) ClientCertificates
-getClientCertificates = Request.request serviceName "getClientCertificates" 
+getClientCertificates = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getClientCertificates"
 
 
 -- | <p>Gets information about a <a>Deployment</a> resource.</p>
 getDeployment :: forall eff. GetDeploymentRequest -> Aff (exception :: EXCEPTION | eff) Deployment
-getDeployment = Request.request serviceName "getDeployment" 
+getDeployment = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getDeployment"
 
 
 -- | <p>Gets information about a <a>Deployments</a> collection.</p>
 getDeployments :: forall eff. GetDeploymentsRequest -> Aff (exception :: EXCEPTION | eff) Deployments
-getDeployments = Request.request serviceName "getDeployments" 
+getDeployments = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getDeployments"
 
 
 getDocumentationPart :: forall eff. GetDocumentationPartRequest -> Aff (exception :: EXCEPTION | eff) DocumentationPart
-getDocumentationPart = Request.request serviceName "getDocumentationPart" 
+getDocumentationPart = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getDocumentationPart"
 
 
 getDocumentationParts :: forall eff. GetDocumentationPartsRequest -> Aff (exception :: EXCEPTION | eff) DocumentationParts
-getDocumentationParts = Request.request serviceName "getDocumentationParts" 
+getDocumentationParts = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getDocumentationParts"
 
 
 getDocumentationVersion :: forall eff. GetDocumentationVersionRequest -> Aff (exception :: EXCEPTION | eff) DocumentationVersion
-getDocumentationVersion = Request.request serviceName "getDocumentationVersion" 
+getDocumentationVersion = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getDocumentationVersion"
 
 
 getDocumentationVersions :: forall eff. GetDocumentationVersionsRequest -> Aff (exception :: EXCEPTION | eff) DocumentationVersions
-getDocumentationVersions = Request.request serviceName "getDocumentationVersions" 
+getDocumentationVersions = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getDocumentationVersions"
 
 
 -- | <p>Represents a domain name that is contained in a simpler, more intuitive URL that can be called.</p>
 getDomainName :: forall eff. GetDomainNameRequest -> Aff (exception :: EXCEPTION | eff) DomainName
-getDomainName = Request.request serviceName "getDomainName" 
+getDomainName = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getDomainName"
 
 
 -- | <p>Represents a collection of <a>DomainName</a> resources.</p>
 getDomainNames :: forall eff. GetDomainNamesRequest -> Aff (exception :: EXCEPTION | eff) DomainNames
-getDomainNames = Request.request serviceName "getDomainNames" 
+getDomainNames = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getDomainNames"
 
 
 -- | <p>Exports a deployed version of a <a>RestApi</a> in a specified format.</p>
 getExport :: forall eff. GetExportRequest -> Aff (exception :: EXCEPTION | eff) ExportResponse
-getExport = Request.request serviceName "getExport" 
+getExport = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getExport"
 
 
 -- | <p>Gets a <a>GatewayResponse</a> of a specified response type on the given <a>RestApi</a>.</p>
 getGatewayResponse :: forall eff. GetGatewayResponseRequest -> Aff (exception :: EXCEPTION | eff) GatewayResponse
-getGatewayResponse = Request.request serviceName "getGatewayResponse" 
+getGatewayResponse = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getGatewayResponse"
 
 
 -- | <p>Gets the <a>GatewayResponses</a> collection on the given <a>RestApi</a>. If an API developer has not added any definitions for gateway responses, the result will be the API Gateway-generated default <a>GatewayResponses</a> collection for the supported response types.</p>
 getGatewayResponses :: forall eff. GetGatewayResponsesRequest -> Aff (exception :: EXCEPTION | eff) GatewayResponses
-getGatewayResponses = Request.request serviceName "getGatewayResponses" 
+getGatewayResponses = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getGatewayResponses"
 
 
 -- | <p>Get the integration settings.</p>
 getIntegration :: forall eff. GetIntegrationRequest -> Aff (exception :: EXCEPTION | eff) Integration
-getIntegration = Request.request serviceName "getIntegration" 
+getIntegration = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getIntegration"
 
 
 -- | <p>Represents a get integration response.</p>
 getIntegrationResponse :: forall eff. GetIntegrationResponseRequest -> Aff (exception :: EXCEPTION | eff) IntegrationResponse
-getIntegrationResponse = Request.request serviceName "getIntegrationResponse" 
+getIntegrationResponse = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getIntegrationResponse"
 
 
 -- | <p>Describe an existing <a>Method</a> resource.</p>
 getMethod :: forall eff. GetMethodRequest -> Aff (exception :: EXCEPTION | eff) Method
-getMethod = Request.request serviceName "getMethod" 
+getMethod = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getMethod"
 
 
 -- | <p>Describes a <a>MethodResponse</a> resource.</p>
 getMethodResponse :: forall eff. GetMethodResponseRequest -> Aff (exception :: EXCEPTION | eff) MethodResponse
-getMethodResponse = Request.request serviceName "getMethodResponse" 
+getMethodResponse = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getMethodResponse"
 
 
 -- | <p>Describes an existing model defined for a <a>RestApi</a> resource.</p>
 getModel :: forall eff. GetModelRequest -> Aff (exception :: EXCEPTION | eff) Model
-getModel = Request.request serviceName "getModel" 
+getModel = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getModel"
 
 
 -- | <p>Generates a sample mapping template that can be used to transform a payload into the structure of a model.</p>
 getModelTemplate :: forall eff. GetModelTemplateRequest -> Aff (exception :: EXCEPTION | eff) Template
-getModelTemplate = Request.request serviceName "getModelTemplate" 
+getModelTemplate = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getModelTemplate"
 
 
 -- | <p>Describes existing <a>Models</a> defined for a <a>RestApi</a> resource.</p>
 getModels :: forall eff. GetModelsRequest -> Aff (exception :: EXCEPTION | eff) Models
-getModels = Request.request serviceName "getModels" 
+getModels = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getModels"
 
 
 -- | <p>Gets a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
 getRequestValidator :: forall eff. GetRequestValidatorRequest -> Aff (exception :: EXCEPTION | eff) RequestValidator
-getRequestValidator = Request.request serviceName "getRequestValidator" 
+getRequestValidator = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getRequestValidator"
 
 
 -- | <p>Gets the <a>RequestValidators</a> collection of a given <a>RestApi</a>.</p>
 getRequestValidators :: forall eff. GetRequestValidatorsRequest -> Aff (exception :: EXCEPTION | eff) RequestValidators
-getRequestValidators = Request.request serviceName "getRequestValidators" 
+getRequestValidators = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getRequestValidators"
 
 
 -- | <p>Lists information about a resource.</p>
 getResource :: forall eff. GetResourceRequest -> Aff (exception :: EXCEPTION | eff) Resource
-getResource = Request.request serviceName "getResource" 
+getResource = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getResource"
 
 
 -- | <p>Lists information about a collection of <a>Resource</a> resources.</p>
 getResources :: forall eff. GetResourcesRequest -> Aff (exception :: EXCEPTION | eff) Resources
-getResources = Request.request serviceName "getResources" 
+getResources = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getResources"
 
 
 -- | <p>Lists the <a>RestApi</a> resource in the collection.</p>
 getRestApi :: forall eff. GetRestApiRequest -> Aff (exception :: EXCEPTION | eff) RestApi
-getRestApi = Request.request serviceName "getRestApi" 
+getRestApi = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getRestApi"
 
 
 -- | <p>Lists the <a>RestApis</a> resources for your collection.</p>
 getRestApis :: forall eff. GetRestApisRequest -> Aff (exception :: EXCEPTION | eff) RestApis
-getRestApis = Request.request serviceName "getRestApis" 
+getRestApis = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getRestApis"
 
 
 -- | <p>Generates a client SDK for a <a>RestApi</a> and <a>Stage</a>.</p>
 getSdk :: forall eff. GetSdkRequest -> Aff (exception :: EXCEPTION | eff) SdkResponse
-getSdk = Request.request serviceName "getSdk" 
+getSdk = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getSdk"
 
 
 getSdkType :: forall eff. GetSdkTypeRequest -> Aff (exception :: EXCEPTION | eff) SdkType
-getSdkType = Request.request serviceName "getSdkType" 
+getSdkType = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getSdkType"
 
 
 getSdkTypes :: forall eff. GetSdkTypesRequest -> Aff (exception :: EXCEPTION | eff) SdkTypes
-getSdkTypes = Request.request serviceName "getSdkTypes" 
+getSdkTypes = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getSdkTypes"
 
 
 -- | <p>Gets information about a <a>Stage</a> resource.</p>
 getStage :: forall eff. GetStageRequest -> Aff (exception :: EXCEPTION | eff) Stage
-getStage = Request.request serviceName "getStage" 
+getStage = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getStage"
 
 
 -- | <p>Gets information about one or more <a>Stage</a> resources.</p>
 getStages :: forall eff. GetStagesRequest -> Aff (exception :: EXCEPTION | eff) Stages
-getStages = Request.request serviceName "getStages" 
+getStages = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getStages"
 
 
 -- | <p>Gets the Tags collection for a given resource.</p>
 getTags :: forall eff. GetTagsRequest -> Aff (exception :: EXCEPTION | eff) Tags
-getTags = Request.request serviceName "getTags" 
+getTags = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getTags"
 
 
 -- | <p>Gets the usage data of a usage plan in a specified time interval.</p>
 getUsage :: forall eff. GetUsageRequest -> Aff (exception :: EXCEPTION | eff) Usage
-getUsage = Request.request serviceName "getUsage" 
+getUsage = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getUsage"
 
 
 -- | <p>Gets a usage plan of a given plan identifier.</p>
 getUsagePlan :: forall eff. GetUsagePlanRequest -> Aff (exception :: EXCEPTION | eff) UsagePlan
-getUsagePlan = Request.request serviceName "getUsagePlan" 
+getUsagePlan = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getUsagePlan"
 
 
 -- | <p>Gets a usage plan key of a given key identifier.</p>
 getUsagePlanKey :: forall eff. GetUsagePlanKeyRequest -> Aff (exception :: EXCEPTION | eff) UsagePlanKey
-getUsagePlanKey = Request.request serviceName "getUsagePlanKey" 
+getUsagePlanKey = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getUsagePlanKey"
 
 
 -- | <p>Gets all the usage plan keys representing the API keys added to a specified usage plan.</p>
 getUsagePlanKeys :: forall eff. GetUsagePlanKeysRequest -> Aff (exception :: EXCEPTION | eff) UsagePlanKeys
-getUsagePlanKeys = Request.request serviceName "getUsagePlanKeys" 
+getUsagePlanKeys = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getUsagePlanKeys"
 
 
 -- | <p>Gets all the usage plans of the caller's account.</p>
 getUsagePlans :: forall eff. GetUsagePlansRequest -> Aff (exception :: EXCEPTION | eff) UsagePlans
-getUsagePlans = Request.request serviceName "getUsagePlans" 
+getUsagePlans = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getUsagePlans"
 
 
 -- | <p>Gets a specified VPC link under the caller's account in a region.</p>
 getVpcLink :: forall eff. GetVpcLinkRequest -> Aff (exception :: EXCEPTION | eff) VpcLink
-getVpcLink = Request.request serviceName "getVpcLink" 
+getVpcLink = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getVpcLink"
 
 
 -- | <p>Gets the <a>VpcLinks</a> collection under the caller's account in a selected region.</p>
 getVpcLinks :: forall eff. GetVpcLinksRequest -> Aff (exception :: EXCEPTION | eff) VpcLinks
-getVpcLinks = Request.request serviceName "getVpcLinks" 
+getVpcLinks = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "getVpcLinks"
 
 
 -- | <p>Import API keys from an external source, such as a CSV-formatted file.</p>
 importApiKeys :: forall eff. ImportApiKeysRequest -> Aff (exception :: EXCEPTION | eff) ApiKeyIds
-importApiKeys = Request.request serviceName "importApiKeys" 
+importApiKeys = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "importApiKeys"
 
 
 importDocumentationParts :: forall eff. ImportDocumentationPartsRequest -> Aff (exception :: EXCEPTION | eff) DocumentationPartIds
-importDocumentationParts = Request.request serviceName "importDocumentationParts" 
+importDocumentationParts = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "importDocumentationParts"
 
 
 -- | <p>A feature of the API Gateway control service for creating a new API from an external API definition file.</p>
 importRestApi :: forall eff. ImportRestApiRequest -> Aff (exception :: EXCEPTION | eff) RestApi
-importRestApi = Request.request serviceName "importRestApi" 
+importRestApi = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "importRestApi"
 
 
 -- | <p>Creates a customization of a <a>GatewayResponse</a> of a specified response type and status code on the given <a>RestApi</a>.</p>
 putGatewayResponse :: forall eff. PutGatewayResponseRequest -> Aff (exception :: EXCEPTION | eff) GatewayResponse
-putGatewayResponse = Request.request serviceName "putGatewayResponse" 
+putGatewayResponse = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "putGatewayResponse"
 
 
 -- | <p>Sets up a method's integration.</p>
 putIntegration :: forall eff. PutIntegrationRequest -> Aff (exception :: EXCEPTION | eff) Integration
-putIntegration = Request.request serviceName "putIntegration" 
+putIntegration = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "putIntegration"
 
 
 -- | <p>Represents a put integration.</p>
 putIntegrationResponse :: forall eff. PutIntegrationResponseRequest -> Aff (exception :: EXCEPTION | eff) IntegrationResponse
-putIntegrationResponse = Request.request serviceName "putIntegrationResponse" 
+putIntegrationResponse = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "putIntegrationResponse"
 
 
 -- | <p>Add a method to an existing <a>Resource</a> resource.</p>
 putMethod :: forall eff. PutMethodRequest -> Aff (exception :: EXCEPTION | eff) Method
-putMethod = Request.request serviceName "putMethod" 
+putMethod = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "putMethod"
 
 
 -- | <p>Adds a <a>MethodResponse</a> to an existing <a>Method</a> resource.</p>
 putMethodResponse :: forall eff. PutMethodResponseRequest -> Aff (exception :: EXCEPTION | eff) MethodResponse
-putMethodResponse = Request.request serviceName "putMethodResponse" 
+putMethodResponse = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "putMethodResponse"
 
 
 -- | <p>A feature of the API Gateway control service for updating an existing API with an input of external API definitions. The update can take the form of merging the supplied definition into the existing API or overwriting the existing API.</p>
 putRestApi :: forall eff. PutRestApiRequest -> Aff (exception :: EXCEPTION | eff) RestApi
-putRestApi = Request.request serviceName "putRestApi" 
+putRestApi = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "putRestApi"
 
 
 -- | <p>Adds or updates Tags on a gievn resource.</p>
 tagResource :: forall eff. TagResourceRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-tagResource = Request.request serviceName "tagResource" 
+tagResource = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "tagResource"
 
 
 -- | <p>Simulate the execution of an <a>Authorizer</a> in your <a>RestApi</a> with headers, parameters, and an incoming request body.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html">Enable custom authorizers</a> </div>
 testInvokeAuthorizer :: forall eff. TestInvokeAuthorizerRequest -> Aff (exception :: EXCEPTION | eff) TestInvokeAuthorizerResponse
-testInvokeAuthorizer = Request.request serviceName "testInvokeAuthorizer" 
+testInvokeAuthorizer = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "testInvokeAuthorizer"
 
 
 -- | <p>Simulate the execution of a <a>Method</a> in your <a>RestApi</a> with headers, parameters, and an incoming request body.</p>
 testInvokeMethod :: forall eff. TestInvokeMethodRequest -> Aff (exception :: EXCEPTION | eff) TestInvokeMethodResponse
-testInvokeMethod = Request.request serviceName "testInvokeMethod" 
+testInvokeMethod = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "testInvokeMethod"
 
 
 -- | <p>Removes Tags from a given resource.</p>
 untagResource :: forall eff. UntagResourceRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-untagResource = Request.request serviceName "untagResource" 
+untagResource = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "untagResource"
 
 
 -- | <p>Changes information about the current <a>Account</a> resource.</p>
 updateAccount :: forall eff. UpdateAccountRequest -> Aff (exception :: EXCEPTION | eff) Account
-updateAccount = Request.request serviceName "updateAccount" 
+updateAccount = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "updateAccount"
 
 
 -- | <p>Changes information about an <a>ApiKey</a> resource.</p>
 updateApiKey :: forall eff. UpdateApiKeyRequest -> Aff (exception :: EXCEPTION | eff) ApiKey
-updateApiKey = Request.request serviceName "updateApiKey" 
+updateApiKey = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "updateApiKey"
 
 
 -- | <p>Updates an existing <a>Authorizer</a> resource.</p> <div class="seeAlso"><a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html">AWS CLI</a></div>
 updateAuthorizer :: forall eff. UpdateAuthorizerRequest -> Aff (exception :: EXCEPTION | eff) Authorizer
-updateAuthorizer = Request.request serviceName "updateAuthorizer" 
+updateAuthorizer = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "updateAuthorizer"
 
 
 -- | <p>Changes information about the <a>BasePathMapping</a> resource.</p>
 updateBasePathMapping :: forall eff. UpdateBasePathMappingRequest -> Aff (exception :: EXCEPTION | eff) BasePathMapping
-updateBasePathMapping = Request.request serviceName "updateBasePathMapping" 
+updateBasePathMapping = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "updateBasePathMapping"
 
 
 -- | <p>Changes information about an <a>ClientCertificate</a> resource.</p>
 updateClientCertificate :: forall eff. UpdateClientCertificateRequest -> Aff (exception :: EXCEPTION | eff) ClientCertificate
-updateClientCertificate = Request.request serviceName "updateClientCertificate" 
+updateClientCertificate = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "updateClientCertificate"
 
 
 -- | <p>Changes information about a <a>Deployment</a> resource.</p>
 updateDeployment :: forall eff. UpdateDeploymentRequest -> Aff (exception :: EXCEPTION | eff) Deployment
-updateDeployment = Request.request serviceName "updateDeployment" 
+updateDeployment = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "updateDeployment"
 
 
 updateDocumentationPart :: forall eff. UpdateDocumentationPartRequest -> Aff (exception :: EXCEPTION | eff) DocumentationPart
-updateDocumentationPart = Request.request serviceName "updateDocumentationPart" 
+updateDocumentationPart = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "updateDocumentationPart"
 
 
 updateDocumentationVersion :: forall eff. UpdateDocumentationVersionRequest -> Aff (exception :: EXCEPTION | eff) DocumentationVersion
-updateDocumentationVersion = Request.request serviceName "updateDocumentationVersion" 
+updateDocumentationVersion = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "updateDocumentationVersion"
 
 
 -- | <p>Changes information about the <a>DomainName</a> resource.</p>
 updateDomainName :: forall eff. UpdateDomainNameRequest -> Aff (exception :: EXCEPTION | eff) DomainName
-updateDomainName = Request.request serviceName "updateDomainName" 
+updateDomainName = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "updateDomainName"
 
 
 -- | <p>Updates a <a>GatewayResponse</a> of a specified response type on the given <a>RestApi</a>.</p>
 updateGatewayResponse :: forall eff. UpdateGatewayResponseRequest -> Aff (exception :: EXCEPTION | eff) GatewayResponse
-updateGatewayResponse = Request.request serviceName "updateGatewayResponse" 
+updateGatewayResponse = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "updateGatewayResponse"
 
 
 -- | <p>Represents an update integration.</p>
 updateIntegration :: forall eff. UpdateIntegrationRequest -> Aff (exception :: EXCEPTION | eff) Integration
-updateIntegration = Request.request serviceName "updateIntegration" 
+updateIntegration = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "updateIntegration"
 
 
 -- | <p>Represents an update integration response.</p>
 updateIntegrationResponse :: forall eff. UpdateIntegrationResponseRequest -> Aff (exception :: EXCEPTION | eff) IntegrationResponse
-updateIntegrationResponse = Request.request serviceName "updateIntegrationResponse" 
+updateIntegrationResponse = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "updateIntegrationResponse"
 
 
 -- | <p>Updates an existing <a>Method</a> resource.</p>
 updateMethod :: forall eff. UpdateMethodRequest -> Aff (exception :: EXCEPTION | eff) Method
-updateMethod = Request.request serviceName "updateMethod" 
+updateMethod = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "updateMethod"
 
 
 -- | <p>Updates an existing <a>MethodResponse</a> resource.</p>
 updateMethodResponse :: forall eff. UpdateMethodResponseRequest -> Aff (exception :: EXCEPTION | eff) MethodResponse
-updateMethodResponse = Request.request serviceName "updateMethodResponse" 
+updateMethodResponse = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "updateMethodResponse"
 
 
 -- | <p>Changes information about a model.</p>
 updateModel :: forall eff. UpdateModelRequest -> Aff (exception :: EXCEPTION | eff) Model
-updateModel = Request.request serviceName "updateModel" 
+updateModel = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "updateModel"
 
 
 -- | <p>Updates a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
 updateRequestValidator :: forall eff. UpdateRequestValidatorRequest -> Aff (exception :: EXCEPTION | eff) RequestValidator
-updateRequestValidator = Request.request serviceName "updateRequestValidator" 
+updateRequestValidator = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "updateRequestValidator"
 
 
 -- | <p>Changes information about a <a>Resource</a> resource.</p>
 updateResource :: forall eff. UpdateResourceRequest -> Aff (exception :: EXCEPTION | eff) Resource
-updateResource = Request.request serviceName "updateResource" 
+updateResource = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "updateResource"
 
 
 -- | <p>Changes information about the specified API.</p>
 updateRestApi :: forall eff. UpdateRestApiRequest -> Aff (exception :: EXCEPTION | eff) RestApi
-updateRestApi = Request.request serviceName "updateRestApi" 
+updateRestApi = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "updateRestApi"
 
 
 -- | <p>Changes information about a <a>Stage</a> resource.</p>
 updateStage :: forall eff. UpdateStageRequest -> Aff (exception :: EXCEPTION | eff) Stage
-updateStage = Request.request serviceName "updateStage" 
+updateStage = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "updateStage"
 
 
 -- | <p>Grants a temporary extension to the remaining quota of a usage plan associated with a specified API key.</p>
 updateUsage :: forall eff. UpdateUsageRequest -> Aff (exception :: EXCEPTION | eff) Usage
-updateUsage = Request.request serviceName "updateUsage" 
+updateUsage = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "updateUsage"
 
 
 -- | <p>Updates a usage plan of a given plan Id.</p>
 updateUsagePlan :: forall eff. UpdateUsagePlanRequest -> Aff (exception :: EXCEPTION | eff) UsagePlan
-updateUsagePlan = Request.request serviceName "updateUsagePlan" 
+updateUsagePlan = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "updateUsagePlan"
 
 
 -- | <p>Updates an existing <a>VpcLink</a> of a specified identifier.</p>
 updateVpcLink :: forall eff. UpdateVpcLinkRequest -> Aff (exception :: EXCEPTION | eff) VpcLink
-updateVpcLink = Request.request serviceName "updateVpcLink" 
+updateVpcLink = Request.request service method  where
+    service = Request.ServiceName "APIGateway"
+    method = Request.MethodName "updateVpcLink"
 
 
 -- | <p>Access log settings, including the access log format and access log destination ARN.</p>
