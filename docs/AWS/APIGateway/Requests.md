@@ -119,7 +119,7 @@ createVpcLink :: forall eff. Service -> CreateVpcLinkRequest -> Aff (exception :
 #### `deleteApiKey`
 
 ``` purescript
-deleteApiKey :: forall eff. Service -> DeleteApiKeyRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteApiKey :: forall eff. Service -> DeleteApiKeyRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes the <a>ApiKey</a> resource.</p>
@@ -127,7 +127,7 @@ deleteApiKey :: forall eff. Service -> DeleteApiKeyRequest -> Aff (exception :: 
 #### `deleteAuthorizer`
 
 ``` purescript
-deleteAuthorizer :: forall eff. Service -> DeleteAuthorizerRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteAuthorizer :: forall eff. Service -> DeleteAuthorizerRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes an existing <a>Authorizer</a> resource.</p> <div class="seeAlso"><a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/delete-authorizer.html">AWS CLI</a></div>
@@ -135,7 +135,7 @@ deleteAuthorizer :: forall eff. Service -> DeleteAuthorizerRequest -> Aff (excep
 #### `deleteBasePathMapping`
 
 ``` purescript
-deleteBasePathMapping :: forall eff. Service -> DeleteBasePathMappingRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteBasePathMapping :: forall eff. Service -> DeleteBasePathMappingRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes the <a>BasePathMapping</a> resource.</p>
@@ -143,7 +143,7 @@ deleteBasePathMapping :: forall eff. Service -> DeleteBasePathMappingRequest -> 
 #### `deleteClientCertificate`
 
 ``` purescript
-deleteClientCertificate :: forall eff. Service -> DeleteClientCertificateRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteClientCertificate :: forall eff. Service -> DeleteClientCertificateRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes the <a>ClientCertificate</a> resource.</p>
@@ -151,7 +151,7 @@ deleteClientCertificate :: forall eff. Service -> DeleteClientCertificateRequest
 #### `deleteDeployment`
 
 ``` purescript
-deleteDeployment :: forall eff. Service -> DeleteDeploymentRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteDeployment :: forall eff. Service -> DeleteDeploymentRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes a <a>Deployment</a> resource. Deleting a deployment will only succeed if there are no <a>Stage</a> resources associated with it.</p>
@@ -159,19 +159,19 @@ deleteDeployment :: forall eff. Service -> DeleteDeploymentRequest -> Aff (excep
 #### `deleteDocumentationPart`
 
 ``` purescript
-deleteDocumentationPart :: forall eff. Service -> DeleteDocumentationPartRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteDocumentationPart :: forall eff. Service -> DeleteDocumentationPartRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 #### `deleteDocumentationVersion`
 
 ``` purescript
-deleteDocumentationVersion :: forall eff. Service -> DeleteDocumentationVersionRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteDocumentationVersion :: forall eff. Service -> DeleteDocumentationVersionRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 #### `deleteDomainName`
 
 ``` purescript
-deleteDomainName :: forall eff. Service -> DeleteDomainNameRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteDomainName :: forall eff. Service -> DeleteDomainNameRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes the <a>DomainName</a> resource.</p>
@@ -179,7 +179,7 @@ deleteDomainName :: forall eff. Service -> DeleteDomainNameRequest -> Aff (excep
 #### `deleteGatewayResponse`
 
 ``` purescript
-deleteGatewayResponse :: forall eff. Service -> DeleteGatewayResponseRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteGatewayResponse :: forall eff. Service -> DeleteGatewayResponseRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Clears any customization of a <a>GatewayResponse</a> of a specified response type on the given <a>RestApi</a> and resets it with the default settings.</p>
@@ -187,7 +187,7 @@ deleteGatewayResponse :: forall eff. Service -> DeleteGatewayResponseRequest -> 
 #### `deleteIntegration`
 
 ``` purescript
-deleteIntegration :: forall eff. Service -> DeleteIntegrationRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteIntegration :: forall eff. Service -> DeleteIntegrationRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Represents a delete integration.</p>
@@ -195,7 +195,7 @@ deleteIntegration :: forall eff. Service -> DeleteIntegrationRequest -> Aff (exc
 #### `deleteIntegrationResponse`
 
 ``` purescript
-deleteIntegrationResponse :: forall eff. Service -> DeleteIntegrationResponseRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteIntegrationResponse :: forall eff. Service -> DeleteIntegrationResponseRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Represents a delete integration response.</p>
@@ -203,7 +203,7 @@ deleteIntegrationResponse :: forall eff. Service -> DeleteIntegrationResponseReq
 #### `deleteMethod`
 
 ``` purescript
-deleteMethod :: forall eff. Service -> DeleteMethodRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteMethod :: forall eff. Service -> DeleteMethodRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes an existing <a>Method</a> resource.</p>
@@ -211,7 +211,7 @@ deleteMethod :: forall eff. Service -> DeleteMethodRequest -> Aff (exception :: 
 #### `deleteMethodResponse`
 
 ``` purescript
-deleteMethodResponse :: forall eff. Service -> DeleteMethodResponseRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteMethodResponse :: forall eff. Service -> DeleteMethodResponseRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes an existing <a>MethodResponse</a> resource.</p>
@@ -219,7 +219,7 @@ deleteMethodResponse :: forall eff. Service -> DeleteMethodResponseRequest -> Af
 #### `deleteModel`
 
 ``` purescript
-deleteModel :: forall eff. Service -> DeleteModelRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteModel :: forall eff. Service -> DeleteModelRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes a model.</p>
@@ -227,7 +227,7 @@ deleteModel :: forall eff. Service -> DeleteModelRequest -> Aff (exception :: EX
 #### `deleteRequestValidator`
 
 ``` purescript
-deleteRequestValidator :: forall eff. Service -> DeleteRequestValidatorRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteRequestValidator :: forall eff. Service -> DeleteRequestValidatorRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
@@ -235,7 +235,7 @@ deleteRequestValidator :: forall eff. Service -> DeleteRequestValidatorRequest -
 #### `deleteResource`
 
 ``` purescript
-deleteResource :: forall eff. Service -> DeleteResourceRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteResource :: forall eff. Service -> DeleteResourceRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes a <a>Resource</a> resource.</p>
@@ -243,7 +243,7 @@ deleteResource :: forall eff. Service -> DeleteResourceRequest -> Aff (exception
 #### `deleteRestApi`
 
 ``` purescript
-deleteRestApi :: forall eff. Service -> DeleteRestApiRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteRestApi :: forall eff. Service -> DeleteRestApiRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes the specified API.</p>
@@ -251,7 +251,7 @@ deleteRestApi :: forall eff. Service -> DeleteRestApiRequest -> Aff (exception :
 #### `deleteStage`
 
 ``` purescript
-deleteStage :: forall eff. Service -> DeleteStageRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteStage :: forall eff. Service -> DeleteStageRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes a <a>Stage</a> resource.</p>
@@ -259,7 +259,7 @@ deleteStage :: forall eff. Service -> DeleteStageRequest -> Aff (exception :: EX
 #### `deleteUsagePlan`
 
 ``` purescript
-deleteUsagePlan :: forall eff. Service -> DeleteUsagePlanRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteUsagePlan :: forall eff. Service -> DeleteUsagePlanRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes a usage plan of a given plan Id.</p>
@@ -267,7 +267,7 @@ deleteUsagePlan :: forall eff. Service -> DeleteUsagePlanRequest -> Aff (excepti
 #### `deleteUsagePlanKey`
 
 ``` purescript
-deleteUsagePlanKey :: forall eff. Service -> DeleteUsagePlanKeyRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteUsagePlanKey :: forall eff. Service -> DeleteUsagePlanKeyRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes a usage plan key and remove the underlying API key from the associated usage plan.</p>
@@ -275,7 +275,7 @@ deleteUsagePlanKey :: forall eff. Service -> DeleteUsagePlanKeyRequest -> Aff (e
 #### `deleteVpcLink`
 
 ``` purescript
-deleteVpcLink :: forall eff. Service -> DeleteVpcLinkRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteVpcLink :: forall eff. Service -> DeleteVpcLinkRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes an existing <a>VpcLink</a> of a specified identifier.</p>
@@ -283,7 +283,7 @@ deleteVpcLink :: forall eff. Service -> DeleteVpcLinkRequest -> Aff (exception :
 #### `flushStageAuthorizersCache`
 
 ``` purescript
-flushStageAuthorizersCache :: forall eff. Service -> FlushStageAuthorizersCacheRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+flushStageAuthorizersCache :: forall eff. Service -> FlushStageAuthorizersCacheRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Flushes all authorizer cache entries on a stage.</p>
@@ -291,7 +291,7 @@ flushStageAuthorizersCache :: forall eff. Service -> FlushStageAuthorizersCacheR
 #### `flushStageCache`
 
 ``` purescript
-flushStageCache :: forall eff. Service -> FlushStageCacheRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+flushStageCache :: forall eff. Service -> FlushStageCacheRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Flushes a stage's cache.</p>
@@ -733,7 +733,7 @@ putRestApi :: forall eff. Service -> PutRestApiRequest -> Aff (exception :: EXCE
 #### `tagResource`
 
 ``` purescript
-tagResource :: forall eff. Service -> TagResourceRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+tagResource :: forall eff. Service -> TagResourceRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Adds or updates Tags on a gievn resource.</p>
@@ -757,7 +757,7 @@ testInvokeMethod :: forall eff. Service -> TestInvokeMethodRequest -> Aff (excep
 #### `untagResource`
 
 ``` purescript
-untagResource :: forall eff. Service -> UntagResourceRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+untagResource :: forall eff. Service -> UntagResourceRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Removes Tags from a given resource.</p>

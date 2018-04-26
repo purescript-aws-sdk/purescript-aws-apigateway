@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -20,8 +19,8 @@ options = defaultOptions { unwrapSingleConstructors = true }
 
 -- | <p>Access log settings, including the access log format and access log destination ARN.</p>
 newtype AccessLogSettings = AccessLogSettings 
-  { "format" :: NullOrUndefined (String)
-  , "destinationArn" :: NullOrUndefined (String)
+  { "format" :: Maybe (String)
+  , "destinationArn" :: Maybe (String)
   }
 derive instance newtypeAccessLogSettings :: Newtype AccessLogSettings _
 derive instance repGenericAccessLogSettings :: Generic AccessLogSettings _
@@ -31,21 +30,21 @@ instance encodeAccessLogSettings :: Encode AccessLogSettings where encode = gene
 
 -- | Constructs AccessLogSettings from required parameters
 newAccessLogSettings :: AccessLogSettings
-newAccessLogSettings  = AccessLogSettings { "destinationArn": (NullOrUndefined Nothing), "format": (NullOrUndefined Nothing) }
+newAccessLogSettings  = AccessLogSettings { "destinationArn": Nothing, "format": Nothing }
 
 -- | Constructs AccessLogSettings's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAccessLogSettings' :: ( { "format" :: NullOrUndefined (String) , "destinationArn" :: NullOrUndefined (String) } -> {"format" :: NullOrUndefined (String) , "destinationArn" :: NullOrUndefined (String) } ) -> AccessLogSettings
-newAccessLogSettings'  customize = (AccessLogSettings <<< customize) { "destinationArn": (NullOrUndefined Nothing), "format": (NullOrUndefined Nothing) }
+newAccessLogSettings' :: ( { "format" :: Maybe (String) , "destinationArn" :: Maybe (String) } -> {"format" :: Maybe (String) , "destinationArn" :: Maybe (String) } ) -> AccessLogSettings
+newAccessLogSettings'  customize = (AccessLogSettings <<< customize) { "destinationArn": Nothing, "format": Nothing }
 
 
 
 -- | <p>Represents an AWS account that is associated with API Gateway.</p> <div class="remarks"> <p>To view the account info, call <code>GET</code> on this resource.</p> <h4>Error Codes</h4> <p>The following exception may be thrown when the request fails.</p> <ul> <li>UnauthorizedException</li> <li>NotFoundException</li> <li>TooManyRequestsException</li> </ul> <p>For detailed error code information, including the corresponding HTTP Status Codes, see <a href="http://docs.aws.amazon.com/apigateway/api-reference/handling-errors/#api-error-codes">API Gateway Error Codes</a></p> <h4>Example: Get the information about an account.</h4> <h5>Request</h5> <pre><code>GET /account HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20160531T184618Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash} </code></pre> <h5>Response</h5> <p>The successful response returns a <code>200 OK</code> status code and a payload similar to the following:</p> <pre><code>{ "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/account-apigateway-{rel}.html", "name": "account", "templated": true }, "self": { "href": "/account" }, "account:update": { "href": "/account" } }, "cloudwatchRoleArn": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "throttleSettings": { "rateLimit": 500, "burstLimit": 1000 } } </code></pre> <p>In addition to making the REST API call directly, you can use the AWS CLI and an AWS SDK to access this resource.</p> </div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-limits.html">API Gateway Limits</a> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html">Developer Guide</a>, <a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-account.html">AWS CLI</a> </div>
 newtype Account = Account 
-  { "cloudwatchRoleArn" :: NullOrUndefined (String)
-  , "throttleSettings" :: NullOrUndefined (ThrottleSettings)
-  , "features" :: NullOrUndefined (ListOfString)
-  , "apiKeyVersion" :: NullOrUndefined (String)
+  { "cloudwatchRoleArn" :: Maybe (String)
+  , "throttleSettings" :: Maybe (ThrottleSettings)
+  , "features" :: Maybe (ListOfString)
+  , "apiKeyVersion" :: Maybe (String)
   }
 derive instance newtypeAccount :: Newtype Account _
 derive instance repGenericAccount :: Generic Account _
@@ -55,26 +54,26 @@ instance encodeAccount :: Encode Account where encode = genericEncode options
 
 -- | Constructs Account from required parameters
 newAccount :: Account
-newAccount  = Account { "apiKeyVersion": (NullOrUndefined Nothing), "cloudwatchRoleArn": (NullOrUndefined Nothing), "features": (NullOrUndefined Nothing), "throttleSettings": (NullOrUndefined Nothing) }
+newAccount  = Account { "apiKeyVersion": Nothing, "cloudwatchRoleArn": Nothing, "features": Nothing, "throttleSettings": Nothing }
 
 -- | Constructs Account's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAccount' :: ( { "cloudwatchRoleArn" :: NullOrUndefined (String) , "throttleSettings" :: NullOrUndefined (ThrottleSettings) , "features" :: NullOrUndefined (ListOfString) , "apiKeyVersion" :: NullOrUndefined (String) } -> {"cloudwatchRoleArn" :: NullOrUndefined (String) , "throttleSettings" :: NullOrUndefined (ThrottleSettings) , "features" :: NullOrUndefined (ListOfString) , "apiKeyVersion" :: NullOrUndefined (String) } ) -> Account
-newAccount'  customize = (Account <<< customize) { "apiKeyVersion": (NullOrUndefined Nothing), "cloudwatchRoleArn": (NullOrUndefined Nothing), "features": (NullOrUndefined Nothing), "throttleSettings": (NullOrUndefined Nothing) }
+newAccount' :: ( { "cloudwatchRoleArn" :: Maybe (String) , "throttleSettings" :: Maybe (ThrottleSettings) , "features" :: Maybe (ListOfString) , "apiKeyVersion" :: Maybe (String) } -> {"cloudwatchRoleArn" :: Maybe (String) , "throttleSettings" :: Maybe (ThrottleSettings) , "features" :: Maybe (ListOfString) , "apiKeyVersion" :: Maybe (String) } ) -> Account
+newAccount'  customize = (Account <<< customize) { "apiKeyVersion": Nothing, "cloudwatchRoleArn": Nothing, "features": Nothing, "throttleSettings": Nothing }
 
 
 
 -- | <p>A resource that can be distributed to callers for executing <a>Method</a> resources that require an API key. API keys can be mapped to any <a>Stage</a> on any <a>RestApi</a>, which indicates that the callers with the API key can make requests to that stage.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-api-keys.html">Use API Keys</a> </div>
 newtype ApiKey = ApiKey 
-  { "id" :: NullOrUndefined (String)
-  , "value" :: NullOrUndefined (String)
-  , "name" :: NullOrUndefined (String)
-  , "customerId" :: NullOrUndefined (String)
-  , "description" :: NullOrUndefined (String)
-  , "enabled" :: NullOrUndefined (Boolean)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
-  , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp)
-  , "stageKeys" :: NullOrUndefined (ListOfString)
+  { "id" :: Maybe (String)
+  , "value" :: Maybe (String)
+  , "name" :: Maybe (String)
+  , "customerId" :: Maybe (String)
+  , "description" :: Maybe (String)
+  , "enabled" :: Maybe (Boolean)
+  , "createdDate" :: Maybe (Types.Timestamp)
+  , "lastUpdatedDate" :: Maybe (Types.Timestamp)
+  , "stageKeys" :: Maybe (ListOfString)
   }
 derive instance newtypeApiKey :: Newtype ApiKey _
 derive instance repGenericApiKey :: Generic ApiKey _
@@ -84,19 +83,19 @@ instance encodeApiKey :: Encode ApiKey where encode = genericEncode options
 
 -- | Constructs ApiKey from required parameters
 newApiKey :: ApiKey
-newApiKey  = ApiKey { "createdDate": (NullOrUndefined Nothing), "customerId": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "enabled": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "stageKeys": (NullOrUndefined Nothing), "value": (NullOrUndefined Nothing) }
+newApiKey  = ApiKey { "createdDate": Nothing, "customerId": Nothing, "description": Nothing, "enabled": Nothing, "id": Nothing, "lastUpdatedDate": Nothing, "name": Nothing, "stageKeys": Nothing, "value": Nothing }
 
 -- | Constructs ApiKey's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newApiKey' :: ( { "id" :: NullOrUndefined (String) , "value" :: NullOrUndefined (String) , "name" :: NullOrUndefined (String) , "customerId" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "enabled" :: NullOrUndefined (Boolean) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "stageKeys" :: NullOrUndefined (ListOfString) } -> {"id" :: NullOrUndefined (String) , "value" :: NullOrUndefined (String) , "name" :: NullOrUndefined (String) , "customerId" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "enabled" :: NullOrUndefined (Boolean) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "stageKeys" :: NullOrUndefined (ListOfString) } ) -> ApiKey
-newApiKey'  customize = (ApiKey <<< customize) { "createdDate": (NullOrUndefined Nothing), "customerId": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "enabled": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "stageKeys": (NullOrUndefined Nothing), "value": (NullOrUndefined Nothing) }
+newApiKey' :: ( { "id" :: Maybe (String) , "value" :: Maybe (String) , "name" :: Maybe (String) , "customerId" :: Maybe (String) , "description" :: Maybe (String) , "enabled" :: Maybe (Boolean) , "createdDate" :: Maybe (Types.Timestamp) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "stageKeys" :: Maybe (ListOfString) } -> {"id" :: Maybe (String) , "value" :: Maybe (String) , "name" :: Maybe (String) , "customerId" :: Maybe (String) , "description" :: Maybe (String) , "enabled" :: Maybe (Boolean) , "createdDate" :: Maybe (Types.Timestamp) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "stageKeys" :: Maybe (ListOfString) } ) -> ApiKey
+newApiKey'  customize = (ApiKey <<< customize) { "createdDate": Nothing, "customerId": Nothing, "description": Nothing, "enabled": Nothing, "id": Nothing, "lastUpdatedDate": Nothing, "name": Nothing, "stageKeys": Nothing, "value": Nothing }
 
 
 
 -- | <p>The identifier of an <a>ApiKey</a> used in a <a>UsagePlan</a>.</p>
 newtype ApiKeyIds = ApiKeyIds 
-  { "ids" :: NullOrUndefined (ListOfString)
-  , "warnings" :: NullOrUndefined (ListOfString)
+  { "ids" :: Maybe (ListOfString)
+  , "warnings" :: Maybe (ListOfString)
   }
 derive instance newtypeApiKeyIds :: Newtype ApiKeyIds _
 derive instance repGenericApiKeyIds :: Generic ApiKeyIds _
@@ -106,12 +105,12 @@ instance encodeApiKeyIds :: Encode ApiKeyIds where encode = genericEncode option
 
 -- | Constructs ApiKeyIds from required parameters
 newApiKeyIds :: ApiKeyIds
-newApiKeyIds  = ApiKeyIds { "ids": (NullOrUndefined Nothing), "warnings": (NullOrUndefined Nothing) }
+newApiKeyIds  = ApiKeyIds { "ids": Nothing, "warnings": Nothing }
 
 -- | Constructs ApiKeyIds's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newApiKeyIds' :: ( { "ids" :: NullOrUndefined (ListOfString) , "warnings" :: NullOrUndefined (ListOfString) } -> {"ids" :: NullOrUndefined (ListOfString) , "warnings" :: NullOrUndefined (ListOfString) } ) -> ApiKeyIds
-newApiKeyIds'  customize = (ApiKeyIds <<< customize) { "ids": (NullOrUndefined Nothing), "warnings": (NullOrUndefined Nothing) }
+newApiKeyIds' :: ( { "ids" :: Maybe (ListOfString) , "warnings" :: Maybe (ListOfString) } -> {"ids" :: Maybe (ListOfString) , "warnings" :: Maybe (ListOfString) } ) -> ApiKeyIds
+newApiKeyIds'  customize = (ApiKeyIds <<< customize) { "ids": Nothing, "warnings": Nothing }
 
 
 
@@ -126,9 +125,9 @@ instance encodeApiKeySourceType :: Encode ApiKeySourceType where encode = generi
 
 -- | <p>Represents a collection of API keys as represented by an <a>ApiKeys</a> resource.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-api-keys.html">Use API Keys</a> </div>
 newtype ApiKeys = ApiKeys 
-  { "warnings" :: NullOrUndefined (ListOfString)
-  , "position" :: NullOrUndefined (String)
-  , "items" :: NullOrUndefined (ListOfApiKey)
+  { "warnings" :: Maybe (ListOfString)
+  , "position" :: Maybe (String)
+  , "items" :: Maybe (ListOfApiKey)
   }
 derive instance newtypeApiKeys :: Newtype ApiKeys _
 derive instance repGenericApiKeys :: Generic ApiKeys _
@@ -138,12 +137,12 @@ instance encodeApiKeys :: Encode ApiKeys where encode = genericEncode options
 
 -- | Constructs ApiKeys from required parameters
 newApiKeys :: ApiKeys
-newApiKeys  = ApiKeys { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing), "warnings": (NullOrUndefined Nothing) }
+newApiKeys  = ApiKeys { "items": Nothing, "position": Nothing, "warnings": Nothing }
 
 -- | Constructs ApiKeys's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newApiKeys' :: ( { "warnings" :: NullOrUndefined (ListOfString) , "position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfApiKey) } -> {"warnings" :: NullOrUndefined (ListOfString) , "position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfApiKey) } ) -> ApiKeys
-newApiKeys'  customize = (ApiKeys <<< customize) { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing), "warnings": (NullOrUndefined Nothing) }
+newApiKeys' :: ( { "warnings" :: Maybe (ListOfString) , "position" :: Maybe (String) , "items" :: Maybe (ListOfApiKey) } -> {"warnings" :: Maybe (ListOfString) , "position" :: Maybe (String) , "items" :: Maybe (ListOfApiKey) } ) -> ApiKeys
+newApiKeys'  customize = (ApiKeys <<< customize) { "items": Nothing, "position": Nothing, "warnings": Nothing }
 
 
 
@@ -158,8 +157,8 @@ instance encodeApiKeysFormat :: Encode ApiKeysFormat where encode = genericEncod
 
 -- | <p>API stage name of the associated API stage in a usage plan.</p>
 newtype ApiStage = ApiStage 
-  { "apiId" :: NullOrUndefined (String)
-  , "stage" :: NullOrUndefined (String)
+  { "apiId" :: Maybe (String)
+  , "stage" :: Maybe (String)
   }
 derive instance newtypeApiStage :: Newtype ApiStage _
 derive instance repGenericApiStage :: Generic ApiStage _
@@ -169,27 +168,27 @@ instance encodeApiStage :: Encode ApiStage where encode = genericEncode options
 
 -- | Constructs ApiStage from required parameters
 newApiStage :: ApiStage
-newApiStage  = ApiStage { "apiId": (NullOrUndefined Nothing), "stage": (NullOrUndefined Nothing) }
+newApiStage  = ApiStage { "apiId": Nothing, "stage": Nothing }
 
 -- | Constructs ApiStage's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newApiStage' :: ( { "apiId" :: NullOrUndefined (String) , "stage" :: NullOrUndefined (String) } -> {"apiId" :: NullOrUndefined (String) , "stage" :: NullOrUndefined (String) } ) -> ApiStage
-newApiStage'  customize = (ApiStage <<< customize) { "apiId": (NullOrUndefined Nothing), "stage": (NullOrUndefined Nothing) }
+newApiStage' :: ( { "apiId" :: Maybe (String) , "stage" :: Maybe (String) } -> {"apiId" :: Maybe (String) , "stage" :: Maybe (String) } ) -> ApiStage
+newApiStage'  customize = (ApiStage <<< customize) { "apiId": Nothing, "stage": Nothing }
 
 
 
 -- | <p>Represents an authorization layer for methods. If enabled on a method, API Gateway will activate the authorizer when a client calls the method.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html">Enable custom authorization</a> </div>
 newtype Authorizer = Authorizer 
-  { "id" :: NullOrUndefined (String)
-  , "name" :: NullOrUndefined (String)
-  , "type" :: NullOrUndefined (AuthorizerType)
-  , "providerARNs" :: NullOrUndefined (ListOfARNs)
-  , "authType" :: NullOrUndefined (String)
-  , "authorizerUri" :: NullOrUndefined (String)
-  , "authorizerCredentials" :: NullOrUndefined (String)
-  , "identitySource" :: NullOrUndefined (String)
-  , "identityValidationExpression" :: NullOrUndefined (String)
-  , "authorizerResultTtlInSeconds" :: NullOrUndefined (NullableInteger)
+  { "id" :: Maybe (String)
+  , "name" :: Maybe (String)
+  , "type" :: Maybe (AuthorizerType)
+  , "providerARNs" :: Maybe (ListOfARNs)
+  , "authType" :: Maybe (String)
+  , "authorizerUri" :: Maybe (String)
+  , "authorizerCredentials" :: Maybe (String)
+  , "identitySource" :: Maybe (String)
+  , "identityValidationExpression" :: Maybe (String)
+  , "authorizerResultTtlInSeconds" :: Maybe (NullableInteger)
   }
 derive instance newtypeAuthorizer :: Newtype Authorizer _
 derive instance repGenericAuthorizer :: Generic Authorizer _
@@ -199,12 +198,12 @@ instance encodeAuthorizer :: Encode Authorizer where encode = genericEncode opti
 
 -- | Constructs Authorizer from required parameters
 newAuthorizer :: Authorizer
-newAuthorizer  = Authorizer { "authType": (NullOrUndefined Nothing), "authorizerCredentials": (NullOrUndefined Nothing), "authorizerResultTtlInSeconds": (NullOrUndefined Nothing), "authorizerUri": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing), "identitySource": (NullOrUndefined Nothing), "identityValidationExpression": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "providerARNs": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing) }
+newAuthorizer  = Authorizer { "authType": Nothing, "authorizerCredentials": Nothing, "authorizerResultTtlInSeconds": Nothing, "authorizerUri": Nothing, "id": Nothing, "identitySource": Nothing, "identityValidationExpression": Nothing, "name": Nothing, "providerARNs": Nothing, "type": Nothing }
 
 -- | Constructs Authorizer's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAuthorizer' :: ( { "id" :: NullOrUndefined (String) , "name" :: NullOrUndefined (String) , "type" :: NullOrUndefined (AuthorizerType) , "providerARNs" :: NullOrUndefined (ListOfARNs) , "authType" :: NullOrUndefined (String) , "authorizerUri" :: NullOrUndefined (String) , "authorizerCredentials" :: NullOrUndefined (String) , "identitySource" :: NullOrUndefined (String) , "identityValidationExpression" :: NullOrUndefined (String) , "authorizerResultTtlInSeconds" :: NullOrUndefined (NullableInteger) } -> {"id" :: NullOrUndefined (String) , "name" :: NullOrUndefined (String) , "type" :: NullOrUndefined (AuthorizerType) , "providerARNs" :: NullOrUndefined (ListOfARNs) , "authType" :: NullOrUndefined (String) , "authorizerUri" :: NullOrUndefined (String) , "authorizerCredentials" :: NullOrUndefined (String) , "identitySource" :: NullOrUndefined (String) , "identityValidationExpression" :: NullOrUndefined (String) , "authorizerResultTtlInSeconds" :: NullOrUndefined (NullableInteger) } ) -> Authorizer
-newAuthorizer'  customize = (Authorizer <<< customize) { "authType": (NullOrUndefined Nothing), "authorizerCredentials": (NullOrUndefined Nothing), "authorizerResultTtlInSeconds": (NullOrUndefined Nothing), "authorizerUri": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing), "identitySource": (NullOrUndefined Nothing), "identityValidationExpression": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "providerARNs": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing) }
+newAuthorizer' :: ( { "id" :: Maybe (String) , "name" :: Maybe (String) , "type" :: Maybe (AuthorizerType) , "providerARNs" :: Maybe (ListOfARNs) , "authType" :: Maybe (String) , "authorizerUri" :: Maybe (String) , "authorizerCredentials" :: Maybe (String) , "identitySource" :: Maybe (String) , "identityValidationExpression" :: Maybe (String) , "authorizerResultTtlInSeconds" :: Maybe (NullableInteger) } -> {"id" :: Maybe (String) , "name" :: Maybe (String) , "type" :: Maybe (AuthorizerType) , "providerARNs" :: Maybe (ListOfARNs) , "authType" :: Maybe (String) , "authorizerUri" :: Maybe (String) , "authorizerCredentials" :: Maybe (String) , "identitySource" :: Maybe (String) , "identityValidationExpression" :: Maybe (String) , "authorizerResultTtlInSeconds" :: Maybe (NullableInteger) } ) -> Authorizer
+newAuthorizer'  customize = (Authorizer <<< customize) { "authType": Nothing, "authorizerCredentials": Nothing, "authorizerResultTtlInSeconds": Nothing, "authorizerUri": Nothing, "id": Nothing, "identitySource": Nothing, "identityValidationExpression": Nothing, "name": Nothing, "providerARNs": Nothing, "type": Nothing }
 
 
 
@@ -220,8 +219,8 @@ instance encodeAuthorizerType :: Encode AuthorizerType where encode = genericEnc
 
 -- | <p>Represents a collection of <a>Authorizer</a> resources.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html">Enable custom authorization</a> </div>
 newtype Authorizers = Authorizers 
-  { "position" :: NullOrUndefined (String)
-  , "items" :: NullOrUndefined (ListOfAuthorizer)
+  { "position" :: Maybe (String)
+  , "items" :: Maybe (ListOfAuthorizer)
   }
 derive instance newtypeAuthorizers :: Newtype Authorizers _
 derive instance repGenericAuthorizers :: Generic Authorizers _
@@ -231,18 +230,18 @@ instance encodeAuthorizers :: Encode Authorizers where encode = genericEncode op
 
 -- | Constructs Authorizers from required parameters
 newAuthorizers :: Authorizers
-newAuthorizers  = Authorizers { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newAuthorizers  = Authorizers { "items": Nothing, "position": Nothing }
 
 -- | Constructs Authorizers's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAuthorizers' :: ( { "position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfAuthorizer) } -> {"position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfAuthorizer) } ) -> Authorizers
-newAuthorizers'  customize = (Authorizers <<< customize) { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newAuthorizers' :: ( { "position" :: Maybe (String) , "items" :: Maybe (ListOfAuthorizer) } -> {"position" :: Maybe (String) , "items" :: Maybe (ListOfAuthorizer) } ) -> Authorizers
+newAuthorizers'  customize = (Authorizers <<< customize) { "items": Nothing, "position": Nothing }
 
 
 
 -- | <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
 newtype BadRequestException = BadRequestException 
-  { "message" :: NullOrUndefined (String)
+  { "message" :: Maybe (String)
   }
 derive instance newtypeBadRequestException :: Newtype BadRequestException _
 derive instance repGenericBadRequestException :: Generic BadRequestException _
@@ -252,20 +251,20 @@ instance encodeBadRequestException :: Encode BadRequestException where encode = 
 
 -- | Constructs BadRequestException from required parameters
 newBadRequestException :: BadRequestException
-newBadRequestException  = BadRequestException { "message": (NullOrUndefined Nothing) }
+newBadRequestException  = BadRequestException { "message": Nothing }
 
 -- | Constructs BadRequestException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBadRequestException' :: ( { "message" :: NullOrUndefined (String) } -> {"message" :: NullOrUndefined (String) } ) -> BadRequestException
-newBadRequestException'  customize = (BadRequestException <<< customize) { "message": (NullOrUndefined Nothing) }
+newBadRequestException' :: ( { "message" :: Maybe (String) } -> {"message" :: Maybe (String) } ) -> BadRequestException
+newBadRequestException'  customize = (BadRequestException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>Represents the base path that callers of the API must provide as part of the URL after the domain name.</p> <div class="remarks">A custom domain name plus a <code>BasePathMapping</code> specification identifies a deployed <a>RestApi</a> in a given stage of the owner <a>Account</a>.</div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html">Use Custom Domain Names</a> </div>
 newtype BasePathMapping = BasePathMapping 
-  { "basePath" :: NullOrUndefined (String)
-  , "restApiId" :: NullOrUndefined (String)
-  , "stage" :: NullOrUndefined (String)
+  { "basePath" :: Maybe (String)
+  , "restApiId" :: Maybe (String)
+  , "stage" :: Maybe (String)
   }
 derive instance newtypeBasePathMapping :: Newtype BasePathMapping _
 derive instance repGenericBasePathMapping :: Generic BasePathMapping _
@@ -275,19 +274,19 @@ instance encodeBasePathMapping :: Encode BasePathMapping where encode = genericE
 
 -- | Constructs BasePathMapping from required parameters
 newBasePathMapping :: BasePathMapping
-newBasePathMapping  = BasePathMapping { "basePath": (NullOrUndefined Nothing), "restApiId": (NullOrUndefined Nothing), "stage": (NullOrUndefined Nothing) }
+newBasePathMapping  = BasePathMapping { "basePath": Nothing, "restApiId": Nothing, "stage": Nothing }
 
 -- | Constructs BasePathMapping's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBasePathMapping' :: ( { "basePath" :: NullOrUndefined (String) , "restApiId" :: NullOrUndefined (String) , "stage" :: NullOrUndefined (String) } -> {"basePath" :: NullOrUndefined (String) , "restApiId" :: NullOrUndefined (String) , "stage" :: NullOrUndefined (String) } ) -> BasePathMapping
-newBasePathMapping'  customize = (BasePathMapping <<< customize) { "basePath": (NullOrUndefined Nothing), "restApiId": (NullOrUndefined Nothing), "stage": (NullOrUndefined Nothing) }
+newBasePathMapping' :: ( { "basePath" :: Maybe (String) , "restApiId" :: Maybe (String) , "stage" :: Maybe (String) } -> {"basePath" :: Maybe (String) , "restApiId" :: Maybe (String) , "stage" :: Maybe (String) } ) -> BasePathMapping
+newBasePathMapping'  customize = (BasePathMapping <<< customize) { "basePath": Nothing, "restApiId": Nothing, "stage": Nothing }
 
 
 
 -- | <p>Represents a collection of <a>BasePathMapping</a> resources.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html">Use Custom Domain Names</a> </div>
 newtype BasePathMappings = BasePathMappings 
-  { "position" :: NullOrUndefined (String)
-  , "items" :: NullOrUndefined (ListOfBasePathMapping)
+  { "position" :: Maybe (String)
+  , "items" :: Maybe (ListOfBasePathMapping)
   }
 derive instance newtypeBasePathMappings :: Newtype BasePathMappings _
 derive instance repGenericBasePathMappings :: Generic BasePathMappings _
@@ -297,12 +296,12 @@ instance encodeBasePathMappings :: Encode BasePathMappings where encode = generi
 
 -- | Constructs BasePathMappings from required parameters
 newBasePathMappings :: BasePathMappings
-newBasePathMappings  = BasePathMappings { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newBasePathMappings  = BasePathMappings { "items": Nothing, "position": Nothing }
 
 -- | Constructs BasePathMappings's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBasePathMappings' :: ( { "position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfBasePathMapping) } -> {"position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfBasePathMapping) } ) -> BasePathMappings
-newBasePathMappings'  customize = (BasePathMappings <<< customize) { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newBasePathMappings' :: ( { "position" :: Maybe (String) , "items" :: Maybe (ListOfBasePathMapping) } -> {"position" :: Maybe (String) , "items" :: Maybe (ListOfBasePathMapping) } ) -> BasePathMappings
+newBasePathMappings'  customize = (BasePathMappings <<< customize) { "items": Nothing, "position": Nothing }
 
 
 
@@ -328,10 +327,10 @@ instance encodeCacheClusterStatus :: Encode CacheClusterStatus where encode = ge
 
 -- | <p>Configuration settings of a canary deployment.</p>
 newtype CanarySettings = CanarySettings 
-  { "percentTraffic" :: NullOrUndefined (Number)
-  , "deploymentId" :: NullOrUndefined (String)
-  , "stageVariableOverrides" :: NullOrUndefined (MapOfStringToString)
-  , "useStageCache" :: NullOrUndefined (Boolean)
+  { "percentTraffic" :: Maybe (Number)
+  , "deploymentId" :: Maybe (String)
+  , "stageVariableOverrides" :: Maybe (MapOfStringToString)
+  , "useStageCache" :: Maybe (Boolean)
   }
 derive instance newtypeCanarySettings :: Newtype CanarySettings _
 derive instance repGenericCanarySettings :: Generic CanarySettings _
@@ -341,22 +340,22 @@ instance encodeCanarySettings :: Encode CanarySettings where encode = genericEnc
 
 -- | Constructs CanarySettings from required parameters
 newCanarySettings :: CanarySettings
-newCanarySettings  = CanarySettings { "deploymentId": (NullOrUndefined Nothing), "percentTraffic": (NullOrUndefined Nothing), "stageVariableOverrides": (NullOrUndefined Nothing), "useStageCache": (NullOrUndefined Nothing) }
+newCanarySettings  = CanarySettings { "deploymentId": Nothing, "percentTraffic": Nothing, "stageVariableOverrides": Nothing, "useStageCache": Nothing }
 
 -- | Constructs CanarySettings's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCanarySettings' :: ( { "percentTraffic" :: NullOrUndefined (Number) , "deploymentId" :: NullOrUndefined (String) , "stageVariableOverrides" :: NullOrUndefined (MapOfStringToString) , "useStageCache" :: NullOrUndefined (Boolean) } -> {"percentTraffic" :: NullOrUndefined (Number) , "deploymentId" :: NullOrUndefined (String) , "stageVariableOverrides" :: NullOrUndefined (MapOfStringToString) , "useStageCache" :: NullOrUndefined (Boolean) } ) -> CanarySettings
-newCanarySettings'  customize = (CanarySettings <<< customize) { "deploymentId": (NullOrUndefined Nothing), "percentTraffic": (NullOrUndefined Nothing), "stageVariableOverrides": (NullOrUndefined Nothing), "useStageCache": (NullOrUndefined Nothing) }
+newCanarySettings' :: ( { "percentTraffic" :: Maybe (Number) , "deploymentId" :: Maybe (String) , "stageVariableOverrides" :: Maybe (MapOfStringToString) , "useStageCache" :: Maybe (Boolean) } -> {"percentTraffic" :: Maybe (Number) , "deploymentId" :: Maybe (String) , "stageVariableOverrides" :: Maybe (MapOfStringToString) , "useStageCache" :: Maybe (Boolean) } ) -> CanarySettings
+newCanarySettings'  customize = (CanarySettings <<< customize) { "deploymentId": Nothing, "percentTraffic": Nothing, "stageVariableOverrides": Nothing, "useStageCache": Nothing }
 
 
 
 -- | <p>Represents a client certificate used to configure client-side SSL authentication while sending requests to the integration endpoint.</p> <div class="remarks">Client certificates are used to authenticate an API by the backend server. To authenticate an API client (or user), use IAM roles and policies, a custom <a>Authorizer</a> or an Amazon Cognito user pool.</div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html">Use Client-Side Certificate</a> </div>
 newtype ClientCertificate = ClientCertificate 
-  { "clientCertificateId" :: NullOrUndefined (String)
-  , "description" :: NullOrUndefined (String)
-  , "pemEncodedCertificate" :: NullOrUndefined (String)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
-  , "expirationDate" :: NullOrUndefined (Types.Timestamp)
+  { "clientCertificateId" :: Maybe (String)
+  , "description" :: Maybe (String)
+  , "pemEncodedCertificate" :: Maybe (String)
+  , "createdDate" :: Maybe (Types.Timestamp)
+  , "expirationDate" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeClientCertificate :: Newtype ClientCertificate _
 derive instance repGenericClientCertificate :: Generic ClientCertificate _
@@ -366,19 +365,19 @@ instance encodeClientCertificate :: Encode ClientCertificate where encode = gene
 
 -- | Constructs ClientCertificate from required parameters
 newClientCertificate :: ClientCertificate
-newClientCertificate  = ClientCertificate { "clientCertificateId": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "expirationDate": (NullOrUndefined Nothing), "pemEncodedCertificate": (NullOrUndefined Nothing) }
+newClientCertificate  = ClientCertificate { "clientCertificateId": Nothing, "createdDate": Nothing, "description": Nothing, "expirationDate": Nothing, "pemEncodedCertificate": Nothing }
 
 -- | Constructs ClientCertificate's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newClientCertificate' :: ( { "clientCertificateId" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "pemEncodedCertificate" :: NullOrUndefined (String) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "expirationDate" :: NullOrUndefined (Types.Timestamp) } -> {"clientCertificateId" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "pemEncodedCertificate" :: NullOrUndefined (String) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "expirationDate" :: NullOrUndefined (Types.Timestamp) } ) -> ClientCertificate
-newClientCertificate'  customize = (ClientCertificate <<< customize) { "clientCertificateId": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "expirationDate": (NullOrUndefined Nothing), "pemEncodedCertificate": (NullOrUndefined Nothing) }
+newClientCertificate' :: ( { "clientCertificateId" :: Maybe (String) , "description" :: Maybe (String) , "pemEncodedCertificate" :: Maybe (String) , "createdDate" :: Maybe (Types.Timestamp) , "expirationDate" :: Maybe (Types.Timestamp) } -> {"clientCertificateId" :: Maybe (String) , "description" :: Maybe (String) , "pemEncodedCertificate" :: Maybe (String) , "createdDate" :: Maybe (Types.Timestamp) , "expirationDate" :: Maybe (Types.Timestamp) } ) -> ClientCertificate
+newClientCertificate'  customize = (ClientCertificate <<< customize) { "clientCertificateId": Nothing, "createdDate": Nothing, "description": Nothing, "expirationDate": Nothing, "pemEncodedCertificate": Nothing }
 
 
 
 -- | <p>Represents a collection of <a>ClientCertificate</a> resources.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html">Use Client-Side Certificate</a> </div>
 newtype ClientCertificates = ClientCertificates 
-  { "position" :: NullOrUndefined (String)
-  , "items" :: NullOrUndefined (ListOfClientCertificate)
+  { "position" :: Maybe (String)
+  , "items" :: Maybe (ListOfClientCertificate)
   }
 derive instance newtypeClientCertificates :: Newtype ClientCertificates _
 derive instance repGenericClientCertificates :: Generic ClientCertificates _
@@ -388,18 +387,18 @@ instance encodeClientCertificates :: Encode ClientCertificates where encode = ge
 
 -- | Constructs ClientCertificates from required parameters
 newClientCertificates :: ClientCertificates
-newClientCertificates  = ClientCertificates { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newClientCertificates  = ClientCertificates { "items": Nothing, "position": Nothing }
 
 -- | Constructs ClientCertificates's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newClientCertificates' :: ( { "position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfClientCertificate) } -> {"position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfClientCertificate) } ) -> ClientCertificates
-newClientCertificates'  customize = (ClientCertificates <<< customize) { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newClientCertificates' :: ( { "position" :: Maybe (String) , "items" :: Maybe (ListOfClientCertificate) } -> {"position" :: Maybe (String) , "items" :: Maybe (ListOfClientCertificate) } ) -> ClientCertificates
+newClientCertificates'  customize = (ClientCertificates <<< customize) { "items": Nothing, "position": Nothing }
 
 
 
 -- | <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
 newtype ConflictException = ConflictException 
-  { "message" :: NullOrUndefined (String)
+  { "message" :: Maybe (String)
   }
 derive instance newtypeConflictException :: Newtype ConflictException _
 derive instance repGenericConflictException :: Generic ConflictException _
@@ -409,12 +408,12 @@ instance encodeConflictException :: Encode ConflictException where encode = gene
 
 -- | Constructs ConflictException from required parameters
 newConflictException :: ConflictException
-newConflictException  = ConflictException { "message": (NullOrUndefined Nothing) }
+newConflictException  = ConflictException { "message": Nothing }
 
 -- | Constructs ConflictException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newConflictException' :: ( { "message" :: NullOrUndefined (String) } -> {"message" :: NullOrUndefined (String) } ) -> ConflictException
-newConflictException'  customize = (ConflictException <<< customize) { "message": (NullOrUndefined Nothing) }
+newConflictException' :: ( { "message" :: Maybe (String) } -> {"message" :: Maybe (String) } ) -> ConflictException
+newConflictException'  customize = (ConflictException <<< customize) { "message": Nothing }
 
 
 
@@ -438,13 +437,13 @@ instance encodeContentHandlingStrategy :: Encode ContentHandlingStrategy where e
 
 -- | <p>Request to create an <a>ApiKey</a> resource.</p>
 newtype CreateApiKeyRequest = CreateApiKeyRequest 
-  { "name" :: NullOrUndefined (String)
-  , "description" :: NullOrUndefined (String)
-  , "enabled" :: NullOrUndefined (Boolean)
-  , "generateDistinctId" :: NullOrUndefined (Boolean)
-  , "value" :: NullOrUndefined (String)
-  , "stageKeys" :: NullOrUndefined (ListOfStageKeys)
-  , "customerId" :: NullOrUndefined (String)
+  { "name" :: Maybe (String)
+  , "description" :: Maybe (String)
+  , "enabled" :: Maybe (Boolean)
+  , "generateDistinctId" :: Maybe (Boolean)
+  , "value" :: Maybe (String)
+  , "stageKeys" :: Maybe (ListOfStageKeys)
+  , "customerId" :: Maybe (String)
   }
 derive instance newtypeCreateApiKeyRequest :: Newtype CreateApiKeyRequest _
 derive instance repGenericCreateApiKeyRequest :: Generic CreateApiKeyRequest _
@@ -454,12 +453,12 @@ instance encodeCreateApiKeyRequest :: Encode CreateApiKeyRequest where encode = 
 
 -- | Constructs CreateApiKeyRequest from required parameters
 newCreateApiKeyRequest :: CreateApiKeyRequest
-newCreateApiKeyRequest  = CreateApiKeyRequest { "customerId": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "enabled": (NullOrUndefined Nothing), "generateDistinctId": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "stageKeys": (NullOrUndefined Nothing), "value": (NullOrUndefined Nothing) }
+newCreateApiKeyRequest  = CreateApiKeyRequest { "customerId": Nothing, "description": Nothing, "enabled": Nothing, "generateDistinctId": Nothing, "name": Nothing, "stageKeys": Nothing, "value": Nothing }
 
 -- | Constructs CreateApiKeyRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateApiKeyRequest' :: ( { "name" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "enabled" :: NullOrUndefined (Boolean) , "generateDistinctId" :: NullOrUndefined (Boolean) , "value" :: NullOrUndefined (String) , "stageKeys" :: NullOrUndefined (ListOfStageKeys) , "customerId" :: NullOrUndefined (String) } -> {"name" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "enabled" :: NullOrUndefined (Boolean) , "generateDistinctId" :: NullOrUndefined (Boolean) , "value" :: NullOrUndefined (String) , "stageKeys" :: NullOrUndefined (ListOfStageKeys) , "customerId" :: NullOrUndefined (String) } ) -> CreateApiKeyRequest
-newCreateApiKeyRequest'  customize = (CreateApiKeyRequest <<< customize) { "customerId": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "enabled": (NullOrUndefined Nothing), "generateDistinctId": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "stageKeys": (NullOrUndefined Nothing), "value": (NullOrUndefined Nothing) }
+newCreateApiKeyRequest' :: ( { "name" :: Maybe (String) , "description" :: Maybe (String) , "enabled" :: Maybe (Boolean) , "generateDistinctId" :: Maybe (Boolean) , "value" :: Maybe (String) , "stageKeys" :: Maybe (ListOfStageKeys) , "customerId" :: Maybe (String) } -> {"name" :: Maybe (String) , "description" :: Maybe (String) , "enabled" :: Maybe (Boolean) , "generateDistinctId" :: Maybe (Boolean) , "value" :: Maybe (String) , "stageKeys" :: Maybe (ListOfStageKeys) , "customerId" :: Maybe (String) } ) -> CreateApiKeyRequest
+newCreateApiKeyRequest'  customize = (CreateApiKeyRequest <<< customize) { "customerId": Nothing, "description": Nothing, "enabled": Nothing, "generateDistinctId": Nothing, "name": Nothing, "stageKeys": Nothing, "value": Nothing }
 
 
 
@@ -468,13 +467,13 @@ newtype CreateAuthorizerRequest = CreateAuthorizerRequest
   { "restApiId" :: (String)
   , "name" :: (String)
   , "type" :: (AuthorizerType)
-  , "providerARNs" :: NullOrUndefined (ListOfARNs)
-  , "authType" :: NullOrUndefined (String)
-  , "authorizerUri" :: NullOrUndefined (String)
-  , "authorizerCredentials" :: NullOrUndefined (String)
-  , "identitySource" :: NullOrUndefined (String)
-  , "identityValidationExpression" :: NullOrUndefined (String)
-  , "authorizerResultTtlInSeconds" :: NullOrUndefined (NullableInteger)
+  , "providerARNs" :: Maybe (ListOfARNs)
+  , "authType" :: Maybe (String)
+  , "authorizerUri" :: Maybe (String)
+  , "authorizerCredentials" :: Maybe (String)
+  , "identitySource" :: Maybe (String)
+  , "identityValidationExpression" :: Maybe (String)
+  , "authorizerResultTtlInSeconds" :: Maybe (NullableInteger)
   }
 derive instance newtypeCreateAuthorizerRequest :: Newtype CreateAuthorizerRequest _
 derive instance repGenericCreateAuthorizerRequest :: Generic CreateAuthorizerRequest _
@@ -484,21 +483,21 @@ instance encodeCreateAuthorizerRequest :: Encode CreateAuthorizerRequest where e
 
 -- | Constructs CreateAuthorizerRequest from required parameters
 newCreateAuthorizerRequest :: String -> String -> AuthorizerType -> CreateAuthorizerRequest
-newCreateAuthorizerRequest _name _restApiId _type = CreateAuthorizerRequest { "name": _name, "restApiId": _restApiId, "type": _type, "authType": (NullOrUndefined Nothing), "authorizerCredentials": (NullOrUndefined Nothing), "authorizerResultTtlInSeconds": (NullOrUndefined Nothing), "authorizerUri": (NullOrUndefined Nothing), "identitySource": (NullOrUndefined Nothing), "identityValidationExpression": (NullOrUndefined Nothing), "providerARNs": (NullOrUndefined Nothing) }
+newCreateAuthorizerRequest _name _restApiId _type = CreateAuthorizerRequest { "name": _name, "restApiId": _restApiId, "type": _type, "authType": Nothing, "authorizerCredentials": Nothing, "authorizerResultTtlInSeconds": Nothing, "authorizerUri": Nothing, "identitySource": Nothing, "identityValidationExpression": Nothing, "providerARNs": Nothing }
 
 -- | Constructs CreateAuthorizerRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateAuthorizerRequest' :: String -> String -> AuthorizerType -> ( { "restApiId" :: (String) , "name" :: (String) , "type" :: (AuthorizerType) , "providerARNs" :: NullOrUndefined (ListOfARNs) , "authType" :: NullOrUndefined (String) , "authorizerUri" :: NullOrUndefined (String) , "authorizerCredentials" :: NullOrUndefined (String) , "identitySource" :: NullOrUndefined (String) , "identityValidationExpression" :: NullOrUndefined (String) , "authorizerResultTtlInSeconds" :: NullOrUndefined (NullableInteger) } -> {"restApiId" :: (String) , "name" :: (String) , "type" :: (AuthorizerType) , "providerARNs" :: NullOrUndefined (ListOfARNs) , "authType" :: NullOrUndefined (String) , "authorizerUri" :: NullOrUndefined (String) , "authorizerCredentials" :: NullOrUndefined (String) , "identitySource" :: NullOrUndefined (String) , "identityValidationExpression" :: NullOrUndefined (String) , "authorizerResultTtlInSeconds" :: NullOrUndefined (NullableInteger) } ) -> CreateAuthorizerRequest
-newCreateAuthorizerRequest' _name _restApiId _type customize = (CreateAuthorizerRequest <<< customize) { "name": _name, "restApiId": _restApiId, "type": _type, "authType": (NullOrUndefined Nothing), "authorizerCredentials": (NullOrUndefined Nothing), "authorizerResultTtlInSeconds": (NullOrUndefined Nothing), "authorizerUri": (NullOrUndefined Nothing), "identitySource": (NullOrUndefined Nothing), "identityValidationExpression": (NullOrUndefined Nothing), "providerARNs": (NullOrUndefined Nothing) }
+newCreateAuthorizerRequest' :: String -> String -> AuthorizerType -> ( { "restApiId" :: (String) , "name" :: (String) , "type" :: (AuthorizerType) , "providerARNs" :: Maybe (ListOfARNs) , "authType" :: Maybe (String) , "authorizerUri" :: Maybe (String) , "authorizerCredentials" :: Maybe (String) , "identitySource" :: Maybe (String) , "identityValidationExpression" :: Maybe (String) , "authorizerResultTtlInSeconds" :: Maybe (NullableInteger) } -> {"restApiId" :: (String) , "name" :: (String) , "type" :: (AuthorizerType) , "providerARNs" :: Maybe (ListOfARNs) , "authType" :: Maybe (String) , "authorizerUri" :: Maybe (String) , "authorizerCredentials" :: Maybe (String) , "identitySource" :: Maybe (String) , "identityValidationExpression" :: Maybe (String) , "authorizerResultTtlInSeconds" :: Maybe (NullableInteger) } ) -> CreateAuthorizerRequest
+newCreateAuthorizerRequest' _name _restApiId _type customize = (CreateAuthorizerRequest <<< customize) { "name": _name, "restApiId": _restApiId, "type": _type, "authType": Nothing, "authorizerCredentials": Nothing, "authorizerResultTtlInSeconds": Nothing, "authorizerUri": Nothing, "identitySource": Nothing, "identityValidationExpression": Nothing, "providerARNs": Nothing }
 
 
 
 -- | <p>Requests API Gateway to create a new <a>BasePathMapping</a> resource.</p>
 newtype CreateBasePathMappingRequest = CreateBasePathMappingRequest 
   { "domainName" :: (String)
-  , "basePath" :: NullOrUndefined (String)
+  , "basePath" :: Maybe (String)
   , "restApiId" :: (String)
-  , "stage" :: NullOrUndefined (String)
+  , "stage" :: Maybe (String)
   }
 derive instance newtypeCreateBasePathMappingRequest :: Newtype CreateBasePathMappingRequest _
 derive instance repGenericCreateBasePathMappingRequest :: Generic CreateBasePathMappingRequest _
@@ -508,25 +507,25 @@ instance encodeCreateBasePathMappingRequest :: Encode CreateBasePathMappingReque
 
 -- | Constructs CreateBasePathMappingRequest from required parameters
 newCreateBasePathMappingRequest :: String -> String -> CreateBasePathMappingRequest
-newCreateBasePathMappingRequest _domainName _restApiId = CreateBasePathMappingRequest { "domainName": _domainName, "restApiId": _restApiId, "basePath": (NullOrUndefined Nothing), "stage": (NullOrUndefined Nothing) }
+newCreateBasePathMappingRequest _domainName _restApiId = CreateBasePathMappingRequest { "domainName": _domainName, "restApiId": _restApiId, "basePath": Nothing, "stage": Nothing }
 
 -- | Constructs CreateBasePathMappingRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateBasePathMappingRequest' :: String -> String -> ( { "domainName" :: (String) , "basePath" :: NullOrUndefined (String) , "restApiId" :: (String) , "stage" :: NullOrUndefined (String) } -> {"domainName" :: (String) , "basePath" :: NullOrUndefined (String) , "restApiId" :: (String) , "stage" :: NullOrUndefined (String) } ) -> CreateBasePathMappingRequest
-newCreateBasePathMappingRequest' _domainName _restApiId customize = (CreateBasePathMappingRequest <<< customize) { "domainName": _domainName, "restApiId": _restApiId, "basePath": (NullOrUndefined Nothing), "stage": (NullOrUndefined Nothing) }
+newCreateBasePathMappingRequest' :: String -> String -> ( { "domainName" :: (String) , "basePath" :: Maybe (String) , "restApiId" :: (String) , "stage" :: Maybe (String) } -> {"domainName" :: (String) , "basePath" :: Maybe (String) , "restApiId" :: (String) , "stage" :: Maybe (String) } ) -> CreateBasePathMappingRequest
+newCreateBasePathMappingRequest' _domainName _restApiId customize = (CreateBasePathMappingRequest <<< customize) { "domainName": _domainName, "restApiId": _restApiId, "basePath": Nothing, "stage": Nothing }
 
 
 
 -- | <p>Requests API Gateway to create a <a>Deployment</a> resource.</p>
 newtype CreateDeploymentRequest = CreateDeploymentRequest 
   { "restApiId" :: (String)
-  , "stageName" :: NullOrUndefined (String)
-  , "stageDescription" :: NullOrUndefined (String)
-  , "description" :: NullOrUndefined (String)
-  , "cacheClusterEnabled" :: NullOrUndefined (NullableBoolean)
-  , "cacheClusterSize" :: NullOrUndefined (CacheClusterSize)
-  , "variables" :: NullOrUndefined (MapOfStringToString)
-  , "canarySettings" :: NullOrUndefined (DeploymentCanarySettings)
+  , "stageName" :: Maybe (String)
+  , "stageDescription" :: Maybe (String)
+  , "description" :: Maybe (String)
+  , "cacheClusterEnabled" :: Maybe (NullableBoolean)
+  , "cacheClusterSize" :: Maybe (CacheClusterSize)
+  , "variables" :: Maybe (MapOfStringToString)
+  , "canarySettings" :: Maybe (DeploymentCanarySettings)
   }
 derive instance newtypeCreateDeploymentRequest :: Newtype CreateDeploymentRequest _
 derive instance repGenericCreateDeploymentRequest :: Generic CreateDeploymentRequest _
@@ -536,12 +535,12 @@ instance encodeCreateDeploymentRequest :: Encode CreateDeploymentRequest where e
 
 -- | Constructs CreateDeploymentRequest from required parameters
 newCreateDeploymentRequest :: String -> CreateDeploymentRequest
-newCreateDeploymentRequest _restApiId = CreateDeploymentRequest { "restApiId": _restApiId, "cacheClusterEnabled": (NullOrUndefined Nothing), "cacheClusterSize": (NullOrUndefined Nothing), "canarySettings": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "stageDescription": (NullOrUndefined Nothing), "stageName": (NullOrUndefined Nothing), "variables": (NullOrUndefined Nothing) }
+newCreateDeploymentRequest _restApiId = CreateDeploymentRequest { "restApiId": _restApiId, "cacheClusterEnabled": Nothing, "cacheClusterSize": Nothing, "canarySettings": Nothing, "description": Nothing, "stageDescription": Nothing, "stageName": Nothing, "variables": Nothing }
 
 -- | Constructs CreateDeploymentRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateDeploymentRequest' :: String -> ( { "restApiId" :: (String) , "stageName" :: NullOrUndefined (String) , "stageDescription" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "cacheClusterEnabled" :: NullOrUndefined (NullableBoolean) , "cacheClusterSize" :: NullOrUndefined (CacheClusterSize) , "variables" :: NullOrUndefined (MapOfStringToString) , "canarySettings" :: NullOrUndefined (DeploymentCanarySettings) } -> {"restApiId" :: (String) , "stageName" :: NullOrUndefined (String) , "stageDescription" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "cacheClusterEnabled" :: NullOrUndefined (NullableBoolean) , "cacheClusterSize" :: NullOrUndefined (CacheClusterSize) , "variables" :: NullOrUndefined (MapOfStringToString) , "canarySettings" :: NullOrUndefined (DeploymentCanarySettings) } ) -> CreateDeploymentRequest
-newCreateDeploymentRequest' _restApiId customize = (CreateDeploymentRequest <<< customize) { "restApiId": _restApiId, "cacheClusterEnabled": (NullOrUndefined Nothing), "cacheClusterSize": (NullOrUndefined Nothing), "canarySettings": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "stageDescription": (NullOrUndefined Nothing), "stageName": (NullOrUndefined Nothing), "variables": (NullOrUndefined Nothing) }
+newCreateDeploymentRequest' :: String -> ( { "restApiId" :: (String) , "stageName" :: Maybe (String) , "stageDescription" :: Maybe (String) , "description" :: Maybe (String) , "cacheClusterEnabled" :: Maybe (NullableBoolean) , "cacheClusterSize" :: Maybe (CacheClusterSize) , "variables" :: Maybe (MapOfStringToString) , "canarySettings" :: Maybe (DeploymentCanarySettings) } -> {"restApiId" :: (String) , "stageName" :: Maybe (String) , "stageDescription" :: Maybe (String) , "description" :: Maybe (String) , "cacheClusterEnabled" :: Maybe (NullableBoolean) , "cacheClusterSize" :: Maybe (CacheClusterSize) , "variables" :: Maybe (MapOfStringToString) , "canarySettings" :: Maybe (DeploymentCanarySettings) } ) -> CreateDeploymentRequest
+newCreateDeploymentRequest' _restApiId customize = (CreateDeploymentRequest <<< customize) { "restApiId": _restApiId, "cacheClusterEnabled": Nothing, "cacheClusterSize": Nothing, "canarySettings": Nothing, "description": Nothing, "stageDescription": Nothing, "stageName": Nothing, "variables": Nothing }
 
 
 
@@ -572,8 +571,8 @@ newCreateDocumentationPartRequest' _location _properties _restApiId customize = 
 newtype CreateDocumentationVersionRequest = CreateDocumentationVersionRequest 
   { "restApiId" :: (String)
   , "documentationVersion" :: (String)
-  , "stageName" :: NullOrUndefined (String)
-  , "description" :: NullOrUndefined (String)
+  , "stageName" :: Maybe (String)
+  , "description" :: Maybe (String)
   }
 derive instance newtypeCreateDocumentationVersionRequest :: Newtype CreateDocumentationVersionRequest _
 derive instance repGenericCreateDocumentationVersionRequest :: Generic CreateDocumentationVersionRequest _
@@ -583,26 +582,26 @@ instance encodeCreateDocumentationVersionRequest :: Encode CreateDocumentationVe
 
 -- | Constructs CreateDocumentationVersionRequest from required parameters
 newCreateDocumentationVersionRequest :: String -> String -> CreateDocumentationVersionRequest
-newCreateDocumentationVersionRequest _documentationVersion _restApiId = CreateDocumentationVersionRequest { "documentationVersion": _documentationVersion, "restApiId": _restApiId, "description": (NullOrUndefined Nothing), "stageName": (NullOrUndefined Nothing) }
+newCreateDocumentationVersionRequest _documentationVersion _restApiId = CreateDocumentationVersionRequest { "documentationVersion": _documentationVersion, "restApiId": _restApiId, "description": Nothing, "stageName": Nothing }
 
 -- | Constructs CreateDocumentationVersionRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateDocumentationVersionRequest' :: String -> String -> ( { "restApiId" :: (String) , "documentationVersion" :: (String) , "stageName" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) } -> {"restApiId" :: (String) , "documentationVersion" :: (String) , "stageName" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) } ) -> CreateDocumentationVersionRequest
-newCreateDocumentationVersionRequest' _documentationVersion _restApiId customize = (CreateDocumentationVersionRequest <<< customize) { "documentationVersion": _documentationVersion, "restApiId": _restApiId, "description": (NullOrUndefined Nothing), "stageName": (NullOrUndefined Nothing) }
+newCreateDocumentationVersionRequest' :: String -> String -> ( { "restApiId" :: (String) , "documentationVersion" :: (String) , "stageName" :: Maybe (String) , "description" :: Maybe (String) } -> {"restApiId" :: (String) , "documentationVersion" :: (String) , "stageName" :: Maybe (String) , "description" :: Maybe (String) } ) -> CreateDocumentationVersionRequest
+newCreateDocumentationVersionRequest' _documentationVersion _restApiId customize = (CreateDocumentationVersionRequest <<< customize) { "documentationVersion": _documentationVersion, "restApiId": _restApiId, "description": Nothing, "stageName": Nothing }
 
 
 
 -- | <p>A request to create a new domain name.</p>
 newtype CreateDomainNameRequest = CreateDomainNameRequest 
   { "domainName" :: (String)
-  , "certificateName" :: NullOrUndefined (String)
-  , "certificateBody" :: NullOrUndefined (String)
-  , "certificatePrivateKey" :: NullOrUndefined (String)
-  , "certificateChain" :: NullOrUndefined (String)
-  , "certificateArn" :: NullOrUndefined (String)
-  , "regionalCertificateName" :: NullOrUndefined (String)
-  , "regionalCertificateArn" :: NullOrUndefined (String)
-  , "endpointConfiguration" :: NullOrUndefined (EndpointConfiguration)
+  , "certificateName" :: Maybe (String)
+  , "certificateBody" :: Maybe (String)
+  , "certificatePrivateKey" :: Maybe (String)
+  , "certificateChain" :: Maybe (String)
+  , "certificateArn" :: Maybe (String)
+  , "regionalCertificateName" :: Maybe (String)
+  , "regionalCertificateArn" :: Maybe (String)
+  , "endpointConfiguration" :: Maybe (EndpointConfiguration)
   }
 derive instance newtypeCreateDomainNameRequest :: Newtype CreateDomainNameRequest _
 derive instance repGenericCreateDomainNameRequest :: Generic CreateDomainNameRequest _
@@ -612,12 +611,12 @@ instance encodeCreateDomainNameRequest :: Encode CreateDomainNameRequest where e
 
 -- | Constructs CreateDomainNameRequest from required parameters
 newCreateDomainNameRequest :: String -> CreateDomainNameRequest
-newCreateDomainNameRequest _domainName = CreateDomainNameRequest { "domainName": _domainName, "certificateArn": (NullOrUndefined Nothing), "certificateBody": (NullOrUndefined Nothing), "certificateChain": (NullOrUndefined Nothing), "certificateName": (NullOrUndefined Nothing), "certificatePrivateKey": (NullOrUndefined Nothing), "endpointConfiguration": (NullOrUndefined Nothing), "regionalCertificateArn": (NullOrUndefined Nothing), "regionalCertificateName": (NullOrUndefined Nothing) }
+newCreateDomainNameRequest _domainName = CreateDomainNameRequest { "domainName": _domainName, "certificateArn": Nothing, "certificateBody": Nothing, "certificateChain": Nothing, "certificateName": Nothing, "certificatePrivateKey": Nothing, "endpointConfiguration": Nothing, "regionalCertificateArn": Nothing, "regionalCertificateName": Nothing }
 
 -- | Constructs CreateDomainNameRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateDomainNameRequest' :: String -> ( { "domainName" :: (String) , "certificateName" :: NullOrUndefined (String) , "certificateBody" :: NullOrUndefined (String) , "certificatePrivateKey" :: NullOrUndefined (String) , "certificateChain" :: NullOrUndefined (String) , "certificateArn" :: NullOrUndefined (String) , "regionalCertificateName" :: NullOrUndefined (String) , "regionalCertificateArn" :: NullOrUndefined (String) , "endpointConfiguration" :: NullOrUndefined (EndpointConfiguration) } -> {"domainName" :: (String) , "certificateName" :: NullOrUndefined (String) , "certificateBody" :: NullOrUndefined (String) , "certificatePrivateKey" :: NullOrUndefined (String) , "certificateChain" :: NullOrUndefined (String) , "certificateArn" :: NullOrUndefined (String) , "regionalCertificateName" :: NullOrUndefined (String) , "regionalCertificateArn" :: NullOrUndefined (String) , "endpointConfiguration" :: NullOrUndefined (EndpointConfiguration) } ) -> CreateDomainNameRequest
-newCreateDomainNameRequest' _domainName customize = (CreateDomainNameRequest <<< customize) { "domainName": _domainName, "certificateArn": (NullOrUndefined Nothing), "certificateBody": (NullOrUndefined Nothing), "certificateChain": (NullOrUndefined Nothing), "certificateName": (NullOrUndefined Nothing), "certificatePrivateKey": (NullOrUndefined Nothing), "endpointConfiguration": (NullOrUndefined Nothing), "regionalCertificateArn": (NullOrUndefined Nothing), "regionalCertificateName": (NullOrUndefined Nothing) }
+newCreateDomainNameRequest' :: String -> ( { "domainName" :: (String) , "certificateName" :: Maybe (String) , "certificateBody" :: Maybe (String) , "certificatePrivateKey" :: Maybe (String) , "certificateChain" :: Maybe (String) , "certificateArn" :: Maybe (String) , "regionalCertificateName" :: Maybe (String) , "regionalCertificateArn" :: Maybe (String) , "endpointConfiguration" :: Maybe (EndpointConfiguration) } -> {"domainName" :: (String) , "certificateName" :: Maybe (String) , "certificateBody" :: Maybe (String) , "certificatePrivateKey" :: Maybe (String) , "certificateChain" :: Maybe (String) , "certificateArn" :: Maybe (String) , "regionalCertificateName" :: Maybe (String) , "regionalCertificateArn" :: Maybe (String) , "endpointConfiguration" :: Maybe (EndpointConfiguration) } ) -> CreateDomainNameRequest
+newCreateDomainNameRequest' _domainName customize = (CreateDomainNameRequest <<< customize) { "domainName": _domainName, "certificateArn": Nothing, "certificateBody": Nothing, "certificateChain": Nothing, "certificateName": Nothing, "certificatePrivateKey": Nothing, "endpointConfiguration": Nothing, "regionalCertificateArn": Nothing, "regionalCertificateName": Nothing }
 
 
 
@@ -625,8 +624,8 @@ newCreateDomainNameRequest' _domainName customize = (CreateDomainNameRequest <<<
 newtype CreateModelRequest = CreateModelRequest 
   { "restApiId" :: (String)
   , "name" :: (String)
-  , "description" :: NullOrUndefined (String)
-  , "schema" :: NullOrUndefined (String)
+  , "description" :: Maybe (String)
+  , "schema" :: Maybe (String)
   , "contentType" :: (String)
   }
 derive instance newtypeCreateModelRequest :: Newtype CreateModelRequest _
@@ -637,21 +636,21 @@ instance encodeCreateModelRequest :: Encode CreateModelRequest where encode = ge
 
 -- | Constructs CreateModelRequest from required parameters
 newCreateModelRequest :: String -> String -> String -> CreateModelRequest
-newCreateModelRequest _contentType _name _restApiId = CreateModelRequest { "contentType": _contentType, "name": _name, "restApiId": _restApiId, "description": (NullOrUndefined Nothing), "schema": (NullOrUndefined Nothing) }
+newCreateModelRequest _contentType _name _restApiId = CreateModelRequest { "contentType": _contentType, "name": _name, "restApiId": _restApiId, "description": Nothing, "schema": Nothing }
 
 -- | Constructs CreateModelRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateModelRequest' :: String -> String -> String -> ( { "restApiId" :: (String) , "name" :: (String) , "description" :: NullOrUndefined (String) , "schema" :: NullOrUndefined (String) , "contentType" :: (String) } -> {"restApiId" :: (String) , "name" :: (String) , "description" :: NullOrUndefined (String) , "schema" :: NullOrUndefined (String) , "contentType" :: (String) } ) -> CreateModelRequest
-newCreateModelRequest' _contentType _name _restApiId customize = (CreateModelRequest <<< customize) { "contentType": _contentType, "name": _name, "restApiId": _restApiId, "description": (NullOrUndefined Nothing), "schema": (NullOrUndefined Nothing) }
+newCreateModelRequest' :: String -> String -> String -> ( { "restApiId" :: (String) , "name" :: (String) , "description" :: Maybe (String) , "schema" :: Maybe (String) , "contentType" :: (String) } -> {"restApiId" :: (String) , "name" :: (String) , "description" :: Maybe (String) , "schema" :: Maybe (String) , "contentType" :: (String) } ) -> CreateModelRequest
+newCreateModelRequest' _contentType _name _restApiId customize = (CreateModelRequest <<< customize) { "contentType": _contentType, "name": _name, "restApiId": _restApiId, "description": Nothing, "schema": Nothing }
 
 
 
 -- | <p>Creates a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
 newtype CreateRequestValidatorRequest = CreateRequestValidatorRequest 
   { "restApiId" :: (String)
-  , "name" :: NullOrUndefined (String)
-  , "validateRequestBody" :: NullOrUndefined (Boolean)
-  , "validateRequestParameters" :: NullOrUndefined (Boolean)
+  , "name" :: Maybe (String)
+  , "validateRequestBody" :: Maybe (Boolean)
+  , "validateRequestParameters" :: Maybe (Boolean)
   }
 derive instance newtypeCreateRequestValidatorRequest :: Newtype CreateRequestValidatorRequest _
 derive instance repGenericCreateRequestValidatorRequest :: Generic CreateRequestValidatorRequest _
@@ -661,12 +660,12 @@ instance encodeCreateRequestValidatorRequest :: Encode CreateRequestValidatorReq
 
 -- | Constructs CreateRequestValidatorRequest from required parameters
 newCreateRequestValidatorRequest :: String -> CreateRequestValidatorRequest
-newCreateRequestValidatorRequest _restApiId = CreateRequestValidatorRequest { "restApiId": _restApiId, "name": (NullOrUndefined Nothing), "validateRequestBody": (NullOrUndefined Nothing), "validateRequestParameters": (NullOrUndefined Nothing) }
+newCreateRequestValidatorRequest _restApiId = CreateRequestValidatorRequest { "restApiId": _restApiId, "name": Nothing, "validateRequestBody": Nothing, "validateRequestParameters": Nothing }
 
 -- | Constructs CreateRequestValidatorRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateRequestValidatorRequest' :: String -> ( { "restApiId" :: (String) , "name" :: NullOrUndefined (String) , "validateRequestBody" :: NullOrUndefined (Boolean) , "validateRequestParameters" :: NullOrUndefined (Boolean) } -> {"restApiId" :: (String) , "name" :: NullOrUndefined (String) , "validateRequestBody" :: NullOrUndefined (Boolean) , "validateRequestParameters" :: NullOrUndefined (Boolean) } ) -> CreateRequestValidatorRequest
-newCreateRequestValidatorRequest' _restApiId customize = (CreateRequestValidatorRequest <<< customize) { "restApiId": _restApiId, "name": (NullOrUndefined Nothing), "validateRequestBody": (NullOrUndefined Nothing), "validateRequestParameters": (NullOrUndefined Nothing) }
+newCreateRequestValidatorRequest' :: String -> ( { "restApiId" :: (String) , "name" :: Maybe (String) , "validateRequestBody" :: Maybe (Boolean) , "validateRequestParameters" :: Maybe (Boolean) } -> {"restApiId" :: (String) , "name" :: Maybe (String) , "validateRequestBody" :: Maybe (Boolean) , "validateRequestParameters" :: Maybe (Boolean) } ) -> CreateRequestValidatorRequest
+newCreateRequestValidatorRequest' _restApiId customize = (CreateRequestValidatorRequest <<< customize) { "restApiId": _restApiId, "name": Nothing, "validateRequestBody": Nothing, "validateRequestParameters": Nothing }
 
 
 
@@ -696,13 +695,13 @@ newCreateResourceRequest' _parentId _pathPart _restApiId customize = (CreateReso
 -- | <p>The POST Request to add a new <a>RestApi</a> resource to your collection.</p>
 newtype CreateRestApiRequest = CreateRestApiRequest 
   { "name" :: (String)
-  , "description" :: NullOrUndefined (String)
-  , "version" :: NullOrUndefined (String)
-  , "cloneFrom" :: NullOrUndefined (String)
-  , "binaryMediaTypes" :: NullOrUndefined (ListOfString)
-  , "minimumCompressionSize" :: NullOrUndefined (NullableInteger)
-  , "apiKeySource" :: NullOrUndefined (ApiKeySourceType)
-  , "endpointConfiguration" :: NullOrUndefined (EndpointConfiguration)
+  , "description" :: Maybe (String)
+  , "version" :: Maybe (String)
+  , "cloneFrom" :: Maybe (String)
+  , "binaryMediaTypes" :: Maybe (ListOfString)
+  , "minimumCompressionSize" :: Maybe (NullableInteger)
+  , "apiKeySource" :: Maybe (ApiKeySourceType)
+  , "endpointConfiguration" :: Maybe (EndpointConfiguration)
   }
 derive instance newtypeCreateRestApiRequest :: Newtype CreateRestApiRequest _
 derive instance repGenericCreateRestApiRequest :: Generic CreateRestApiRequest _
@@ -712,12 +711,12 @@ instance encodeCreateRestApiRequest :: Encode CreateRestApiRequest where encode 
 
 -- | Constructs CreateRestApiRequest from required parameters
 newCreateRestApiRequest :: String -> CreateRestApiRequest
-newCreateRestApiRequest _name = CreateRestApiRequest { "name": _name, "apiKeySource": (NullOrUndefined Nothing), "binaryMediaTypes": (NullOrUndefined Nothing), "cloneFrom": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "endpointConfiguration": (NullOrUndefined Nothing), "minimumCompressionSize": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newCreateRestApiRequest _name = CreateRestApiRequest { "name": _name, "apiKeySource": Nothing, "binaryMediaTypes": Nothing, "cloneFrom": Nothing, "description": Nothing, "endpointConfiguration": Nothing, "minimumCompressionSize": Nothing, "version": Nothing }
 
 -- | Constructs CreateRestApiRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateRestApiRequest' :: String -> ( { "name" :: (String) , "description" :: NullOrUndefined (String) , "version" :: NullOrUndefined (String) , "cloneFrom" :: NullOrUndefined (String) , "binaryMediaTypes" :: NullOrUndefined (ListOfString) , "minimumCompressionSize" :: NullOrUndefined (NullableInteger) , "apiKeySource" :: NullOrUndefined (ApiKeySourceType) , "endpointConfiguration" :: NullOrUndefined (EndpointConfiguration) } -> {"name" :: (String) , "description" :: NullOrUndefined (String) , "version" :: NullOrUndefined (String) , "cloneFrom" :: NullOrUndefined (String) , "binaryMediaTypes" :: NullOrUndefined (ListOfString) , "minimumCompressionSize" :: NullOrUndefined (NullableInteger) , "apiKeySource" :: NullOrUndefined (ApiKeySourceType) , "endpointConfiguration" :: NullOrUndefined (EndpointConfiguration) } ) -> CreateRestApiRequest
-newCreateRestApiRequest' _name customize = (CreateRestApiRequest <<< customize) { "name": _name, "apiKeySource": (NullOrUndefined Nothing), "binaryMediaTypes": (NullOrUndefined Nothing), "cloneFrom": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "endpointConfiguration": (NullOrUndefined Nothing), "minimumCompressionSize": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newCreateRestApiRequest' :: String -> ( { "name" :: (String) , "description" :: Maybe (String) , "version" :: Maybe (String) , "cloneFrom" :: Maybe (String) , "binaryMediaTypes" :: Maybe (ListOfString) , "minimumCompressionSize" :: Maybe (NullableInteger) , "apiKeySource" :: Maybe (ApiKeySourceType) , "endpointConfiguration" :: Maybe (EndpointConfiguration) } -> {"name" :: (String) , "description" :: Maybe (String) , "version" :: Maybe (String) , "cloneFrom" :: Maybe (String) , "binaryMediaTypes" :: Maybe (ListOfString) , "minimumCompressionSize" :: Maybe (NullableInteger) , "apiKeySource" :: Maybe (ApiKeySourceType) , "endpointConfiguration" :: Maybe (EndpointConfiguration) } ) -> CreateRestApiRequest
+newCreateRestApiRequest' _name customize = (CreateRestApiRequest <<< customize) { "name": _name, "apiKeySource": Nothing, "binaryMediaTypes": Nothing, "cloneFrom": Nothing, "description": Nothing, "endpointConfiguration": Nothing, "minimumCompressionSize": Nothing, "version": Nothing }
 
 
 
@@ -726,13 +725,13 @@ newtype CreateStageRequest = CreateStageRequest
   { "restApiId" :: (String)
   , "stageName" :: (String)
   , "deploymentId" :: (String)
-  , "description" :: NullOrUndefined (String)
-  , "cacheClusterEnabled" :: NullOrUndefined (Boolean)
-  , "cacheClusterSize" :: NullOrUndefined (CacheClusterSize)
-  , "variables" :: NullOrUndefined (MapOfStringToString)
-  , "documentationVersion" :: NullOrUndefined (String)
-  , "canarySettings" :: NullOrUndefined (CanarySettings)
-  , "tags" :: NullOrUndefined (MapOfStringToString)
+  , "description" :: Maybe (String)
+  , "cacheClusterEnabled" :: Maybe (Boolean)
+  , "cacheClusterSize" :: Maybe (CacheClusterSize)
+  , "variables" :: Maybe (MapOfStringToString)
+  , "documentationVersion" :: Maybe (String)
+  , "canarySettings" :: Maybe (CanarySettings)
+  , "tags" :: Maybe (MapOfStringToString)
   }
 derive instance newtypeCreateStageRequest :: Newtype CreateStageRequest _
 derive instance repGenericCreateStageRequest :: Generic CreateStageRequest _
@@ -742,12 +741,12 @@ instance encodeCreateStageRequest :: Encode CreateStageRequest where encode = ge
 
 -- | Constructs CreateStageRequest from required parameters
 newCreateStageRequest :: String -> String -> String -> CreateStageRequest
-newCreateStageRequest _deploymentId _restApiId _stageName = CreateStageRequest { "deploymentId": _deploymentId, "restApiId": _restApiId, "stageName": _stageName, "cacheClusterEnabled": (NullOrUndefined Nothing), "cacheClusterSize": (NullOrUndefined Nothing), "canarySettings": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "documentationVersion": (NullOrUndefined Nothing), "tags": (NullOrUndefined Nothing), "variables": (NullOrUndefined Nothing) }
+newCreateStageRequest _deploymentId _restApiId _stageName = CreateStageRequest { "deploymentId": _deploymentId, "restApiId": _restApiId, "stageName": _stageName, "cacheClusterEnabled": Nothing, "cacheClusterSize": Nothing, "canarySettings": Nothing, "description": Nothing, "documentationVersion": Nothing, "tags": Nothing, "variables": Nothing }
 
 -- | Constructs CreateStageRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateStageRequest' :: String -> String -> String -> ( { "restApiId" :: (String) , "stageName" :: (String) , "deploymentId" :: (String) , "description" :: NullOrUndefined (String) , "cacheClusterEnabled" :: NullOrUndefined (Boolean) , "cacheClusterSize" :: NullOrUndefined (CacheClusterSize) , "variables" :: NullOrUndefined (MapOfStringToString) , "documentationVersion" :: NullOrUndefined (String) , "canarySettings" :: NullOrUndefined (CanarySettings) , "tags" :: NullOrUndefined (MapOfStringToString) } -> {"restApiId" :: (String) , "stageName" :: (String) , "deploymentId" :: (String) , "description" :: NullOrUndefined (String) , "cacheClusterEnabled" :: NullOrUndefined (Boolean) , "cacheClusterSize" :: NullOrUndefined (CacheClusterSize) , "variables" :: NullOrUndefined (MapOfStringToString) , "documentationVersion" :: NullOrUndefined (String) , "canarySettings" :: NullOrUndefined (CanarySettings) , "tags" :: NullOrUndefined (MapOfStringToString) } ) -> CreateStageRequest
-newCreateStageRequest' _deploymentId _restApiId _stageName customize = (CreateStageRequest <<< customize) { "deploymentId": _deploymentId, "restApiId": _restApiId, "stageName": _stageName, "cacheClusterEnabled": (NullOrUndefined Nothing), "cacheClusterSize": (NullOrUndefined Nothing), "canarySettings": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "documentationVersion": (NullOrUndefined Nothing), "tags": (NullOrUndefined Nothing), "variables": (NullOrUndefined Nothing) }
+newCreateStageRequest' :: String -> String -> String -> ( { "restApiId" :: (String) , "stageName" :: (String) , "deploymentId" :: (String) , "description" :: Maybe (String) , "cacheClusterEnabled" :: Maybe (Boolean) , "cacheClusterSize" :: Maybe (CacheClusterSize) , "variables" :: Maybe (MapOfStringToString) , "documentationVersion" :: Maybe (String) , "canarySettings" :: Maybe (CanarySettings) , "tags" :: Maybe (MapOfStringToString) } -> {"restApiId" :: (String) , "stageName" :: (String) , "deploymentId" :: (String) , "description" :: Maybe (String) , "cacheClusterEnabled" :: Maybe (Boolean) , "cacheClusterSize" :: Maybe (CacheClusterSize) , "variables" :: Maybe (MapOfStringToString) , "documentationVersion" :: Maybe (String) , "canarySettings" :: Maybe (CanarySettings) , "tags" :: Maybe (MapOfStringToString) } ) -> CreateStageRequest
+newCreateStageRequest' _deploymentId _restApiId _stageName customize = (CreateStageRequest <<< customize) { "deploymentId": _deploymentId, "restApiId": _restApiId, "stageName": _stageName, "cacheClusterEnabled": Nothing, "cacheClusterSize": Nothing, "canarySettings": Nothing, "description": Nothing, "documentationVersion": Nothing, "tags": Nothing, "variables": Nothing }
 
 
 
@@ -777,10 +776,10 @@ newCreateUsagePlanKeyRequest' _keyId _keyType _usagePlanId customize = (CreateUs
 -- | <p>The POST request to create a usage plan with the name, description, throttle limits and quota limits, as well as the associated API stages, specified in the payload.</p>
 newtype CreateUsagePlanRequest = CreateUsagePlanRequest 
   { "name" :: (String)
-  , "description" :: NullOrUndefined (String)
-  , "apiStages" :: NullOrUndefined (ListOfApiStage)
-  , "throttle" :: NullOrUndefined (ThrottleSettings)
-  , "quota" :: NullOrUndefined (QuotaSettings)
+  , "description" :: Maybe (String)
+  , "apiStages" :: Maybe (ListOfApiStage)
+  , "throttle" :: Maybe (ThrottleSettings)
+  , "quota" :: Maybe (QuotaSettings)
   }
 derive instance newtypeCreateUsagePlanRequest :: Newtype CreateUsagePlanRequest _
 derive instance repGenericCreateUsagePlanRequest :: Generic CreateUsagePlanRequest _
@@ -790,19 +789,19 @@ instance encodeCreateUsagePlanRequest :: Encode CreateUsagePlanRequest where enc
 
 -- | Constructs CreateUsagePlanRequest from required parameters
 newCreateUsagePlanRequest :: String -> CreateUsagePlanRequest
-newCreateUsagePlanRequest _name = CreateUsagePlanRequest { "name": _name, "apiStages": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "quota": (NullOrUndefined Nothing), "throttle": (NullOrUndefined Nothing) }
+newCreateUsagePlanRequest _name = CreateUsagePlanRequest { "name": _name, "apiStages": Nothing, "description": Nothing, "quota": Nothing, "throttle": Nothing }
 
 -- | Constructs CreateUsagePlanRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateUsagePlanRequest' :: String -> ( { "name" :: (String) , "description" :: NullOrUndefined (String) , "apiStages" :: NullOrUndefined (ListOfApiStage) , "throttle" :: NullOrUndefined (ThrottleSettings) , "quota" :: NullOrUndefined (QuotaSettings) } -> {"name" :: (String) , "description" :: NullOrUndefined (String) , "apiStages" :: NullOrUndefined (ListOfApiStage) , "throttle" :: NullOrUndefined (ThrottleSettings) , "quota" :: NullOrUndefined (QuotaSettings) } ) -> CreateUsagePlanRequest
-newCreateUsagePlanRequest' _name customize = (CreateUsagePlanRequest <<< customize) { "name": _name, "apiStages": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "quota": (NullOrUndefined Nothing), "throttle": (NullOrUndefined Nothing) }
+newCreateUsagePlanRequest' :: String -> ( { "name" :: (String) , "description" :: Maybe (String) , "apiStages" :: Maybe (ListOfApiStage) , "throttle" :: Maybe (ThrottleSettings) , "quota" :: Maybe (QuotaSettings) } -> {"name" :: (String) , "description" :: Maybe (String) , "apiStages" :: Maybe (ListOfApiStage) , "throttle" :: Maybe (ThrottleSettings) , "quota" :: Maybe (QuotaSettings) } ) -> CreateUsagePlanRequest
+newCreateUsagePlanRequest' _name customize = (CreateUsagePlanRequest <<< customize) { "name": _name, "apiStages": Nothing, "description": Nothing, "quota": Nothing, "throttle": Nothing }
 
 
 
 -- | <p>Creates a VPC link, under the caller's account in a selected region, in an asynchronous operation that typically takes 2-4 minutes to complete and become operational. The caller must have permissions to create and update VPC Endpoint services.</p>
 newtype CreateVpcLinkRequest = CreateVpcLinkRequest 
   { "name" :: (String)
-  , "description" :: NullOrUndefined (String)
+  , "description" :: Maybe (String)
   , "targetArns" :: (ListOfString)
   }
 derive instance newtypeCreateVpcLinkRequest :: Newtype CreateVpcLinkRequest _
@@ -813,12 +812,12 @@ instance encodeCreateVpcLinkRequest :: Encode CreateVpcLinkRequest where encode 
 
 -- | Constructs CreateVpcLinkRequest from required parameters
 newCreateVpcLinkRequest :: String -> ListOfString -> CreateVpcLinkRequest
-newCreateVpcLinkRequest _name _targetArns = CreateVpcLinkRequest { "name": _name, "targetArns": _targetArns, "description": (NullOrUndefined Nothing) }
+newCreateVpcLinkRequest _name _targetArns = CreateVpcLinkRequest { "name": _name, "targetArns": _targetArns, "description": Nothing }
 
 -- | Constructs CreateVpcLinkRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateVpcLinkRequest' :: String -> ListOfString -> ( { "name" :: (String) , "description" :: NullOrUndefined (String) , "targetArns" :: (ListOfString) } -> {"name" :: (String) , "description" :: NullOrUndefined (String) , "targetArns" :: (ListOfString) } ) -> CreateVpcLinkRequest
-newCreateVpcLinkRequest' _name _targetArns customize = (CreateVpcLinkRequest <<< customize) { "name": _name, "targetArns": _targetArns, "description": (NullOrUndefined Nothing) }
+newCreateVpcLinkRequest' :: String -> ListOfString -> ( { "name" :: (String) , "description" :: Maybe (String) , "targetArns" :: (ListOfString) } -> {"name" :: (String) , "description" :: Maybe (String) , "targetArns" :: (ListOfString) } ) -> CreateVpcLinkRequest
+newCreateVpcLinkRequest' _name _targetArns customize = (CreateVpcLinkRequest <<< customize) { "name": _name, "targetArns": _targetArns, "description": Nothing }
 
 
 
@@ -1286,10 +1285,10 @@ newDeleteVpcLinkRequest' _vpcLinkId customize = (DeleteVpcLinkRequest <<< custom
 
 -- | <p>An immutable representation of a <a>RestApi</a> resource that can be called by users using <a>Stages</a>. A deployment must be associated with a <a>Stage</a> for it to be callable over the Internet.</p> <div class="remarks">To create a deployment, call <code>POST</code> on the <a>Deployments</a> resource of a <a>RestApi</a>. To view, update, or delete a deployment, call <code>GET</code>, <code>PATCH</code>, or <code>DELETE</code> on the specified deployment resource (<code>/restapis/{restapi_id}/deployments/{deployment_id}</code>).</div> <div class="seeAlso"><a>RestApi</a>, <a>Deployments</a>, <a>Stage</a>, <a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-deployment.html">AWS CLI</a>, <a href="https://aws.amazon.com/tools/">AWS SDKs</a> </div>
 newtype Deployment = Deployment 
-  { "id" :: NullOrUndefined (String)
-  , "description" :: NullOrUndefined (String)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
-  , "apiSummary" :: NullOrUndefined (PathToMapOfMethodSnapshot)
+  { "id" :: Maybe (String)
+  , "description" :: Maybe (String)
+  , "createdDate" :: Maybe (Types.Timestamp)
+  , "apiSummary" :: Maybe (PathToMapOfMethodSnapshot)
   }
 derive instance newtypeDeployment :: Newtype Deployment _
 derive instance repGenericDeployment :: Generic Deployment _
@@ -1299,20 +1298,20 @@ instance encodeDeployment :: Encode Deployment where encode = genericEncode opti
 
 -- | Constructs Deployment from required parameters
 newDeployment :: Deployment
-newDeployment  = Deployment { "apiSummary": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing) }
+newDeployment  = Deployment { "apiSummary": Nothing, "createdDate": Nothing, "description": Nothing, "id": Nothing }
 
 -- | Constructs Deployment's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeployment' :: ( { "id" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "apiSummary" :: NullOrUndefined (PathToMapOfMethodSnapshot) } -> {"id" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "apiSummary" :: NullOrUndefined (PathToMapOfMethodSnapshot) } ) -> Deployment
-newDeployment'  customize = (Deployment <<< customize) { "apiSummary": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing) }
+newDeployment' :: ( { "id" :: Maybe (String) , "description" :: Maybe (String) , "createdDate" :: Maybe (Types.Timestamp) , "apiSummary" :: Maybe (PathToMapOfMethodSnapshot) } -> {"id" :: Maybe (String) , "description" :: Maybe (String) , "createdDate" :: Maybe (Types.Timestamp) , "apiSummary" :: Maybe (PathToMapOfMethodSnapshot) } ) -> Deployment
+newDeployment'  customize = (Deployment <<< customize) { "apiSummary": Nothing, "createdDate": Nothing, "description": Nothing, "id": Nothing }
 
 
 
 -- | <p>The input configuration for a canary deployment.</p>
 newtype DeploymentCanarySettings = DeploymentCanarySettings 
-  { "percentTraffic" :: NullOrUndefined (Number)
-  , "stageVariableOverrides" :: NullOrUndefined (MapOfStringToString)
-  , "useStageCache" :: NullOrUndefined (Boolean)
+  { "percentTraffic" :: Maybe (Number)
+  , "stageVariableOverrides" :: Maybe (MapOfStringToString)
+  , "useStageCache" :: Maybe (Boolean)
   }
 derive instance newtypeDeploymentCanarySettings :: Newtype DeploymentCanarySettings _
 derive instance repGenericDeploymentCanarySettings :: Generic DeploymentCanarySettings _
@@ -1322,19 +1321,19 @@ instance encodeDeploymentCanarySettings :: Encode DeploymentCanarySettings where
 
 -- | Constructs DeploymentCanarySettings from required parameters
 newDeploymentCanarySettings :: DeploymentCanarySettings
-newDeploymentCanarySettings  = DeploymentCanarySettings { "percentTraffic": (NullOrUndefined Nothing), "stageVariableOverrides": (NullOrUndefined Nothing), "useStageCache": (NullOrUndefined Nothing) }
+newDeploymentCanarySettings  = DeploymentCanarySettings { "percentTraffic": Nothing, "stageVariableOverrides": Nothing, "useStageCache": Nothing }
 
 -- | Constructs DeploymentCanarySettings's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeploymentCanarySettings' :: ( { "percentTraffic" :: NullOrUndefined (Number) , "stageVariableOverrides" :: NullOrUndefined (MapOfStringToString) , "useStageCache" :: NullOrUndefined (Boolean) } -> {"percentTraffic" :: NullOrUndefined (Number) , "stageVariableOverrides" :: NullOrUndefined (MapOfStringToString) , "useStageCache" :: NullOrUndefined (Boolean) } ) -> DeploymentCanarySettings
-newDeploymentCanarySettings'  customize = (DeploymentCanarySettings <<< customize) { "percentTraffic": (NullOrUndefined Nothing), "stageVariableOverrides": (NullOrUndefined Nothing), "useStageCache": (NullOrUndefined Nothing) }
+newDeploymentCanarySettings' :: ( { "percentTraffic" :: Maybe (Number) , "stageVariableOverrides" :: Maybe (MapOfStringToString) , "useStageCache" :: Maybe (Boolean) } -> {"percentTraffic" :: Maybe (Number) , "stageVariableOverrides" :: Maybe (MapOfStringToString) , "useStageCache" :: Maybe (Boolean) } ) -> DeploymentCanarySettings
+newDeploymentCanarySettings'  customize = (DeploymentCanarySettings <<< customize) { "percentTraffic": Nothing, "stageVariableOverrides": Nothing, "useStageCache": Nothing }
 
 
 
 -- | <p>Represents a collection resource that contains zero or more references to your existing deployments, and links that guide you on how to interact with your collection. The collection offers a paginated view of the contained deployments.</p> <div class="remarks">To create a new deployment of a <a>RestApi</a>, make a <code>POST</code> request against this resource. To view, update, or delete an existing deployment, make a <code>GET</code>, <code>PATCH</code>, or <code>DELETE</code> request, respectively, on a specified <a>Deployment</a> resource.</div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html">Deploying an API</a>, <a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-deployment.html">AWS CLI</a>, <a href="https://aws.amazon.com/tools/">AWS SDKs</a> </div>
 newtype Deployments = Deployments 
-  { "position" :: NullOrUndefined (String)
-  , "items" :: NullOrUndefined (ListOfDeployment)
+  { "position" :: Maybe (String)
+  , "items" :: Maybe (ListOfDeployment)
   }
 derive instance newtypeDeployments :: Newtype Deployments _
 derive instance repGenericDeployments :: Generic Deployments _
@@ -1344,20 +1343,20 @@ instance encodeDeployments :: Encode Deployments where encode = genericEncode op
 
 -- | Constructs Deployments from required parameters
 newDeployments :: Deployments
-newDeployments  = Deployments { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newDeployments  = Deployments { "items": Nothing, "position": Nothing }
 
 -- | Constructs Deployments's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeployments' :: ( { "position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfDeployment) } -> {"position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfDeployment) } ) -> Deployments
-newDeployments'  customize = (Deployments <<< customize) { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newDeployments' :: ( { "position" :: Maybe (String) , "items" :: Maybe (ListOfDeployment) } -> {"position" :: Maybe (String) , "items" :: Maybe (ListOfDeployment) } ) -> Deployments
+newDeployments'  customize = (Deployments <<< customize) { "items": Nothing, "position": Nothing }
 
 
 
 -- | <p>A documentation part for a targeted API entity.</p> <div class="remarks"> <p>A documentation part consists of a content map (<code>properties</code>) and a target (<code>location</code>). The target specifies an API entity to which the documentation content applies. The supported API entity types are <code>API</code>, <code>AUTHORIZER</code>, <code>MODEL</code>, <code>RESOURCE</code>, <code>METHOD</code>, <code>PATH_PARAMETER</code>, <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>, <code>REQUEST_BODY</code>, <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and <code>RESPONSE_BODY</code>. Valid <code>location</code> fields depend on the API entity type. All valid fields are not required.</p> <p>The content map is a JSON string of API-specific key-value pairs. Although an API can use any shape for the content map, only the Swagger-compliant documentation fields will be injected into the associated API entity definition in the exported Swagger definition file.</p></div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an API</a>, <a>DocumentationParts</a> </div>
 newtype DocumentationPart = DocumentationPart 
-  { "id" :: NullOrUndefined (String)
-  , "location" :: NullOrUndefined (DocumentationPartLocation)
-  , "properties" :: NullOrUndefined (String)
+  { "id" :: Maybe (String)
+  , "location" :: Maybe (DocumentationPartLocation)
+  , "properties" :: Maybe (String)
   }
 derive instance newtypeDocumentationPart :: Newtype DocumentationPart _
 derive instance repGenericDocumentationPart :: Generic DocumentationPart _
@@ -1367,19 +1366,19 @@ instance encodeDocumentationPart :: Encode DocumentationPart where encode = gene
 
 -- | Constructs DocumentationPart from required parameters
 newDocumentationPart :: DocumentationPart
-newDocumentationPart  = DocumentationPart { "id": (NullOrUndefined Nothing), "location": (NullOrUndefined Nothing), "properties": (NullOrUndefined Nothing) }
+newDocumentationPart  = DocumentationPart { "id": Nothing, "location": Nothing, "properties": Nothing }
 
 -- | Constructs DocumentationPart's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDocumentationPart' :: ( { "id" :: NullOrUndefined (String) , "location" :: NullOrUndefined (DocumentationPartLocation) , "properties" :: NullOrUndefined (String) } -> {"id" :: NullOrUndefined (String) , "location" :: NullOrUndefined (DocumentationPartLocation) , "properties" :: NullOrUndefined (String) } ) -> DocumentationPart
-newDocumentationPart'  customize = (DocumentationPart <<< customize) { "id": (NullOrUndefined Nothing), "location": (NullOrUndefined Nothing), "properties": (NullOrUndefined Nothing) }
+newDocumentationPart' :: ( { "id" :: Maybe (String) , "location" :: Maybe (DocumentationPartLocation) , "properties" :: Maybe (String) } -> {"id" :: Maybe (String) , "location" :: Maybe (DocumentationPartLocation) , "properties" :: Maybe (String) } ) -> DocumentationPart
+newDocumentationPart'  customize = (DocumentationPart <<< customize) { "id": Nothing, "location": Nothing, "properties": Nothing }
 
 
 
 -- | <p>A collection of the imported <a>DocumentationPart</a> identifiers.</p> <div class="remarks">This is used to return the result when documentation parts in an external (e.g., Swagger) file are imported into API Gateway</div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an API</a>, <a href="http://docs.aws.amazon.com/apigateway/api-reference/link-relation/documentationpart-import/">documentationpart:import</a>, <a>DocumentationPart</a> </div>
 newtype DocumentationPartIds = DocumentationPartIds 
-  { "ids" :: NullOrUndefined (ListOfString)
-  , "warnings" :: NullOrUndefined (ListOfString)
+  { "ids" :: Maybe (ListOfString)
+  , "warnings" :: Maybe (ListOfString)
   }
 derive instance newtypeDocumentationPartIds :: Newtype DocumentationPartIds _
 derive instance repGenericDocumentationPartIds :: Generic DocumentationPartIds _
@@ -1389,22 +1388,22 @@ instance encodeDocumentationPartIds :: Encode DocumentationPartIds where encode 
 
 -- | Constructs DocumentationPartIds from required parameters
 newDocumentationPartIds :: DocumentationPartIds
-newDocumentationPartIds  = DocumentationPartIds { "ids": (NullOrUndefined Nothing), "warnings": (NullOrUndefined Nothing) }
+newDocumentationPartIds  = DocumentationPartIds { "ids": Nothing, "warnings": Nothing }
 
 -- | Constructs DocumentationPartIds's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDocumentationPartIds' :: ( { "ids" :: NullOrUndefined (ListOfString) , "warnings" :: NullOrUndefined (ListOfString) } -> {"ids" :: NullOrUndefined (ListOfString) , "warnings" :: NullOrUndefined (ListOfString) } ) -> DocumentationPartIds
-newDocumentationPartIds'  customize = (DocumentationPartIds <<< customize) { "ids": (NullOrUndefined Nothing), "warnings": (NullOrUndefined Nothing) }
+newDocumentationPartIds' :: ( { "ids" :: Maybe (ListOfString) , "warnings" :: Maybe (ListOfString) } -> {"ids" :: Maybe (ListOfString) , "warnings" :: Maybe (ListOfString) } ) -> DocumentationPartIds
+newDocumentationPartIds'  customize = (DocumentationPartIds <<< customize) { "ids": Nothing, "warnings": Nothing }
 
 
 
 -- | <p>Specifies the target API entity to which the documentation applies.</p>
 newtype DocumentationPartLocation = DocumentationPartLocation 
   { "type" :: (DocumentationPartType)
-  , "path" :: NullOrUndefined (String)
-  , "method" :: NullOrUndefined (String)
-  , "statusCode" :: NullOrUndefined (DocumentationPartLocationStatusCode)
-  , "name" :: NullOrUndefined (String)
+  , "path" :: Maybe (String)
+  , "method" :: Maybe (String)
+  , "statusCode" :: Maybe (DocumentationPartLocationStatusCode)
+  , "name" :: Maybe (String)
   }
 derive instance newtypeDocumentationPartLocation :: Newtype DocumentationPartLocation _
 derive instance repGenericDocumentationPartLocation :: Generic DocumentationPartLocation _
@@ -1414,12 +1413,12 @@ instance encodeDocumentationPartLocation :: Encode DocumentationPartLocation whe
 
 -- | Constructs DocumentationPartLocation from required parameters
 newDocumentationPartLocation :: DocumentationPartType -> DocumentationPartLocation
-newDocumentationPartLocation _type = DocumentationPartLocation { "type": _type, "method": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "path": (NullOrUndefined Nothing), "statusCode": (NullOrUndefined Nothing) }
+newDocumentationPartLocation _type = DocumentationPartLocation { "type": _type, "method": Nothing, "name": Nothing, "path": Nothing, "statusCode": Nothing }
 
 -- | Constructs DocumentationPartLocation's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDocumentationPartLocation' :: DocumentationPartType -> ( { "type" :: (DocumentationPartType) , "path" :: NullOrUndefined (String) , "method" :: NullOrUndefined (String) , "statusCode" :: NullOrUndefined (DocumentationPartLocationStatusCode) , "name" :: NullOrUndefined (String) } -> {"type" :: (DocumentationPartType) , "path" :: NullOrUndefined (String) , "method" :: NullOrUndefined (String) , "statusCode" :: NullOrUndefined (DocumentationPartLocationStatusCode) , "name" :: NullOrUndefined (String) } ) -> DocumentationPartLocation
-newDocumentationPartLocation' _type customize = (DocumentationPartLocation <<< customize) { "type": _type, "method": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "path": (NullOrUndefined Nothing), "statusCode": (NullOrUndefined Nothing) }
+newDocumentationPartLocation' :: DocumentationPartType -> ( { "type" :: (DocumentationPartType) , "path" :: Maybe (String) , "method" :: Maybe (String) , "statusCode" :: Maybe (DocumentationPartLocationStatusCode) , "name" :: Maybe (String) } -> {"type" :: (DocumentationPartType) , "path" :: Maybe (String) , "method" :: Maybe (String) , "statusCode" :: Maybe (DocumentationPartLocationStatusCode) , "name" :: Maybe (String) } ) -> DocumentationPartLocation
+newDocumentationPartLocation' _type customize = (DocumentationPartLocation <<< customize) { "type": _type, "method": Nothing, "name": Nothing, "path": Nothing, "statusCode": Nothing }
 
 
 
@@ -1443,8 +1442,8 @@ instance encodeDocumentationPartType :: Encode DocumentationPartType where encod
 
 -- | <p>The collection of documentation parts of an API.</p> <div class="remarks"/> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an API</a>, <a>DocumentationPart</a> </div>
 newtype DocumentationParts = DocumentationParts 
-  { "position" :: NullOrUndefined (String)
-  , "items" :: NullOrUndefined (ListOfDocumentationPart)
+  { "position" :: Maybe (String)
+  , "items" :: Maybe (ListOfDocumentationPart)
   }
 derive instance newtypeDocumentationParts :: Newtype DocumentationParts _
 derive instance repGenericDocumentationParts :: Generic DocumentationParts _
@@ -1454,20 +1453,20 @@ instance encodeDocumentationParts :: Encode DocumentationParts where encode = ge
 
 -- | Constructs DocumentationParts from required parameters
 newDocumentationParts :: DocumentationParts
-newDocumentationParts  = DocumentationParts { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newDocumentationParts  = DocumentationParts { "items": Nothing, "position": Nothing }
 
 -- | Constructs DocumentationParts's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDocumentationParts' :: ( { "position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfDocumentationPart) } -> {"position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfDocumentationPart) } ) -> DocumentationParts
-newDocumentationParts'  customize = (DocumentationParts <<< customize) { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newDocumentationParts' :: ( { "position" :: Maybe (String) , "items" :: Maybe (ListOfDocumentationPart) } -> {"position" :: Maybe (String) , "items" :: Maybe (ListOfDocumentationPart) } ) -> DocumentationParts
+newDocumentationParts'  customize = (DocumentationParts <<< customize) { "items": Nothing, "position": Nothing }
 
 
 
 -- | <p>A snapshot of the documentation of an API.</p> <div class="remarks"><p>Publishing API documentation involves creating a documentation version associated with an API stage and exporting the versioned documentation to an external (e.g., Swagger) file.</p></div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an API</a>, <a>DocumentationPart</a>, <a>DocumentationVersions</a> </div>
 newtype DocumentationVersion = DocumentationVersion 
-  { "version" :: NullOrUndefined (String)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
-  , "description" :: NullOrUndefined (String)
+  { "version" :: Maybe (String)
+  , "createdDate" :: Maybe (Types.Timestamp)
+  , "description" :: Maybe (String)
   }
 derive instance newtypeDocumentationVersion :: Newtype DocumentationVersion _
 derive instance repGenericDocumentationVersion :: Generic DocumentationVersion _
@@ -1477,19 +1476,19 @@ instance encodeDocumentationVersion :: Encode DocumentationVersion where encode 
 
 -- | Constructs DocumentationVersion from required parameters
 newDocumentationVersion :: DocumentationVersion
-newDocumentationVersion  = DocumentationVersion { "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newDocumentationVersion  = DocumentationVersion { "createdDate": Nothing, "description": Nothing, "version": Nothing }
 
 -- | Constructs DocumentationVersion's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDocumentationVersion' :: ( { "version" :: NullOrUndefined (String) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "description" :: NullOrUndefined (String) } -> {"version" :: NullOrUndefined (String) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "description" :: NullOrUndefined (String) } ) -> DocumentationVersion
-newDocumentationVersion'  customize = (DocumentationVersion <<< customize) { "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newDocumentationVersion' :: ( { "version" :: Maybe (String) , "createdDate" :: Maybe (Types.Timestamp) , "description" :: Maybe (String) } -> {"version" :: Maybe (String) , "createdDate" :: Maybe (Types.Timestamp) , "description" :: Maybe (String) } ) -> DocumentationVersion
+newDocumentationVersion'  customize = (DocumentationVersion <<< customize) { "createdDate": Nothing, "description": Nothing, "version": Nothing }
 
 
 
 -- | <p>The collection of documentation snapshots of an API. </p> <div class="remarks"><p>Use the <a>DocumentationVersions</a> to manage documentation snapshots associated with various API stages.</p></div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an API</a>, <a>DocumentationPart</a>, <a>DocumentationVersion</a> </div>
 newtype DocumentationVersions = DocumentationVersions 
-  { "position" :: NullOrUndefined (String)
-  , "items" :: NullOrUndefined (ListOfDocumentationVersion)
+  { "position" :: Maybe (String)
+  , "items" :: Maybe (ListOfDocumentationVersion)
   }
 derive instance newtypeDocumentationVersions :: Newtype DocumentationVersions _
 derive instance repGenericDocumentationVersions :: Generic DocumentationVersions _
@@ -1499,28 +1498,28 @@ instance encodeDocumentationVersions :: Encode DocumentationVersions where encod
 
 -- | Constructs DocumentationVersions from required parameters
 newDocumentationVersions :: DocumentationVersions
-newDocumentationVersions  = DocumentationVersions { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newDocumentationVersions  = DocumentationVersions { "items": Nothing, "position": Nothing }
 
 -- | Constructs DocumentationVersions's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDocumentationVersions' :: ( { "position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfDocumentationVersion) } -> {"position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfDocumentationVersion) } ) -> DocumentationVersions
-newDocumentationVersions'  customize = (DocumentationVersions <<< customize) { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newDocumentationVersions' :: ( { "position" :: Maybe (String) , "items" :: Maybe (ListOfDocumentationVersion) } -> {"position" :: Maybe (String) , "items" :: Maybe (ListOfDocumentationVersion) } ) -> DocumentationVersions
+newDocumentationVersions'  customize = (DocumentationVersions <<< customize) { "items": Nothing, "position": Nothing }
 
 
 
 -- | <p>Represents a custom domain name as a user-friendly host name of an API (<a>RestApi</a>).</p> <div class="Remarks"> <p>When you deploy an API, API Gateway creates a default host name for the API. This default API host name is of the <code>{restapi-id}.execute-api.{region}.amazonaws.com</code> format. With the default host name, you can access the API's root resource with the URL of <code>https://{restapi-id}.execute-api.{region}.amazonaws.com/{stage}/</code>. When you set up a custom domain name of <code>apis.example.com</code> for this API, you can then access the same resource using the URL of the <code>https://apis.examples.com/myApi</code>, where <code>myApi</code> is the base path mapping (<a>BasePathMapping</a>) of your API under the custom domain name. </p> </div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html">Set a Custom Host Name for an API</a> </div>
 newtype DomainName = DomainName 
-  { "domainName" :: NullOrUndefined (String)
-  , "certificateName" :: NullOrUndefined (String)
-  , "certificateArn" :: NullOrUndefined (String)
-  , "certificateUploadDate" :: NullOrUndefined (Types.Timestamp)
-  , "regionalDomainName" :: NullOrUndefined (String)
-  , "regionalHostedZoneId" :: NullOrUndefined (String)
-  , "regionalCertificateName" :: NullOrUndefined (String)
-  , "regionalCertificateArn" :: NullOrUndefined (String)
-  , "distributionDomainName" :: NullOrUndefined (String)
-  , "distributionHostedZoneId" :: NullOrUndefined (String)
-  , "endpointConfiguration" :: NullOrUndefined (EndpointConfiguration)
+  { "domainName" :: Maybe (String)
+  , "certificateName" :: Maybe (String)
+  , "certificateArn" :: Maybe (String)
+  , "certificateUploadDate" :: Maybe (Types.Timestamp)
+  , "regionalDomainName" :: Maybe (String)
+  , "regionalHostedZoneId" :: Maybe (String)
+  , "regionalCertificateName" :: Maybe (String)
+  , "regionalCertificateArn" :: Maybe (String)
+  , "distributionDomainName" :: Maybe (String)
+  , "distributionHostedZoneId" :: Maybe (String)
+  , "endpointConfiguration" :: Maybe (EndpointConfiguration)
   }
 derive instance newtypeDomainName :: Newtype DomainName _
 derive instance repGenericDomainName :: Generic DomainName _
@@ -1530,19 +1529,19 @@ instance encodeDomainName :: Encode DomainName where encode = genericEncode opti
 
 -- | Constructs DomainName from required parameters
 newDomainName :: DomainName
-newDomainName  = DomainName { "certificateArn": (NullOrUndefined Nothing), "certificateName": (NullOrUndefined Nothing), "certificateUploadDate": (NullOrUndefined Nothing), "distributionDomainName": (NullOrUndefined Nothing), "distributionHostedZoneId": (NullOrUndefined Nothing), "domainName": (NullOrUndefined Nothing), "endpointConfiguration": (NullOrUndefined Nothing), "regionalCertificateArn": (NullOrUndefined Nothing), "regionalCertificateName": (NullOrUndefined Nothing), "regionalDomainName": (NullOrUndefined Nothing), "regionalHostedZoneId": (NullOrUndefined Nothing) }
+newDomainName  = DomainName { "certificateArn": Nothing, "certificateName": Nothing, "certificateUploadDate": Nothing, "distributionDomainName": Nothing, "distributionHostedZoneId": Nothing, "domainName": Nothing, "endpointConfiguration": Nothing, "regionalCertificateArn": Nothing, "regionalCertificateName": Nothing, "regionalDomainName": Nothing, "regionalHostedZoneId": Nothing }
 
 -- | Constructs DomainName's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDomainName' :: ( { "domainName" :: NullOrUndefined (String) , "certificateName" :: NullOrUndefined (String) , "certificateArn" :: NullOrUndefined (String) , "certificateUploadDate" :: NullOrUndefined (Types.Timestamp) , "regionalDomainName" :: NullOrUndefined (String) , "regionalHostedZoneId" :: NullOrUndefined (String) , "regionalCertificateName" :: NullOrUndefined (String) , "regionalCertificateArn" :: NullOrUndefined (String) , "distributionDomainName" :: NullOrUndefined (String) , "distributionHostedZoneId" :: NullOrUndefined (String) , "endpointConfiguration" :: NullOrUndefined (EndpointConfiguration) } -> {"domainName" :: NullOrUndefined (String) , "certificateName" :: NullOrUndefined (String) , "certificateArn" :: NullOrUndefined (String) , "certificateUploadDate" :: NullOrUndefined (Types.Timestamp) , "regionalDomainName" :: NullOrUndefined (String) , "regionalHostedZoneId" :: NullOrUndefined (String) , "regionalCertificateName" :: NullOrUndefined (String) , "regionalCertificateArn" :: NullOrUndefined (String) , "distributionDomainName" :: NullOrUndefined (String) , "distributionHostedZoneId" :: NullOrUndefined (String) , "endpointConfiguration" :: NullOrUndefined (EndpointConfiguration) } ) -> DomainName
-newDomainName'  customize = (DomainName <<< customize) { "certificateArn": (NullOrUndefined Nothing), "certificateName": (NullOrUndefined Nothing), "certificateUploadDate": (NullOrUndefined Nothing), "distributionDomainName": (NullOrUndefined Nothing), "distributionHostedZoneId": (NullOrUndefined Nothing), "domainName": (NullOrUndefined Nothing), "endpointConfiguration": (NullOrUndefined Nothing), "regionalCertificateArn": (NullOrUndefined Nothing), "regionalCertificateName": (NullOrUndefined Nothing), "regionalDomainName": (NullOrUndefined Nothing), "regionalHostedZoneId": (NullOrUndefined Nothing) }
+newDomainName' :: ( { "domainName" :: Maybe (String) , "certificateName" :: Maybe (String) , "certificateArn" :: Maybe (String) , "certificateUploadDate" :: Maybe (Types.Timestamp) , "regionalDomainName" :: Maybe (String) , "regionalHostedZoneId" :: Maybe (String) , "regionalCertificateName" :: Maybe (String) , "regionalCertificateArn" :: Maybe (String) , "distributionDomainName" :: Maybe (String) , "distributionHostedZoneId" :: Maybe (String) , "endpointConfiguration" :: Maybe (EndpointConfiguration) } -> {"domainName" :: Maybe (String) , "certificateName" :: Maybe (String) , "certificateArn" :: Maybe (String) , "certificateUploadDate" :: Maybe (Types.Timestamp) , "regionalDomainName" :: Maybe (String) , "regionalHostedZoneId" :: Maybe (String) , "regionalCertificateName" :: Maybe (String) , "regionalCertificateArn" :: Maybe (String) , "distributionDomainName" :: Maybe (String) , "distributionHostedZoneId" :: Maybe (String) , "endpointConfiguration" :: Maybe (EndpointConfiguration) } ) -> DomainName
+newDomainName'  customize = (DomainName <<< customize) { "certificateArn": Nothing, "certificateName": Nothing, "certificateUploadDate": Nothing, "distributionDomainName": Nothing, "distributionHostedZoneId": Nothing, "domainName": Nothing, "endpointConfiguration": Nothing, "regionalCertificateArn": Nothing, "regionalCertificateName": Nothing, "regionalDomainName": Nothing, "regionalHostedZoneId": Nothing }
 
 
 
 -- | <p>Represents a collection of <a>DomainName</a> resources.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html">Use Client-Side Certificate</a> </div>
 newtype DomainNames = DomainNames 
-  { "position" :: NullOrUndefined (String)
-  , "items" :: NullOrUndefined (ListOfDomainName)
+  { "position" :: Maybe (String)
+  , "items" :: Maybe (ListOfDomainName)
   }
 derive instance newtypeDomainNames :: Newtype DomainNames _
 derive instance repGenericDomainNames :: Generic DomainNames _
@@ -1552,18 +1551,18 @@ instance encodeDomainNames :: Encode DomainNames where encode = genericEncode op
 
 -- | Constructs DomainNames from required parameters
 newDomainNames :: DomainNames
-newDomainNames  = DomainNames { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newDomainNames  = DomainNames { "items": Nothing, "position": Nothing }
 
 -- | Constructs DomainNames's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDomainNames' :: ( { "position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfDomainName) } -> {"position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfDomainName) } ) -> DomainNames
-newDomainNames'  customize = (DomainNames <<< customize) { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newDomainNames' :: ( { "position" :: Maybe (String) , "items" :: Maybe (ListOfDomainName) } -> {"position" :: Maybe (String) , "items" :: Maybe (ListOfDomainName) } ) -> DomainNames
+newDomainNames'  customize = (DomainNames <<< customize) { "items": Nothing, "position": Nothing }
 
 
 
 -- | <p>The endpoint configuration to indicate the types of endpoints an API (<a>RestApi</a>) or its custom domain name (<a>DomainName</a>) has. </p>
 newtype EndpointConfiguration = EndpointConfiguration 
-  { "types" :: NullOrUndefined (ListOfEndpointType)
+  { "types" :: Maybe (ListOfEndpointType)
   }
 derive instance newtypeEndpointConfiguration :: Newtype EndpointConfiguration _
 derive instance repGenericEndpointConfiguration :: Generic EndpointConfiguration _
@@ -1573,12 +1572,12 @@ instance encodeEndpointConfiguration :: Encode EndpointConfiguration where encod
 
 -- | Constructs EndpointConfiguration from required parameters
 newEndpointConfiguration :: EndpointConfiguration
-newEndpointConfiguration  = EndpointConfiguration { "types": (NullOrUndefined Nothing) }
+newEndpointConfiguration  = EndpointConfiguration { "types": Nothing }
 
 -- | Constructs EndpointConfiguration's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEndpointConfiguration' :: ( { "types" :: NullOrUndefined (ListOfEndpointType) } -> {"types" :: NullOrUndefined (ListOfEndpointType) } ) -> EndpointConfiguration
-newEndpointConfiguration'  customize = (EndpointConfiguration <<< customize) { "types": (NullOrUndefined Nothing) }
+newEndpointConfiguration' :: ( { "types" :: Maybe (ListOfEndpointType) } -> {"types" :: Maybe (ListOfEndpointType) } ) -> EndpointConfiguration
+newEndpointConfiguration'  customize = (EndpointConfiguration <<< customize) { "types": Nothing }
 
 
 
@@ -1594,9 +1593,9 @@ instance encodeEndpointType :: Encode EndpointType where encode = genericEncode 
 
 -- | <p>The binary blob response to <a>GetExport</a>, which contains the generated SDK.</p>
 newtype ExportResponse = ExportResponse 
-  { "contentType" :: NullOrUndefined (String)
-  , "contentDisposition" :: NullOrUndefined (String)
-  , "body" :: NullOrUndefined (String)
+  { "contentType" :: Maybe (String)
+  , "contentDisposition" :: Maybe (String)
+  , "body" :: Maybe (String)
   }
 derive instance newtypeExportResponse :: Newtype ExportResponse _
 derive instance repGenericExportResponse :: Generic ExportResponse _
@@ -1606,12 +1605,12 @@ instance encodeExportResponse :: Encode ExportResponse where encode = genericEnc
 
 -- | Constructs ExportResponse from required parameters
 newExportResponse :: ExportResponse
-newExportResponse  = ExportResponse { "body": (NullOrUndefined Nothing), "contentDisposition": (NullOrUndefined Nothing), "contentType": (NullOrUndefined Nothing) }
+newExportResponse  = ExportResponse { "body": Nothing, "contentDisposition": Nothing, "contentType": Nothing }
 
 -- | Constructs ExportResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newExportResponse' :: ( { "contentType" :: NullOrUndefined (String) , "contentDisposition" :: NullOrUndefined (String) , "body" :: NullOrUndefined (String) } -> {"contentType" :: NullOrUndefined (String) , "contentDisposition" :: NullOrUndefined (String) , "body" :: NullOrUndefined (String) } ) -> ExportResponse
-newExportResponse'  customize = (ExportResponse <<< customize) { "body": (NullOrUndefined Nothing), "contentDisposition": (NullOrUndefined Nothing), "contentType": (NullOrUndefined Nothing) }
+newExportResponse' :: ( { "contentType" :: Maybe (String) , "contentDisposition" :: Maybe (String) , "body" :: Maybe (String) } -> {"contentType" :: Maybe (String) , "contentDisposition" :: Maybe (String) , "body" :: Maybe (String) } ) -> ExportResponse
+newExportResponse'  customize = (ExportResponse <<< customize) { "body": Nothing, "contentDisposition": Nothing, "contentType": Nothing }
 
 
 
@@ -1661,11 +1660,11 @@ newFlushStageCacheRequest' _restApiId _stageName customize = (FlushStageCacheReq
 
 -- | <p>A gateway response of a given response type and status code, with optional response parameters and mapping templates.</p> <div class="remarks"> For more information about valid gateway response types, see <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html">Gateway Response Types Supported by API Gateway</a> <div class="example"> <h4>Example: Get a Gateway Response of a given response type</h4> <h5>Request</h5> <p>This example shows how to get a gateway response of the <code>MISSING_AUTHENTICATION_TOKEN</code> type.</p> <pre><code>GET /restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN HTTP/1.1 Host: beta-apigateway.us-east-1.amazonaws.com Content-Type: application/json X-Amz-Date: 20170503T202516Z Authorization: AWS4-HMAC-SHA256 Credential={access-key-id}/20170503/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature=1b52460e3159c1a26cff29093855d50ea141c1c5b937528fecaf60f51129697a Cache-Control: no-cache Postman-Token: 3b2a1ce9-c848-2e26-2e2f-9c2caefbed45 </code></pre> <p>The response type is specified as a URL path.</p> <h5>Response</h5> <p>The successful operation returns the <code>200 OK</code> status code and a payload similar to the following:</p> <pre><code>{ "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-gatewayresponse-{rel}.html", "name": "gatewayresponse", "templated": true }, "self": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, "gatewayresponse:delete": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" } }, "defaultResponse": false, "responseParameters": { "gatewayresponse.header.x-request-path": "method.request.path.petId", "gatewayresponse.header.Access-Control-Allow-Origin": "&apos;a.b.c&apos;", "gatewayresponse.header.x-request-query": "method.request.querystring.q", "gatewayresponse.header.x-request-header": "method.request.header.Accept" }, "responseTemplates": { "application/json": "{\n \"message\": $context.error.messageString,\n \"type\": \"$context.error.responseType\",\n \"stage\": \"$context.stage\",\n \"resourcePath\": \"$context.resourcePath\",\n \"stageVariables.a\": \"$stageVariables.a\",\n \"statusCode\": \"&apos;404&apos;\"\n}" }, "responseType": "MISSING_AUTHENTICATION_TOKEN", "statusCode": "404" }</code></pre> <p></p> </div> </div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html">Customize Gateway Responses</a> </div>
 newtype GatewayResponse = GatewayResponse 
-  { "responseType" :: NullOrUndefined (GatewayResponseType)
-  , "statusCode" :: NullOrUndefined (StatusCode)
-  , "responseParameters" :: NullOrUndefined (MapOfStringToString)
-  , "responseTemplates" :: NullOrUndefined (MapOfStringToString)
-  , "defaultResponse" :: NullOrUndefined (Boolean)
+  { "responseType" :: Maybe (GatewayResponseType)
+  , "statusCode" :: Maybe (StatusCode)
+  , "responseParameters" :: Maybe (MapOfStringToString)
+  , "responseTemplates" :: Maybe (MapOfStringToString)
+  , "defaultResponse" :: Maybe (Boolean)
   }
 derive instance newtypeGatewayResponse :: Newtype GatewayResponse _
 derive instance repGenericGatewayResponse :: Generic GatewayResponse _
@@ -1675,12 +1674,12 @@ instance encodeGatewayResponse :: Encode GatewayResponse where encode = genericE
 
 -- | Constructs GatewayResponse from required parameters
 newGatewayResponse :: GatewayResponse
-newGatewayResponse  = GatewayResponse { "defaultResponse": (NullOrUndefined Nothing), "responseParameters": (NullOrUndefined Nothing), "responseTemplates": (NullOrUndefined Nothing), "responseType": (NullOrUndefined Nothing), "statusCode": (NullOrUndefined Nothing) }
+newGatewayResponse  = GatewayResponse { "defaultResponse": Nothing, "responseParameters": Nothing, "responseTemplates": Nothing, "responseType": Nothing, "statusCode": Nothing }
 
 -- | Constructs GatewayResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGatewayResponse' :: ( { "responseType" :: NullOrUndefined (GatewayResponseType) , "statusCode" :: NullOrUndefined (StatusCode) , "responseParameters" :: NullOrUndefined (MapOfStringToString) , "responseTemplates" :: NullOrUndefined (MapOfStringToString) , "defaultResponse" :: NullOrUndefined (Boolean) } -> {"responseType" :: NullOrUndefined (GatewayResponseType) , "statusCode" :: NullOrUndefined (StatusCode) , "responseParameters" :: NullOrUndefined (MapOfStringToString) , "responseTemplates" :: NullOrUndefined (MapOfStringToString) , "defaultResponse" :: NullOrUndefined (Boolean) } ) -> GatewayResponse
-newGatewayResponse'  customize = (GatewayResponse <<< customize) { "defaultResponse": (NullOrUndefined Nothing), "responseParameters": (NullOrUndefined Nothing), "responseTemplates": (NullOrUndefined Nothing), "responseType": (NullOrUndefined Nothing), "statusCode": (NullOrUndefined Nothing) }
+newGatewayResponse' :: ( { "responseType" :: Maybe (GatewayResponseType) , "statusCode" :: Maybe (StatusCode) , "responseParameters" :: Maybe (MapOfStringToString) , "responseTemplates" :: Maybe (MapOfStringToString) , "defaultResponse" :: Maybe (Boolean) } -> {"responseType" :: Maybe (GatewayResponseType) , "statusCode" :: Maybe (StatusCode) , "responseParameters" :: Maybe (MapOfStringToString) , "responseTemplates" :: Maybe (MapOfStringToString) , "defaultResponse" :: Maybe (Boolean) } ) -> GatewayResponse
+newGatewayResponse'  customize = (GatewayResponse <<< customize) { "defaultResponse": Nothing, "responseParameters": Nothing, "responseTemplates": Nothing, "responseType": Nothing, "statusCode": Nothing }
 
 
 
@@ -1695,8 +1694,8 @@ instance encodeGatewayResponseType :: Encode GatewayResponseType where encode = 
 
 -- | <p>The collection of the <a>GatewayResponse</a> instances of a <a>RestApi</a> as a <code>responseType</code>-to-<a>GatewayResponse</a> object map of key-value pairs. As such, pagination is not supported for querying this collection.</p> <div class="remarks"> For more information about valid gateway response types, see <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html">Gateway Response Types Supported by API Gateway</a> <div class="example"> <h4>Example: Get the collection of gateway responses of an API</h4> <h5>Request</h5> <p>This example request shows how to retrieve the <a>GatewayResponses</a> collection from an API.</p> <pre><code>GET /restapis/o81lxisefl/gatewayresponses HTTP/1.1 Host: beta-apigateway.us-east-1.amazonaws.com Content-Type: application/json X-Amz-Date: 20170503T220604Z Authorization: AWS4-HMAC-SHA256 Credential={access-key-id}/20170503/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature=59b42fe54a76a5de8adf2c67baa6d39206f8e9ad49a1d77ccc6a5da3103a398a Cache-Control: no-cache Postman-Token: 5637af27-dc29-fc5c-9dfe-0645d52cb515 </code></pre> <p></p> <h5>Response</h5> <p>The successful operation returns the <code>200 OK</code> status code and a payload similar to the following:</p> <pre><code>{ "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-gatewayresponse-{rel}.html", "name": "gatewayresponse", "templated": true }, "self": { "href": "/restapis/o81lxisefl/gatewayresponses" }, "first": { "href": "/restapis/o81lxisefl/gatewayresponses" }, "gatewayresponse:by-type": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "item": [ { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_FAILURE" }, { "href": "/restapis/o81lxisefl/gatewayresponses/RESOURCE_NOT_FOUND" }, { "href": "/restapis/o81lxisefl/gatewayresponses/REQUEST_TOO_LARGE" }, { "href": "/restapis/o81lxisefl/gatewayresponses/THROTTLED" }, { "href": "/restapis/o81lxisefl/gatewayresponses/UNSUPPORTED_MEDIA_TYPE" }, { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_CONFIGURATION_ERROR" }, { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_5XX" }, { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_4XX" }, { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_PARAMETERS" }, { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_BODY" }, { "href": "/restapis/o81lxisefl/gatewayresponses/EXPIRED_TOKEN" }, { "href": "/restapis/o81lxisefl/gatewayresponses/ACCESS_DENIED" }, { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_API_KEY" }, { "href": "/restapis/o81lxisefl/gatewayresponses/UNAUTHORIZED" }, { "href": "/restapis/o81lxisefl/gatewayresponses/API_CONFIGURATION_ERROR" }, { "href": "/restapis/o81lxisefl/gatewayresponses/QUOTA_EXCEEDED" }, { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_TIMEOUT" }, { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_SIGNATURE" }, { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_FAILURE" } ] }, "_embedded": { "item": [ { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_FAILURE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_FAILURE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "INTEGRATION_FAILURE", "statusCode": "504" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/RESOURCE_NOT_FOUND" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/RESOURCE_NOT_FOUND" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "RESOURCE_NOT_FOUND", "statusCode": "404" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/REQUEST_TOO_LARGE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/REQUEST_TOO_LARGE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "REQUEST_TOO_LARGE", "statusCode": "413" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/THROTTLED" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/THROTTLED" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "THROTTLED", "statusCode": "429" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/UNSUPPORTED_MEDIA_TYPE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/UNSUPPORTED_MEDIA_TYPE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "UNSUPPORTED_MEDIA_TYPE", "statusCode": "415" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_CONFIGURATION_ERROR" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_CONFIGURATION_ERROR" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "AUTHORIZER_CONFIGURATION_ERROR", "statusCode": "500" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_5XX" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_5XX" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "DEFAULT_5XX" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_4XX" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_4XX" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "DEFAULT_4XX" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_PARAMETERS" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_PARAMETERS" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "BAD_REQUEST_PARAMETERS", "statusCode": "400" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_BODY" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_BODY" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "BAD_REQUEST_BODY", "statusCode": "400" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/EXPIRED_TOKEN" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/EXPIRED_TOKEN" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "EXPIRED_TOKEN", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/ACCESS_DENIED" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/ACCESS_DENIED" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "ACCESS_DENIED", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_API_KEY" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_API_KEY" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "INVALID_API_KEY", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/UNAUTHORIZED" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/UNAUTHORIZED" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "UNAUTHORIZED", "statusCode": "401" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/API_CONFIGURATION_ERROR" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/API_CONFIGURATION_ERROR" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "API_CONFIGURATION_ERROR", "statusCode": "500" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/QUOTA_EXCEEDED" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/QUOTA_EXCEEDED" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "QUOTA_EXCEEDED", "statusCode": "429" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_TIMEOUT" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_TIMEOUT" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "INTEGRATION_TIMEOUT", "statusCode": "504" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "MISSING_AUTHENTICATION_TOKEN", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_SIGNATURE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_SIGNATURE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "INVALID_SIGNATURE", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_FAILURE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_FAILURE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "AUTHORIZER_FAILURE", "statusCode": "500" } ] } }</code></pre> <p></p> </div> </div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html">Customize Gateway Responses</a> </div>
 newtype GatewayResponses = GatewayResponses 
-  { "position" :: NullOrUndefined (String)
-  , "items" :: NullOrUndefined (ListOfGatewayResponse)
+  { "position" :: Maybe (String)
+  , "items" :: Maybe (ListOfGatewayResponse)
   }
 derive instance newtypeGatewayResponses :: Newtype GatewayResponses _
 derive instance repGenericGatewayResponses :: Generic GatewayResponses _
@@ -1706,18 +1705,18 @@ instance encodeGatewayResponses :: Encode GatewayResponses where encode = generi
 
 -- | Constructs GatewayResponses from required parameters
 newGatewayResponses :: GatewayResponses
-newGatewayResponses  = GatewayResponses { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGatewayResponses  = GatewayResponses { "items": Nothing, "position": Nothing }
 
 -- | Constructs GatewayResponses's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGatewayResponses' :: ( { "position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfGatewayResponse) } -> {"position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfGatewayResponse) } ) -> GatewayResponses
-newGatewayResponses'  customize = (GatewayResponses <<< customize) { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGatewayResponses' :: ( { "position" :: Maybe (String) , "items" :: Maybe (ListOfGatewayResponse) } -> {"position" :: Maybe (String) , "items" :: Maybe (ListOfGatewayResponse) } ) -> GatewayResponses
+newGatewayResponses'  customize = (GatewayResponses <<< customize) { "items": Nothing, "position": Nothing }
 
 
 
 -- | <p>A request to generate a <a>ClientCertificate</a> resource.</p>
 newtype GenerateClientCertificateRequest = GenerateClientCertificateRequest 
-  { "description" :: NullOrUndefined (String)
+  { "description" :: Maybe (String)
   }
 derive instance newtypeGenerateClientCertificateRequest :: Newtype GenerateClientCertificateRequest _
 derive instance repGenericGenerateClientCertificateRequest :: Generic GenerateClientCertificateRequest _
@@ -1727,12 +1726,12 @@ instance encodeGenerateClientCertificateRequest :: Encode GenerateClientCertific
 
 -- | Constructs GenerateClientCertificateRequest from required parameters
 newGenerateClientCertificateRequest :: GenerateClientCertificateRequest
-newGenerateClientCertificateRequest  = GenerateClientCertificateRequest { "description": (NullOrUndefined Nothing) }
+newGenerateClientCertificateRequest  = GenerateClientCertificateRequest { "description": Nothing }
 
 -- | Constructs GenerateClientCertificateRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGenerateClientCertificateRequest' :: ( { "description" :: NullOrUndefined (String) } -> {"description" :: NullOrUndefined (String) } ) -> GenerateClientCertificateRequest
-newGenerateClientCertificateRequest'  customize = (GenerateClientCertificateRequest <<< customize) { "description": (NullOrUndefined Nothing) }
+newGenerateClientCertificateRequest' :: ( { "description" :: Maybe (String) } -> {"description" :: Maybe (String) } ) -> GenerateClientCertificateRequest
+newGenerateClientCertificateRequest'  customize = (GenerateClientCertificateRequest <<< customize) { "description": Nothing }
 
 
 
@@ -1749,7 +1748,7 @@ instance encodeGetAccountRequest :: Encode GetAccountRequest where encode = gene
 -- | <p>A request to get information about the current <a>ApiKey</a> resource.</p>
 newtype GetApiKeyRequest = GetApiKeyRequest 
   { "apiKey" :: (String)
-  , "includeValue" :: NullOrUndefined (NullableBoolean)
+  , "includeValue" :: Maybe (NullableBoolean)
   }
 derive instance newtypeGetApiKeyRequest :: Newtype GetApiKeyRequest _
 derive instance repGenericGetApiKeyRequest :: Generic GetApiKeyRequest _
@@ -1759,22 +1758,22 @@ instance encodeGetApiKeyRequest :: Encode GetApiKeyRequest where encode = generi
 
 -- | Constructs GetApiKeyRequest from required parameters
 newGetApiKeyRequest :: String -> GetApiKeyRequest
-newGetApiKeyRequest _apiKey = GetApiKeyRequest { "apiKey": _apiKey, "includeValue": (NullOrUndefined Nothing) }
+newGetApiKeyRequest _apiKey = GetApiKeyRequest { "apiKey": _apiKey, "includeValue": Nothing }
 
 -- | Constructs GetApiKeyRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetApiKeyRequest' :: String -> ( { "apiKey" :: (String) , "includeValue" :: NullOrUndefined (NullableBoolean) } -> {"apiKey" :: (String) , "includeValue" :: NullOrUndefined (NullableBoolean) } ) -> GetApiKeyRequest
-newGetApiKeyRequest' _apiKey customize = (GetApiKeyRequest <<< customize) { "apiKey": _apiKey, "includeValue": (NullOrUndefined Nothing) }
+newGetApiKeyRequest' :: String -> ( { "apiKey" :: (String) , "includeValue" :: Maybe (NullableBoolean) } -> {"apiKey" :: (String) , "includeValue" :: Maybe (NullableBoolean) } ) -> GetApiKeyRequest
+newGetApiKeyRequest' _apiKey customize = (GetApiKeyRequest <<< customize) { "apiKey": _apiKey, "includeValue": Nothing }
 
 
 
 -- | <p>A request to get information about the current <a>ApiKeys</a> resource.</p>
 newtype GetApiKeysRequest = GetApiKeysRequest 
-  { "position" :: NullOrUndefined (String)
-  , "limit" :: NullOrUndefined (NullableInteger)
-  , "nameQuery" :: NullOrUndefined (String)
-  , "customerId" :: NullOrUndefined (String)
-  , "includeValues" :: NullOrUndefined (NullableBoolean)
+  { "position" :: Maybe (String)
+  , "limit" :: Maybe (NullableInteger)
+  , "nameQuery" :: Maybe (String)
+  , "customerId" :: Maybe (String)
+  , "includeValues" :: Maybe (NullableBoolean)
   }
 derive instance newtypeGetApiKeysRequest :: Newtype GetApiKeysRequest _
 derive instance repGenericGetApiKeysRequest :: Generic GetApiKeysRequest _
@@ -1784,12 +1783,12 @@ instance encodeGetApiKeysRequest :: Encode GetApiKeysRequest where encode = gene
 
 -- | Constructs GetApiKeysRequest from required parameters
 newGetApiKeysRequest :: GetApiKeysRequest
-newGetApiKeysRequest  = GetApiKeysRequest { "customerId": (NullOrUndefined Nothing), "includeValues": (NullOrUndefined Nothing), "limit": (NullOrUndefined Nothing), "nameQuery": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetApiKeysRequest  = GetApiKeysRequest { "customerId": Nothing, "includeValues": Nothing, "limit": Nothing, "nameQuery": Nothing, "position": Nothing }
 
 -- | Constructs GetApiKeysRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetApiKeysRequest' :: ( { "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) , "nameQuery" :: NullOrUndefined (String) , "customerId" :: NullOrUndefined (String) , "includeValues" :: NullOrUndefined (NullableBoolean) } -> {"position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) , "nameQuery" :: NullOrUndefined (String) , "customerId" :: NullOrUndefined (String) , "includeValues" :: NullOrUndefined (NullableBoolean) } ) -> GetApiKeysRequest
-newGetApiKeysRequest'  customize = (GetApiKeysRequest <<< customize) { "customerId": (NullOrUndefined Nothing), "includeValues": (NullOrUndefined Nothing), "limit": (NullOrUndefined Nothing), "nameQuery": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetApiKeysRequest' :: ( { "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) , "nameQuery" :: Maybe (String) , "customerId" :: Maybe (String) , "includeValues" :: Maybe (NullableBoolean) } -> {"position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) , "nameQuery" :: Maybe (String) , "customerId" :: Maybe (String) , "includeValues" :: Maybe (NullableBoolean) } ) -> GetApiKeysRequest
+newGetApiKeysRequest'  customize = (GetApiKeysRequest <<< customize) { "customerId": Nothing, "includeValues": Nothing, "limit": Nothing, "nameQuery": Nothing, "position": Nothing }
 
 
 
@@ -1818,8 +1817,8 @@ newGetAuthorizerRequest' _authorizerId _restApiId customize = (GetAuthorizerRequ
 -- | <p>Request to describe an existing <a>Authorizers</a> resource.</p>
 newtype GetAuthorizersRequest = GetAuthorizersRequest 
   { "restApiId" :: (String)
-  , "position" :: NullOrUndefined (String)
-  , "limit" :: NullOrUndefined (NullableInteger)
+  , "position" :: Maybe (String)
+  , "limit" :: Maybe (NullableInteger)
   }
 derive instance newtypeGetAuthorizersRequest :: Newtype GetAuthorizersRequest _
 derive instance repGenericGetAuthorizersRequest :: Generic GetAuthorizersRequest _
@@ -1829,12 +1828,12 @@ instance encodeGetAuthorizersRequest :: Encode GetAuthorizersRequest where encod
 
 -- | Constructs GetAuthorizersRequest from required parameters
 newGetAuthorizersRequest :: String -> GetAuthorizersRequest
-newGetAuthorizersRequest _restApiId = GetAuthorizersRequest { "restApiId": _restApiId, "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetAuthorizersRequest _restApiId = GetAuthorizersRequest { "restApiId": _restApiId, "limit": Nothing, "position": Nothing }
 
 -- | Constructs GetAuthorizersRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetAuthorizersRequest' :: String -> ( { "restApiId" :: (String) , "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } -> {"restApiId" :: (String) , "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } ) -> GetAuthorizersRequest
-newGetAuthorizersRequest' _restApiId customize = (GetAuthorizersRequest <<< customize) { "restApiId": _restApiId, "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetAuthorizersRequest' :: String -> ( { "restApiId" :: (String) , "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } -> {"restApiId" :: (String) , "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } ) -> GetAuthorizersRequest
+newGetAuthorizersRequest' _restApiId customize = (GetAuthorizersRequest <<< customize) { "restApiId": _restApiId, "limit": Nothing, "position": Nothing }
 
 
 
@@ -1863,8 +1862,8 @@ newGetBasePathMappingRequest' _basePath _domainName customize = (GetBasePathMapp
 -- | <p>A request to get information about a collection of <a>BasePathMapping</a> resources.</p>
 newtype GetBasePathMappingsRequest = GetBasePathMappingsRequest 
   { "domainName" :: (String)
-  , "position" :: NullOrUndefined (String)
-  , "limit" :: NullOrUndefined (NullableInteger)
+  , "position" :: Maybe (String)
+  , "limit" :: Maybe (NullableInteger)
   }
 derive instance newtypeGetBasePathMappingsRequest :: Newtype GetBasePathMappingsRequest _
 derive instance repGenericGetBasePathMappingsRequest :: Generic GetBasePathMappingsRequest _
@@ -1874,12 +1873,12 @@ instance encodeGetBasePathMappingsRequest :: Encode GetBasePathMappingsRequest w
 
 -- | Constructs GetBasePathMappingsRequest from required parameters
 newGetBasePathMappingsRequest :: String -> GetBasePathMappingsRequest
-newGetBasePathMappingsRequest _domainName = GetBasePathMappingsRequest { "domainName": _domainName, "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetBasePathMappingsRequest _domainName = GetBasePathMappingsRequest { "domainName": _domainName, "limit": Nothing, "position": Nothing }
 
 -- | Constructs GetBasePathMappingsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetBasePathMappingsRequest' :: String -> ( { "domainName" :: (String) , "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } -> {"domainName" :: (String) , "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } ) -> GetBasePathMappingsRequest
-newGetBasePathMappingsRequest' _domainName customize = (GetBasePathMappingsRequest <<< customize) { "domainName": _domainName, "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetBasePathMappingsRequest' :: String -> ( { "domainName" :: (String) , "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } -> {"domainName" :: (String) , "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } ) -> GetBasePathMappingsRequest
+newGetBasePathMappingsRequest' _domainName customize = (GetBasePathMappingsRequest <<< customize) { "domainName": _domainName, "limit": Nothing, "position": Nothing }
 
 
 
@@ -1906,8 +1905,8 @@ newGetClientCertificateRequest' _clientCertificateId customize = (GetClientCerti
 
 -- | <p>A request to get information about a collection of <a>ClientCertificate</a> resources.</p>
 newtype GetClientCertificatesRequest = GetClientCertificatesRequest 
-  { "position" :: NullOrUndefined (String)
-  , "limit" :: NullOrUndefined (NullableInteger)
+  { "position" :: Maybe (String)
+  , "limit" :: Maybe (NullableInteger)
   }
 derive instance newtypeGetClientCertificatesRequest :: Newtype GetClientCertificatesRequest _
 derive instance repGenericGetClientCertificatesRequest :: Generic GetClientCertificatesRequest _
@@ -1917,12 +1916,12 @@ instance encodeGetClientCertificatesRequest :: Encode GetClientCertificatesReque
 
 -- | Constructs GetClientCertificatesRequest from required parameters
 newGetClientCertificatesRequest :: GetClientCertificatesRequest
-newGetClientCertificatesRequest  = GetClientCertificatesRequest { "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetClientCertificatesRequest  = GetClientCertificatesRequest { "limit": Nothing, "position": Nothing }
 
 -- | Constructs GetClientCertificatesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetClientCertificatesRequest' :: ( { "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } -> {"position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } ) -> GetClientCertificatesRequest
-newGetClientCertificatesRequest'  customize = (GetClientCertificatesRequest <<< customize) { "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetClientCertificatesRequest' :: ( { "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } -> {"position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } ) -> GetClientCertificatesRequest
+newGetClientCertificatesRequest'  customize = (GetClientCertificatesRequest <<< customize) { "limit": Nothing, "position": Nothing }
 
 
 
@@ -1930,7 +1929,7 @@ newGetClientCertificatesRequest'  customize = (GetClientCertificatesRequest <<< 
 newtype GetDeploymentRequest = GetDeploymentRequest 
   { "restApiId" :: (String)
   , "deploymentId" :: (String)
-  , "embed" :: NullOrUndefined (ListOfString)
+  , "embed" :: Maybe (ListOfString)
   }
 derive instance newtypeGetDeploymentRequest :: Newtype GetDeploymentRequest _
 derive instance repGenericGetDeploymentRequest :: Generic GetDeploymentRequest _
@@ -1940,20 +1939,20 @@ instance encodeGetDeploymentRequest :: Encode GetDeploymentRequest where encode 
 
 -- | Constructs GetDeploymentRequest from required parameters
 newGetDeploymentRequest :: String -> String -> GetDeploymentRequest
-newGetDeploymentRequest _deploymentId _restApiId = GetDeploymentRequest { "deploymentId": _deploymentId, "restApiId": _restApiId, "embed": (NullOrUndefined Nothing) }
+newGetDeploymentRequest _deploymentId _restApiId = GetDeploymentRequest { "deploymentId": _deploymentId, "restApiId": _restApiId, "embed": Nothing }
 
 -- | Constructs GetDeploymentRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetDeploymentRequest' :: String -> String -> ( { "restApiId" :: (String) , "deploymentId" :: (String) , "embed" :: NullOrUndefined (ListOfString) } -> {"restApiId" :: (String) , "deploymentId" :: (String) , "embed" :: NullOrUndefined (ListOfString) } ) -> GetDeploymentRequest
-newGetDeploymentRequest' _deploymentId _restApiId customize = (GetDeploymentRequest <<< customize) { "deploymentId": _deploymentId, "restApiId": _restApiId, "embed": (NullOrUndefined Nothing) }
+newGetDeploymentRequest' :: String -> String -> ( { "restApiId" :: (String) , "deploymentId" :: (String) , "embed" :: Maybe (ListOfString) } -> {"restApiId" :: (String) , "deploymentId" :: (String) , "embed" :: Maybe (ListOfString) } ) -> GetDeploymentRequest
+newGetDeploymentRequest' _deploymentId _restApiId customize = (GetDeploymentRequest <<< customize) { "deploymentId": _deploymentId, "restApiId": _restApiId, "embed": Nothing }
 
 
 
 -- | <p>Requests API Gateway to get information about a <a>Deployments</a> collection.</p>
 newtype GetDeploymentsRequest = GetDeploymentsRequest 
   { "restApiId" :: (String)
-  , "position" :: NullOrUndefined (String)
-  , "limit" :: NullOrUndefined (NullableInteger)
+  , "position" :: Maybe (String)
+  , "limit" :: Maybe (NullableInteger)
   }
 derive instance newtypeGetDeploymentsRequest :: Newtype GetDeploymentsRequest _
 derive instance repGenericGetDeploymentsRequest :: Generic GetDeploymentsRequest _
@@ -1963,12 +1962,12 @@ instance encodeGetDeploymentsRequest :: Encode GetDeploymentsRequest where encod
 
 -- | Constructs GetDeploymentsRequest from required parameters
 newGetDeploymentsRequest :: String -> GetDeploymentsRequest
-newGetDeploymentsRequest _restApiId = GetDeploymentsRequest { "restApiId": _restApiId, "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetDeploymentsRequest _restApiId = GetDeploymentsRequest { "restApiId": _restApiId, "limit": Nothing, "position": Nothing }
 
 -- | Constructs GetDeploymentsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetDeploymentsRequest' :: String -> ( { "restApiId" :: (String) , "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } -> {"restApiId" :: (String) , "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } ) -> GetDeploymentsRequest
-newGetDeploymentsRequest' _restApiId customize = (GetDeploymentsRequest <<< customize) { "restApiId": _restApiId, "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetDeploymentsRequest' :: String -> ( { "restApiId" :: (String) , "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } -> {"restApiId" :: (String) , "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } ) -> GetDeploymentsRequest
+newGetDeploymentsRequest' _restApiId customize = (GetDeploymentsRequest <<< customize) { "restApiId": _restApiId, "limit": Nothing, "position": Nothing }
 
 
 
@@ -1997,12 +1996,12 @@ newGetDocumentationPartRequest' _documentationPartId _restApiId customize = (Get
 -- | <p>Gets the documentation parts of an API. The result may be filtered by the type, name, or path of API entities (targets).</p>
 newtype GetDocumentationPartsRequest = GetDocumentationPartsRequest 
   { "restApiId" :: (String)
-  , "type" :: NullOrUndefined (DocumentationPartType)
-  , "nameQuery" :: NullOrUndefined (String)
-  , "path" :: NullOrUndefined (String)
-  , "position" :: NullOrUndefined (String)
-  , "limit" :: NullOrUndefined (NullableInteger)
-  , "locationStatus" :: NullOrUndefined (LocationStatusType)
+  , "type" :: Maybe (DocumentationPartType)
+  , "nameQuery" :: Maybe (String)
+  , "path" :: Maybe (String)
+  , "position" :: Maybe (String)
+  , "limit" :: Maybe (NullableInteger)
+  , "locationStatus" :: Maybe (LocationStatusType)
   }
 derive instance newtypeGetDocumentationPartsRequest :: Newtype GetDocumentationPartsRequest _
 derive instance repGenericGetDocumentationPartsRequest :: Generic GetDocumentationPartsRequest _
@@ -2012,12 +2011,12 @@ instance encodeGetDocumentationPartsRequest :: Encode GetDocumentationPartsReque
 
 -- | Constructs GetDocumentationPartsRequest from required parameters
 newGetDocumentationPartsRequest :: String -> GetDocumentationPartsRequest
-newGetDocumentationPartsRequest _restApiId = GetDocumentationPartsRequest { "restApiId": _restApiId, "limit": (NullOrUndefined Nothing), "locationStatus": (NullOrUndefined Nothing), "nameQuery": (NullOrUndefined Nothing), "path": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing) }
+newGetDocumentationPartsRequest _restApiId = GetDocumentationPartsRequest { "restApiId": _restApiId, "limit": Nothing, "locationStatus": Nothing, "nameQuery": Nothing, "path": Nothing, "position": Nothing, "type": Nothing }
 
 -- | Constructs GetDocumentationPartsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetDocumentationPartsRequest' :: String -> ( { "restApiId" :: (String) , "type" :: NullOrUndefined (DocumentationPartType) , "nameQuery" :: NullOrUndefined (String) , "path" :: NullOrUndefined (String) , "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) , "locationStatus" :: NullOrUndefined (LocationStatusType) } -> {"restApiId" :: (String) , "type" :: NullOrUndefined (DocumentationPartType) , "nameQuery" :: NullOrUndefined (String) , "path" :: NullOrUndefined (String) , "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) , "locationStatus" :: NullOrUndefined (LocationStatusType) } ) -> GetDocumentationPartsRequest
-newGetDocumentationPartsRequest' _restApiId customize = (GetDocumentationPartsRequest <<< customize) { "restApiId": _restApiId, "limit": (NullOrUndefined Nothing), "locationStatus": (NullOrUndefined Nothing), "nameQuery": (NullOrUndefined Nothing), "path": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing) }
+newGetDocumentationPartsRequest' :: String -> ( { "restApiId" :: (String) , "type" :: Maybe (DocumentationPartType) , "nameQuery" :: Maybe (String) , "path" :: Maybe (String) , "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) , "locationStatus" :: Maybe (LocationStatusType) } -> {"restApiId" :: (String) , "type" :: Maybe (DocumentationPartType) , "nameQuery" :: Maybe (String) , "path" :: Maybe (String) , "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) , "locationStatus" :: Maybe (LocationStatusType) } ) -> GetDocumentationPartsRequest
+newGetDocumentationPartsRequest' _restApiId customize = (GetDocumentationPartsRequest <<< customize) { "restApiId": _restApiId, "limit": Nothing, "locationStatus": Nothing, "nameQuery": Nothing, "path": Nothing, "position": Nothing, "type": Nothing }
 
 
 
@@ -2046,8 +2045,8 @@ newGetDocumentationVersionRequest' _documentationVersion _restApiId customize = 
 -- | <p>Gets the documentation versions of an API.</p>
 newtype GetDocumentationVersionsRequest = GetDocumentationVersionsRequest 
   { "restApiId" :: (String)
-  , "position" :: NullOrUndefined (String)
-  , "limit" :: NullOrUndefined (NullableInteger)
+  , "position" :: Maybe (String)
+  , "limit" :: Maybe (NullableInteger)
   }
 derive instance newtypeGetDocumentationVersionsRequest :: Newtype GetDocumentationVersionsRequest _
 derive instance repGenericGetDocumentationVersionsRequest :: Generic GetDocumentationVersionsRequest _
@@ -2057,12 +2056,12 @@ instance encodeGetDocumentationVersionsRequest :: Encode GetDocumentationVersion
 
 -- | Constructs GetDocumentationVersionsRequest from required parameters
 newGetDocumentationVersionsRequest :: String -> GetDocumentationVersionsRequest
-newGetDocumentationVersionsRequest _restApiId = GetDocumentationVersionsRequest { "restApiId": _restApiId, "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetDocumentationVersionsRequest _restApiId = GetDocumentationVersionsRequest { "restApiId": _restApiId, "limit": Nothing, "position": Nothing }
 
 -- | Constructs GetDocumentationVersionsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetDocumentationVersionsRequest' :: String -> ( { "restApiId" :: (String) , "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } -> {"restApiId" :: (String) , "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } ) -> GetDocumentationVersionsRequest
-newGetDocumentationVersionsRequest' _restApiId customize = (GetDocumentationVersionsRequest <<< customize) { "restApiId": _restApiId, "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetDocumentationVersionsRequest' :: String -> ( { "restApiId" :: (String) , "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } -> {"restApiId" :: (String) , "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } ) -> GetDocumentationVersionsRequest
+newGetDocumentationVersionsRequest' _restApiId customize = (GetDocumentationVersionsRequest <<< customize) { "restApiId": _restApiId, "limit": Nothing, "position": Nothing }
 
 
 
@@ -2089,8 +2088,8 @@ newGetDomainNameRequest' _domainName customize = (GetDomainNameRequest <<< custo
 
 -- | <p>Request to describe a collection of <a>DomainName</a> resources.</p>
 newtype GetDomainNamesRequest = GetDomainNamesRequest 
-  { "position" :: NullOrUndefined (String)
-  , "limit" :: NullOrUndefined (NullableInteger)
+  { "position" :: Maybe (String)
+  , "limit" :: Maybe (NullableInteger)
   }
 derive instance newtypeGetDomainNamesRequest :: Newtype GetDomainNamesRequest _
 derive instance repGenericGetDomainNamesRequest :: Generic GetDomainNamesRequest _
@@ -2100,12 +2099,12 @@ instance encodeGetDomainNamesRequest :: Encode GetDomainNamesRequest where encod
 
 -- | Constructs GetDomainNamesRequest from required parameters
 newGetDomainNamesRequest :: GetDomainNamesRequest
-newGetDomainNamesRequest  = GetDomainNamesRequest { "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetDomainNamesRequest  = GetDomainNamesRequest { "limit": Nothing, "position": Nothing }
 
 -- | Constructs GetDomainNamesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetDomainNamesRequest' :: ( { "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } -> {"position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } ) -> GetDomainNamesRequest
-newGetDomainNamesRequest'  customize = (GetDomainNamesRequest <<< customize) { "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetDomainNamesRequest' :: ( { "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } -> {"position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } ) -> GetDomainNamesRequest
+newGetDomainNamesRequest'  customize = (GetDomainNamesRequest <<< customize) { "limit": Nothing, "position": Nothing }
 
 
 
@@ -2114,8 +2113,8 @@ newtype GetExportRequest = GetExportRequest
   { "restApiId" :: (String)
   , "stageName" :: (String)
   , "exportType" :: (String)
-  , "parameters" :: NullOrUndefined (MapOfStringToString)
-  , "accepts" :: NullOrUndefined (String)
+  , "parameters" :: Maybe (MapOfStringToString)
+  , "accepts" :: Maybe (String)
   }
 derive instance newtypeGetExportRequest :: Newtype GetExportRequest _
 derive instance repGenericGetExportRequest :: Generic GetExportRequest _
@@ -2125,12 +2124,12 @@ instance encodeGetExportRequest :: Encode GetExportRequest where encode = generi
 
 -- | Constructs GetExportRequest from required parameters
 newGetExportRequest :: String -> String -> String -> GetExportRequest
-newGetExportRequest _exportType _restApiId _stageName = GetExportRequest { "exportType": _exportType, "restApiId": _restApiId, "stageName": _stageName, "accepts": (NullOrUndefined Nothing), "parameters": (NullOrUndefined Nothing) }
+newGetExportRequest _exportType _restApiId _stageName = GetExportRequest { "exportType": _exportType, "restApiId": _restApiId, "stageName": _stageName, "accepts": Nothing, "parameters": Nothing }
 
 -- | Constructs GetExportRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetExportRequest' :: String -> String -> String -> ( { "restApiId" :: (String) , "stageName" :: (String) , "exportType" :: (String) , "parameters" :: NullOrUndefined (MapOfStringToString) , "accepts" :: NullOrUndefined (String) } -> {"restApiId" :: (String) , "stageName" :: (String) , "exportType" :: (String) , "parameters" :: NullOrUndefined (MapOfStringToString) , "accepts" :: NullOrUndefined (String) } ) -> GetExportRequest
-newGetExportRequest' _exportType _restApiId _stageName customize = (GetExportRequest <<< customize) { "exportType": _exportType, "restApiId": _restApiId, "stageName": _stageName, "accepts": (NullOrUndefined Nothing), "parameters": (NullOrUndefined Nothing) }
+newGetExportRequest' :: String -> String -> String -> ( { "restApiId" :: (String) , "stageName" :: (String) , "exportType" :: (String) , "parameters" :: Maybe (MapOfStringToString) , "accepts" :: Maybe (String) } -> {"restApiId" :: (String) , "stageName" :: (String) , "exportType" :: (String) , "parameters" :: Maybe (MapOfStringToString) , "accepts" :: Maybe (String) } ) -> GetExportRequest
+newGetExportRequest' _exportType _restApiId _stageName customize = (GetExportRequest <<< customize) { "exportType": _exportType, "restApiId": _restApiId, "stageName": _stageName, "accepts": Nothing, "parameters": Nothing }
 
 
 
@@ -2159,8 +2158,8 @@ newGetGatewayResponseRequest' _responseType _restApiId customize = (GetGatewayRe
 -- | <p>Gets the <a>GatewayResponses</a> collection on the given <a>RestApi</a>. If an API developer has not added any definitions for gateway responses, the result will be the API Gateway-generated default <a>GatewayResponses</a> collection for the supported response types.</p>
 newtype GetGatewayResponsesRequest = GetGatewayResponsesRequest 
   { "restApiId" :: (String)
-  , "position" :: NullOrUndefined (String)
-  , "limit" :: NullOrUndefined (NullableInteger)
+  , "position" :: Maybe (String)
+  , "limit" :: Maybe (NullableInteger)
   }
 derive instance newtypeGetGatewayResponsesRequest :: Newtype GetGatewayResponsesRequest _
 derive instance repGenericGetGatewayResponsesRequest :: Generic GetGatewayResponsesRequest _
@@ -2170,12 +2169,12 @@ instance encodeGetGatewayResponsesRequest :: Encode GetGatewayResponsesRequest w
 
 -- | Constructs GetGatewayResponsesRequest from required parameters
 newGetGatewayResponsesRequest :: String -> GetGatewayResponsesRequest
-newGetGatewayResponsesRequest _restApiId = GetGatewayResponsesRequest { "restApiId": _restApiId, "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetGatewayResponsesRequest _restApiId = GetGatewayResponsesRequest { "restApiId": _restApiId, "limit": Nothing, "position": Nothing }
 
 -- | Constructs GetGatewayResponsesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetGatewayResponsesRequest' :: String -> ( { "restApiId" :: (String) , "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } -> {"restApiId" :: (String) , "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } ) -> GetGatewayResponsesRequest
-newGetGatewayResponsesRequest' _restApiId customize = (GetGatewayResponsesRequest <<< customize) { "restApiId": _restApiId, "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetGatewayResponsesRequest' :: String -> ( { "restApiId" :: (String) , "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } -> {"restApiId" :: (String) , "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } ) -> GetGatewayResponsesRequest
+newGetGatewayResponsesRequest' _restApiId customize = (GetGatewayResponsesRequest <<< customize) { "restApiId": _restApiId, "limit": Nothing, "position": Nothing }
 
 
 
@@ -2277,7 +2276,7 @@ newGetMethodResponseRequest' _httpMethod _resourceId _restApiId _statusCode cust
 newtype GetModelRequest = GetModelRequest 
   { "restApiId" :: (String)
   , "modelName" :: (String)
-  , "flatten" :: NullOrUndefined (Boolean)
+  , "flatten" :: Maybe (Boolean)
   }
 derive instance newtypeGetModelRequest :: Newtype GetModelRequest _
 derive instance repGenericGetModelRequest :: Generic GetModelRequest _
@@ -2287,12 +2286,12 @@ instance encodeGetModelRequest :: Encode GetModelRequest where encode = genericE
 
 -- | Constructs GetModelRequest from required parameters
 newGetModelRequest :: String -> String -> GetModelRequest
-newGetModelRequest _modelName _restApiId = GetModelRequest { "modelName": _modelName, "restApiId": _restApiId, "flatten": (NullOrUndefined Nothing) }
+newGetModelRequest _modelName _restApiId = GetModelRequest { "modelName": _modelName, "restApiId": _restApiId, "flatten": Nothing }
 
 -- | Constructs GetModelRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetModelRequest' :: String -> String -> ( { "restApiId" :: (String) , "modelName" :: (String) , "flatten" :: NullOrUndefined (Boolean) } -> {"restApiId" :: (String) , "modelName" :: (String) , "flatten" :: NullOrUndefined (Boolean) } ) -> GetModelRequest
-newGetModelRequest' _modelName _restApiId customize = (GetModelRequest <<< customize) { "modelName": _modelName, "restApiId": _restApiId, "flatten": (NullOrUndefined Nothing) }
+newGetModelRequest' :: String -> String -> ( { "restApiId" :: (String) , "modelName" :: (String) , "flatten" :: Maybe (Boolean) } -> {"restApiId" :: (String) , "modelName" :: (String) , "flatten" :: Maybe (Boolean) } ) -> GetModelRequest
+newGetModelRequest' _modelName _restApiId customize = (GetModelRequest <<< customize) { "modelName": _modelName, "restApiId": _restApiId, "flatten": Nothing }
 
 
 
@@ -2321,8 +2320,8 @@ newGetModelTemplateRequest' _modelName _restApiId customize = (GetModelTemplateR
 -- | <p>Request to list existing <a>Models</a> defined for a <a>RestApi</a> resource.</p>
 newtype GetModelsRequest = GetModelsRequest 
   { "restApiId" :: (String)
-  , "position" :: NullOrUndefined (String)
-  , "limit" :: NullOrUndefined (NullableInteger)
+  , "position" :: Maybe (String)
+  , "limit" :: Maybe (NullableInteger)
   }
 derive instance newtypeGetModelsRequest :: Newtype GetModelsRequest _
 derive instance repGenericGetModelsRequest :: Generic GetModelsRequest _
@@ -2332,12 +2331,12 @@ instance encodeGetModelsRequest :: Encode GetModelsRequest where encode = generi
 
 -- | Constructs GetModelsRequest from required parameters
 newGetModelsRequest :: String -> GetModelsRequest
-newGetModelsRequest _restApiId = GetModelsRequest { "restApiId": _restApiId, "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetModelsRequest _restApiId = GetModelsRequest { "restApiId": _restApiId, "limit": Nothing, "position": Nothing }
 
 -- | Constructs GetModelsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetModelsRequest' :: String -> ( { "restApiId" :: (String) , "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } -> {"restApiId" :: (String) , "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } ) -> GetModelsRequest
-newGetModelsRequest' _restApiId customize = (GetModelsRequest <<< customize) { "restApiId": _restApiId, "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetModelsRequest' :: String -> ( { "restApiId" :: (String) , "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } -> {"restApiId" :: (String) , "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } ) -> GetModelsRequest
+newGetModelsRequest' _restApiId customize = (GetModelsRequest <<< customize) { "restApiId": _restApiId, "limit": Nothing, "position": Nothing }
 
 
 
@@ -2366,8 +2365,8 @@ newGetRequestValidatorRequest' _requestValidatorId _restApiId customize = (GetRe
 -- | <p>Gets the <a>RequestValidators</a> collection of a given <a>RestApi</a>.</p>
 newtype GetRequestValidatorsRequest = GetRequestValidatorsRequest 
   { "restApiId" :: (String)
-  , "position" :: NullOrUndefined (String)
-  , "limit" :: NullOrUndefined (NullableInteger)
+  , "position" :: Maybe (String)
+  , "limit" :: Maybe (NullableInteger)
   }
 derive instance newtypeGetRequestValidatorsRequest :: Newtype GetRequestValidatorsRequest _
 derive instance repGenericGetRequestValidatorsRequest :: Generic GetRequestValidatorsRequest _
@@ -2377,12 +2376,12 @@ instance encodeGetRequestValidatorsRequest :: Encode GetRequestValidatorsRequest
 
 -- | Constructs GetRequestValidatorsRequest from required parameters
 newGetRequestValidatorsRequest :: String -> GetRequestValidatorsRequest
-newGetRequestValidatorsRequest _restApiId = GetRequestValidatorsRequest { "restApiId": _restApiId, "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetRequestValidatorsRequest _restApiId = GetRequestValidatorsRequest { "restApiId": _restApiId, "limit": Nothing, "position": Nothing }
 
 -- | Constructs GetRequestValidatorsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetRequestValidatorsRequest' :: String -> ( { "restApiId" :: (String) , "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } -> {"restApiId" :: (String) , "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } ) -> GetRequestValidatorsRequest
-newGetRequestValidatorsRequest' _restApiId customize = (GetRequestValidatorsRequest <<< customize) { "restApiId": _restApiId, "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetRequestValidatorsRequest' :: String -> ( { "restApiId" :: (String) , "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } -> {"restApiId" :: (String) , "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } ) -> GetRequestValidatorsRequest
+newGetRequestValidatorsRequest' _restApiId customize = (GetRequestValidatorsRequest <<< customize) { "restApiId": _restApiId, "limit": Nothing, "position": Nothing }
 
 
 
@@ -2390,7 +2389,7 @@ newGetRequestValidatorsRequest' _restApiId customize = (GetRequestValidatorsRequ
 newtype GetResourceRequest = GetResourceRequest 
   { "restApiId" :: (String)
   , "resourceId" :: (String)
-  , "embed" :: NullOrUndefined (ListOfString)
+  , "embed" :: Maybe (ListOfString)
   }
 derive instance newtypeGetResourceRequest :: Newtype GetResourceRequest _
 derive instance repGenericGetResourceRequest :: Generic GetResourceRequest _
@@ -2400,21 +2399,21 @@ instance encodeGetResourceRequest :: Encode GetResourceRequest where encode = ge
 
 -- | Constructs GetResourceRequest from required parameters
 newGetResourceRequest :: String -> String -> GetResourceRequest
-newGetResourceRequest _resourceId _restApiId = GetResourceRequest { "resourceId": _resourceId, "restApiId": _restApiId, "embed": (NullOrUndefined Nothing) }
+newGetResourceRequest _resourceId _restApiId = GetResourceRequest { "resourceId": _resourceId, "restApiId": _restApiId, "embed": Nothing }
 
 -- | Constructs GetResourceRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetResourceRequest' :: String -> String -> ( { "restApiId" :: (String) , "resourceId" :: (String) , "embed" :: NullOrUndefined (ListOfString) } -> {"restApiId" :: (String) , "resourceId" :: (String) , "embed" :: NullOrUndefined (ListOfString) } ) -> GetResourceRequest
-newGetResourceRequest' _resourceId _restApiId customize = (GetResourceRequest <<< customize) { "resourceId": _resourceId, "restApiId": _restApiId, "embed": (NullOrUndefined Nothing) }
+newGetResourceRequest' :: String -> String -> ( { "restApiId" :: (String) , "resourceId" :: (String) , "embed" :: Maybe (ListOfString) } -> {"restApiId" :: (String) , "resourceId" :: (String) , "embed" :: Maybe (ListOfString) } ) -> GetResourceRequest
+newGetResourceRequest' _resourceId _restApiId customize = (GetResourceRequest <<< customize) { "resourceId": _resourceId, "restApiId": _restApiId, "embed": Nothing }
 
 
 
 -- | <p>Request to list information about a collection of resources.</p>
 newtype GetResourcesRequest = GetResourcesRequest 
   { "restApiId" :: (String)
-  , "position" :: NullOrUndefined (String)
-  , "limit" :: NullOrUndefined (NullableInteger)
-  , "embed" :: NullOrUndefined (ListOfString)
+  , "position" :: Maybe (String)
+  , "limit" :: Maybe (NullableInteger)
+  , "embed" :: Maybe (ListOfString)
   }
 derive instance newtypeGetResourcesRequest :: Newtype GetResourcesRequest _
 derive instance repGenericGetResourcesRequest :: Generic GetResourcesRequest _
@@ -2424,12 +2423,12 @@ instance encodeGetResourcesRequest :: Encode GetResourcesRequest where encode = 
 
 -- | Constructs GetResourcesRequest from required parameters
 newGetResourcesRequest :: String -> GetResourcesRequest
-newGetResourcesRequest _restApiId = GetResourcesRequest { "restApiId": _restApiId, "embed": (NullOrUndefined Nothing), "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetResourcesRequest _restApiId = GetResourcesRequest { "restApiId": _restApiId, "embed": Nothing, "limit": Nothing, "position": Nothing }
 
 -- | Constructs GetResourcesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetResourcesRequest' :: String -> ( { "restApiId" :: (String) , "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) , "embed" :: NullOrUndefined (ListOfString) } -> {"restApiId" :: (String) , "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) , "embed" :: NullOrUndefined (ListOfString) } ) -> GetResourcesRequest
-newGetResourcesRequest' _restApiId customize = (GetResourcesRequest <<< customize) { "restApiId": _restApiId, "embed": (NullOrUndefined Nothing), "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetResourcesRequest' :: String -> ( { "restApiId" :: (String) , "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) , "embed" :: Maybe (ListOfString) } -> {"restApiId" :: (String) , "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) , "embed" :: Maybe (ListOfString) } ) -> GetResourcesRequest
+newGetResourcesRequest' _restApiId customize = (GetResourcesRequest <<< customize) { "restApiId": _restApiId, "embed": Nothing, "limit": Nothing, "position": Nothing }
 
 
 
@@ -2456,8 +2455,8 @@ newGetRestApiRequest' _restApiId customize = (GetRestApiRequest <<< customize) {
 
 -- | <p>The GET request to list existing <a>RestApis</a> defined for your collection.</p>
 newtype GetRestApisRequest = GetRestApisRequest 
-  { "position" :: NullOrUndefined (String)
-  , "limit" :: NullOrUndefined (NullableInteger)
+  { "position" :: Maybe (String)
+  , "limit" :: Maybe (NullableInteger)
   }
 derive instance newtypeGetRestApisRequest :: Newtype GetRestApisRequest _
 derive instance repGenericGetRestApisRequest :: Generic GetRestApisRequest _
@@ -2467,12 +2466,12 @@ instance encodeGetRestApisRequest :: Encode GetRestApisRequest where encode = ge
 
 -- | Constructs GetRestApisRequest from required parameters
 newGetRestApisRequest :: GetRestApisRequest
-newGetRestApisRequest  = GetRestApisRequest { "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetRestApisRequest  = GetRestApisRequest { "limit": Nothing, "position": Nothing }
 
 -- | Constructs GetRestApisRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetRestApisRequest' :: ( { "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } -> {"position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } ) -> GetRestApisRequest
-newGetRestApisRequest'  customize = (GetRestApisRequest <<< customize) { "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetRestApisRequest' :: ( { "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } -> {"position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } ) -> GetRestApisRequest
+newGetRestApisRequest'  customize = (GetRestApisRequest <<< customize) { "limit": Nothing, "position": Nothing }
 
 
 
@@ -2481,7 +2480,7 @@ newtype GetSdkRequest = GetSdkRequest
   { "restApiId" :: (String)
   , "stageName" :: (String)
   , "sdkType" :: (String)
-  , "parameters" :: NullOrUndefined (MapOfStringToString)
+  , "parameters" :: Maybe (MapOfStringToString)
   }
 derive instance newtypeGetSdkRequest :: Newtype GetSdkRequest _
 derive instance repGenericGetSdkRequest :: Generic GetSdkRequest _
@@ -2491,12 +2490,12 @@ instance encodeGetSdkRequest :: Encode GetSdkRequest where encode = genericEncod
 
 -- | Constructs GetSdkRequest from required parameters
 newGetSdkRequest :: String -> String -> String -> GetSdkRequest
-newGetSdkRequest _restApiId _sdkType _stageName = GetSdkRequest { "restApiId": _restApiId, "sdkType": _sdkType, "stageName": _stageName, "parameters": (NullOrUndefined Nothing) }
+newGetSdkRequest _restApiId _sdkType _stageName = GetSdkRequest { "restApiId": _restApiId, "sdkType": _sdkType, "stageName": _stageName, "parameters": Nothing }
 
 -- | Constructs GetSdkRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetSdkRequest' :: String -> String -> String -> ( { "restApiId" :: (String) , "stageName" :: (String) , "sdkType" :: (String) , "parameters" :: NullOrUndefined (MapOfStringToString) } -> {"restApiId" :: (String) , "stageName" :: (String) , "sdkType" :: (String) , "parameters" :: NullOrUndefined (MapOfStringToString) } ) -> GetSdkRequest
-newGetSdkRequest' _restApiId _sdkType _stageName customize = (GetSdkRequest <<< customize) { "restApiId": _restApiId, "sdkType": _sdkType, "stageName": _stageName, "parameters": (NullOrUndefined Nothing) }
+newGetSdkRequest' :: String -> String -> String -> ( { "restApiId" :: (String) , "stageName" :: (String) , "sdkType" :: (String) , "parameters" :: Maybe (MapOfStringToString) } -> {"restApiId" :: (String) , "stageName" :: (String) , "sdkType" :: (String) , "parameters" :: Maybe (MapOfStringToString) } ) -> GetSdkRequest
+newGetSdkRequest' _restApiId _sdkType _stageName customize = (GetSdkRequest <<< customize) { "restApiId": _restApiId, "sdkType": _sdkType, "stageName": _stageName, "parameters": Nothing }
 
 
 
@@ -2523,8 +2522,8 @@ newGetSdkTypeRequest' _id customize = (GetSdkTypeRequest <<< customize) { "id": 
 
 -- | <p>Get the <a>SdkTypes</a> collection.</p>
 newtype GetSdkTypesRequest = GetSdkTypesRequest 
-  { "position" :: NullOrUndefined (String)
-  , "limit" :: NullOrUndefined (NullableInteger)
+  { "position" :: Maybe (String)
+  , "limit" :: Maybe (NullableInteger)
   }
 derive instance newtypeGetSdkTypesRequest :: Newtype GetSdkTypesRequest _
 derive instance repGenericGetSdkTypesRequest :: Generic GetSdkTypesRequest _
@@ -2534,12 +2533,12 @@ instance encodeGetSdkTypesRequest :: Encode GetSdkTypesRequest where encode = ge
 
 -- | Constructs GetSdkTypesRequest from required parameters
 newGetSdkTypesRequest :: GetSdkTypesRequest
-newGetSdkTypesRequest  = GetSdkTypesRequest { "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetSdkTypesRequest  = GetSdkTypesRequest { "limit": Nothing, "position": Nothing }
 
 -- | Constructs GetSdkTypesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetSdkTypesRequest' :: ( { "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } -> {"position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } ) -> GetSdkTypesRequest
-newGetSdkTypesRequest'  customize = (GetSdkTypesRequest <<< customize) { "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetSdkTypesRequest' :: ( { "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } -> {"position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } ) -> GetSdkTypesRequest
+newGetSdkTypesRequest'  customize = (GetSdkTypesRequest <<< customize) { "limit": Nothing, "position": Nothing }
 
 
 
@@ -2568,7 +2567,7 @@ newGetStageRequest' _restApiId _stageName customize = (GetStageRequest <<< custo
 -- | <p>Requests API Gateway to get information about one or more <a>Stage</a> resources.</p>
 newtype GetStagesRequest = GetStagesRequest 
   { "restApiId" :: (String)
-  , "deploymentId" :: NullOrUndefined (String)
+  , "deploymentId" :: Maybe (String)
   }
 derive instance newtypeGetStagesRequest :: Newtype GetStagesRequest _
 derive instance repGenericGetStagesRequest :: Generic GetStagesRequest _
@@ -2578,20 +2577,20 @@ instance encodeGetStagesRequest :: Encode GetStagesRequest where encode = generi
 
 -- | Constructs GetStagesRequest from required parameters
 newGetStagesRequest :: String -> GetStagesRequest
-newGetStagesRequest _restApiId = GetStagesRequest { "restApiId": _restApiId, "deploymentId": (NullOrUndefined Nothing) }
+newGetStagesRequest _restApiId = GetStagesRequest { "restApiId": _restApiId, "deploymentId": Nothing }
 
 -- | Constructs GetStagesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetStagesRequest' :: String -> ( { "restApiId" :: (String) , "deploymentId" :: NullOrUndefined (String) } -> {"restApiId" :: (String) , "deploymentId" :: NullOrUndefined (String) } ) -> GetStagesRequest
-newGetStagesRequest' _restApiId customize = (GetStagesRequest <<< customize) { "restApiId": _restApiId, "deploymentId": (NullOrUndefined Nothing) }
+newGetStagesRequest' :: String -> ( { "restApiId" :: (String) , "deploymentId" :: Maybe (String) } -> {"restApiId" :: (String) , "deploymentId" :: Maybe (String) } ) -> GetStagesRequest
+newGetStagesRequest' _restApiId customize = (GetStagesRequest <<< customize) { "restApiId": _restApiId, "deploymentId": Nothing }
 
 
 
 -- | <p>Gets the Tags collection for a given resource.</p>
 newtype GetTagsRequest = GetTagsRequest 
   { "resourceArn" :: (String)
-  , "position" :: NullOrUndefined (String)
-  , "limit" :: NullOrUndefined (NullableInteger)
+  , "position" :: Maybe (String)
+  , "limit" :: Maybe (NullableInteger)
   }
 derive instance newtypeGetTagsRequest :: Newtype GetTagsRequest _
 derive instance repGenericGetTagsRequest :: Generic GetTagsRequest _
@@ -2601,12 +2600,12 @@ instance encodeGetTagsRequest :: Encode GetTagsRequest where encode = genericEnc
 
 -- | Constructs GetTagsRequest from required parameters
 newGetTagsRequest :: String -> GetTagsRequest
-newGetTagsRequest _resourceArn = GetTagsRequest { "resourceArn": _resourceArn, "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetTagsRequest _resourceArn = GetTagsRequest { "resourceArn": _resourceArn, "limit": Nothing, "position": Nothing }
 
 -- | Constructs GetTagsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetTagsRequest' :: String -> ( { "resourceArn" :: (String) , "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } -> {"resourceArn" :: (String) , "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } ) -> GetTagsRequest
-newGetTagsRequest' _resourceArn customize = (GetTagsRequest <<< customize) { "resourceArn": _resourceArn, "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetTagsRequest' :: String -> ( { "resourceArn" :: (String) , "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } -> {"resourceArn" :: (String) , "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } ) -> GetTagsRequest
+newGetTagsRequest' _resourceArn customize = (GetTagsRequest <<< customize) { "resourceArn": _resourceArn, "limit": Nothing, "position": Nothing }
 
 
 
@@ -2635,9 +2634,9 @@ newGetUsagePlanKeyRequest' _keyId _usagePlanId customize = (GetUsagePlanKeyReque
 -- | <p>The GET request to get all the usage plan keys representing the API keys added to a specified usage plan.</p>
 newtype GetUsagePlanKeysRequest = GetUsagePlanKeysRequest 
   { "usagePlanId" :: (String)
-  , "position" :: NullOrUndefined (String)
-  , "limit" :: NullOrUndefined (NullableInteger)
-  , "nameQuery" :: NullOrUndefined (String)
+  , "position" :: Maybe (String)
+  , "limit" :: Maybe (NullableInteger)
+  , "nameQuery" :: Maybe (String)
   }
 derive instance newtypeGetUsagePlanKeysRequest :: Newtype GetUsagePlanKeysRequest _
 derive instance repGenericGetUsagePlanKeysRequest :: Generic GetUsagePlanKeysRequest _
@@ -2647,12 +2646,12 @@ instance encodeGetUsagePlanKeysRequest :: Encode GetUsagePlanKeysRequest where e
 
 -- | Constructs GetUsagePlanKeysRequest from required parameters
 newGetUsagePlanKeysRequest :: String -> GetUsagePlanKeysRequest
-newGetUsagePlanKeysRequest _usagePlanId = GetUsagePlanKeysRequest { "usagePlanId": _usagePlanId, "limit": (NullOrUndefined Nothing), "nameQuery": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetUsagePlanKeysRequest _usagePlanId = GetUsagePlanKeysRequest { "usagePlanId": _usagePlanId, "limit": Nothing, "nameQuery": Nothing, "position": Nothing }
 
 -- | Constructs GetUsagePlanKeysRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetUsagePlanKeysRequest' :: String -> ( { "usagePlanId" :: (String) , "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) , "nameQuery" :: NullOrUndefined (String) } -> {"usagePlanId" :: (String) , "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) , "nameQuery" :: NullOrUndefined (String) } ) -> GetUsagePlanKeysRequest
-newGetUsagePlanKeysRequest' _usagePlanId customize = (GetUsagePlanKeysRequest <<< customize) { "usagePlanId": _usagePlanId, "limit": (NullOrUndefined Nothing), "nameQuery": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetUsagePlanKeysRequest' :: String -> ( { "usagePlanId" :: (String) , "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) , "nameQuery" :: Maybe (String) } -> {"usagePlanId" :: (String) , "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) , "nameQuery" :: Maybe (String) } ) -> GetUsagePlanKeysRequest
+newGetUsagePlanKeysRequest' _usagePlanId customize = (GetUsagePlanKeysRequest <<< customize) { "usagePlanId": _usagePlanId, "limit": Nothing, "nameQuery": Nothing, "position": Nothing }
 
 
 
@@ -2679,9 +2678,9 @@ newGetUsagePlanRequest' _usagePlanId customize = (GetUsagePlanRequest <<< custom
 
 -- | <p>The GET request to get all the usage plans of the caller's account.</p>
 newtype GetUsagePlansRequest = GetUsagePlansRequest 
-  { "position" :: NullOrUndefined (String)
-  , "keyId" :: NullOrUndefined (String)
-  , "limit" :: NullOrUndefined (NullableInteger)
+  { "position" :: Maybe (String)
+  , "keyId" :: Maybe (String)
+  , "limit" :: Maybe (NullableInteger)
   }
 derive instance newtypeGetUsagePlansRequest :: Newtype GetUsagePlansRequest _
 derive instance repGenericGetUsagePlansRequest :: Generic GetUsagePlansRequest _
@@ -2691,23 +2690,23 @@ instance encodeGetUsagePlansRequest :: Encode GetUsagePlansRequest where encode 
 
 -- | Constructs GetUsagePlansRequest from required parameters
 newGetUsagePlansRequest :: GetUsagePlansRequest
-newGetUsagePlansRequest  = GetUsagePlansRequest { "keyId": (NullOrUndefined Nothing), "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetUsagePlansRequest  = GetUsagePlansRequest { "keyId": Nothing, "limit": Nothing, "position": Nothing }
 
 -- | Constructs GetUsagePlansRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetUsagePlansRequest' :: ( { "position" :: NullOrUndefined (String) , "keyId" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } -> {"position" :: NullOrUndefined (String) , "keyId" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } ) -> GetUsagePlansRequest
-newGetUsagePlansRequest'  customize = (GetUsagePlansRequest <<< customize) { "keyId": (NullOrUndefined Nothing), "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetUsagePlansRequest' :: ( { "position" :: Maybe (String) , "keyId" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } -> {"position" :: Maybe (String) , "keyId" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } ) -> GetUsagePlansRequest
+newGetUsagePlansRequest'  customize = (GetUsagePlansRequest <<< customize) { "keyId": Nothing, "limit": Nothing, "position": Nothing }
 
 
 
 -- | <p>The GET request to get the usage data of a usage plan in a specified time interval.</p>
 newtype GetUsageRequest = GetUsageRequest 
   { "usagePlanId" :: (String)
-  , "keyId" :: NullOrUndefined (String)
+  , "keyId" :: Maybe (String)
   , "startDate" :: (String)
   , "endDate" :: (String)
-  , "position" :: NullOrUndefined (String)
-  , "limit" :: NullOrUndefined (NullableInteger)
+  , "position" :: Maybe (String)
+  , "limit" :: Maybe (NullableInteger)
   }
 derive instance newtypeGetUsageRequest :: Newtype GetUsageRequest _
 derive instance repGenericGetUsageRequest :: Generic GetUsageRequest _
@@ -2717,12 +2716,12 @@ instance encodeGetUsageRequest :: Encode GetUsageRequest where encode = genericE
 
 -- | Constructs GetUsageRequest from required parameters
 newGetUsageRequest :: String -> String -> String -> GetUsageRequest
-newGetUsageRequest _endDate _startDate _usagePlanId = GetUsageRequest { "endDate": _endDate, "startDate": _startDate, "usagePlanId": _usagePlanId, "keyId": (NullOrUndefined Nothing), "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetUsageRequest _endDate _startDate _usagePlanId = GetUsageRequest { "endDate": _endDate, "startDate": _startDate, "usagePlanId": _usagePlanId, "keyId": Nothing, "limit": Nothing, "position": Nothing }
 
 -- | Constructs GetUsageRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetUsageRequest' :: String -> String -> String -> ( { "usagePlanId" :: (String) , "keyId" :: NullOrUndefined (String) , "startDate" :: (String) , "endDate" :: (String) , "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } -> {"usagePlanId" :: (String) , "keyId" :: NullOrUndefined (String) , "startDate" :: (String) , "endDate" :: (String) , "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } ) -> GetUsageRequest
-newGetUsageRequest' _endDate _startDate _usagePlanId customize = (GetUsageRequest <<< customize) { "endDate": _endDate, "startDate": _startDate, "usagePlanId": _usagePlanId, "keyId": (NullOrUndefined Nothing), "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetUsageRequest' :: String -> String -> String -> ( { "usagePlanId" :: (String) , "keyId" :: Maybe (String) , "startDate" :: (String) , "endDate" :: (String) , "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } -> {"usagePlanId" :: (String) , "keyId" :: Maybe (String) , "startDate" :: (String) , "endDate" :: (String) , "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } ) -> GetUsageRequest
+newGetUsageRequest' _endDate _startDate _usagePlanId customize = (GetUsageRequest <<< customize) { "endDate": _endDate, "startDate": _startDate, "usagePlanId": _usagePlanId, "keyId": Nothing, "limit": Nothing, "position": Nothing }
 
 
 
@@ -2749,8 +2748,8 @@ newGetVpcLinkRequest' _vpcLinkId customize = (GetVpcLinkRequest <<< customize) {
 
 -- | <p>Gets the <a>VpcLinks</a> collection under the caller's account in a selected region.</p>
 newtype GetVpcLinksRequest = GetVpcLinksRequest 
-  { "position" :: NullOrUndefined (String)
-  , "limit" :: NullOrUndefined (NullableInteger)
+  { "position" :: Maybe (String)
+  , "limit" :: Maybe (NullableInteger)
   }
 derive instance newtypeGetVpcLinksRequest :: Newtype GetVpcLinksRequest _
 derive instance repGenericGetVpcLinksRequest :: Generic GetVpcLinksRequest _
@@ -2760,12 +2759,12 @@ instance encodeGetVpcLinksRequest :: Encode GetVpcLinksRequest where encode = ge
 
 -- | Constructs GetVpcLinksRequest from required parameters
 newGetVpcLinksRequest :: GetVpcLinksRequest
-newGetVpcLinksRequest  = GetVpcLinksRequest { "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetVpcLinksRequest  = GetVpcLinksRequest { "limit": Nothing, "position": Nothing }
 
 -- | Constructs GetVpcLinksRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetVpcLinksRequest' :: ( { "position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } -> {"position" :: NullOrUndefined (String) , "limit" :: NullOrUndefined (NullableInteger) } ) -> GetVpcLinksRequest
-newGetVpcLinksRequest'  customize = (GetVpcLinksRequest <<< customize) { "limit": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newGetVpcLinksRequest' :: ( { "position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } -> {"position" :: Maybe (String) , "limit" :: Maybe (NullableInteger) } ) -> GetVpcLinksRequest
+newGetVpcLinksRequest'  customize = (GetVpcLinksRequest <<< customize) { "limit": Nothing, "position": Nothing }
 
 
 
@@ -2773,7 +2772,7 @@ newGetVpcLinksRequest'  customize = (GetVpcLinksRequest <<< customize) { "limit"
 newtype ImportApiKeysRequest = ImportApiKeysRequest 
   { "body" :: (String)
   , "format" :: (ApiKeysFormat)
-  , "failOnWarnings" :: NullOrUndefined (Boolean)
+  , "failOnWarnings" :: Maybe (Boolean)
   }
 derive instance newtypeImportApiKeysRequest :: Newtype ImportApiKeysRequest _
 derive instance repGenericImportApiKeysRequest :: Generic ImportApiKeysRequest _
@@ -2783,20 +2782,20 @@ instance encodeImportApiKeysRequest :: Encode ImportApiKeysRequest where encode 
 
 -- | Constructs ImportApiKeysRequest from required parameters
 newImportApiKeysRequest :: String -> ApiKeysFormat -> ImportApiKeysRequest
-newImportApiKeysRequest _body _format = ImportApiKeysRequest { "body": _body, "format": _format, "failOnWarnings": (NullOrUndefined Nothing) }
+newImportApiKeysRequest _body _format = ImportApiKeysRequest { "body": _body, "format": _format, "failOnWarnings": Nothing }
 
 -- | Constructs ImportApiKeysRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newImportApiKeysRequest' :: String -> ApiKeysFormat -> ( { "body" :: (String) , "format" :: (ApiKeysFormat) , "failOnWarnings" :: NullOrUndefined (Boolean) } -> {"body" :: (String) , "format" :: (ApiKeysFormat) , "failOnWarnings" :: NullOrUndefined (Boolean) } ) -> ImportApiKeysRequest
-newImportApiKeysRequest' _body _format customize = (ImportApiKeysRequest <<< customize) { "body": _body, "format": _format, "failOnWarnings": (NullOrUndefined Nothing) }
+newImportApiKeysRequest' :: String -> ApiKeysFormat -> ( { "body" :: (String) , "format" :: (ApiKeysFormat) , "failOnWarnings" :: Maybe (Boolean) } -> {"body" :: (String) , "format" :: (ApiKeysFormat) , "failOnWarnings" :: Maybe (Boolean) } ) -> ImportApiKeysRequest
+newImportApiKeysRequest' _body _format customize = (ImportApiKeysRequest <<< customize) { "body": _body, "format": _format, "failOnWarnings": Nothing }
 
 
 
 -- | <p>Import documentation parts from an external (e.g., Swagger) definition file. </p>
 newtype ImportDocumentationPartsRequest = ImportDocumentationPartsRequest 
   { "restApiId" :: (String)
-  , "mode" :: NullOrUndefined (PutMode)
-  , "failOnWarnings" :: NullOrUndefined (Boolean)
+  , "mode" :: Maybe (PutMode)
+  , "failOnWarnings" :: Maybe (Boolean)
   , "body" :: (String)
   }
 derive instance newtypeImportDocumentationPartsRequest :: Newtype ImportDocumentationPartsRequest _
@@ -2807,19 +2806,19 @@ instance encodeImportDocumentationPartsRequest :: Encode ImportDocumentationPart
 
 -- | Constructs ImportDocumentationPartsRequest from required parameters
 newImportDocumentationPartsRequest :: String -> String -> ImportDocumentationPartsRequest
-newImportDocumentationPartsRequest _body _restApiId = ImportDocumentationPartsRequest { "body": _body, "restApiId": _restApiId, "failOnWarnings": (NullOrUndefined Nothing), "mode": (NullOrUndefined Nothing) }
+newImportDocumentationPartsRequest _body _restApiId = ImportDocumentationPartsRequest { "body": _body, "restApiId": _restApiId, "failOnWarnings": Nothing, "mode": Nothing }
 
 -- | Constructs ImportDocumentationPartsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newImportDocumentationPartsRequest' :: String -> String -> ( { "restApiId" :: (String) , "mode" :: NullOrUndefined (PutMode) , "failOnWarnings" :: NullOrUndefined (Boolean) , "body" :: (String) } -> {"restApiId" :: (String) , "mode" :: NullOrUndefined (PutMode) , "failOnWarnings" :: NullOrUndefined (Boolean) , "body" :: (String) } ) -> ImportDocumentationPartsRequest
-newImportDocumentationPartsRequest' _body _restApiId customize = (ImportDocumentationPartsRequest <<< customize) { "body": _body, "restApiId": _restApiId, "failOnWarnings": (NullOrUndefined Nothing), "mode": (NullOrUndefined Nothing) }
+newImportDocumentationPartsRequest' :: String -> String -> ( { "restApiId" :: (String) , "mode" :: Maybe (PutMode) , "failOnWarnings" :: Maybe (Boolean) , "body" :: (String) } -> {"restApiId" :: (String) , "mode" :: Maybe (PutMode) , "failOnWarnings" :: Maybe (Boolean) , "body" :: (String) } ) -> ImportDocumentationPartsRequest
+newImportDocumentationPartsRequest' _body _restApiId customize = (ImportDocumentationPartsRequest <<< customize) { "body": _body, "restApiId": _restApiId, "failOnWarnings": Nothing, "mode": Nothing }
 
 
 
 -- | <p>A POST request to import an API to API Gateway using an input of an API definition file.</p>
 newtype ImportRestApiRequest = ImportRestApiRequest 
-  { "failOnWarnings" :: NullOrUndefined (Boolean)
-  , "parameters" :: NullOrUndefined (MapOfStringToString)
+  { "failOnWarnings" :: Maybe (Boolean)
+  , "parameters" :: Maybe (MapOfStringToString)
   , "body" :: (String)
   }
 derive instance newtypeImportRestApiRequest :: Newtype ImportRestApiRequest _
@@ -2830,31 +2829,31 @@ instance encodeImportRestApiRequest :: Encode ImportRestApiRequest where encode 
 
 -- | Constructs ImportRestApiRequest from required parameters
 newImportRestApiRequest :: String -> ImportRestApiRequest
-newImportRestApiRequest _body = ImportRestApiRequest { "body": _body, "failOnWarnings": (NullOrUndefined Nothing), "parameters": (NullOrUndefined Nothing) }
+newImportRestApiRequest _body = ImportRestApiRequest { "body": _body, "failOnWarnings": Nothing, "parameters": Nothing }
 
 -- | Constructs ImportRestApiRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newImportRestApiRequest' :: String -> ( { "failOnWarnings" :: NullOrUndefined (Boolean) , "parameters" :: NullOrUndefined (MapOfStringToString) , "body" :: (String) } -> {"failOnWarnings" :: NullOrUndefined (Boolean) , "parameters" :: NullOrUndefined (MapOfStringToString) , "body" :: (String) } ) -> ImportRestApiRequest
-newImportRestApiRequest' _body customize = (ImportRestApiRequest <<< customize) { "body": _body, "failOnWarnings": (NullOrUndefined Nothing), "parameters": (NullOrUndefined Nothing) }
+newImportRestApiRequest' :: String -> ( { "failOnWarnings" :: Maybe (Boolean) , "parameters" :: Maybe (MapOfStringToString) , "body" :: (String) } -> {"failOnWarnings" :: Maybe (Boolean) , "parameters" :: Maybe (MapOfStringToString) , "body" :: (String) } ) -> ImportRestApiRequest
+newImportRestApiRequest' _body customize = (ImportRestApiRequest <<< customize) { "body": _body, "failOnWarnings": Nothing, "parameters": Nothing }
 
 
 
 -- | <p>Represents an HTTP, HTTP_PROXY, AWS, AWS_PROXY, or Mock integration.</p> <div class="remarks">In the API Gateway console, the built-in Lambda integration is an AWS integration.</div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Creating an API</a> </div>
 newtype Integration = Integration 
-  { "type" :: NullOrUndefined (IntegrationType)
-  , "httpMethod" :: NullOrUndefined (String)
-  , "uri" :: NullOrUndefined (String)
-  , "connectionType" :: NullOrUndefined (ConnectionType)
-  , "connectionId" :: NullOrUndefined (String)
-  , "credentials" :: NullOrUndefined (String)
-  , "requestParameters" :: NullOrUndefined (MapOfStringToString)
-  , "requestTemplates" :: NullOrUndefined (MapOfStringToString)
-  , "passthroughBehavior" :: NullOrUndefined (String)
-  , "contentHandling" :: NullOrUndefined (ContentHandlingStrategy)
-  , "timeoutInMillis" :: NullOrUndefined (Int)
-  , "cacheNamespace" :: NullOrUndefined (String)
-  , "cacheKeyParameters" :: NullOrUndefined (ListOfString)
-  , "integrationResponses" :: NullOrUndefined (MapOfIntegrationResponse)
+  { "type" :: Maybe (IntegrationType)
+  , "httpMethod" :: Maybe (String)
+  , "uri" :: Maybe (String)
+  , "connectionType" :: Maybe (ConnectionType)
+  , "connectionId" :: Maybe (String)
+  , "credentials" :: Maybe (String)
+  , "requestParameters" :: Maybe (MapOfStringToString)
+  , "requestTemplates" :: Maybe (MapOfStringToString)
+  , "passthroughBehavior" :: Maybe (String)
+  , "contentHandling" :: Maybe (ContentHandlingStrategy)
+  , "timeoutInMillis" :: Maybe (Int)
+  , "cacheNamespace" :: Maybe (String)
+  , "cacheKeyParameters" :: Maybe (ListOfString)
+  , "integrationResponses" :: Maybe (MapOfIntegrationResponse)
   }
 derive instance newtypeIntegration :: Newtype Integration _
 derive instance repGenericIntegration :: Generic Integration _
@@ -2864,22 +2863,22 @@ instance encodeIntegration :: Encode Integration where encode = genericEncode op
 
 -- | Constructs Integration from required parameters
 newIntegration :: Integration
-newIntegration  = Integration { "cacheKeyParameters": (NullOrUndefined Nothing), "cacheNamespace": (NullOrUndefined Nothing), "connectionId": (NullOrUndefined Nothing), "connectionType": (NullOrUndefined Nothing), "contentHandling": (NullOrUndefined Nothing), "credentials": (NullOrUndefined Nothing), "httpMethod": (NullOrUndefined Nothing), "integrationResponses": (NullOrUndefined Nothing), "passthroughBehavior": (NullOrUndefined Nothing), "requestParameters": (NullOrUndefined Nothing), "requestTemplates": (NullOrUndefined Nothing), "timeoutInMillis": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing), "uri": (NullOrUndefined Nothing) }
+newIntegration  = Integration { "cacheKeyParameters": Nothing, "cacheNamespace": Nothing, "connectionId": Nothing, "connectionType": Nothing, "contentHandling": Nothing, "credentials": Nothing, "httpMethod": Nothing, "integrationResponses": Nothing, "passthroughBehavior": Nothing, "requestParameters": Nothing, "requestTemplates": Nothing, "timeoutInMillis": Nothing, "type": Nothing, "uri": Nothing }
 
 -- | Constructs Integration's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newIntegration' :: ( { "type" :: NullOrUndefined (IntegrationType) , "httpMethod" :: NullOrUndefined (String) , "uri" :: NullOrUndefined (String) , "connectionType" :: NullOrUndefined (ConnectionType) , "connectionId" :: NullOrUndefined (String) , "credentials" :: NullOrUndefined (String) , "requestParameters" :: NullOrUndefined (MapOfStringToString) , "requestTemplates" :: NullOrUndefined (MapOfStringToString) , "passthroughBehavior" :: NullOrUndefined (String) , "contentHandling" :: NullOrUndefined (ContentHandlingStrategy) , "timeoutInMillis" :: NullOrUndefined (Int) , "cacheNamespace" :: NullOrUndefined (String) , "cacheKeyParameters" :: NullOrUndefined (ListOfString) , "integrationResponses" :: NullOrUndefined (MapOfIntegrationResponse) } -> {"type" :: NullOrUndefined (IntegrationType) , "httpMethod" :: NullOrUndefined (String) , "uri" :: NullOrUndefined (String) , "connectionType" :: NullOrUndefined (ConnectionType) , "connectionId" :: NullOrUndefined (String) , "credentials" :: NullOrUndefined (String) , "requestParameters" :: NullOrUndefined (MapOfStringToString) , "requestTemplates" :: NullOrUndefined (MapOfStringToString) , "passthroughBehavior" :: NullOrUndefined (String) , "contentHandling" :: NullOrUndefined (ContentHandlingStrategy) , "timeoutInMillis" :: NullOrUndefined (Int) , "cacheNamespace" :: NullOrUndefined (String) , "cacheKeyParameters" :: NullOrUndefined (ListOfString) , "integrationResponses" :: NullOrUndefined (MapOfIntegrationResponse) } ) -> Integration
-newIntegration'  customize = (Integration <<< customize) { "cacheKeyParameters": (NullOrUndefined Nothing), "cacheNamespace": (NullOrUndefined Nothing), "connectionId": (NullOrUndefined Nothing), "connectionType": (NullOrUndefined Nothing), "contentHandling": (NullOrUndefined Nothing), "credentials": (NullOrUndefined Nothing), "httpMethod": (NullOrUndefined Nothing), "integrationResponses": (NullOrUndefined Nothing), "passthroughBehavior": (NullOrUndefined Nothing), "requestParameters": (NullOrUndefined Nothing), "requestTemplates": (NullOrUndefined Nothing), "timeoutInMillis": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing), "uri": (NullOrUndefined Nothing) }
+newIntegration' :: ( { "type" :: Maybe (IntegrationType) , "httpMethod" :: Maybe (String) , "uri" :: Maybe (String) , "connectionType" :: Maybe (ConnectionType) , "connectionId" :: Maybe (String) , "credentials" :: Maybe (String) , "requestParameters" :: Maybe (MapOfStringToString) , "requestTemplates" :: Maybe (MapOfStringToString) , "passthroughBehavior" :: Maybe (String) , "contentHandling" :: Maybe (ContentHandlingStrategy) , "timeoutInMillis" :: Maybe (Int) , "cacheNamespace" :: Maybe (String) , "cacheKeyParameters" :: Maybe (ListOfString) , "integrationResponses" :: Maybe (MapOfIntegrationResponse) } -> {"type" :: Maybe (IntegrationType) , "httpMethod" :: Maybe (String) , "uri" :: Maybe (String) , "connectionType" :: Maybe (ConnectionType) , "connectionId" :: Maybe (String) , "credentials" :: Maybe (String) , "requestParameters" :: Maybe (MapOfStringToString) , "requestTemplates" :: Maybe (MapOfStringToString) , "passthroughBehavior" :: Maybe (String) , "contentHandling" :: Maybe (ContentHandlingStrategy) , "timeoutInMillis" :: Maybe (Int) , "cacheNamespace" :: Maybe (String) , "cacheKeyParameters" :: Maybe (ListOfString) , "integrationResponses" :: Maybe (MapOfIntegrationResponse) } ) -> Integration
+newIntegration'  customize = (Integration <<< customize) { "cacheKeyParameters": Nothing, "cacheNamespace": Nothing, "connectionId": Nothing, "connectionType": Nothing, "contentHandling": Nothing, "credentials": Nothing, "httpMethod": Nothing, "integrationResponses": Nothing, "passthroughBehavior": Nothing, "requestParameters": Nothing, "requestTemplates": Nothing, "timeoutInMillis": Nothing, "type": Nothing, "uri": Nothing }
 
 
 
 -- | <p>Represents an integration response. The status code must map to an existing <a>MethodResponse</a>, and parameters and templates can be used to transform the back-end response.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Creating an API</a> </div>
 newtype IntegrationResponse = IntegrationResponse 
-  { "statusCode" :: NullOrUndefined (StatusCode)
-  , "selectionPattern" :: NullOrUndefined (String)
-  , "responseParameters" :: NullOrUndefined (MapOfStringToString)
-  , "responseTemplates" :: NullOrUndefined (MapOfStringToString)
-  , "contentHandling" :: NullOrUndefined (ContentHandlingStrategy)
+  { "statusCode" :: Maybe (StatusCode)
+  , "selectionPattern" :: Maybe (String)
+  , "responseParameters" :: Maybe (MapOfStringToString)
+  , "responseTemplates" :: Maybe (MapOfStringToString)
+  , "contentHandling" :: Maybe (ContentHandlingStrategy)
   }
 derive instance newtypeIntegrationResponse :: Newtype IntegrationResponse _
 derive instance repGenericIntegrationResponse :: Generic IntegrationResponse _
@@ -2889,12 +2888,12 @@ instance encodeIntegrationResponse :: Encode IntegrationResponse where encode = 
 
 -- | Constructs IntegrationResponse from required parameters
 newIntegrationResponse :: IntegrationResponse
-newIntegrationResponse  = IntegrationResponse { "contentHandling": (NullOrUndefined Nothing), "responseParameters": (NullOrUndefined Nothing), "responseTemplates": (NullOrUndefined Nothing), "selectionPattern": (NullOrUndefined Nothing), "statusCode": (NullOrUndefined Nothing) }
+newIntegrationResponse  = IntegrationResponse { "contentHandling": Nothing, "responseParameters": Nothing, "responseTemplates": Nothing, "selectionPattern": Nothing, "statusCode": Nothing }
 
 -- | Constructs IntegrationResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newIntegrationResponse' :: ( { "statusCode" :: NullOrUndefined (StatusCode) , "selectionPattern" :: NullOrUndefined (String) , "responseParameters" :: NullOrUndefined (MapOfStringToString) , "responseTemplates" :: NullOrUndefined (MapOfStringToString) , "contentHandling" :: NullOrUndefined (ContentHandlingStrategy) } -> {"statusCode" :: NullOrUndefined (StatusCode) , "selectionPattern" :: NullOrUndefined (String) , "responseParameters" :: NullOrUndefined (MapOfStringToString) , "responseTemplates" :: NullOrUndefined (MapOfStringToString) , "contentHandling" :: NullOrUndefined (ContentHandlingStrategy) } ) -> IntegrationResponse
-newIntegrationResponse'  customize = (IntegrationResponse <<< customize) { "contentHandling": (NullOrUndefined Nothing), "responseParameters": (NullOrUndefined Nothing), "responseTemplates": (NullOrUndefined Nothing), "selectionPattern": (NullOrUndefined Nothing), "statusCode": (NullOrUndefined Nothing) }
+newIntegrationResponse' :: ( { "statusCode" :: Maybe (StatusCode) , "selectionPattern" :: Maybe (String) , "responseParameters" :: Maybe (MapOfStringToString) , "responseTemplates" :: Maybe (MapOfStringToString) , "contentHandling" :: Maybe (ContentHandlingStrategy) } -> {"statusCode" :: Maybe (StatusCode) , "selectionPattern" :: Maybe (String) , "responseParameters" :: Maybe (MapOfStringToString) , "responseTemplates" :: Maybe (MapOfStringToString) , "contentHandling" :: Maybe (ContentHandlingStrategy) } ) -> IntegrationResponse
+newIntegrationResponse'  customize = (IntegrationResponse <<< customize) { "contentHandling": Nothing, "responseParameters": Nothing, "responseTemplates": Nothing, "selectionPattern": Nothing, "statusCode": Nothing }
 
 
 
@@ -2910,8 +2909,8 @@ instance encodeIntegrationType :: Encode IntegrationType where encode = genericE
 
 -- | <p>The request exceeded the rate limit. Retry after the specified time period.</p>
 newtype LimitExceededException = LimitExceededException 
-  { "retryAfterSeconds" :: NullOrUndefined (String)
-  , "message" :: NullOrUndefined (String)
+  { "retryAfterSeconds" :: Maybe (String)
+  , "message" :: Maybe (String)
   }
 derive instance newtypeLimitExceededException :: Newtype LimitExceededException _
 derive instance repGenericLimitExceededException :: Generic LimitExceededException _
@@ -2921,12 +2920,12 @@ instance encodeLimitExceededException :: Encode LimitExceededException where enc
 
 -- | Constructs LimitExceededException from required parameters
 newLimitExceededException :: LimitExceededException
-newLimitExceededException  = LimitExceededException { "message": (NullOrUndefined Nothing), "retryAfterSeconds": (NullOrUndefined Nothing) }
+newLimitExceededException  = LimitExceededException { "message": Nothing, "retryAfterSeconds": Nothing }
 
 -- | Constructs LimitExceededException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLimitExceededException' :: ( { "retryAfterSeconds" :: NullOrUndefined (String) , "message" :: NullOrUndefined (String) } -> {"retryAfterSeconds" :: NullOrUndefined (String) , "message" :: NullOrUndefined (String) } ) -> LimitExceededException
-newLimitExceededException'  customize = (LimitExceededException <<< customize) { "message": (NullOrUndefined Nothing), "retryAfterSeconds": (NullOrUndefined Nothing) }
+newLimitExceededException' :: ( { "retryAfterSeconds" :: Maybe (String) , "message" :: Maybe (String) } -> {"retryAfterSeconds" :: Maybe (String) , "message" :: Maybe (String) } ) -> LimitExceededException
+newLimitExceededException'  customize = (LimitExceededException <<< customize) { "message": Nothing, "retryAfterSeconds": Nothing }
 
 
 
@@ -3275,17 +3274,17 @@ instance encodeMapOfStringToString :: Encode MapOfStringToString where encode = 
 
 -- | <p> Represents a client-facing interface by which the client calls the API to access back-end resources. A <b>Method</b> resource is integrated with an <a>Integration</a> resource. Both consist of a request and one or more responses. The method request takes the client input that is passed to the back end through the integration request. A method response returns the output from the back end to the client through an integration response. A method request is embodied in a <b>Method</b> resource, whereas an integration request is embodied in an <a>Integration</a> resource. On the other hand, a method response is represented by a <a>MethodResponse</a> resource, whereas an integration response is represented by an <a>IntegrationResponse</a> resource. </p> <div class="remarks"> <p/> <h4>Example: Retrive the GET method on a specified resource</h4> <h5>Request</h5> <p>The following example request retrieves the information about the GET method on an API resource (<code>3kzxbg5sa2</code>) of an API (<code>fugvjdxtri</code>). </p> <pre><code>GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20160603T210259Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160603/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}</code></pre> <h5>Response</h5> <p>The successful response returns a <code>200 OK</code> status code and a payload similar to the following:</p> <pre><code>{ "_links": { "curies": [ { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html", "name": "method", "templated": true }, { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true } ], "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET", "name": "GET", "title": "GET" }, "integration:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "method:integration": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "method:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "methodresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}", "templated": true } }, "apiKeyRequired": true, "authorizationType": "NONE", "httpMethod": "GET", "_embedded": { "method:integration": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "3kzxbg5sa2", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestParameters": { "integration.request.header.Content-Type": "'application/x-amz-json-1.1'" }, "requestTemplates": { "application/json": "{\n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-east-1:kinesis:action/ListStreams", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E\")" }, "statusCode": "200" } } }, "method:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" } } }</code></pre> <p>In the example above, the response template for the <code>200 OK</code> response maps the JSON output from the <code>ListStreams</code> action in the back end to an XML output. The mapping template is URL-encoded as <code>%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E</code> and the output is decoded using the <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#util-templat-reference">$util.urlDecode()</a> helper function.</p> </div> <div class="seeAlso"> <a>MethodResponse</a>, <a>Integration</a>, <a>IntegrationResponse</a>, <a>Resource</a>, <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings.html">Set up an API's method</a> </div>
 newtype Method = Method 
-  { "httpMethod" :: NullOrUndefined (String)
-  , "authorizationType" :: NullOrUndefined (String)
-  , "authorizerId" :: NullOrUndefined (String)
-  , "apiKeyRequired" :: NullOrUndefined (NullableBoolean)
-  , "requestValidatorId" :: NullOrUndefined (String)
-  , "operationName" :: NullOrUndefined (String)
-  , "requestParameters" :: NullOrUndefined (MapOfStringToBoolean)
-  , "requestModels" :: NullOrUndefined (MapOfStringToString)
-  , "methodResponses" :: NullOrUndefined (MapOfMethodResponse)
-  , "methodIntegration" :: NullOrUndefined (Integration)
-  , "authorizationScopes" :: NullOrUndefined (ListOfString)
+  { "httpMethod" :: Maybe (String)
+  , "authorizationType" :: Maybe (String)
+  , "authorizerId" :: Maybe (String)
+  , "apiKeyRequired" :: Maybe (NullableBoolean)
+  , "requestValidatorId" :: Maybe (String)
+  , "operationName" :: Maybe (String)
+  , "requestParameters" :: Maybe (MapOfStringToBoolean)
+  , "requestModels" :: Maybe (MapOfStringToString)
+  , "methodResponses" :: Maybe (MapOfMethodResponse)
+  , "methodIntegration" :: Maybe (Integration)
+  , "authorizationScopes" :: Maybe (ListOfString)
   }
 derive instance newtypeMethod :: Newtype Method _
 derive instance repGenericMethod :: Generic Method _
@@ -3295,20 +3294,20 @@ instance encodeMethod :: Encode Method where encode = genericEncode options
 
 -- | Constructs Method from required parameters
 newMethod :: Method
-newMethod  = Method { "apiKeyRequired": (NullOrUndefined Nothing), "authorizationScopes": (NullOrUndefined Nothing), "authorizationType": (NullOrUndefined Nothing), "authorizerId": (NullOrUndefined Nothing), "httpMethod": (NullOrUndefined Nothing), "methodIntegration": (NullOrUndefined Nothing), "methodResponses": (NullOrUndefined Nothing), "operationName": (NullOrUndefined Nothing), "requestModels": (NullOrUndefined Nothing), "requestParameters": (NullOrUndefined Nothing), "requestValidatorId": (NullOrUndefined Nothing) }
+newMethod  = Method { "apiKeyRequired": Nothing, "authorizationScopes": Nothing, "authorizationType": Nothing, "authorizerId": Nothing, "httpMethod": Nothing, "methodIntegration": Nothing, "methodResponses": Nothing, "operationName": Nothing, "requestModels": Nothing, "requestParameters": Nothing, "requestValidatorId": Nothing }
 
 -- | Constructs Method's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMethod' :: ( { "httpMethod" :: NullOrUndefined (String) , "authorizationType" :: NullOrUndefined (String) , "authorizerId" :: NullOrUndefined (String) , "apiKeyRequired" :: NullOrUndefined (NullableBoolean) , "requestValidatorId" :: NullOrUndefined (String) , "operationName" :: NullOrUndefined (String) , "requestParameters" :: NullOrUndefined (MapOfStringToBoolean) , "requestModels" :: NullOrUndefined (MapOfStringToString) , "methodResponses" :: NullOrUndefined (MapOfMethodResponse) , "methodIntegration" :: NullOrUndefined (Integration) , "authorizationScopes" :: NullOrUndefined (ListOfString) } -> {"httpMethod" :: NullOrUndefined (String) , "authorizationType" :: NullOrUndefined (String) , "authorizerId" :: NullOrUndefined (String) , "apiKeyRequired" :: NullOrUndefined (NullableBoolean) , "requestValidatorId" :: NullOrUndefined (String) , "operationName" :: NullOrUndefined (String) , "requestParameters" :: NullOrUndefined (MapOfStringToBoolean) , "requestModels" :: NullOrUndefined (MapOfStringToString) , "methodResponses" :: NullOrUndefined (MapOfMethodResponse) , "methodIntegration" :: NullOrUndefined (Integration) , "authorizationScopes" :: NullOrUndefined (ListOfString) } ) -> Method
-newMethod'  customize = (Method <<< customize) { "apiKeyRequired": (NullOrUndefined Nothing), "authorizationScopes": (NullOrUndefined Nothing), "authorizationType": (NullOrUndefined Nothing), "authorizerId": (NullOrUndefined Nothing), "httpMethod": (NullOrUndefined Nothing), "methodIntegration": (NullOrUndefined Nothing), "methodResponses": (NullOrUndefined Nothing), "operationName": (NullOrUndefined Nothing), "requestModels": (NullOrUndefined Nothing), "requestParameters": (NullOrUndefined Nothing), "requestValidatorId": (NullOrUndefined Nothing) }
+newMethod' :: ( { "httpMethod" :: Maybe (String) , "authorizationType" :: Maybe (String) , "authorizerId" :: Maybe (String) , "apiKeyRequired" :: Maybe (NullableBoolean) , "requestValidatorId" :: Maybe (String) , "operationName" :: Maybe (String) , "requestParameters" :: Maybe (MapOfStringToBoolean) , "requestModels" :: Maybe (MapOfStringToString) , "methodResponses" :: Maybe (MapOfMethodResponse) , "methodIntegration" :: Maybe (Integration) , "authorizationScopes" :: Maybe (ListOfString) } -> {"httpMethod" :: Maybe (String) , "authorizationType" :: Maybe (String) , "authorizerId" :: Maybe (String) , "apiKeyRequired" :: Maybe (NullableBoolean) , "requestValidatorId" :: Maybe (String) , "operationName" :: Maybe (String) , "requestParameters" :: Maybe (MapOfStringToBoolean) , "requestModels" :: Maybe (MapOfStringToString) , "methodResponses" :: Maybe (MapOfMethodResponse) , "methodIntegration" :: Maybe (Integration) , "authorizationScopes" :: Maybe (ListOfString) } ) -> Method
+newMethod'  customize = (Method <<< customize) { "apiKeyRequired": Nothing, "authorizationScopes": Nothing, "authorizationType": Nothing, "authorizerId": Nothing, "httpMethod": Nothing, "methodIntegration": Nothing, "methodResponses": Nothing, "operationName": Nothing, "requestModels": Nothing, "requestParameters": Nothing, "requestValidatorId": Nothing }
 
 
 
 -- | <p>Represents a method response of a given HTTP status code returned to the client. The method response is passed from the back end through the associated integration response that can be transformed using a mapping template. </p> <div class="remarks"> <p/> <h4>Example: A <b>MethodResponse</b> instance of an API</h4> <h5>Request</h5> <p>The example request retrieves a <b>MethodResponse</b> of the 200 status code.</p> <pre><code>GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200 HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20160603T222952Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160603/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}</code></pre> <h5>Response</h5> <p>The successful response returns <code>200 OK</code> status and a payload as follows:</p> <pre><code>{ "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" }</code></pre> <p/> </div> <div class="seeAlso"> <a>Method</a>, <a>IntegrationResponse</a>, <a>Integration</a> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Creating an API</a> </div>
 newtype MethodResponse = MethodResponse 
-  { "statusCode" :: NullOrUndefined (StatusCode)
-  , "responseParameters" :: NullOrUndefined (MapOfStringToBoolean)
-  , "responseModels" :: NullOrUndefined (MapOfStringToString)
+  { "statusCode" :: Maybe (StatusCode)
+  , "responseParameters" :: Maybe (MapOfStringToBoolean)
+  , "responseModels" :: Maybe (MapOfStringToString)
   }
 derive instance newtypeMethodResponse :: Newtype MethodResponse _
 derive instance repGenericMethodResponse :: Generic MethodResponse _
@@ -3318,27 +3317,27 @@ instance encodeMethodResponse :: Encode MethodResponse where encode = genericEnc
 
 -- | Constructs MethodResponse from required parameters
 newMethodResponse :: MethodResponse
-newMethodResponse  = MethodResponse { "responseModels": (NullOrUndefined Nothing), "responseParameters": (NullOrUndefined Nothing), "statusCode": (NullOrUndefined Nothing) }
+newMethodResponse  = MethodResponse { "responseModels": Nothing, "responseParameters": Nothing, "statusCode": Nothing }
 
 -- | Constructs MethodResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMethodResponse' :: ( { "statusCode" :: NullOrUndefined (StatusCode) , "responseParameters" :: NullOrUndefined (MapOfStringToBoolean) , "responseModels" :: NullOrUndefined (MapOfStringToString) } -> {"statusCode" :: NullOrUndefined (StatusCode) , "responseParameters" :: NullOrUndefined (MapOfStringToBoolean) , "responseModels" :: NullOrUndefined (MapOfStringToString) } ) -> MethodResponse
-newMethodResponse'  customize = (MethodResponse <<< customize) { "responseModels": (NullOrUndefined Nothing), "responseParameters": (NullOrUndefined Nothing), "statusCode": (NullOrUndefined Nothing) }
+newMethodResponse' :: ( { "statusCode" :: Maybe (StatusCode) , "responseParameters" :: Maybe (MapOfStringToBoolean) , "responseModels" :: Maybe (MapOfStringToString) } -> {"statusCode" :: Maybe (StatusCode) , "responseParameters" :: Maybe (MapOfStringToBoolean) , "responseModels" :: Maybe (MapOfStringToString) } ) -> MethodResponse
+newMethodResponse'  customize = (MethodResponse <<< customize) { "responseModels": Nothing, "responseParameters": Nothing, "statusCode": Nothing }
 
 
 
 -- | <p>Specifies the method setting properties.</p>
 newtype MethodSetting = MethodSetting 
-  { "metricsEnabled" :: NullOrUndefined (Boolean)
-  , "loggingLevel" :: NullOrUndefined (String)
-  , "dataTraceEnabled" :: NullOrUndefined (Boolean)
-  , "throttlingBurstLimit" :: NullOrUndefined (Int)
-  , "throttlingRateLimit" :: NullOrUndefined (Number)
-  , "cachingEnabled" :: NullOrUndefined (Boolean)
-  , "cacheTtlInSeconds" :: NullOrUndefined (Int)
-  , "cacheDataEncrypted" :: NullOrUndefined (Boolean)
-  , "requireAuthorizationForCacheControl" :: NullOrUndefined (Boolean)
-  , "unauthorizedCacheControlHeaderStrategy" :: NullOrUndefined (UnauthorizedCacheControlHeaderStrategy)
+  { "metricsEnabled" :: Maybe (Boolean)
+  , "loggingLevel" :: Maybe (String)
+  , "dataTraceEnabled" :: Maybe (Boolean)
+  , "throttlingBurstLimit" :: Maybe (Int)
+  , "throttlingRateLimit" :: Maybe (Number)
+  , "cachingEnabled" :: Maybe (Boolean)
+  , "cacheTtlInSeconds" :: Maybe (Int)
+  , "cacheDataEncrypted" :: Maybe (Boolean)
+  , "requireAuthorizationForCacheControl" :: Maybe (Boolean)
+  , "unauthorizedCacheControlHeaderStrategy" :: Maybe (UnauthorizedCacheControlHeaderStrategy)
   }
 derive instance newtypeMethodSetting :: Newtype MethodSetting _
 derive instance repGenericMethodSetting :: Generic MethodSetting _
@@ -3348,19 +3347,19 @@ instance encodeMethodSetting :: Encode MethodSetting where encode = genericEncod
 
 -- | Constructs MethodSetting from required parameters
 newMethodSetting :: MethodSetting
-newMethodSetting  = MethodSetting { "cacheDataEncrypted": (NullOrUndefined Nothing), "cacheTtlInSeconds": (NullOrUndefined Nothing), "cachingEnabled": (NullOrUndefined Nothing), "dataTraceEnabled": (NullOrUndefined Nothing), "loggingLevel": (NullOrUndefined Nothing), "metricsEnabled": (NullOrUndefined Nothing), "requireAuthorizationForCacheControl": (NullOrUndefined Nothing), "throttlingBurstLimit": (NullOrUndefined Nothing), "throttlingRateLimit": (NullOrUndefined Nothing), "unauthorizedCacheControlHeaderStrategy": (NullOrUndefined Nothing) }
+newMethodSetting  = MethodSetting { "cacheDataEncrypted": Nothing, "cacheTtlInSeconds": Nothing, "cachingEnabled": Nothing, "dataTraceEnabled": Nothing, "loggingLevel": Nothing, "metricsEnabled": Nothing, "requireAuthorizationForCacheControl": Nothing, "throttlingBurstLimit": Nothing, "throttlingRateLimit": Nothing, "unauthorizedCacheControlHeaderStrategy": Nothing }
 
 -- | Constructs MethodSetting's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMethodSetting' :: ( { "metricsEnabled" :: NullOrUndefined (Boolean) , "loggingLevel" :: NullOrUndefined (String) , "dataTraceEnabled" :: NullOrUndefined (Boolean) , "throttlingBurstLimit" :: NullOrUndefined (Int) , "throttlingRateLimit" :: NullOrUndefined (Number) , "cachingEnabled" :: NullOrUndefined (Boolean) , "cacheTtlInSeconds" :: NullOrUndefined (Int) , "cacheDataEncrypted" :: NullOrUndefined (Boolean) , "requireAuthorizationForCacheControl" :: NullOrUndefined (Boolean) , "unauthorizedCacheControlHeaderStrategy" :: NullOrUndefined (UnauthorizedCacheControlHeaderStrategy) } -> {"metricsEnabled" :: NullOrUndefined (Boolean) , "loggingLevel" :: NullOrUndefined (String) , "dataTraceEnabled" :: NullOrUndefined (Boolean) , "throttlingBurstLimit" :: NullOrUndefined (Int) , "throttlingRateLimit" :: NullOrUndefined (Number) , "cachingEnabled" :: NullOrUndefined (Boolean) , "cacheTtlInSeconds" :: NullOrUndefined (Int) , "cacheDataEncrypted" :: NullOrUndefined (Boolean) , "requireAuthorizationForCacheControl" :: NullOrUndefined (Boolean) , "unauthorizedCacheControlHeaderStrategy" :: NullOrUndefined (UnauthorizedCacheControlHeaderStrategy) } ) -> MethodSetting
-newMethodSetting'  customize = (MethodSetting <<< customize) { "cacheDataEncrypted": (NullOrUndefined Nothing), "cacheTtlInSeconds": (NullOrUndefined Nothing), "cachingEnabled": (NullOrUndefined Nothing), "dataTraceEnabled": (NullOrUndefined Nothing), "loggingLevel": (NullOrUndefined Nothing), "metricsEnabled": (NullOrUndefined Nothing), "requireAuthorizationForCacheControl": (NullOrUndefined Nothing), "throttlingBurstLimit": (NullOrUndefined Nothing), "throttlingRateLimit": (NullOrUndefined Nothing), "unauthorizedCacheControlHeaderStrategy": (NullOrUndefined Nothing) }
+newMethodSetting' :: ( { "metricsEnabled" :: Maybe (Boolean) , "loggingLevel" :: Maybe (String) , "dataTraceEnabled" :: Maybe (Boolean) , "throttlingBurstLimit" :: Maybe (Int) , "throttlingRateLimit" :: Maybe (Number) , "cachingEnabled" :: Maybe (Boolean) , "cacheTtlInSeconds" :: Maybe (Int) , "cacheDataEncrypted" :: Maybe (Boolean) , "requireAuthorizationForCacheControl" :: Maybe (Boolean) , "unauthorizedCacheControlHeaderStrategy" :: Maybe (UnauthorizedCacheControlHeaderStrategy) } -> {"metricsEnabled" :: Maybe (Boolean) , "loggingLevel" :: Maybe (String) , "dataTraceEnabled" :: Maybe (Boolean) , "throttlingBurstLimit" :: Maybe (Int) , "throttlingRateLimit" :: Maybe (Number) , "cachingEnabled" :: Maybe (Boolean) , "cacheTtlInSeconds" :: Maybe (Int) , "cacheDataEncrypted" :: Maybe (Boolean) , "requireAuthorizationForCacheControl" :: Maybe (Boolean) , "unauthorizedCacheControlHeaderStrategy" :: Maybe (UnauthorizedCacheControlHeaderStrategy) } ) -> MethodSetting
+newMethodSetting'  customize = (MethodSetting <<< customize) { "cacheDataEncrypted": Nothing, "cacheTtlInSeconds": Nothing, "cachingEnabled": Nothing, "dataTraceEnabled": Nothing, "loggingLevel": Nothing, "metricsEnabled": Nothing, "requireAuthorizationForCacheControl": Nothing, "throttlingBurstLimit": Nothing, "throttlingRateLimit": Nothing, "unauthorizedCacheControlHeaderStrategy": Nothing }
 
 
 
 -- | <p>Represents a summary of a <a>Method</a> resource, given a particular date and time.</p>
 newtype MethodSnapshot = MethodSnapshot 
-  { "authorizationType" :: NullOrUndefined (String)
-  , "apiKeyRequired" :: NullOrUndefined (Boolean)
+  { "authorizationType" :: Maybe (String)
+  , "apiKeyRequired" :: Maybe (Boolean)
   }
 derive instance newtypeMethodSnapshot :: Newtype MethodSnapshot _
 derive instance repGenericMethodSnapshot :: Generic MethodSnapshot _
@@ -3370,22 +3369,22 @@ instance encodeMethodSnapshot :: Encode MethodSnapshot where encode = genericEnc
 
 -- | Constructs MethodSnapshot from required parameters
 newMethodSnapshot :: MethodSnapshot
-newMethodSnapshot  = MethodSnapshot { "apiKeyRequired": (NullOrUndefined Nothing), "authorizationType": (NullOrUndefined Nothing) }
+newMethodSnapshot  = MethodSnapshot { "apiKeyRequired": Nothing, "authorizationType": Nothing }
 
 -- | Constructs MethodSnapshot's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMethodSnapshot' :: ( { "authorizationType" :: NullOrUndefined (String) , "apiKeyRequired" :: NullOrUndefined (Boolean) } -> {"authorizationType" :: NullOrUndefined (String) , "apiKeyRequired" :: NullOrUndefined (Boolean) } ) -> MethodSnapshot
-newMethodSnapshot'  customize = (MethodSnapshot <<< customize) { "apiKeyRequired": (NullOrUndefined Nothing), "authorizationType": (NullOrUndefined Nothing) }
+newMethodSnapshot' :: ( { "authorizationType" :: Maybe (String) , "apiKeyRequired" :: Maybe (Boolean) } -> {"authorizationType" :: Maybe (String) , "apiKeyRequired" :: Maybe (Boolean) } ) -> MethodSnapshot
+newMethodSnapshot'  customize = (MethodSnapshot <<< customize) { "apiKeyRequired": Nothing, "authorizationType": Nothing }
 
 
 
 -- | <p>Represents the data structure of a method's request or response payload.</p> <div class="remarks"> <p>A request model defines the data structure of the client-supplied request payload. A response model defines the data structure of the response payload returned by the back end. Although not required, models are useful for mapping payloads between the front end and back end.</p> <p>A model is used for generating an API's SDK, validating the input request body, and creating a skeletal mapping template.</p> </div> <div class="seeAlso"> <a>Method</a>, <a>MethodResponse</a>, <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html">Models and Mappings</a> </div>
 newtype Model = Model 
-  { "id" :: NullOrUndefined (String)
-  , "name" :: NullOrUndefined (String)
-  , "description" :: NullOrUndefined (String)
-  , "schema" :: NullOrUndefined (String)
-  , "contentType" :: NullOrUndefined (String)
+  { "id" :: Maybe (String)
+  , "name" :: Maybe (String)
+  , "description" :: Maybe (String)
+  , "schema" :: Maybe (String)
+  , "contentType" :: Maybe (String)
   }
 derive instance newtypeModel :: Newtype Model _
 derive instance repGenericModel :: Generic Model _
@@ -3395,19 +3394,19 @@ instance encodeModel :: Encode Model where encode = genericEncode options
 
 -- | Constructs Model from required parameters
 newModel :: Model
-newModel  = Model { "contentType": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "schema": (NullOrUndefined Nothing) }
+newModel  = Model { "contentType": Nothing, "description": Nothing, "id": Nothing, "name": Nothing, "schema": Nothing }
 
 -- | Constructs Model's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newModel' :: ( { "id" :: NullOrUndefined (String) , "name" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "schema" :: NullOrUndefined (String) , "contentType" :: NullOrUndefined (String) } -> {"id" :: NullOrUndefined (String) , "name" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "schema" :: NullOrUndefined (String) , "contentType" :: NullOrUndefined (String) } ) -> Model
-newModel'  customize = (Model <<< customize) { "contentType": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "schema": (NullOrUndefined Nothing) }
+newModel' :: ( { "id" :: Maybe (String) , "name" :: Maybe (String) , "description" :: Maybe (String) , "schema" :: Maybe (String) , "contentType" :: Maybe (String) } -> {"id" :: Maybe (String) , "name" :: Maybe (String) , "description" :: Maybe (String) , "schema" :: Maybe (String) , "contentType" :: Maybe (String) } ) -> Model
+newModel'  customize = (Model <<< customize) { "contentType": Nothing, "description": Nothing, "id": Nothing, "name": Nothing, "schema": Nothing }
 
 
 
 -- | <p>Represents a collection of <a>Model</a> resources.</p> <div class="seeAlso"> <a>Method</a>, <a>MethodResponse</a>, <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html">Models and Mappings</a> </div>
 newtype Models = Models 
-  { "position" :: NullOrUndefined (String)
-  , "items" :: NullOrUndefined (ListOfModel)
+  { "position" :: Maybe (String)
+  , "items" :: Maybe (ListOfModel)
   }
 derive instance newtypeModels :: Newtype Models _
 derive instance repGenericModels :: Generic Models _
@@ -3417,18 +3416,18 @@ instance encodeModels :: Encode Models where encode = genericEncode options
 
 -- | Constructs Models from required parameters
 newModels :: Models
-newModels  = Models { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newModels  = Models { "items": Nothing, "position": Nothing }
 
 -- | Constructs Models's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newModels' :: ( { "position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfModel) } -> {"position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfModel) } ) -> Models
-newModels'  customize = (Models <<< customize) { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newModels' :: ( { "position" :: Maybe (String) , "items" :: Maybe (ListOfModel) } -> {"position" :: Maybe (String) , "items" :: Maybe (ListOfModel) } ) -> Models
+newModels'  customize = (Models <<< customize) { "items": Nothing, "position": Nothing }
 
 
 
 -- | <p>The requested resource is not found. Make sure that the request URI is correct.</p>
 newtype NotFoundException = NotFoundException 
-  { "message" :: NullOrUndefined (String)
+  { "message" :: Maybe (String)
   }
 derive instance newtypeNotFoundException :: Newtype NotFoundException _
 derive instance repGenericNotFoundException :: Generic NotFoundException _
@@ -3438,12 +3437,12 @@ instance encodeNotFoundException :: Encode NotFoundException where encode = gene
 
 -- | Constructs NotFoundException from required parameters
 newNotFoundException :: NotFoundException
-newNotFoundException  = NotFoundException { "message": (NullOrUndefined Nothing) }
+newNotFoundException  = NotFoundException { "message": Nothing }
 
 -- | Constructs NotFoundException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNotFoundException' :: ( { "message" :: NullOrUndefined (String) } -> {"message" :: NullOrUndefined (String) } ) -> NotFoundException
-newNotFoundException'  customize = (NotFoundException <<< customize) { "message": (NullOrUndefined Nothing) }
+newNotFoundException' :: ( { "message" :: Maybe (String) } -> {"message" :: Maybe (String) } ) -> NotFoundException
+newNotFoundException'  customize = (NotFoundException <<< customize) { "message": Nothing }
 
 
 
@@ -3476,10 +3475,10 @@ instance encodeOp :: Encode Op where encode = genericEncode options
 
 -- | A single patch operation to apply to the specified resource. Please refer to http://tools.ietf.org/html/rfc6902#section-4 for an explanation of how each operation is used.
 newtype PatchOperation = PatchOperation 
-  { "op" :: NullOrUndefined (Op)
-  , "path" :: NullOrUndefined (String)
-  , "value" :: NullOrUndefined (String)
-  , "from" :: NullOrUndefined (String)
+  { "op" :: Maybe (Op)
+  , "path" :: Maybe (String)
+  , "value" :: Maybe (String)
+  , "from" :: Maybe (String)
   }
 derive instance newtypePatchOperation :: Newtype PatchOperation _
 derive instance repGenericPatchOperation :: Generic PatchOperation _
@@ -3489,12 +3488,12 @@ instance encodePatchOperation :: Encode PatchOperation where encode = genericEnc
 
 -- | Constructs PatchOperation from required parameters
 newPatchOperation :: PatchOperation
-newPatchOperation  = PatchOperation { "from": (NullOrUndefined Nothing), "op": (NullOrUndefined Nothing), "path": (NullOrUndefined Nothing), "value": (NullOrUndefined Nothing) }
+newPatchOperation  = PatchOperation { "from": Nothing, "op": Nothing, "path": Nothing, "value": Nothing }
 
 -- | Constructs PatchOperation's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPatchOperation' :: ( { "op" :: NullOrUndefined (Op) , "path" :: NullOrUndefined (String) , "value" :: NullOrUndefined (String) , "from" :: NullOrUndefined (String) } -> {"op" :: NullOrUndefined (Op) , "path" :: NullOrUndefined (String) , "value" :: NullOrUndefined (String) , "from" :: NullOrUndefined (String) } ) -> PatchOperation
-newPatchOperation'  customize = (PatchOperation <<< customize) { "from": (NullOrUndefined Nothing), "op": (NullOrUndefined Nothing), "path": (NullOrUndefined Nothing), "value": (NullOrUndefined Nothing) }
+newPatchOperation' :: ( { "op" :: Maybe (Op) , "path" :: Maybe (String) , "value" :: Maybe (String) , "from" :: Maybe (String) } -> {"op" :: Maybe (Op) , "path" :: Maybe (String) , "value" :: Maybe (String) , "from" :: Maybe (String) } ) -> PatchOperation
+newPatchOperation'  customize = (PatchOperation <<< customize) { "from": Nothing, "op": Nothing, "path": Nothing, "value": Nothing }
 
 
 
@@ -3520,9 +3519,9 @@ instance encodeProviderARN :: Encode ProviderARN where encode = genericEncode op
 newtype PutGatewayResponseRequest = PutGatewayResponseRequest 
   { "restApiId" :: (String)
   , "responseType" :: (GatewayResponseType)
-  , "statusCode" :: NullOrUndefined (StatusCode)
-  , "responseParameters" :: NullOrUndefined (MapOfStringToString)
-  , "responseTemplates" :: NullOrUndefined (MapOfStringToString)
+  , "statusCode" :: Maybe (StatusCode)
+  , "responseParameters" :: Maybe (MapOfStringToString)
+  , "responseTemplates" :: Maybe (MapOfStringToString)
   }
 derive instance newtypePutGatewayResponseRequest :: Newtype PutGatewayResponseRequest _
 derive instance repGenericPutGatewayResponseRequest :: Generic PutGatewayResponseRequest _
@@ -3532,12 +3531,12 @@ instance encodePutGatewayResponseRequest :: Encode PutGatewayResponseRequest whe
 
 -- | Constructs PutGatewayResponseRequest from required parameters
 newPutGatewayResponseRequest :: GatewayResponseType -> String -> PutGatewayResponseRequest
-newPutGatewayResponseRequest _responseType _restApiId = PutGatewayResponseRequest { "responseType": _responseType, "restApiId": _restApiId, "responseParameters": (NullOrUndefined Nothing), "responseTemplates": (NullOrUndefined Nothing), "statusCode": (NullOrUndefined Nothing) }
+newPutGatewayResponseRequest _responseType _restApiId = PutGatewayResponseRequest { "responseType": _responseType, "restApiId": _restApiId, "responseParameters": Nothing, "responseTemplates": Nothing, "statusCode": Nothing }
 
 -- | Constructs PutGatewayResponseRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutGatewayResponseRequest' :: GatewayResponseType -> String -> ( { "restApiId" :: (String) , "responseType" :: (GatewayResponseType) , "statusCode" :: NullOrUndefined (StatusCode) , "responseParameters" :: NullOrUndefined (MapOfStringToString) , "responseTemplates" :: NullOrUndefined (MapOfStringToString) } -> {"restApiId" :: (String) , "responseType" :: (GatewayResponseType) , "statusCode" :: NullOrUndefined (StatusCode) , "responseParameters" :: NullOrUndefined (MapOfStringToString) , "responseTemplates" :: NullOrUndefined (MapOfStringToString) } ) -> PutGatewayResponseRequest
-newPutGatewayResponseRequest' _responseType _restApiId customize = (PutGatewayResponseRequest <<< customize) { "responseType": _responseType, "restApiId": _restApiId, "responseParameters": (NullOrUndefined Nothing), "responseTemplates": (NullOrUndefined Nothing), "statusCode": (NullOrUndefined Nothing) }
+newPutGatewayResponseRequest' :: GatewayResponseType -> String -> ( { "restApiId" :: (String) , "responseType" :: (GatewayResponseType) , "statusCode" :: Maybe (StatusCode) , "responseParameters" :: Maybe (MapOfStringToString) , "responseTemplates" :: Maybe (MapOfStringToString) } -> {"restApiId" :: (String) , "responseType" :: (GatewayResponseType) , "statusCode" :: Maybe (StatusCode) , "responseParameters" :: Maybe (MapOfStringToString) , "responseTemplates" :: Maybe (MapOfStringToString) } ) -> PutGatewayResponseRequest
+newPutGatewayResponseRequest' _responseType _restApiId customize = (PutGatewayResponseRequest <<< customize) { "responseType": _responseType, "restApiId": _restApiId, "responseParameters": Nothing, "responseTemplates": Nothing, "statusCode": Nothing }
 
 
 
@@ -3547,18 +3546,18 @@ newtype PutIntegrationRequest = PutIntegrationRequest
   , "resourceId" :: (String)
   , "httpMethod" :: (String)
   , "type" :: (IntegrationType)
-  , "integrationHttpMethod" :: NullOrUndefined (String)
-  , "uri" :: NullOrUndefined (String)
-  , "connectionType" :: NullOrUndefined (ConnectionType)
-  , "connectionId" :: NullOrUndefined (String)
-  , "credentials" :: NullOrUndefined (String)
-  , "requestParameters" :: NullOrUndefined (MapOfStringToString)
-  , "requestTemplates" :: NullOrUndefined (MapOfStringToString)
-  , "passthroughBehavior" :: NullOrUndefined (String)
-  , "cacheNamespace" :: NullOrUndefined (String)
-  , "cacheKeyParameters" :: NullOrUndefined (ListOfString)
-  , "contentHandling" :: NullOrUndefined (ContentHandlingStrategy)
-  , "timeoutInMillis" :: NullOrUndefined (NullableInteger)
+  , "integrationHttpMethod" :: Maybe (String)
+  , "uri" :: Maybe (String)
+  , "connectionType" :: Maybe (ConnectionType)
+  , "connectionId" :: Maybe (String)
+  , "credentials" :: Maybe (String)
+  , "requestParameters" :: Maybe (MapOfStringToString)
+  , "requestTemplates" :: Maybe (MapOfStringToString)
+  , "passthroughBehavior" :: Maybe (String)
+  , "cacheNamespace" :: Maybe (String)
+  , "cacheKeyParameters" :: Maybe (ListOfString)
+  , "contentHandling" :: Maybe (ContentHandlingStrategy)
+  , "timeoutInMillis" :: Maybe (NullableInteger)
   }
 derive instance newtypePutIntegrationRequest :: Newtype PutIntegrationRequest _
 derive instance repGenericPutIntegrationRequest :: Generic PutIntegrationRequest _
@@ -3568,12 +3567,12 @@ instance encodePutIntegrationRequest :: Encode PutIntegrationRequest where encod
 
 -- | Constructs PutIntegrationRequest from required parameters
 newPutIntegrationRequest :: String -> String -> String -> IntegrationType -> PutIntegrationRequest
-newPutIntegrationRequest _httpMethod _resourceId _restApiId _type = PutIntegrationRequest { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "type": _type, "cacheKeyParameters": (NullOrUndefined Nothing), "cacheNamespace": (NullOrUndefined Nothing), "connectionId": (NullOrUndefined Nothing), "connectionType": (NullOrUndefined Nothing), "contentHandling": (NullOrUndefined Nothing), "credentials": (NullOrUndefined Nothing), "integrationHttpMethod": (NullOrUndefined Nothing), "passthroughBehavior": (NullOrUndefined Nothing), "requestParameters": (NullOrUndefined Nothing), "requestTemplates": (NullOrUndefined Nothing), "timeoutInMillis": (NullOrUndefined Nothing), "uri": (NullOrUndefined Nothing) }
+newPutIntegrationRequest _httpMethod _resourceId _restApiId _type = PutIntegrationRequest { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "type": _type, "cacheKeyParameters": Nothing, "cacheNamespace": Nothing, "connectionId": Nothing, "connectionType": Nothing, "contentHandling": Nothing, "credentials": Nothing, "integrationHttpMethod": Nothing, "passthroughBehavior": Nothing, "requestParameters": Nothing, "requestTemplates": Nothing, "timeoutInMillis": Nothing, "uri": Nothing }
 
 -- | Constructs PutIntegrationRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutIntegrationRequest' :: String -> String -> String -> IntegrationType -> ( { "restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "type" :: (IntegrationType) , "integrationHttpMethod" :: NullOrUndefined (String) , "uri" :: NullOrUndefined (String) , "connectionType" :: NullOrUndefined (ConnectionType) , "connectionId" :: NullOrUndefined (String) , "credentials" :: NullOrUndefined (String) , "requestParameters" :: NullOrUndefined (MapOfStringToString) , "requestTemplates" :: NullOrUndefined (MapOfStringToString) , "passthroughBehavior" :: NullOrUndefined (String) , "cacheNamespace" :: NullOrUndefined (String) , "cacheKeyParameters" :: NullOrUndefined (ListOfString) , "contentHandling" :: NullOrUndefined (ContentHandlingStrategy) , "timeoutInMillis" :: NullOrUndefined (NullableInteger) } -> {"restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "type" :: (IntegrationType) , "integrationHttpMethod" :: NullOrUndefined (String) , "uri" :: NullOrUndefined (String) , "connectionType" :: NullOrUndefined (ConnectionType) , "connectionId" :: NullOrUndefined (String) , "credentials" :: NullOrUndefined (String) , "requestParameters" :: NullOrUndefined (MapOfStringToString) , "requestTemplates" :: NullOrUndefined (MapOfStringToString) , "passthroughBehavior" :: NullOrUndefined (String) , "cacheNamespace" :: NullOrUndefined (String) , "cacheKeyParameters" :: NullOrUndefined (ListOfString) , "contentHandling" :: NullOrUndefined (ContentHandlingStrategy) , "timeoutInMillis" :: NullOrUndefined (NullableInteger) } ) -> PutIntegrationRequest
-newPutIntegrationRequest' _httpMethod _resourceId _restApiId _type customize = (PutIntegrationRequest <<< customize) { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "type": _type, "cacheKeyParameters": (NullOrUndefined Nothing), "cacheNamespace": (NullOrUndefined Nothing), "connectionId": (NullOrUndefined Nothing), "connectionType": (NullOrUndefined Nothing), "contentHandling": (NullOrUndefined Nothing), "credentials": (NullOrUndefined Nothing), "integrationHttpMethod": (NullOrUndefined Nothing), "passthroughBehavior": (NullOrUndefined Nothing), "requestParameters": (NullOrUndefined Nothing), "requestTemplates": (NullOrUndefined Nothing), "timeoutInMillis": (NullOrUndefined Nothing), "uri": (NullOrUndefined Nothing) }
+newPutIntegrationRequest' :: String -> String -> String -> IntegrationType -> ( { "restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "type" :: (IntegrationType) , "integrationHttpMethod" :: Maybe (String) , "uri" :: Maybe (String) , "connectionType" :: Maybe (ConnectionType) , "connectionId" :: Maybe (String) , "credentials" :: Maybe (String) , "requestParameters" :: Maybe (MapOfStringToString) , "requestTemplates" :: Maybe (MapOfStringToString) , "passthroughBehavior" :: Maybe (String) , "cacheNamespace" :: Maybe (String) , "cacheKeyParameters" :: Maybe (ListOfString) , "contentHandling" :: Maybe (ContentHandlingStrategy) , "timeoutInMillis" :: Maybe (NullableInteger) } -> {"restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "type" :: (IntegrationType) , "integrationHttpMethod" :: Maybe (String) , "uri" :: Maybe (String) , "connectionType" :: Maybe (ConnectionType) , "connectionId" :: Maybe (String) , "credentials" :: Maybe (String) , "requestParameters" :: Maybe (MapOfStringToString) , "requestTemplates" :: Maybe (MapOfStringToString) , "passthroughBehavior" :: Maybe (String) , "cacheNamespace" :: Maybe (String) , "cacheKeyParameters" :: Maybe (ListOfString) , "contentHandling" :: Maybe (ContentHandlingStrategy) , "timeoutInMillis" :: Maybe (NullableInteger) } ) -> PutIntegrationRequest
+newPutIntegrationRequest' _httpMethod _resourceId _restApiId _type customize = (PutIntegrationRequest <<< customize) { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "type": _type, "cacheKeyParameters": Nothing, "cacheNamespace": Nothing, "connectionId": Nothing, "connectionType": Nothing, "contentHandling": Nothing, "credentials": Nothing, "integrationHttpMethod": Nothing, "passthroughBehavior": Nothing, "requestParameters": Nothing, "requestTemplates": Nothing, "timeoutInMillis": Nothing, "uri": Nothing }
 
 
 
@@ -3583,10 +3582,10 @@ newtype PutIntegrationResponseRequest = PutIntegrationResponseRequest
   , "resourceId" :: (String)
   , "httpMethod" :: (String)
   , "statusCode" :: (StatusCode)
-  , "selectionPattern" :: NullOrUndefined (String)
-  , "responseParameters" :: NullOrUndefined (MapOfStringToString)
-  , "responseTemplates" :: NullOrUndefined (MapOfStringToString)
-  , "contentHandling" :: NullOrUndefined (ContentHandlingStrategy)
+  , "selectionPattern" :: Maybe (String)
+  , "responseParameters" :: Maybe (MapOfStringToString)
+  , "responseTemplates" :: Maybe (MapOfStringToString)
+  , "contentHandling" :: Maybe (ContentHandlingStrategy)
   }
 derive instance newtypePutIntegrationResponseRequest :: Newtype PutIntegrationResponseRequest _
 derive instance repGenericPutIntegrationResponseRequest :: Generic PutIntegrationResponseRequest _
@@ -3596,12 +3595,12 @@ instance encodePutIntegrationResponseRequest :: Encode PutIntegrationResponseReq
 
 -- | Constructs PutIntegrationResponseRequest from required parameters
 newPutIntegrationResponseRequest :: String -> String -> String -> StatusCode -> PutIntegrationResponseRequest
-newPutIntegrationResponseRequest _httpMethod _resourceId _restApiId _statusCode = PutIntegrationResponseRequest { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "statusCode": _statusCode, "contentHandling": (NullOrUndefined Nothing), "responseParameters": (NullOrUndefined Nothing), "responseTemplates": (NullOrUndefined Nothing), "selectionPattern": (NullOrUndefined Nothing) }
+newPutIntegrationResponseRequest _httpMethod _resourceId _restApiId _statusCode = PutIntegrationResponseRequest { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "statusCode": _statusCode, "contentHandling": Nothing, "responseParameters": Nothing, "responseTemplates": Nothing, "selectionPattern": Nothing }
 
 -- | Constructs PutIntegrationResponseRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutIntegrationResponseRequest' :: String -> String -> String -> StatusCode -> ( { "restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "statusCode" :: (StatusCode) , "selectionPattern" :: NullOrUndefined (String) , "responseParameters" :: NullOrUndefined (MapOfStringToString) , "responseTemplates" :: NullOrUndefined (MapOfStringToString) , "contentHandling" :: NullOrUndefined (ContentHandlingStrategy) } -> {"restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "statusCode" :: (StatusCode) , "selectionPattern" :: NullOrUndefined (String) , "responseParameters" :: NullOrUndefined (MapOfStringToString) , "responseTemplates" :: NullOrUndefined (MapOfStringToString) , "contentHandling" :: NullOrUndefined (ContentHandlingStrategy) } ) -> PutIntegrationResponseRequest
-newPutIntegrationResponseRequest' _httpMethod _resourceId _restApiId _statusCode customize = (PutIntegrationResponseRequest <<< customize) { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "statusCode": _statusCode, "contentHandling": (NullOrUndefined Nothing), "responseParameters": (NullOrUndefined Nothing), "responseTemplates": (NullOrUndefined Nothing), "selectionPattern": (NullOrUndefined Nothing) }
+newPutIntegrationResponseRequest' :: String -> String -> String -> StatusCode -> ( { "restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "statusCode" :: (StatusCode) , "selectionPattern" :: Maybe (String) , "responseParameters" :: Maybe (MapOfStringToString) , "responseTemplates" :: Maybe (MapOfStringToString) , "contentHandling" :: Maybe (ContentHandlingStrategy) } -> {"restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "statusCode" :: (StatusCode) , "selectionPattern" :: Maybe (String) , "responseParameters" :: Maybe (MapOfStringToString) , "responseTemplates" :: Maybe (MapOfStringToString) , "contentHandling" :: Maybe (ContentHandlingStrategy) } ) -> PutIntegrationResponseRequest
+newPutIntegrationResponseRequest' _httpMethod _resourceId _restApiId _statusCode customize = (PutIntegrationResponseRequest <<< customize) { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "statusCode": _statusCode, "contentHandling": Nothing, "responseParameters": Nothing, "responseTemplates": Nothing, "selectionPattern": Nothing }
 
 
 
@@ -3611,13 +3610,13 @@ newtype PutMethodRequest = PutMethodRequest
   , "resourceId" :: (String)
   , "httpMethod" :: (String)
   , "authorizationType" :: (String)
-  , "authorizerId" :: NullOrUndefined (String)
-  , "apiKeyRequired" :: NullOrUndefined (Boolean)
-  , "operationName" :: NullOrUndefined (String)
-  , "requestParameters" :: NullOrUndefined (MapOfStringToBoolean)
-  , "requestModels" :: NullOrUndefined (MapOfStringToString)
-  , "requestValidatorId" :: NullOrUndefined (String)
-  , "authorizationScopes" :: NullOrUndefined (ListOfString)
+  , "authorizerId" :: Maybe (String)
+  , "apiKeyRequired" :: Maybe (Boolean)
+  , "operationName" :: Maybe (String)
+  , "requestParameters" :: Maybe (MapOfStringToBoolean)
+  , "requestModels" :: Maybe (MapOfStringToString)
+  , "requestValidatorId" :: Maybe (String)
+  , "authorizationScopes" :: Maybe (ListOfString)
   }
 derive instance newtypePutMethodRequest :: Newtype PutMethodRequest _
 derive instance repGenericPutMethodRequest :: Generic PutMethodRequest _
@@ -3627,12 +3626,12 @@ instance encodePutMethodRequest :: Encode PutMethodRequest where encode = generi
 
 -- | Constructs PutMethodRequest from required parameters
 newPutMethodRequest :: String -> String -> String -> String -> PutMethodRequest
-newPutMethodRequest _authorizationType _httpMethod _resourceId _restApiId = PutMethodRequest { "authorizationType": _authorizationType, "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "apiKeyRequired": (NullOrUndefined Nothing), "authorizationScopes": (NullOrUndefined Nothing), "authorizerId": (NullOrUndefined Nothing), "operationName": (NullOrUndefined Nothing), "requestModels": (NullOrUndefined Nothing), "requestParameters": (NullOrUndefined Nothing), "requestValidatorId": (NullOrUndefined Nothing) }
+newPutMethodRequest _authorizationType _httpMethod _resourceId _restApiId = PutMethodRequest { "authorizationType": _authorizationType, "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "apiKeyRequired": Nothing, "authorizationScopes": Nothing, "authorizerId": Nothing, "operationName": Nothing, "requestModels": Nothing, "requestParameters": Nothing, "requestValidatorId": Nothing }
 
 -- | Constructs PutMethodRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutMethodRequest' :: String -> String -> String -> String -> ( { "restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "authorizationType" :: (String) , "authorizerId" :: NullOrUndefined (String) , "apiKeyRequired" :: NullOrUndefined (Boolean) , "operationName" :: NullOrUndefined (String) , "requestParameters" :: NullOrUndefined (MapOfStringToBoolean) , "requestModels" :: NullOrUndefined (MapOfStringToString) , "requestValidatorId" :: NullOrUndefined (String) , "authorizationScopes" :: NullOrUndefined (ListOfString) } -> {"restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "authorizationType" :: (String) , "authorizerId" :: NullOrUndefined (String) , "apiKeyRequired" :: NullOrUndefined (Boolean) , "operationName" :: NullOrUndefined (String) , "requestParameters" :: NullOrUndefined (MapOfStringToBoolean) , "requestModels" :: NullOrUndefined (MapOfStringToString) , "requestValidatorId" :: NullOrUndefined (String) , "authorizationScopes" :: NullOrUndefined (ListOfString) } ) -> PutMethodRequest
-newPutMethodRequest' _authorizationType _httpMethod _resourceId _restApiId customize = (PutMethodRequest <<< customize) { "authorizationType": _authorizationType, "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "apiKeyRequired": (NullOrUndefined Nothing), "authorizationScopes": (NullOrUndefined Nothing), "authorizerId": (NullOrUndefined Nothing), "operationName": (NullOrUndefined Nothing), "requestModels": (NullOrUndefined Nothing), "requestParameters": (NullOrUndefined Nothing), "requestValidatorId": (NullOrUndefined Nothing) }
+newPutMethodRequest' :: String -> String -> String -> String -> ( { "restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "authorizationType" :: (String) , "authorizerId" :: Maybe (String) , "apiKeyRequired" :: Maybe (Boolean) , "operationName" :: Maybe (String) , "requestParameters" :: Maybe (MapOfStringToBoolean) , "requestModels" :: Maybe (MapOfStringToString) , "requestValidatorId" :: Maybe (String) , "authorizationScopes" :: Maybe (ListOfString) } -> {"restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "authorizationType" :: (String) , "authorizerId" :: Maybe (String) , "apiKeyRequired" :: Maybe (Boolean) , "operationName" :: Maybe (String) , "requestParameters" :: Maybe (MapOfStringToBoolean) , "requestModels" :: Maybe (MapOfStringToString) , "requestValidatorId" :: Maybe (String) , "authorizationScopes" :: Maybe (ListOfString) } ) -> PutMethodRequest
+newPutMethodRequest' _authorizationType _httpMethod _resourceId _restApiId customize = (PutMethodRequest <<< customize) { "authorizationType": _authorizationType, "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "apiKeyRequired": Nothing, "authorizationScopes": Nothing, "authorizerId": Nothing, "operationName": Nothing, "requestModels": Nothing, "requestParameters": Nothing, "requestValidatorId": Nothing }
 
 
 
@@ -3642,8 +3641,8 @@ newtype PutMethodResponseRequest = PutMethodResponseRequest
   , "resourceId" :: (String)
   , "httpMethod" :: (String)
   , "statusCode" :: (StatusCode)
-  , "responseParameters" :: NullOrUndefined (MapOfStringToBoolean)
-  , "responseModels" :: NullOrUndefined (MapOfStringToString)
+  , "responseParameters" :: Maybe (MapOfStringToBoolean)
+  , "responseModels" :: Maybe (MapOfStringToString)
   }
 derive instance newtypePutMethodResponseRequest :: Newtype PutMethodResponseRequest _
 derive instance repGenericPutMethodResponseRequest :: Generic PutMethodResponseRequest _
@@ -3653,12 +3652,12 @@ instance encodePutMethodResponseRequest :: Encode PutMethodResponseRequest where
 
 -- | Constructs PutMethodResponseRequest from required parameters
 newPutMethodResponseRequest :: String -> String -> String -> StatusCode -> PutMethodResponseRequest
-newPutMethodResponseRequest _httpMethod _resourceId _restApiId _statusCode = PutMethodResponseRequest { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "statusCode": _statusCode, "responseModels": (NullOrUndefined Nothing), "responseParameters": (NullOrUndefined Nothing) }
+newPutMethodResponseRequest _httpMethod _resourceId _restApiId _statusCode = PutMethodResponseRequest { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "statusCode": _statusCode, "responseModels": Nothing, "responseParameters": Nothing }
 
 -- | Constructs PutMethodResponseRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutMethodResponseRequest' :: String -> String -> String -> StatusCode -> ( { "restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "statusCode" :: (StatusCode) , "responseParameters" :: NullOrUndefined (MapOfStringToBoolean) , "responseModels" :: NullOrUndefined (MapOfStringToString) } -> {"restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "statusCode" :: (StatusCode) , "responseParameters" :: NullOrUndefined (MapOfStringToBoolean) , "responseModels" :: NullOrUndefined (MapOfStringToString) } ) -> PutMethodResponseRequest
-newPutMethodResponseRequest' _httpMethod _resourceId _restApiId _statusCode customize = (PutMethodResponseRequest <<< customize) { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "statusCode": _statusCode, "responseModels": (NullOrUndefined Nothing), "responseParameters": (NullOrUndefined Nothing) }
+newPutMethodResponseRequest' :: String -> String -> String -> StatusCode -> ( { "restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "statusCode" :: (StatusCode) , "responseParameters" :: Maybe (MapOfStringToBoolean) , "responseModels" :: Maybe (MapOfStringToString) } -> {"restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "statusCode" :: (StatusCode) , "responseParameters" :: Maybe (MapOfStringToBoolean) , "responseModels" :: Maybe (MapOfStringToString) } ) -> PutMethodResponseRequest
+newPutMethodResponseRequest' _httpMethod _resourceId _restApiId _statusCode customize = (PutMethodResponseRequest <<< customize) { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "statusCode": _statusCode, "responseModels": Nothing, "responseParameters": Nothing }
 
 
 
@@ -3674,9 +3673,9 @@ instance encodePutMode :: Encode PutMode where encode = genericEncode options
 -- | <p>A PUT request to update an existing API, with external API definitions specified as the request body.</p>
 newtype PutRestApiRequest = PutRestApiRequest 
   { "restApiId" :: (String)
-  , "mode" :: NullOrUndefined (PutMode)
-  , "failOnWarnings" :: NullOrUndefined (Boolean)
-  , "parameters" :: NullOrUndefined (MapOfStringToString)
+  , "mode" :: Maybe (PutMode)
+  , "failOnWarnings" :: Maybe (Boolean)
+  , "parameters" :: Maybe (MapOfStringToString)
   , "body" :: (String)
   }
 derive instance newtypePutRestApiRequest :: Newtype PutRestApiRequest _
@@ -3687,12 +3686,12 @@ instance encodePutRestApiRequest :: Encode PutRestApiRequest where encode = gene
 
 -- | Constructs PutRestApiRequest from required parameters
 newPutRestApiRequest :: String -> String -> PutRestApiRequest
-newPutRestApiRequest _body _restApiId = PutRestApiRequest { "body": _body, "restApiId": _restApiId, "failOnWarnings": (NullOrUndefined Nothing), "mode": (NullOrUndefined Nothing), "parameters": (NullOrUndefined Nothing) }
+newPutRestApiRequest _body _restApiId = PutRestApiRequest { "body": _body, "restApiId": _restApiId, "failOnWarnings": Nothing, "mode": Nothing, "parameters": Nothing }
 
 -- | Constructs PutRestApiRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutRestApiRequest' :: String -> String -> ( { "restApiId" :: (String) , "mode" :: NullOrUndefined (PutMode) , "failOnWarnings" :: NullOrUndefined (Boolean) , "parameters" :: NullOrUndefined (MapOfStringToString) , "body" :: (String) } -> {"restApiId" :: (String) , "mode" :: NullOrUndefined (PutMode) , "failOnWarnings" :: NullOrUndefined (Boolean) , "parameters" :: NullOrUndefined (MapOfStringToString) , "body" :: (String) } ) -> PutRestApiRequest
-newPutRestApiRequest' _body _restApiId customize = (PutRestApiRequest <<< customize) { "body": _body, "restApiId": _restApiId, "failOnWarnings": (NullOrUndefined Nothing), "mode": (NullOrUndefined Nothing), "parameters": (NullOrUndefined Nothing) }
+newPutRestApiRequest' :: String -> String -> ( { "restApiId" :: (String) , "mode" :: Maybe (PutMode) , "failOnWarnings" :: Maybe (Boolean) , "parameters" :: Maybe (MapOfStringToString) , "body" :: (String) } -> {"restApiId" :: (String) , "mode" :: Maybe (PutMode) , "failOnWarnings" :: Maybe (Boolean) , "parameters" :: Maybe (MapOfStringToString) , "body" :: (String) } ) -> PutRestApiRequest
+newPutRestApiRequest' _body _restApiId customize = (PutRestApiRequest <<< customize) { "body": _body, "restApiId": _restApiId, "failOnWarnings": Nothing, "mode": Nothing, "parameters": Nothing }
 
 
 
@@ -3707,9 +3706,9 @@ instance encodeQuotaPeriodType :: Encode QuotaPeriodType where encode = genericE
 
 -- | <p>Quotas configured for a usage plan.</p>
 newtype QuotaSettings = QuotaSettings 
-  { "limit" :: NullOrUndefined (Int)
-  , "offset" :: NullOrUndefined (Int)
-  , "period" :: NullOrUndefined (QuotaPeriodType)
+  { "limit" :: Maybe (Int)
+  , "offset" :: Maybe (Int)
+  , "period" :: Maybe (QuotaPeriodType)
   }
 derive instance newtypeQuotaSettings :: Newtype QuotaSettings _
 derive instance repGenericQuotaSettings :: Generic QuotaSettings _
@@ -3719,21 +3718,21 @@ instance encodeQuotaSettings :: Encode QuotaSettings where encode = genericEncod
 
 -- | Constructs QuotaSettings from required parameters
 newQuotaSettings :: QuotaSettings
-newQuotaSettings  = QuotaSettings { "limit": (NullOrUndefined Nothing), "offset": (NullOrUndefined Nothing), "period": (NullOrUndefined Nothing) }
+newQuotaSettings  = QuotaSettings { "limit": Nothing, "offset": Nothing, "period": Nothing }
 
 -- | Constructs QuotaSettings's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newQuotaSettings' :: ( { "limit" :: NullOrUndefined (Int) , "offset" :: NullOrUndefined (Int) , "period" :: NullOrUndefined (QuotaPeriodType) } -> {"limit" :: NullOrUndefined (Int) , "offset" :: NullOrUndefined (Int) , "period" :: NullOrUndefined (QuotaPeriodType) } ) -> QuotaSettings
-newQuotaSettings'  customize = (QuotaSettings <<< customize) { "limit": (NullOrUndefined Nothing), "offset": (NullOrUndefined Nothing), "period": (NullOrUndefined Nothing) }
+newQuotaSettings' :: ( { "limit" :: Maybe (Int) , "offset" :: Maybe (Int) , "period" :: Maybe (QuotaPeriodType) } -> {"limit" :: Maybe (Int) , "offset" :: Maybe (Int) , "period" :: Maybe (QuotaPeriodType) } ) -> QuotaSettings
+newQuotaSettings'  customize = (QuotaSettings <<< customize) { "limit": Nothing, "offset": Nothing, "period": Nothing }
 
 
 
 -- | <p>A set of validation rules for incoming <a>Method</a> requests.</p> <div class="remarks"> <p>In Swagger, a <a>RequestValidator</a> of an API is defined by the <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions.html#api-gateway-swagger-extensions-request-validators.requestValidator.html">x-amazon-apigateway-request-validators.requestValidator</a> object. It the referenced using the <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions.html#api-gateway-swagger-extensions-request-validator">x-amazon-apigateway-request-validator</a> property.</p> </div> <div class="seeAlso"><a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html">Enable Basic Request Validation in API Gateway</a></div>
 newtype RequestValidator = RequestValidator 
-  { "id" :: NullOrUndefined (String)
-  , "name" :: NullOrUndefined (String)
-  , "validateRequestBody" :: NullOrUndefined (Boolean)
-  , "validateRequestParameters" :: NullOrUndefined (Boolean)
+  { "id" :: Maybe (String)
+  , "name" :: Maybe (String)
+  , "validateRequestBody" :: Maybe (Boolean)
+  , "validateRequestParameters" :: Maybe (Boolean)
   }
 derive instance newtypeRequestValidator :: Newtype RequestValidator _
 derive instance repGenericRequestValidator :: Generic RequestValidator _
@@ -3743,19 +3742,19 @@ instance encodeRequestValidator :: Encode RequestValidator where encode = generi
 
 -- | Constructs RequestValidator from required parameters
 newRequestValidator :: RequestValidator
-newRequestValidator  = RequestValidator { "id": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "validateRequestBody": (NullOrUndefined Nothing), "validateRequestParameters": (NullOrUndefined Nothing) }
+newRequestValidator  = RequestValidator { "id": Nothing, "name": Nothing, "validateRequestBody": Nothing, "validateRequestParameters": Nothing }
 
 -- | Constructs RequestValidator's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRequestValidator' :: ( { "id" :: NullOrUndefined (String) , "name" :: NullOrUndefined (String) , "validateRequestBody" :: NullOrUndefined (Boolean) , "validateRequestParameters" :: NullOrUndefined (Boolean) } -> {"id" :: NullOrUndefined (String) , "name" :: NullOrUndefined (String) , "validateRequestBody" :: NullOrUndefined (Boolean) , "validateRequestParameters" :: NullOrUndefined (Boolean) } ) -> RequestValidator
-newRequestValidator'  customize = (RequestValidator <<< customize) { "id": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "validateRequestBody": (NullOrUndefined Nothing), "validateRequestParameters": (NullOrUndefined Nothing) }
+newRequestValidator' :: ( { "id" :: Maybe (String) , "name" :: Maybe (String) , "validateRequestBody" :: Maybe (Boolean) , "validateRequestParameters" :: Maybe (Boolean) } -> {"id" :: Maybe (String) , "name" :: Maybe (String) , "validateRequestBody" :: Maybe (Boolean) , "validateRequestParameters" :: Maybe (Boolean) } ) -> RequestValidator
+newRequestValidator'  customize = (RequestValidator <<< customize) { "id": Nothing, "name": Nothing, "validateRequestBody": Nothing, "validateRequestParameters": Nothing }
 
 
 
 -- | <p>A collection of <a>RequestValidator</a> resources of a given <a>RestApi</a>.</p> <div class="remarks"> <p>In Swagger, the <a>RequestValidators</a> of an API is defined by the <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions.html#api-gateway-swagger-extensions-request-validators.html">x-amazon-apigateway-request-validators</a> extension.</p> </div> <div class="seeAlso"><a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html">Enable Basic Request Validation in API Gateway</a></div>
 newtype RequestValidators = RequestValidators 
-  { "position" :: NullOrUndefined (String)
-  , "items" :: NullOrUndefined (ListOfRequestValidator)
+  { "position" :: Maybe (String)
+  , "items" :: Maybe (ListOfRequestValidator)
   }
 derive instance newtypeRequestValidators :: Newtype RequestValidators _
 derive instance repGenericRequestValidators :: Generic RequestValidators _
@@ -3765,22 +3764,22 @@ instance encodeRequestValidators :: Encode RequestValidators where encode = gene
 
 -- | Constructs RequestValidators from required parameters
 newRequestValidators :: RequestValidators
-newRequestValidators  = RequestValidators { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newRequestValidators  = RequestValidators { "items": Nothing, "position": Nothing }
 
 -- | Constructs RequestValidators's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRequestValidators' :: ( { "position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfRequestValidator) } -> {"position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfRequestValidator) } ) -> RequestValidators
-newRequestValidators'  customize = (RequestValidators <<< customize) { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newRequestValidators' :: ( { "position" :: Maybe (String) , "items" :: Maybe (ListOfRequestValidator) } -> {"position" :: Maybe (String) , "items" :: Maybe (ListOfRequestValidator) } ) -> RequestValidators
+newRequestValidators'  customize = (RequestValidators <<< customize) { "items": Nothing, "position": Nothing }
 
 
 
 -- | <p>Represents an API resource.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Create an API</a> </div>
 newtype Resource = Resource 
-  { "id" :: NullOrUndefined (String)
-  , "parentId" :: NullOrUndefined (String)
-  , "pathPart" :: NullOrUndefined (String)
-  , "path" :: NullOrUndefined (String)
-  , "resourceMethods" :: NullOrUndefined (MapOfMethod)
+  { "id" :: Maybe (String)
+  , "parentId" :: Maybe (String)
+  , "pathPart" :: Maybe (String)
+  , "path" :: Maybe (String)
+  , "resourceMethods" :: Maybe (MapOfMethod)
   }
 derive instance newtypeResource :: Newtype Resource _
 derive instance repGenericResource :: Generic Resource _
@@ -3790,19 +3789,19 @@ instance encodeResource :: Encode Resource where encode = genericEncode options
 
 -- | Constructs Resource from required parameters
 newResource :: Resource
-newResource  = Resource { "id": (NullOrUndefined Nothing), "parentId": (NullOrUndefined Nothing), "path": (NullOrUndefined Nothing), "pathPart": (NullOrUndefined Nothing), "resourceMethods": (NullOrUndefined Nothing) }
+newResource  = Resource { "id": Nothing, "parentId": Nothing, "path": Nothing, "pathPart": Nothing, "resourceMethods": Nothing }
 
 -- | Constructs Resource's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResource' :: ( { "id" :: NullOrUndefined (String) , "parentId" :: NullOrUndefined (String) , "pathPart" :: NullOrUndefined (String) , "path" :: NullOrUndefined (String) , "resourceMethods" :: NullOrUndefined (MapOfMethod) } -> {"id" :: NullOrUndefined (String) , "parentId" :: NullOrUndefined (String) , "pathPart" :: NullOrUndefined (String) , "path" :: NullOrUndefined (String) , "resourceMethods" :: NullOrUndefined (MapOfMethod) } ) -> Resource
-newResource'  customize = (Resource <<< customize) { "id": (NullOrUndefined Nothing), "parentId": (NullOrUndefined Nothing), "path": (NullOrUndefined Nothing), "pathPart": (NullOrUndefined Nothing), "resourceMethods": (NullOrUndefined Nothing) }
+newResource' :: ( { "id" :: Maybe (String) , "parentId" :: Maybe (String) , "pathPart" :: Maybe (String) , "path" :: Maybe (String) , "resourceMethods" :: Maybe (MapOfMethod) } -> {"id" :: Maybe (String) , "parentId" :: Maybe (String) , "pathPart" :: Maybe (String) , "path" :: Maybe (String) , "resourceMethods" :: Maybe (MapOfMethod) } ) -> Resource
+newResource'  customize = (Resource <<< customize) { "id": Nothing, "parentId": Nothing, "path": Nothing, "pathPart": Nothing, "resourceMethods": Nothing }
 
 
 
 -- | <p>Represents a collection of <a>Resource</a> resources.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Create an API</a> </div>
 newtype Resources = Resources 
-  { "position" :: NullOrUndefined (String)
-  , "items" :: NullOrUndefined (ListOfResource)
+  { "position" :: Maybe (String)
+  , "items" :: Maybe (ListOfResource)
   }
 derive instance newtypeResources :: Newtype Resources _
 derive instance repGenericResources :: Generic Resources _
@@ -3812,27 +3811,27 @@ instance encodeResources :: Encode Resources where encode = genericEncode option
 
 -- | Constructs Resources from required parameters
 newResources :: Resources
-newResources  = Resources { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newResources  = Resources { "items": Nothing, "position": Nothing }
 
 -- | Constructs Resources's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResources' :: ( { "position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfResource) } -> {"position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfResource) } ) -> Resources
-newResources'  customize = (Resources <<< customize) { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newResources' :: ( { "position" :: Maybe (String) , "items" :: Maybe (ListOfResource) } -> {"position" :: Maybe (String) , "items" :: Maybe (ListOfResource) } ) -> Resources
+newResources'  customize = (Resources <<< customize) { "items": Nothing, "position": Nothing }
 
 
 
 -- | <p>Represents a REST API.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Create an API</a> </div>
 newtype RestApi = RestApi 
-  { "id" :: NullOrUndefined (String)
-  , "name" :: NullOrUndefined (String)
-  , "description" :: NullOrUndefined (String)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
-  , "version" :: NullOrUndefined (String)
-  , "warnings" :: NullOrUndefined (ListOfString)
-  , "binaryMediaTypes" :: NullOrUndefined (ListOfString)
-  , "minimumCompressionSize" :: NullOrUndefined (NullableInteger)
-  , "apiKeySource" :: NullOrUndefined (ApiKeySourceType)
-  , "endpointConfiguration" :: NullOrUndefined (EndpointConfiguration)
+  { "id" :: Maybe (String)
+  , "name" :: Maybe (String)
+  , "description" :: Maybe (String)
+  , "createdDate" :: Maybe (Types.Timestamp)
+  , "version" :: Maybe (String)
+  , "warnings" :: Maybe (ListOfString)
+  , "binaryMediaTypes" :: Maybe (ListOfString)
+  , "minimumCompressionSize" :: Maybe (NullableInteger)
+  , "apiKeySource" :: Maybe (ApiKeySourceType)
+  , "endpointConfiguration" :: Maybe (EndpointConfiguration)
   }
 derive instance newtypeRestApi :: Newtype RestApi _
 derive instance repGenericRestApi :: Generic RestApi _
@@ -3842,19 +3841,19 @@ instance encodeRestApi :: Encode RestApi where encode = genericEncode options
 
 -- | Constructs RestApi from required parameters
 newRestApi :: RestApi
-newRestApi  = RestApi { "apiKeySource": (NullOrUndefined Nothing), "binaryMediaTypes": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "endpointConfiguration": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing), "minimumCompressionSize": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing), "warnings": (NullOrUndefined Nothing) }
+newRestApi  = RestApi { "apiKeySource": Nothing, "binaryMediaTypes": Nothing, "createdDate": Nothing, "description": Nothing, "endpointConfiguration": Nothing, "id": Nothing, "minimumCompressionSize": Nothing, "name": Nothing, "version": Nothing, "warnings": Nothing }
 
 -- | Constructs RestApi's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRestApi' :: ( { "id" :: NullOrUndefined (String) , "name" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "version" :: NullOrUndefined (String) , "warnings" :: NullOrUndefined (ListOfString) , "binaryMediaTypes" :: NullOrUndefined (ListOfString) , "minimumCompressionSize" :: NullOrUndefined (NullableInteger) , "apiKeySource" :: NullOrUndefined (ApiKeySourceType) , "endpointConfiguration" :: NullOrUndefined (EndpointConfiguration) } -> {"id" :: NullOrUndefined (String) , "name" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "version" :: NullOrUndefined (String) , "warnings" :: NullOrUndefined (ListOfString) , "binaryMediaTypes" :: NullOrUndefined (ListOfString) , "minimumCompressionSize" :: NullOrUndefined (NullableInteger) , "apiKeySource" :: NullOrUndefined (ApiKeySourceType) , "endpointConfiguration" :: NullOrUndefined (EndpointConfiguration) } ) -> RestApi
-newRestApi'  customize = (RestApi <<< customize) { "apiKeySource": (NullOrUndefined Nothing), "binaryMediaTypes": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "endpointConfiguration": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing), "minimumCompressionSize": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing), "warnings": (NullOrUndefined Nothing) }
+newRestApi' :: ( { "id" :: Maybe (String) , "name" :: Maybe (String) , "description" :: Maybe (String) , "createdDate" :: Maybe (Types.Timestamp) , "version" :: Maybe (String) , "warnings" :: Maybe (ListOfString) , "binaryMediaTypes" :: Maybe (ListOfString) , "minimumCompressionSize" :: Maybe (NullableInteger) , "apiKeySource" :: Maybe (ApiKeySourceType) , "endpointConfiguration" :: Maybe (EndpointConfiguration) } -> {"id" :: Maybe (String) , "name" :: Maybe (String) , "description" :: Maybe (String) , "createdDate" :: Maybe (Types.Timestamp) , "version" :: Maybe (String) , "warnings" :: Maybe (ListOfString) , "binaryMediaTypes" :: Maybe (ListOfString) , "minimumCompressionSize" :: Maybe (NullableInteger) , "apiKeySource" :: Maybe (ApiKeySourceType) , "endpointConfiguration" :: Maybe (EndpointConfiguration) } ) -> RestApi
+newRestApi'  customize = (RestApi <<< customize) { "apiKeySource": Nothing, "binaryMediaTypes": Nothing, "createdDate": Nothing, "description": Nothing, "endpointConfiguration": Nothing, "id": Nothing, "minimumCompressionSize": Nothing, "name": Nothing, "version": Nothing, "warnings": Nothing }
 
 
 
 -- | <p>Contains references to your APIs and links that guide you in how to interact with your collection. A collection offers a paginated view of your APIs.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Create an API</a> </div>
 newtype RestApis = RestApis 
-  { "position" :: NullOrUndefined (String)
-  , "items" :: NullOrUndefined (ListOfRestApi)
+  { "position" :: Maybe (String)
+  , "items" :: Maybe (ListOfRestApi)
   }
 derive instance newtypeRestApis :: Newtype RestApis _
 derive instance repGenericRestApis :: Generic RestApis _
@@ -3864,22 +3863,22 @@ instance encodeRestApis :: Encode RestApis where encode = genericEncode options
 
 -- | Constructs RestApis from required parameters
 newRestApis :: RestApis
-newRestApis  = RestApis { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newRestApis  = RestApis { "items": Nothing, "position": Nothing }
 
 -- | Constructs RestApis's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRestApis' :: ( { "position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfRestApi) } -> {"position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfRestApi) } ) -> RestApis
-newRestApis'  customize = (RestApis <<< customize) { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newRestApis' :: ( { "position" :: Maybe (String) , "items" :: Maybe (ListOfRestApi) } -> {"position" :: Maybe (String) , "items" :: Maybe (ListOfRestApi) } ) -> RestApis
+newRestApis'  customize = (RestApis <<< customize) { "items": Nothing, "position": Nothing }
 
 
 
 -- | <p>A configuration property of an SDK type.</p>
 newtype SdkConfigurationProperty = SdkConfigurationProperty 
-  { "name" :: NullOrUndefined (String)
-  , "friendlyName" :: NullOrUndefined (String)
-  , "description" :: NullOrUndefined (String)
-  , "required" :: NullOrUndefined (Boolean)
-  , "defaultValue" :: NullOrUndefined (String)
+  { "name" :: Maybe (String)
+  , "friendlyName" :: Maybe (String)
+  , "description" :: Maybe (String)
+  , "required" :: Maybe (Boolean)
+  , "defaultValue" :: Maybe (String)
   }
 derive instance newtypeSdkConfigurationProperty :: Newtype SdkConfigurationProperty _
 derive instance repGenericSdkConfigurationProperty :: Generic SdkConfigurationProperty _
@@ -3889,20 +3888,20 @@ instance encodeSdkConfigurationProperty :: Encode SdkConfigurationProperty where
 
 -- | Constructs SdkConfigurationProperty from required parameters
 newSdkConfigurationProperty :: SdkConfigurationProperty
-newSdkConfigurationProperty  = SdkConfigurationProperty { "defaultValue": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "friendlyName": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "required": (NullOrUndefined Nothing) }
+newSdkConfigurationProperty  = SdkConfigurationProperty { "defaultValue": Nothing, "description": Nothing, "friendlyName": Nothing, "name": Nothing, "required": Nothing }
 
 -- | Constructs SdkConfigurationProperty's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSdkConfigurationProperty' :: ( { "name" :: NullOrUndefined (String) , "friendlyName" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "required" :: NullOrUndefined (Boolean) , "defaultValue" :: NullOrUndefined (String) } -> {"name" :: NullOrUndefined (String) , "friendlyName" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "required" :: NullOrUndefined (Boolean) , "defaultValue" :: NullOrUndefined (String) } ) -> SdkConfigurationProperty
-newSdkConfigurationProperty'  customize = (SdkConfigurationProperty <<< customize) { "defaultValue": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "friendlyName": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "required": (NullOrUndefined Nothing) }
+newSdkConfigurationProperty' :: ( { "name" :: Maybe (String) , "friendlyName" :: Maybe (String) , "description" :: Maybe (String) , "required" :: Maybe (Boolean) , "defaultValue" :: Maybe (String) } -> {"name" :: Maybe (String) , "friendlyName" :: Maybe (String) , "description" :: Maybe (String) , "required" :: Maybe (Boolean) , "defaultValue" :: Maybe (String) } ) -> SdkConfigurationProperty
+newSdkConfigurationProperty'  customize = (SdkConfigurationProperty <<< customize) { "defaultValue": Nothing, "description": Nothing, "friendlyName": Nothing, "name": Nothing, "required": Nothing }
 
 
 
 -- | <p>The binary blob response to <a>GetSdk</a>, which contains the generated SDK.</p>
 newtype SdkResponse = SdkResponse 
-  { "contentType" :: NullOrUndefined (String)
-  , "contentDisposition" :: NullOrUndefined (String)
-  , "body" :: NullOrUndefined (String)
+  { "contentType" :: Maybe (String)
+  , "contentDisposition" :: Maybe (String)
+  , "body" :: Maybe (String)
   }
 derive instance newtypeSdkResponse :: Newtype SdkResponse _
 derive instance repGenericSdkResponse :: Generic SdkResponse _
@@ -3912,21 +3911,21 @@ instance encodeSdkResponse :: Encode SdkResponse where encode = genericEncode op
 
 -- | Constructs SdkResponse from required parameters
 newSdkResponse :: SdkResponse
-newSdkResponse  = SdkResponse { "body": (NullOrUndefined Nothing), "contentDisposition": (NullOrUndefined Nothing), "contentType": (NullOrUndefined Nothing) }
+newSdkResponse  = SdkResponse { "body": Nothing, "contentDisposition": Nothing, "contentType": Nothing }
 
 -- | Constructs SdkResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSdkResponse' :: ( { "contentType" :: NullOrUndefined (String) , "contentDisposition" :: NullOrUndefined (String) , "body" :: NullOrUndefined (String) } -> {"contentType" :: NullOrUndefined (String) , "contentDisposition" :: NullOrUndefined (String) , "body" :: NullOrUndefined (String) } ) -> SdkResponse
-newSdkResponse'  customize = (SdkResponse <<< customize) { "body": (NullOrUndefined Nothing), "contentDisposition": (NullOrUndefined Nothing), "contentType": (NullOrUndefined Nothing) }
+newSdkResponse' :: ( { "contentType" :: Maybe (String) , "contentDisposition" :: Maybe (String) , "body" :: Maybe (String) } -> {"contentType" :: Maybe (String) , "contentDisposition" :: Maybe (String) , "body" :: Maybe (String) } ) -> SdkResponse
+newSdkResponse'  customize = (SdkResponse <<< customize) { "body": Nothing, "contentDisposition": Nothing, "contentType": Nothing }
 
 
 
 -- | <p>A type of SDK that API Gateway can generate.</p>
 newtype SdkType = SdkType 
-  { "id" :: NullOrUndefined (String)
-  , "friendlyName" :: NullOrUndefined (String)
-  , "description" :: NullOrUndefined (String)
-  , "configurationProperties" :: NullOrUndefined (ListOfSdkConfigurationProperty)
+  { "id" :: Maybe (String)
+  , "friendlyName" :: Maybe (String)
+  , "description" :: Maybe (String)
+  , "configurationProperties" :: Maybe (ListOfSdkConfigurationProperty)
   }
 derive instance newtypeSdkType :: Newtype SdkType _
 derive instance repGenericSdkType :: Generic SdkType _
@@ -3936,19 +3935,19 @@ instance encodeSdkType :: Encode SdkType where encode = genericEncode options
 
 -- | Constructs SdkType from required parameters
 newSdkType :: SdkType
-newSdkType  = SdkType { "configurationProperties": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "friendlyName": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing) }
+newSdkType  = SdkType { "configurationProperties": Nothing, "description": Nothing, "friendlyName": Nothing, "id": Nothing }
 
 -- | Constructs SdkType's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSdkType' :: ( { "id" :: NullOrUndefined (String) , "friendlyName" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "configurationProperties" :: NullOrUndefined (ListOfSdkConfigurationProperty) } -> {"id" :: NullOrUndefined (String) , "friendlyName" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "configurationProperties" :: NullOrUndefined (ListOfSdkConfigurationProperty) } ) -> SdkType
-newSdkType'  customize = (SdkType <<< customize) { "configurationProperties": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "friendlyName": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing) }
+newSdkType' :: ( { "id" :: Maybe (String) , "friendlyName" :: Maybe (String) , "description" :: Maybe (String) , "configurationProperties" :: Maybe (ListOfSdkConfigurationProperty) } -> {"id" :: Maybe (String) , "friendlyName" :: Maybe (String) , "description" :: Maybe (String) , "configurationProperties" :: Maybe (ListOfSdkConfigurationProperty) } ) -> SdkType
+newSdkType'  customize = (SdkType <<< customize) { "configurationProperties": Nothing, "description": Nothing, "friendlyName": Nothing, "id": Nothing }
 
 
 
 -- | <p>The collection of <a>SdkType</a> instances.</p>
 newtype SdkTypes = SdkTypes 
-  { "position" :: NullOrUndefined (String)
-  , "items" :: NullOrUndefined (ListOfSdkType)
+  { "position" :: Maybe (String)
+  , "items" :: Maybe (ListOfSdkType)
   }
 derive instance newtypeSdkTypes :: Newtype SdkTypes _
 derive instance repGenericSdkTypes :: Generic SdkTypes _
@@ -3958,19 +3957,19 @@ instance encodeSdkTypes :: Encode SdkTypes where encode = genericEncode options
 
 -- | Constructs SdkTypes from required parameters
 newSdkTypes :: SdkTypes
-newSdkTypes  = SdkTypes { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newSdkTypes  = SdkTypes { "items": Nothing, "position": Nothing }
 
 -- | Constructs SdkTypes's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSdkTypes' :: ( { "position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfSdkType) } -> {"position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfSdkType) } ) -> SdkTypes
-newSdkTypes'  customize = (SdkTypes <<< customize) { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newSdkTypes' :: ( { "position" :: Maybe (String) , "items" :: Maybe (ListOfSdkType) } -> {"position" :: Maybe (String) , "items" :: Maybe (ListOfSdkType) } ) -> SdkTypes
+newSdkTypes'  customize = (SdkTypes <<< customize) { "items": Nothing, "position": Nothing }
 
 
 
 -- | <p>The requested service is not available. For details see the accompanying error message. Retry after the specified time period.</p>
 newtype ServiceUnavailableException = ServiceUnavailableException 
-  { "retryAfterSeconds" :: NullOrUndefined (String)
-  , "message" :: NullOrUndefined (String)
+  { "retryAfterSeconds" :: Maybe (String)
+  , "message" :: Maybe (String)
   }
 derive instance newtypeServiceUnavailableException :: Newtype ServiceUnavailableException _
 derive instance repGenericServiceUnavailableException :: Generic ServiceUnavailableException _
@@ -3980,32 +3979,32 @@ instance encodeServiceUnavailableException :: Encode ServiceUnavailableException
 
 -- | Constructs ServiceUnavailableException from required parameters
 newServiceUnavailableException :: ServiceUnavailableException
-newServiceUnavailableException  = ServiceUnavailableException { "message": (NullOrUndefined Nothing), "retryAfterSeconds": (NullOrUndefined Nothing) }
+newServiceUnavailableException  = ServiceUnavailableException { "message": Nothing, "retryAfterSeconds": Nothing }
 
 -- | Constructs ServiceUnavailableException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newServiceUnavailableException' :: ( { "retryAfterSeconds" :: NullOrUndefined (String) , "message" :: NullOrUndefined (String) } -> {"retryAfterSeconds" :: NullOrUndefined (String) , "message" :: NullOrUndefined (String) } ) -> ServiceUnavailableException
-newServiceUnavailableException'  customize = (ServiceUnavailableException <<< customize) { "message": (NullOrUndefined Nothing), "retryAfterSeconds": (NullOrUndefined Nothing) }
+newServiceUnavailableException' :: ( { "retryAfterSeconds" :: Maybe (String) , "message" :: Maybe (String) } -> {"retryAfterSeconds" :: Maybe (String) , "message" :: Maybe (String) } ) -> ServiceUnavailableException
+newServiceUnavailableException'  customize = (ServiceUnavailableException <<< customize) { "message": Nothing, "retryAfterSeconds": Nothing }
 
 
 
 -- | <p>Represents a unique identifier for a version of a deployed <a>RestApi</a> that is callable by users.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html">Deploy an API</a> </div>
 newtype Stage = Stage 
-  { "deploymentId" :: NullOrUndefined (String)
-  , "clientCertificateId" :: NullOrUndefined (String)
-  , "stageName" :: NullOrUndefined (String)
-  , "description" :: NullOrUndefined (String)
-  , "cacheClusterEnabled" :: NullOrUndefined (Boolean)
-  , "cacheClusterSize" :: NullOrUndefined (CacheClusterSize)
-  , "cacheClusterStatus" :: NullOrUndefined (CacheClusterStatus)
-  , "methodSettings" :: NullOrUndefined (MapOfMethodSettings)
-  , "variables" :: NullOrUndefined (MapOfStringToString)
-  , "documentationVersion" :: NullOrUndefined (String)
-  , "accessLogSettings" :: NullOrUndefined (AccessLogSettings)
-  , "canarySettings" :: NullOrUndefined (CanarySettings)
-  , "tags" :: NullOrUndefined (MapOfStringToString)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
-  , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp)
+  { "deploymentId" :: Maybe (String)
+  , "clientCertificateId" :: Maybe (String)
+  , "stageName" :: Maybe (String)
+  , "description" :: Maybe (String)
+  , "cacheClusterEnabled" :: Maybe (Boolean)
+  , "cacheClusterSize" :: Maybe (CacheClusterSize)
+  , "cacheClusterStatus" :: Maybe (CacheClusterStatus)
+  , "methodSettings" :: Maybe (MapOfMethodSettings)
+  , "variables" :: Maybe (MapOfStringToString)
+  , "documentationVersion" :: Maybe (String)
+  , "accessLogSettings" :: Maybe (AccessLogSettings)
+  , "canarySettings" :: Maybe (CanarySettings)
+  , "tags" :: Maybe (MapOfStringToString)
+  , "createdDate" :: Maybe (Types.Timestamp)
+  , "lastUpdatedDate" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeStage :: Newtype Stage _
 derive instance repGenericStage :: Generic Stage _
@@ -4015,19 +4014,19 @@ instance encodeStage :: Encode Stage where encode = genericEncode options
 
 -- | Constructs Stage from required parameters
 newStage :: Stage
-newStage  = Stage { "accessLogSettings": (NullOrUndefined Nothing), "cacheClusterEnabled": (NullOrUndefined Nothing), "cacheClusterSize": (NullOrUndefined Nothing), "cacheClusterStatus": (NullOrUndefined Nothing), "canarySettings": (NullOrUndefined Nothing), "clientCertificateId": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "deploymentId": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "documentationVersion": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "methodSettings": (NullOrUndefined Nothing), "stageName": (NullOrUndefined Nothing), "tags": (NullOrUndefined Nothing), "variables": (NullOrUndefined Nothing) }
+newStage  = Stage { "accessLogSettings": Nothing, "cacheClusterEnabled": Nothing, "cacheClusterSize": Nothing, "cacheClusterStatus": Nothing, "canarySettings": Nothing, "clientCertificateId": Nothing, "createdDate": Nothing, "deploymentId": Nothing, "description": Nothing, "documentationVersion": Nothing, "lastUpdatedDate": Nothing, "methodSettings": Nothing, "stageName": Nothing, "tags": Nothing, "variables": Nothing }
 
 -- | Constructs Stage's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStage' :: ( { "deploymentId" :: NullOrUndefined (String) , "clientCertificateId" :: NullOrUndefined (String) , "stageName" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "cacheClusterEnabled" :: NullOrUndefined (Boolean) , "cacheClusterSize" :: NullOrUndefined (CacheClusterSize) , "cacheClusterStatus" :: NullOrUndefined (CacheClusterStatus) , "methodSettings" :: NullOrUndefined (MapOfMethodSettings) , "variables" :: NullOrUndefined (MapOfStringToString) , "documentationVersion" :: NullOrUndefined (String) , "accessLogSettings" :: NullOrUndefined (AccessLogSettings) , "canarySettings" :: NullOrUndefined (CanarySettings) , "tags" :: NullOrUndefined (MapOfStringToString) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) } -> {"deploymentId" :: NullOrUndefined (String) , "clientCertificateId" :: NullOrUndefined (String) , "stageName" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "cacheClusterEnabled" :: NullOrUndefined (Boolean) , "cacheClusterSize" :: NullOrUndefined (CacheClusterSize) , "cacheClusterStatus" :: NullOrUndefined (CacheClusterStatus) , "methodSettings" :: NullOrUndefined (MapOfMethodSettings) , "variables" :: NullOrUndefined (MapOfStringToString) , "documentationVersion" :: NullOrUndefined (String) , "accessLogSettings" :: NullOrUndefined (AccessLogSettings) , "canarySettings" :: NullOrUndefined (CanarySettings) , "tags" :: NullOrUndefined (MapOfStringToString) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) } ) -> Stage
-newStage'  customize = (Stage <<< customize) { "accessLogSettings": (NullOrUndefined Nothing), "cacheClusterEnabled": (NullOrUndefined Nothing), "cacheClusterSize": (NullOrUndefined Nothing), "cacheClusterStatus": (NullOrUndefined Nothing), "canarySettings": (NullOrUndefined Nothing), "clientCertificateId": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "deploymentId": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "documentationVersion": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "methodSettings": (NullOrUndefined Nothing), "stageName": (NullOrUndefined Nothing), "tags": (NullOrUndefined Nothing), "variables": (NullOrUndefined Nothing) }
+newStage' :: ( { "deploymentId" :: Maybe (String) , "clientCertificateId" :: Maybe (String) , "stageName" :: Maybe (String) , "description" :: Maybe (String) , "cacheClusterEnabled" :: Maybe (Boolean) , "cacheClusterSize" :: Maybe (CacheClusterSize) , "cacheClusterStatus" :: Maybe (CacheClusterStatus) , "methodSettings" :: Maybe (MapOfMethodSettings) , "variables" :: Maybe (MapOfStringToString) , "documentationVersion" :: Maybe (String) , "accessLogSettings" :: Maybe (AccessLogSettings) , "canarySettings" :: Maybe (CanarySettings) , "tags" :: Maybe (MapOfStringToString) , "createdDate" :: Maybe (Types.Timestamp) , "lastUpdatedDate" :: Maybe (Types.Timestamp) } -> {"deploymentId" :: Maybe (String) , "clientCertificateId" :: Maybe (String) , "stageName" :: Maybe (String) , "description" :: Maybe (String) , "cacheClusterEnabled" :: Maybe (Boolean) , "cacheClusterSize" :: Maybe (CacheClusterSize) , "cacheClusterStatus" :: Maybe (CacheClusterStatus) , "methodSettings" :: Maybe (MapOfMethodSettings) , "variables" :: Maybe (MapOfStringToString) , "documentationVersion" :: Maybe (String) , "accessLogSettings" :: Maybe (AccessLogSettings) , "canarySettings" :: Maybe (CanarySettings) , "tags" :: Maybe (MapOfStringToString) , "createdDate" :: Maybe (Types.Timestamp) , "lastUpdatedDate" :: Maybe (Types.Timestamp) } ) -> Stage
+newStage'  customize = (Stage <<< customize) { "accessLogSettings": Nothing, "cacheClusterEnabled": Nothing, "cacheClusterSize": Nothing, "cacheClusterStatus": Nothing, "canarySettings": Nothing, "clientCertificateId": Nothing, "createdDate": Nothing, "deploymentId": Nothing, "description": Nothing, "documentationVersion": Nothing, "lastUpdatedDate": Nothing, "methodSettings": Nothing, "stageName": Nothing, "tags": Nothing, "variables": Nothing }
 
 
 
 -- | <p>A reference to a unique stage identified in the format <code>{restApiId}/{stage}</code>.</p>
 newtype StageKey = StageKey 
-  { "restApiId" :: NullOrUndefined (String)
-  , "stageName" :: NullOrUndefined (String)
+  { "restApiId" :: Maybe (String)
+  , "stageName" :: Maybe (String)
   }
 derive instance newtypeStageKey :: Newtype StageKey _
 derive instance repGenericStageKey :: Generic StageKey _
@@ -4037,18 +4036,18 @@ instance encodeStageKey :: Encode StageKey where encode = genericEncode options
 
 -- | Constructs StageKey from required parameters
 newStageKey :: StageKey
-newStageKey  = StageKey { "restApiId": (NullOrUndefined Nothing), "stageName": (NullOrUndefined Nothing) }
+newStageKey  = StageKey { "restApiId": Nothing, "stageName": Nothing }
 
 -- | Constructs StageKey's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStageKey' :: ( { "restApiId" :: NullOrUndefined (String) , "stageName" :: NullOrUndefined (String) } -> {"restApiId" :: NullOrUndefined (String) , "stageName" :: NullOrUndefined (String) } ) -> StageKey
-newStageKey'  customize = (StageKey <<< customize) { "restApiId": (NullOrUndefined Nothing), "stageName": (NullOrUndefined Nothing) }
+newStageKey' :: ( { "restApiId" :: Maybe (String) , "stageName" :: Maybe (String) } -> {"restApiId" :: Maybe (String) , "stageName" :: Maybe (String) } ) -> StageKey
+newStageKey'  customize = (StageKey <<< customize) { "restApiId": Nothing, "stageName": Nothing }
 
 
 
 -- | <p>A list of <a>Stage</a> resources that are associated with the <a>ApiKey</a> resource.</p> <div class="seeAlso"><a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/stages.html">Deploying API in Stages</a></div>
 newtype Stages = Stages 
-  { "item" :: NullOrUndefined (ListOfStage)
+  { "item" :: Maybe (ListOfStage)
   }
 derive instance newtypeStages :: Newtype Stages _
 derive instance repGenericStages :: Generic Stages _
@@ -4058,12 +4057,12 @@ instance encodeStages :: Encode Stages where encode = genericEncode options
 
 -- | Constructs Stages from required parameters
 newStages :: Stages
-newStages  = Stages { "item": (NullOrUndefined Nothing) }
+newStages  = Stages { "item": Nothing }
 
 -- | Constructs Stages's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStages' :: ( { "item" :: NullOrUndefined (ListOfStage) } -> {"item" :: NullOrUndefined (ListOfStage) } ) -> Stages
-newStages'  customize = (Stages <<< customize) { "item": (NullOrUndefined Nothing) }
+newStages' :: ( { "item" :: Maybe (ListOfStage) } -> {"item" :: Maybe (ListOfStage) } ) -> Stages
+newStages'  customize = (Stages <<< customize) { "item": Nothing }
 
 
 
@@ -4101,7 +4100,7 @@ newTagResourceRequest' _resourceArn _tags customize = (TagResourceRequest <<< cu
 
 -- | <p>A collection of Tags associated with a given resource.</p>
 newtype Tags = Tags 
-  { "tags" :: NullOrUndefined (MapOfStringToString)
+  { "tags" :: Maybe (MapOfStringToString)
   }
 derive instance newtypeTags :: Newtype Tags _
 derive instance repGenericTags :: Generic Tags _
@@ -4111,18 +4110,18 @@ instance encodeTags :: Encode Tags where encode = genericEncode options
 
 -- | Constructs Tags from required parameters
 newTags :: Tags
-newTags  = Tags { "tags": (NullOrUndefined Nothing) }
+newTags  = Tags { "tags": Nothing }
 
 -- | Constructs Tags's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTags' :: ( { "tags" :: NullOrUndefined (MapOfStringToString) } -> {"tags" :: NullOrUndefined (MapOfStringToString) } ) -> Tags
-newTags'  customize = (Tags <<< customize) { "tags": (NullOrUndefined Nothing) }
+newTags' :: ( { "tags" :: Maybe (MapOfStringToString) } -> {"tags" :: Maybe (MapOfStringToString) } ) -> Tags
+newTags'  customize = (Tags <<< customize) { "tags": Nothing }
 
 
 
 -- | <p>Represents a mapping template used to transform a payload.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-mappings">Mapping Templates</a> </div>
 newtype Template = Template 
-  { "value" :: NullOrUndefined (String)
+  { "value" :: Maybe (String)
   }
 derive instance newtypeTemplate :: Newtype Template _
 derive instance repGenericTemplate :: Generic Template _
@@ -4132,12 +4131,12 @@ instance encodeTemplate :: Encode Template where encode = genericEncode options
 
 -- | Constructs Template from required parameters
 newTemplate :: Template
-newTemplate  = Template { "value": (NullOrUndefined Nothing) }
+newTemplate  = Template { "value": Nothing }
 
 -- | Constructs Template's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTemplate' :: ( { "value" :: NullOrUndefined (String) } -> {"value" :: NullOrUndefined (String) } ) -> Template
-newTemplate'  customize = (Template <<< customize) { "value": (NullOrUndefined Nothing) }
+newTemplate' :: ( { "value" :: Maybe (String) } -> {"value" :: Maybe (String) } ) -> Template
+newTemplate'  customize = (Template <<< customize) { "value": Nothing }
 
 
 
@@ -4145,11 +4144,11 @@ newTemplate'  customize = (Template <<< customize) { "value": (NullOrUndefined N
 newtype TestInvokeAuthorizerRequest = TestInvokeAuthorizerRequest 
   { "restApiId" :: (String)
   , "authorizerId" :: (String)
-  , "headers" :: NullOrUndefined (MapOfHeaderValues)
-  , "pathWithQueryString" :: NullOrUndefined (String)
-  , "body" :: NullOrUndefined (String)
-  , "stageVariables" :: NullOrUndefined (MapOfStringToString)
-  , "additionalContext" :: NullOrUndefined (MapOfStringToString)
+  , "headers" :: Maybe (MapOfHeaderValues)
+  , "pathWithQueryString" :: Maybe (String)
+  , "body" :: Maybe (String)
+  , "stageVariables" :: Maybe (MapOfStringToString)
+  , "additionalContext" :: Maybe (MapOfStringToString)
   }
 derive instance newtypeTestInvokeAuthorizerRequest :: Newtype TestInvokeAuthorizerRequest _
 derive instance repGenericTestInvokeAuthorizerRequest :: Generic TestInvokeAuthorizerRequest _
@@ -4159,24 +4158,24 @@ instance encodeTestInvokeAuthorizerRequest :: Encode TestInvokeAuthorizerRequest
 
 -- | Constructs TestInvokeAuthorizerRequest from required parameters
 newTestInvokeAuthorizerRequest :: String -> String -> TestInvokeAuthorizerRequest
-newTestInvokeAuthorizerRequest _authorizerId _restApiId = TestInvokeAuthorizerRequest { "authorizerId": _authorizerId, "restApiId": _restApiId, "additionalContext": (NullOrUndefined Nothing), "body": (NullOrUndefined Nothing), "headers": (NullOrUndefined Nothing), "pathWithQueryString": (NullOrUndefined Nothing), "stageVariables": (NullOrUndefined Nothing) }
+newTestInvokeAuthorizerRequest _authorizerId _restApiId = TestInvokeAuthorizerRequest { "authorizerId": _authorizerId, "restApiId": _restApiId, "additionalContext": Nothing, "body": Nothing, "headers": Nothing, "pathWithQueryString": Nothing, "stageVariables": Nothing }
 
 -- | Constructs TestInvokeAuthorizerRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTestInvokeAuthorizerRequest' :: String -> String -> ( { "restApiId" :: (String) , "authorizerId" :: (String) , "headers" :: NullOrUndefined (MapOfHeaderValues) , "pathWithQueryString" :: NullOrUndefined (String) , "body" :: NullOrUndefined (String) , "stageVariables" :: NullOrUndefined (MapOfStringToString) , "additionalContext" :: NullOrUndefined (MapOfStringToString) } -> {"restApiId" :: (String) , "authorizerId" :: (String) , "headers" :: NullOrUndefined (MapOfHeaderValues) , "pathWithQueryString" :: NullOrUndefined (String) , "body" :: NullOrUndefined (String) , "stageVariables" :: NullOrUndefined (MapOfStringToString) , "additionalContext" :: NullOrUndefined (MapOfStringToString) } ) -> TestInvokeAuthorizerRequest
-newTestInvokeAuthorizerRequest' _authorizerId _restApiId customize = (TestInvokeAuthorizerRequest <<< customize) { "authorizerId": _authorizerId, "restApiId": _restApiId, "additionalContext": (NullOrUndefined Nothing), "body": (NullOrUndefined Nothing), "headers": (NullOrUndefined Nothing), "pathWithQueryString": (NullOrUndefined Nothing), "stageVariables": (NullOrUndefined Nothing) }
+newTestInvokeAuthorizerRequest' :: String -> String -> ( { "restApiId" :: (String) , "authorizerId" :: (String) , "headers" :: Maybe (MapOfHeaderValues) , "pathWithQueryString" :: Maybe (String) , "body" :: Maybe (String) , "stageVariables" :: Maybe (MapOfStringToString) , "additionalContext" :: Maybe (MapOfStringToString) } -> {"restApiId" :: (String) , "authorizerId" :: (String) , "headers" :: Maybe (MapOfHeaderValues) , "pathWithQueryString" :: Maybe (String) , "body" :: Maybe (String) , "stageVariables" :: Maybe (MapOfStringToString) , "additionalContext" :: Maybe (MapOfStringToString) } ) -> TestInvokeAuthorizerRequest
+newTestInvokeAuthorizerRequest' _authorizerId _restApiId customize = (TestInvokeAuthorizerRequest <<< customize) { "authorizerId": _authorizerId, "restApiId": _restApiId, "additionalContext": Nothing, "body": Nothing, "headers": Nothing, "pathWithQueryString": Nothing, "stageVariables": Nothing }
 
 
 
 -- | <p>Represents the response of the test invoke request for a custom <a>Authorizer</a></p>
 newtype TestInvokeAuthorizerResponse = TestInvokeAuthorizerResponse 
-  { "clientStatus" :: NullOrUndefined (Int)
-  , "log" :: NullOrUndefined (String)
-  , "latency" :: NullOrUndefined (Number)
-  , "principalId" :: NullOrUndefined (String)
-  , "policy" :: NullOrUndefined (String)
-  , "authorization" :: NullOrUndefined (MapOfStringToList)
-  , "claims" :: NullOrUndefined (MapOfStringToString)
+  { "clientStatus" :: Maybe (Int)
+  , "log" :: Maybe (String)
+  , "latency" :: Maybe (Number)
+  , "principalId" :: Maybe (String)
+  , "policy" :: Maybe (String)
+  , "authorization" :: Maybe (MapOfStringToList)
+  , "claims" :: Maybe (MapOfStringToString)
   }
 derive instance newtypeTestInvokeAuthorizerResponse :: Newtype TestInvokeAuthorizerResponse _
 derive instance repGenericTestInvokeAuthorizerResponse :: Generic TestInvokeAuthorizerResponse _
@@ -4186,12 +4185,12 @@ instance encodeTestInvokeAuthorizerResponse :: Encode TestInvokeAuthorizerRespon
 
 -- | Constructs TestInvokeAuthorizerResponse from required parameters
 newTestInvokeAuthorizerResponse :: TestInvokeAuthorizerResponse
-newTestInvokeAuthorizerResponse  = TestInvokeAuthorizerResponse { "authorization": (NullOrUndefined Nothing), "claims": (NullOrUndefined Nothing), "clientStatus": (NullOrUndefined Nothing), "latency": (NullOrUndefined Nothing), "log": (NullOrUndefined Nothing), "policy": (NullOrUndefined Nothing), "principalId": (NullOrUndefined Nothing) }
+newTestInvokeAuthorizerResponse  = TestInvokeAuthorizerResponse { "authorization": Nothing, "claims": Nothing, "clientStatus": Nothing, "latency": Nothing, "log": Nothing, "policy": Nothing, "principalId": Nothing }
 
 -- | Constructs TestInvokeAuthorizerResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTestInvokeAuthorizerResponse' :: ( { "clientStatus" :: NullOrUndefined (Int) , "log" :: NullOrUndefined (String) , "latency" :: NullOrUndefined (Number) , "principalId" :: NullOrUndefined (String) , "policy" :: NullOrUndefined (String) , "authorization" :: NullOrUndefined (MapOfStringToList) , "claims" :: NullOrUndefined (MapOfStringToString) } -> {"clientStatus" :: NullOrUndefined (Int) , "log" :: NullOrUndefined (String) , "latency" :: NullOrUndefined (Number) , "principalId" :: NullOrUndefined (String) , "policy" :: NullOrUndefined (String) , "authorization" :: NullOrUndefined (MapOfStringToList) , "claims" :: NullOrUndefined (MapOfStringToString) } ) -> TestInvokeAuthorizerResponse
-newTestInvokeAuthorizerResponse'  customize = (TestInvokeAuthorizerResponse <<< customize) { "authorization": (NullOrUndefined Nothing), "claims": (NullOrUndefined Nothing), "clientStatus": (NullOrUndefined Nothing), "latency": (NullOrUndefined Nothing), "log": (NullOrUndefined Nothing), "policy": (NullOrUndefined Nothing), "principalId": (NullOrUndefined Nothing) }
+newTestInvokeAuthorizerResponse' :: ( { "clientStatus" :: Maybe (Int) , "log" :: Maybe (String) , "latency" :: Maybe (Number) , "principalId" :: Maybe (String) , "policy" :: Maybe (String) , "authorization" :: Maybe (MapOfStringToList) , "claims" :: Maybe (MapOfStringToString) } -> {"clientStatus" :: Maybe (Int) , "log" :: Maybe (String) , "latency" :: Maybe (Number) , "principalId" :: Maybe (String) , "policy" :: Maybe (String) , "authorization" :: Maybe (MapOfStringToList) , "claims" :: Maybe (MapOfStringToString) } ) -> TestInvokeAuthorizerResponse
+newTestInvokeAuthorizerResponse'  customize = (TestInvokeAuthorizerResponse <<< customize) { "authorization": Nothing, "claims": Nothing, "clientStatus": Nothing, "latency": Nothing, "log": Nothing, "policy": Nothing, "principalId": Nothing }
 
 
 
@@ -4200,11 +4199,11 @@ newtype TestInvokeMethodRequest = TestInvokeMethodRequest
   { "restApiId" :: (String)
   , "resourceId" :: (String)
   , "httpMethod" :: (String)
-  , "pathWithQueryString" :: NullOrUndefined (String)
-  , "body" :: NullOrUndefined (String)
-  , "headers" :: NullOrUndefined (MapOfHeaderValues)
-  , "clientCertificateId" :: NullOrUndefined (String)
-  , "stageVariables" :: NullOrUndefined (MapOfStringToString)
+  , "pathWithQueryString" :: Maybe (String)
+  , "body" :: Maybe (String)
+  , "headers" :: Maybe (MapOfHeaderValues)
+  , "clientCertificateId" :: Maybe (String)
+  , "stageVariables" :: Maybe (MapOfStringToString)
   }
 derive instance newtypeTestInvokeMethodRequest :: Newtype TestInvokeMethodRequest _
 derive instance repGenericTestInvokeMethodRequest :: Generic TestInvokeMethodRequest _
@@ -4214,22 +4213,22 @@ instance encodeTestInvokeMethodRequest :: Encode TestInvokeMethodRequest where e
 
 -- | Constructs TestInvokeMethodRequest from required parameters
 newTestInvokeMethodRequest :: String -> String -> String -> TestInvokeMethodRequest
-newTestInvokeMethodRequest _httpMethod _resourceId _restApiId = TestInvokeMethodRequest { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "body": (NullOrUndefined Nothing), "clientCertificateId": (NullOrUndefined Nothing), "headers": (NullOrUndefined Nothing), "pathWithQueryString": (NullOrUndefined Nothing), "stageVariables": (NullOrUndefined Nothing) }
+newTestInvokeMethodRequest _httpMethod _resourceId _restApiId = TestInvokeMethodRequest { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "body": Nothing, "clientCertificateId": Nothing, "headers": Nothing, "pathWithQueryString": Nothing, "stageVariables": Nothing }
 
 -- | Constructs TestInvokeMethodRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTestInvokeMethodRequest' :: String -> String -> String -> ( { "restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "pathWithQueryString" :: NullOrUndefined (String) , "body" :: NullOrUndefined (String) , "headers" :: NullOrUndefined (MapOfHeaderValues) , "clientCertificateId" :: NullOrUndefined (String) , "stageVariables" :: NullOrUndefined (MapOfStringToString) } -> {"restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "pathWithQueryString" :: NullOrUndefined (String) , "body" :: NullOrUndefined (String) , "headers" :: NullOrUndefined (MapOfHeaderValues) , "clientCertificateId" :: NullOrUndefined (String) , "stageVariables" :: NullOrUndefined (MapOfStringToString) } ) -> TestInvokeMethodRequest
-newTestInvokeMethodRequest' _httpMethod _resourceId _restApiId customize = (TestInvokeMethodRequest <<< customize) { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "body": (NullOrUndefined Nothing), "clientCertificateId": (NullOrUndefined Nothing), "headers": (NullOrUndefined Nothing), "pathWithQueryString": (NullOrUndefined Nothing), "stageVariables": (NullOrUndefined Nothing) }
+newTestInvokeMethodRequest' :: String -> String -> String -> ( { "restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "pathWithQueryString" :: Maybe (String) , "body" :: Maybe (String) , "headers" :: Maybe (MapOfHeaderValues) , "clientCertificateId" :: Maybe (String) , "stageVariables" :: Maybe (MapOfStringToString) } -> {"restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "pathWithQueryString" :: Maybe (String) , "body" :: Maybe (String) , "headers" :: Maybe (MapOfHeaderValues) , "clientCertificateId" :: Maybe (String) , "stageVariables" :: Maybe (MapOfStringToString) } ) -> TestInvokeMethodRequest
+newTestInvokeMethodRequest' _httpMethod _resourceId _restApiId customize = (TestInvokeMethodRequest <<< customize) { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "body": Nothing, "clientCertificateId": Nothing, "headers": Nothing, "pathWithQueryString": Nothing, "stageVariables": Nothing }
 
 
 
 -- | <p>Represents the response of the test invoke request in the HTTP method.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-test-method.html#how-to-test-method-console">Test API using the API Gateway console</a> </div>
 newtype TestInvokeMethodResponse = TestInvokeMethodResponse 
-  { "status" :: NullOrUndefined (Int)
-  , "body" :: NullOrUndefined (String)
-  , "headers" :: NullOrUndefined (MapOfHeaderValues)
-  , "log" :: NullOrUndefined (String)
-  , "latency" :: NullOrUndefined (Number)
+  { "status" :: Maybe (Int)
+  , "body" :: Maybe (String)
+  , "headers" :: Maybe (MapOfHeaderValues)
+  , "log" :: Maybe (String)
+  , "latency" :: Maybe (Number)
   }
 derive instance newtypeTestInvokeMethodResponse :: Newtype TestInvokeMethodResponse _
 derive instance repGenericTestInvokeMethodResponse :: Generic TestInvokeMethodResponse _
@@ -4239,19 +4238,19 @@ instance encodeTestInvokeMethodResponse :: Encode TestInvokeMethodResponse where
 
 -- | Constructs TestInvokeMethodResponse from required parameters
 newTestInvokeMethodResponse :: TestInvokeMethodResponse
-newTestInvokeMethodResponse  = TestInvokeMethodResponse { "body": (NullOrUndefined Nothing), "headers": (NullOrUndefined Nothing), "latency": (NullOrUndefined Nothing), "log": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing) }
+newTestInvokeMethodResponse  = TestInvokeMethodResponse { "body": Nothing, "headers": Nothing, "latency": Nothing, "log": Nothing, "status": Nothing }
 
 -- | Constructs TestInvokeMethodResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTestInvokeMethodResponse' :: ( { "status" :: NullOrUndefined (Int) , "body" :: NullOrUndefined (String) , "headers" :: NullOrUndefined (MapOfHeaderValues) , "log" :: NullOrUndefined (String) , "latency" :: NullOrUndefined (Number) } -> {"status" :: NullOrUndefined (Int) , "body" :: NullOrUndefined (String) , "headers" :: NullOrUndefined (MapOfHeaderValues) , "log" :: NullOrUndefined (String) , "latency" :: NullOrUndefined (Number) } ) -> TestInvokeMethodResponse
-newTestInvokeMethodResponse'  customize = (TestInvokeMethodResponse <<< customize) { "body": (NullOrUndefined Nothing), "headers": (NullOrUndefined Nothing), "latency": (NullOrUndefined Nothing), "log": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing) }
+newTestInvokeMethodResponse' :: ( { "status" :: Maybe (Int) , "body" :: Maybe (String) , "headers" :: Maybe (MapOfHeaderValues) , "log" :: Maybe (String) , "latency" :: Maybe (Number) } -> {"status" :: Maybe (Int) , "body" :: Maybe (String) , "headers" :: Maybe (MapOfHeaderValues) , "log" :: Maybe (String) , "latency" :: Maybe (Number) } ) -> TestInvokeMethodResponse
+newTestInvokeMethodResponse'  customize = (TestInvokeMethodResponse <<< customize) { "body": Nothing, "headers": Nothing, "latency": Nothing, "log": Nothing, "status": Nothing }
 
 
 
 -- | <p> The API request rate limits.</p>
 newtype ThrottleSettings = ThrottleSettings 
-  { "burstLimit" :: NullOrUndefined (Int)
-  , "rateLimit" :: NullOrUndefined (Number)
+  { "burstLimit" :: Maybe (Int)
+  , "rateLimit" :: Maybe (Number)
   }
 derive instance newtypeThrottleSettings :: Newtype ThrottleSettings _
 derive instance repGenericThrottleSettings :: Generic ThrottleSettings _
@@ -4261,19 +4260,19 @@ instance encodeThrottleSettings :: Encode ThrottleSettings where encode = generi
 
 -- | Constructs ThrottleSettings from required parameters
 newThrottleSettings :: ThrottleSettings
-newThrottleSettings  = ThrottleSettings { "burstLimit": (NullOrUndefined Nothing), "rateLimit": (NullOrUndefined Nothing) }
+newThrottleSettings  = ThrottleSettings { "burstLimit": Nothing, "rateLimit": Nothing }
 
 -- | Constructs ThrottleSettings's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newThrottleSettings' :: ( { "burstLimit" :: NullOrUndefined (Int) , "rateLimit" :: NullOrUndefined (Number) } -> {"burstLimit" :: NullOrUndefined (Int) , "rateLimit" :: NullOrUndefined (Number) } ) -> ThrottleSettings
-newThrottleSettings'  customize = (ThrottleSettings <<< customize) { "burstLimit": (NullOrUndefined Nothing), "rateLimit": (NullOrUndefined Nothing) }
+newThrottleSettings' :: ( { "burstLimit" :: Maybe (Int) , "rateLimit" :: Maybe (Number) } -> {"burstLimit" :: Maybe (Int) , "rateLimit" :: Maybe (Number) } ) -> ThrottleSettings
+newThrottleSettings'  customize = (ThrottleSettings <<< customize) { "burstLimit": Nothing, "rateLimit": Nothing }
 
 
 
 -- | <p>The request has reached its throttling limit. Retry after the specified time period.</p>
 newtype TooManyRequestsException = TooManyRequestsException 
-  { "retryAfterSeconds" :: NullOrUndefined (String)
-  , "message" :: NullOrUndefined (String)
+  { "retryAfterSeconds" :: Maybe (String)
+  , "message" :: Maybe (String)
   }
 derive instance newtypeTooManyRequestsException :: Newtype TooManyRequestsException _
 derive instance repGenericTooManyRequestsException :: Generic TooManyRequestsException _
@@ -4283,12 +4282,12 @@ instance encodeTooManyRequestsException :: Encode TooManyRequestsException where
 
 -- | Constructs TooManyRequestsException from required parameters
 newTooManyRequestsException :: TooManyRequestsException
-newTooManyRequestsException  = TooManyRequestsException { "message": (NullOrUndefined Nothing), "retryAfterSeconds": (NullOrUndefined Nothing) }
+newTooManyRequestsException  = TooManyRequestsException { "message": Nothing, "retryAfterSeconds": Nothing }
 
 -- | Constructs TooManyRequestsException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyRequestsException' :: ( { "retryAfterSeconds" :: NullOrUndefined (String) , "message" :: NullOrUndefined (String) } -> {"retryAfterSeconds" :: NullOrUndefined (String) , "message" :: NullOrUndefined (String) } ) -> TooManyRequestsException
-newTooManyRequestsException'  customize = (TooManyRequestsException <<< customize) { "message": (NullOrUndefined Nothing), "retryAfterSeconds": (NullOrUndefined Nothing) }
+newTooManyRequestsException' :: ( { "retryAfterSeconds" :: Maybe (String) , "message" :: Maybe (String) } -> {"retryAfterSeconds" :: Maybe (String) , "message" :: Maybe (String) } ) -> TooManyRequestsException
+newTooManyRequestsException'  customize = (TooManyRequestsException <<< customize) { "message": Nothing, "retryAfterSeconds": Nothing }
 
 
 
@@ -4303,7 +4302,7 @@ instance encodeUnauthorizedCacheControlHeaderStrategy :: Encode UnauthorizedCach
 
 -- | <p>The request is denied because the caller has insufficient permissions.</p>
 newtype UnauthorizedException = UnauthorizedException 
-  { "message" :: NullOrUndefined (String)
+  { "message" :: Maybe (String)
   }
 derive instance newtypeUnauthorizedException :: Newtype UnauthorizedException _
 derive instance repGenericUnauthorizedException :: Generic UnauthorizedException _
@@ -4313,12 +4312,12 @@ instance encodeUnauthorizedException :: Encode UnauthorizedException where encod
 
 -- | Constructs UnauthorizedException from required parameters
 newUnauthorizedException :: UnauthorizedException
-newUnauthorizedException  = UnauthorizedException { "message": (NullOrUndefined Nothing) }
+newUnauthorizedException  = UnauthorizedException { "message": Nothing }
 
 -- | Constructs UnauthorizedException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUnauthorizedException' :: ( { "message" :: NullOrUndefined (String) } -> {"message" :: NullOrUndefined (String) } ) -> UnauthorizedException
-newUnauthorizedException'  customize = (UnauthorizedException <<< customize) { "message": (NullOrUndefined Nothing) }
+newUnauthorizedException' :: ( { "message" :: Maybe (String) } -> {"message" :: Maybe (String) } ) -> UnauthorizedException
+newUnauthorizedException'  customize = (UnauthorizedException <<< customize) { "message": Nothing }
 
 
 
@@ -4346,7 +4345,7 @@ newUntagResourceRequest' _resourceArn _tagKeys customize = (UntagResourceRequest
 
 -- | <p>Requests API Gateway to change information about the current <a>Account</a> resource.</p>
 newtype UpdateAccountRequest = UpdateAccountRequest 
-  { "patchOperations" :: NullOrUndefined (ListOfPatchOperation)
+  { "patchOperations" :: Maybe (ListOfPatchOperation)
   }
 derive instance newtypeUpdateAccountRequest :: Newtype UpdateAccountRequest _
 derive instance repGenericUpdateAccountRequest :: Generic UpdateAccountRequest _
@@ -4356,19 +4355,19 @@ instance encodeUpdateAccountRequest :: Encode UpdateAccountRequest where encode 
 
 -- | Constructs UpdateAccountRequest from required parameters
 newUpdateAccountRequest :: UpdateAccountRequest
-newUpdateAccountRequest  = UpdateAccountRequest { "patchOperations": (NullOrUndefined Nothing) }
+newUpdateAccountRequest  = UpdateAccountRequest { "patchOperations": Nothing }
 
 -- | Constructs UpdateAccountRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateAccountRequest' :: ( { "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } -> {"patchOperations" :: NullOrUndefined (ListOfPatchOperation) } ) -> UpdateAccountRequest
-newUpdateAccountRequest'  customize = (UpdateAccountRequest <<< customize) { "patchOperations": (NullOrUndefined Nothing) }
+newUpdateAccountRequest' :: ( { "patchOperations" :: Maybe (ListOfPatchOperation) } -> {"patchOperations" :: Maybe (ListOfPatchOperation) } ) -> UpdateAccountRequest
+newUpdateAccountRequest'  customize = (UpdateAccountRequest <<< customize) { "patchOperations": Nothing }
 
 
 
 -- | <p>A request to change information about an <a>ApiKey</a> resource.</p>
 newtype UpdateApiKeyRequest = UpdateApiKeyRequest 
   { "apiKey" :: (String)
-  , "patchOperations" :: NullOrUndefined (ListOfPatchOperation)
+  , "patchOperations" :: Maybe (ListOfPatchOperation)
   }
 derive instance newtypeUpdateApiKeyRequest :: Newtype UpdateApiKeyRequest _
 derive instance repGenericUpdateApiKeyRequest :: Generic UpdateApiKeyRequest _
@@ -4378,12 +4377,12 @@ instance encodeUpdateApiKeyRequest :: Encode UpdateApiKeyRequest where encode = 
 
 -- | Constructs UpdateApiKeyRequest from required parameters
 newUpdateApiKeyRequest :: String -> UpdateApiKeyRequest
-newUpdateApiKeyRequest _apiKey = UpdateApiKeyRequest { "apiKey": _apiKey, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateApiKeyRequest _apiKey = UpdateApiKeyRequest { "apiKey": _apiKey, "patchOperations": Nothing }
 
 -- | Constructs UpdateApiKeyRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateApiKeyRequest' :: String -> ( { "apiKey" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } -> {"apiKey" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } ) -> UpdateApiKeyRequest
-newUpdateApiKeyRequest' _apiKey customize = (UpdateApiKeyRequest <<< customize) { "apiKey": _apiKey, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateApiKeyRequest' :: String -> ( { "apiKey" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } -> {"apiKey" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } ) -> UpdateApiKeyRequest
+newUpdateApiKeyRequest' _apiKey customize = (UpdateApiKeyRequest <<< customize) { "apiKey": _apiKey, "patchOperations": Nothing }
 
 
 
@@ -4391,7 +4390,7 @@ newUpdateApiKeyRequest' _apiKey customize = (UpdateApiKeyRequest <<< customize) 
 newtype UpdateAuthorizerRequest = UpdateAuthorizerRequest 
   { "restApiId" :: (String)
   , "authorizerId" :: (String)
-  , "patchOperations" :: NullOrUndefined (ListOfPatchOperation)
+  , "patchOperations" :: Maybe (ListOfPatchOperation)
   }
 derive instance newtypeUpdateAuthorizerRequest :: Newtype UpdateAuthorizerRequest _
 derive instance repGenericUpdateAuthorizerRequest :: Generic UpdateAuthorizerRequest _
@@ -4401,12 +4400,12 @@ instance encodeUpdateAuthorizerRequest :: Encode UpdateAuthorizerRequest where e
 
 -- | Constructs UpdateAuthorizerRequest from required parameters
 newUpdateAuthorizerRequest :: String -> String -> UpdateAuthorizerRequest
-newUpdateAuthorizerRequest _authorizerId _restApiId = UpdateAuthorizerRequest { "authorizerId": _authorizerId, "restApiId": _restApiId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateAuthorizerRequest _authorizerId _restApiId = UpdateAuthorizerRequest { "authorizerId": _authorizerId, "restApiId": _restApiId, "patchOperations": Nothing }
 
 -- | Constructs UpdateAuthorizerRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateAuthorizerRequest' :: String -> String -> ( { "restApiId" :: (String) , "authorizerId" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } -> {"restApiId" :: (String) , "authorizerId" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } ) -> UpdateAuthorizerRequest
-newUpdateAuthorizerRequest' _authorizerId _restApiId customize = (UpdateAuthorizerRequest <<< customize) { "authorizerId": _authorizerId, "restApiId": _restApiId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateAuthorizerRequest' :: String -> String -> ( { "restApiId" :: (String) , "authorizerId" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } -> {"restApiId" :: (String) , "authorizerId" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } ) -> UpdateAuthorizerRequest
+newUpdateAuthorizerRequest' _authorizerId _restApiId customize = (UpdateAuthorizerRequest <<< customize) { "authorizerId": _authorizerId, "restApiId": _restApiId, "patchOperations": Nothing }
 
 
 
@@ -4414,7 +4413,7 @@ newUpdateAuthorizerRequest' _authorizerId _restApiId customize = (UpdateAuthoriz
 newtype UpdateBasePathMappingRequest = UpdateBasePathMappingRequest 
   { "domainName" :: (String)
   , "basePath" :: (String)
-  , "patchOperations" :: NullOrUndefined (ListOfPatchOperation)
+  , "patchOperations" :: Maybe (ListOfPatchOperation)
   }
 derive instance newtypeUpdateBasePathMappingRequest :: Newtype UpdateBasePathMappingRequest _
 derive instance repGenericUpdateBasePathMappingRequest :: Generic UpdateBasePathMappingRequest _
@@ -4424,19 +4423,19 @@ instance encodeUpdateBasePathMappingRequest :: Encode UpdateBasePathMappingReque
 
 -- | Constructs UpdateBasePathMappingRequest from required parameters
 newUpdateBasePathMappingRequest :: String -> String -> UpdateBasePathMappingRequest
-newUpdateBasePathMappingRequest _basePath _domainName = UpdateBasePathMappingRequest { "basePath": _basePath, "domainName": _domainName, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateBasePathMappingRequest _basePath _domainName = UpdateBasePathMappingRequest { "basePath": _basePath, "domainName": _domainName, "patchOperations": Nothing }
 
 -- | Constructs UpdateBasePathMappingRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateBasePathMappingRequest' :: String -> String -> ( { "domainName" :: (String) , "basePath" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } -> {"domainName" :: (String) , "basePath" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } ) -> UpdateBasePathMappingRequest
-newUpdateBasePathMappingRequest' _basePath _domainName customize = (UpdateBasePathMappingRequest <<< customize) { "basePath": _basePath, "domainName": _domainName, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateBasePathMappingRequest' :: String -> String -> ( { "domainName" :: (String) , "basePath" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } -> {"domainName" :: (String) , "basePath" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } ) -> UpdateBasePathMappingRequest
+newUpdateBasePathMappingRequest' _basePath _domainName customize = (UpdateBasePathMappingRequest <<< customize) { "basePath": _basePath, "domainName": _domainName, "patchOperations": Nothing }
 
 
 
 -- | <p>A request to change information about an <a>ClientCertificate</a> resource.</p>
 newtype UpdateClientCertificateRequest = UpdateClientCertificateRequest 
   { "clientCertificateId" :: (String)
-  , "patchOperations" :: NullOrUndefined (ListOfPatchOperation)
+  , "patchOperations" :: Maybe (ListOfPatchOperation)
   }
 derive instance newtypeUpdateClientCertificateRequest :: Newtype UpdateClientCertificateRequest _
 derive instance repGenericUpdateClientCertificateRequest :: Generic UpdateClientCertificateRequest _
@@ -4446,12 +4445,12 @@ instance encodeUpdateClientCertificateRequest :: Encode UpdateClientCertificateR
 
 -- | Constructs UpdateClientCertificateRequest from required parameters
 newUpdateClientCertificateRequest :: String -> UpdateClientCertificateRequest
-newUpdateClientCertificateRequest _clientCertificateId = UpdateClientCertificateRequest { "clientCertificateId": _clientCertificateId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateClientCertificateRequest _clientCertificateId = UpdateClientCertificateRequest { "clientCertificateId": _clientCertificateId, "patchOperations": Nothing }
 
 -- | Constructs UpdateClientCertificateRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateClientCertificateRequest' :: String -> ( { "clientCertificateId" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } -> {"clientCertificateId" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } ) -> UpdateClientCertificateRequest
-newUpdateClientCertificateRequest' _clientCertificateId customize = (UpdateClientCertificateRequest <<< customize) { "clientCertificateId": _clientCertificateId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateClientCertificateRequest' :: String -> ( { "clientCertificateId" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } -> {"clientCertificateId" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } ) -> UpdateClientCertificateRequest
+newUpdateClientCertificateRequest' _clientCertificateId customize = (UpdateClientCertificateRequest <<< customize) { "clientCertificateId": _clientCertificateId, "patchOperations": Nothing }
 
 
 
@@ -4459,7 +4458,7 @@ newUpdateClientCertificateRequest' _clientCertificateId customize = (UpdateClien
 newtype UpdateDeploymentRequest = UpdateDeploymentRequest 
   { "restApiId" :: (String)
   , "deploymentId" :: (String)
-  , "patchOperations" :: NullOrUndefined (ListOfPatchOperation)
+  , "patchOperations" :: Maybe (ListOfPatchOperation)
   }
 derive instance newtypeUpdateDeploymentRequest :: Newtype UpdateDeploymentRequest _
 derive instance repGenericUpdateDeploymentRequest :: Generic UpdateDeploymentRequest _
@@ -4469,12 +4468,12 @@ instance encodeUpdateDeploymentRequest :: Encode UpdateDeploymentRequest where e
 
 -- | Constructs UpdateDeploymentRequest from required parameters
 newUpdateDeploymentRequest :: String -> String -> UpdateDeploymentRequest
-newUpdateDeploymentRequest _deploymentId _restApiId = UpdateDeploymentRequest { "deploymentId": _deploymentId, "restApiId": _restApiId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateDeploymentRequest _deploymentId _restApiId = UpdateDeploymentRequest { "deploymentId": _deploymentId, "restApiId": _restApiId, "patchOperations": Nothing }
 
 -- | Constructs UpdateDeploymentRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateDeploymentRequest' :: String -> String -> ( { "restApiId" :: (String) , "deploymentId" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } -> {"restApiId" :: (String) , "deploymentId" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } ) -> UpdateDeploymentRequest
-newUpdateDeploymentRequest' _deploymentId _restApiId customize = (UpdateDeploymentRequest <<< customize) { "deploymentId": _deploymentId, "restApiId": _restApiId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateDeploymentRequest' :: String -> String -> ( { "restApiId" :: (String) , "deploymentId" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } -> {"restApiId" :: (String) , "deploymentId" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } ) -> UpdateDeploymentRequest
+newUpdateDeploymentRequest' _deploymentId _restApiId customize = (UpdateDeploymentRequest <<< customize) { "deploymentId": _deploymentId, "restApiId": _restApiId, "patchOperations": Nothing }
 
 
 
@@ -4482,7 +4481,7 @@ newUpdateDeploymentRequest' _deploymentId _restApiId customize = (UpdateDeployme
 newtype UpdateDocumentationPartRequest = UpdateDocumentationPartRequest 
   { "restApiId" :: (String)
   , "documentationPartId" :: (String)
-  , "patchOperations" :: NullOrUndefined (ListOfPatchOperation)
+  , "patchOperations" :: Maybe (ListOfPatchOperation)
   }
 derive instance newtypeUpdateDocumentationPartRequest :: Newtype UpdateDocumentationPartRequest _
 derive instance repGenericUpdateDocumentationPartRequest :: Generic UpdateDocumentationPartRequest _
@@ -4492,12 +4491,12 @@ instance encodeUpdateDocumentationPartRequest :: Encode UpdateDocumentationPartR
 
 -- | Constructs UpdateDocumentationPartRequest from required parameters
 newUpdateDocumentationPartRequest :: String -> String -> UpdateDocumentationPartRequest
-newUpdateDocumentationPartRequest _documentationPartId _restApiId = UpdateDocumentationPartRequest { "documentationPartId": _documentationPartId, "restApiId": _restApiId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateDocumentationPartRequest _documentationPartId _restApiId = UpdateDocumentationPartRequest { "documentationPartId": _documentationPartId, "restApiId": _restApiId, "patchOperations": Nothing }
 
 -- | Constructs UpdateDocumentationPartRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateDocumentationPartRequest' :: String -> String -> ( { "restApiId" :: (String) , "documentationPartId" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } -> {"restApiId" :: (String) , "documentationPartId" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } ) -> UpdateDocumentationPartRequest
-newUpdateDocumentationPartRequest' _documentationPartId _restApiId customize = (UpdateDocumentationPartRequest <<< customize) { "documentationPartId": _documentationPartId, "restApiId": _restApiId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateDocumentationPartRequest' :: String -> String -> ( { "restApiId" :: (String) , "documentationPartId" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } -> {"restApiId" :: (String) , "documentationPartId" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } ) -> UpdateDocumentationPartRequest
+newUpdateDocumentationPartRequest' _documentationPartId _restApiId customize = (UpdateDocumentationPartRequest <<< customize) { "documentationPartId": _documentationPartId, "restApiId": _restApiId, "patchOperations": Nothing }
 
 
 
@@ -4505,7 +4504,7 @@ newUpdateDocumentationPartRequest' _documentationPartId _restApiId customize = (
 newtype UpdateDocumentationVersionRequest = UpdateDocumentationVersionRequest 
   { "restApiId" :: (String)
   , "documentationVersion" :: (String)
-  , "patchOperations" :: NullOrUndefined (ListOfPatchOperation)
+  , "patchOperations" :: Maybe (ListOfPatchOperation)
   }
 derive instance newtypeUpdateDocumentationVersionRequest :: Newtype UpdateDocumentationVersionRequest _
 derive instance repGenericUpdateDocumentationVersionRequest :: Generic UpdateDocumentationVersionRequest _
@@ -4515,19 +4514,19 @@ instance encodeUpdateDocumentationVersionRequest :: Encode UpdateDocumentationVe
 
 -- | Constructs UpdateDocumentationVersionRequest from required parameters
 newUpdateDocumentationVersionRequest :: String -> String -> UpdateDocumentationVersionRequest
-newUpdateDocumentationVersionRequest _documentationVersion _restApiId = UpdateDocumentationVersionRequest { "documentationVersion": _documentationVersion, "restApiId": _restApiId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateDocumentationVersionRequest _documentationVersion _restApiId = UpdateDocumentationVersionRequest { "documentationVersion": _documentationVersion, "restApiId": _restApiId, "patchOperations": Nothing }
 
 -- | Constructs UpdateDocumentationVersionRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateDocumentationVersionRequest' :: String -> String -> ( { "restApiId" :: (String) , "documentationVersion" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } -> {"restApiId" :: (String) , "documentationVersion" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } ) -> UpdateDocumentationVersionRequest
-newUpdateDocumentationVersionRequest' _documentationVersion _restApiId customize = (UpdateDocumentationVersionRequest <<< customize) { "documentationVersion": _documentationVersion, "restApiId": _restApiId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateDocumentationVersionRequest' :: String -> String -> ( { "restApiId" :: (String) , "documentationVersion" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } -> {"restApiId" :: (String) , "documentationVersion" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } ) -> UpdateDocumentationVersionRequest
+newUpdateDocumentationVersionRequest' _documentationVersion _restApiId customize = (UpdateDocumentationVersionRequest <<< customize) { "documentationVersion": _documentationVersion, "restApiId": _restApiId, "patchOperations": Nothing }
 
 
 
 -- | <p>A request to change information about the <a>DomainName</a> resource.</p>
 newtype UpdateDomainNameRequest = UpdateDomainNameRequest 
   { "domainName" :: (String)
-  , "patchOperations" :: NullOrUndefined (ListOfPatchOperation)
+  , "patchOperations" :: Maybe (ListOfPatchOperation)
   }
 derive instance newtypeUpdateDomainNameRequest :: Newtype UpdateDomainNameRequest _
 derive instance repGenericUpdateDomainNameRequest :: Generic UpdateDomainNameRequest _
@@ -4537,12 +4536,12 @@ instance encodeUpdateDomainNameRequest :: Encode UpdateDomainNameRequest where e
 
 -- | Constructs UpdateDomainNameRequest from required parameters
 newUpdateDomainNameRequest :: String -> UpdateDomainNameRequest
-newUpdateDomainNameRequest _domainName = UpdateDomainNameRequest { "domainName": _domainName, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateDomainNameRequest _domainName = UpdateDomainNameRequest { "domainName": _domainName, "patchOperations": Nothing }
 
 -- | Constructs UpdateDomainNameRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateDomainNameRequest' :: String -> ( { "domainName" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } -> {"domainName" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } ) -> UpdateDomainNameRequest
-newUpdateDomainNameRequest' _domainName customize = (UpdateDomainNameRequest <<< customize) { "domainName": _domainName, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateDomainNameRequest' :: String -> ( { "domainName" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } -> {"domainName" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } ) -> UpdateDomainNameRequest
+newUpdateDomainNameRequest' _domainName customize = (UpdateDomainNameRequest <<< customize) { "domainName": _domainName, "patchOperations": Nothing }
 
 
 
@@ -4550,7 +4549,7 @@ newUpdateDomainNameRequest' _domainName customize = (UpdateDomainNameRequest <<<
 newtype UpdateGatewayResponseRequest = UpdateGatewayResponseRequest 
   { "restApiId" :: (String)
   , "responseType" :: (GatewayResponseType)
-  , "patchOperations" :: NullOrUndefined (ListOfPatchOperation)
+  , "patchOperations" :: Maybe (ListOfPatchOperation)
   }
 derive instance newtypeUpdateGatewayResponseRequest :: Newtype UpdateGatewayResponseRequest _
 derive instance repGenericUpdateGatewayResponseRequest :: Generic UpdateGatewayResponseRequest _
@@ -4560,12 +4559,12 @@ instance encodeUpdateGatewayResponseRequest :: Encode UpdateGatewayResponseReque
 
 -- | Constructs UpdateGatewayResponseRequest from required parameters
 newUpdateGatewayResponseRequest :: GatewayResponseType -> String -> UpdateGatewayResponseRequest
-newUpdateGatewayResponseRequest _responseType _restApiId = UpdateGatewayResponseRequest { "responseType": _responseType, "restApiId": _restApiId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateGatewayResponseRequest _responseType _restApiId = UpdateGatewayResponseRequest { "responseType": _responseType, "restApiId": _restApiId, "patchOperations": Nothing }
 
 -- | Constructs UpdateGatewayResponseRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateGatewayResponseRequest' :: GatewayResponseType -> String -> ( { "restApiId" :: (String) , "responseType" :: (GatewayResponseType) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } -> {"restApiId" :: (String) , "responseType" :: (GatewayResponseType) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } ) -> UpdateGatewayResponseRequest
-newUpdateGatewayResponseRequest' _responseType _restApiId customize = (UpdateGatewayResponseRequest <<< customize) { "responseType": _responseType, "restApiId": _restApiId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateGatewayResponseRequest' :: GatewayResponseType -> String -> ( { "restApiId" :: (String) , "responseType" :: (GatewayResponseType) , "patchOperations" :: Maybe (ListOfPatchOperation) } -> {"restApiId" :: (String) , "responseType" :: (GatewayResponseType) , "patchOperations" :: Maybe (ListOfPatchOperation) } ) -> UpdateGatewayResponseRequest
+newUpdateGatewayResponseRequest' _responseType _restApiId customize = (UpdateGatewayResponseRequest <<< customize) { "responseType": _responseType, "restApiId": _restApiId, "patchOperations": Nothing }
 
 
 
@@ -4574,7 +4573,7 @@ newtype UpdateIntegrationRequest = UpdateIntegrationRequest
   { "restApiId" :: (String)
   , "resourceId" :: (String)
   , "httpMethod" :: (String)
-  , "patchOperations" :: NullOrUndefined (ListOfPatchOperation)
+  , "patchOperations" :: Maybe (ListOfPatchOperation)
   }
 derive instance newtypeUpdateIntegrationRequest :: Newtype UpdateIntegrationRequest _
 derive instance repGenericUpdateIntegrationRequest :: Generic UpdateIntegrationRequest _
@@ -4584,12 +4583,12 @@ instance encodeUpdateIntegrationRequest :: Encode UpdateIntegrationRequest where
 
 -- | Constructs UpdateIntegrationRequest from required parameters
 newUpdateIntegrationRequest :: String -> String -> String -> UpdateIntegrationRequest
-newUpdateIntegrationRequest _httpMethod _resourceId _restApiId = UpdateIntegrationRequest { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateIntegrationRequest _httpMethod _resourceId _restApiId = UpdateIntegrationRequest { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "patchOperations": Nothing }
 
 -- | Constructs UpdateIntegrationRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateIntegrationRequest' :: String -> String -> String -> ( { "restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } -> {"restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } ) -> UpdateIntegrationRequest
-newUpdateIntegrationRequest' _httpMethod _resourceId _restApiId customize = (UpdateIntegrationRequest <<< customize) { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateIntegrationRequest' :: String -> String -> String -> ( { "restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } -> {"restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } ) -> UpdateIntegrationRequest
+newUpdateIntegrationRequest' _httpMethod _resourceId _restApiId customize = (UpdateIntegrationRequest <<< customize) { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "patchOperations": Nothing }
 
 
 
@@ -4599,7 +4598,7 @@ newtype UpdateIntegrationResponseRequest = UpdateIntegrationResponseRequest
   , "resourceId" :: (String)
   , "httpMethod" :: (String)
   , "statusCode" :: (StatusCode)
-  , "patchOperations" :: NullOrUndefined (ListOfPatchOperation)
+  , "patchOperations" :: Maybe (ListOfPatchOperation)
   }
 derive instance newtypeUpdateIntegrationResponseRequest :: Newtype UpdateIntegrationResponseRequest _
 derive instance repGenericUpdateIntegrationResponseRequest :: Generic UpdateIntegrationResponseRequest _
@@ -4609,12 +4608,12 @@ instance encodeUpdateIntegrationResponseRequest :: Encode UpdateIntegrationRespo
 
 -- | Constructs UpdateIntegrationResponseRequest from required parameters
 newUpdateIntegrationResponseRequest :: String -> String -> String -> StatusCode -> UpdateIntegrationResponseRequest
-newUpdateIntegrationResponseRequest _httpMethod _resourceId _restApiId _statusCode = UpdateIntegrationResponseRequest { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "statusCode": _statusCode, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateIntegrationResponseRequest _httpMethod _resourceId _restApiId _statusCode = UpdateIntegrationResponseRequest { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "statusCode": _statusCode, "patchOperations": Nothing }
 
 -- | Constructs UpdateIntegrationResponseRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateIntegrationResponseRequest' :: String -> String -> String -> StatusCode -> ( { "restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "statusCode" :: (StatusCode) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } -> {"restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "statusCode" :: (StatusCode) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } ) -> UpdateIntegrationResponseRequest
-newUpdateIntegrationResponseRequest' _httpMethod _resourceId _restApiId _statusCode customize = (UpdateIntegrationResponseRequest <<< customize) { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "statusCode": _statusCode, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateIntegrationResponseRequest' :: String -> String -> String -> StatusCode -> ( { "restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "statusCode" :: (StatusCode) , "patchOperations" :: Maybe (ListOfPatchOperation) } -> {"restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "statusCode" :: (StatusCode) , "patchOperations" :: Maybe (ListOfPatchOperation) } ) -> UpdateIntegrationResponseRequest
+newUpdateIntegrationResponseRequest' _httpMethod _resourceId _restApiId _statusCode customize = (UpdateIntegrationResponseRequest <<< customize) { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "statusCode": _statusCode, "patchOperations": Nothing }
 
 
 
@@ -4623,7 +4622,7 @@ newtype UpdateMethodRequest = UpdateMethodRequest
   { "restApiId" :: (String)
   , "resourceId" :: (String)
   , "httpMethod" :: (String)
-  , "patchOperations" :: NullOrUndefined (ListOfPatchOperation)
+  , "patchOperations" :: Maybe (ListOfPatchOperation)
   }
 derive instance newtypeUpdateMethodRequest :: Newtype UpdateMethodRequest _
 derive instance repGenericUpdateMethodRequest :: Generic UpdateMethodRequest _
@@ -4633,12 +4632,12 @@ instance encodeUpdateMethodRequest :: Encode UpdateMethodRequest where encode = 
 
 -- | Constructs UpdateMethodRequest from required parameters
 newUpdateMethodRequest :: String -> String -> String -> UpdateMethodRequest
-newUpdateMethodRequest _httpMethod _resourceId _restApiId = UpdateMethodRequest { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateMethodRequest _httpMethod _resourceId _restApiId = UpdateMethodRequest { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "patchOperations": Nothing }
 
 -- | Constructs UpdateMethodRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateMethodRequest' :: String -> String -> String -> ( { "restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } -> {"restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } ) -> UpdateMethodRequest
-newUpdateMethodRequest' _httpMethod _resourceId _restApiId customize = (UpdateMethodRequest <<< customize) { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateMethodRequest' :: String -> String -> String -> ( { "restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } -> {"restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } ) -> UpdateMethodRequest
+newUpdateMethodRequest' _httpMethod _resourceId _restApiId customize = (UpdateMethodRequest <<< customize) { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "patchOperations": Nothing }
 
 
 
@@ -4648,7 +4647,7 @@ newtype UpdateMethodResponseRequest = UpdateMethodResponseRequest
   , "resourceId" :: (String)
   , "httpMethod" :: (String)
   , "statusCode" :: (StatusCode)
-  , "patchOperations" :: NullOrUndefined (ListOfPatchOperation)
+  , "patchOperations" :: Maybe (ListOfPatchOperation)
   }
 derive instance newtypeUpdateMethodResponseRequest :: Newtype UpdateMethodResponseRequest _
 derive instance repGenericUpdateMethodResponseRequest :: Generic UpdateMethodResponseRequest _
@@ -4658,12 +4657,12 @@ instance encodeUpdateMethodResponseRequest :: Encode UpdateMethodResponseRequest
 
 -- | Constructs UpdateMethodResponseRequest from required parameters
 newUpdateMethodResponseRequest :: String -> String -> String -> StatusCode -> UpdateMethodResponseRequest
-newUpdateMethodResponseRequest _httpMethod _resourceId _restApiId _statusCode = UpdateMethodResponseRequest { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "statusCode": _statusCode, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateMethodResponseRequest _httpMethod _resourceId _restApiId _statusCode = UpdateMethodResponseRequest { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "statusCode": _statusCode, "patchOperations": Nothing }
 
 -- | Constructs UpdateMethodResponseRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateMethodResponseRequest' :: String -> String -> String -> StatusCode -> ( { "restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "statusCode" :: (StatusCode) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } -> {"restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "statusCode" :: (StatusCode) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } ) -> UpdateMethodResponseRequest
-newUpdateMethodResponseRequest' _httpMethod _resourceId _restApiId _statusCode customize = (UpdateMethodResponseRequest <<< customize) { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "statusCode": _statusCode, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateMethodResponseRequest' :: String -> String -> String -> StatusCode -> ( { "restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "statusCode" :: (StatusCode) , "patchOperations" :: Maybe (ListOfPatchOperation) } -> {"restApiId" :: (String) , "resourceId" :: (String) , "httpMethod" :: (String) , "statusCode" :: (StatusCode) , "patchOperations" :: Maybe (ListOfPatchOperation) } ) -> UpdateMethodResponseRequest
+newUpdateMethodResponseRequest' _httpMethod _resourceId _restApiId _statusCode customize = (UpdateMethodResponseRequest <<< customize) { "httpMethod": _httpMethod, "resourceId": _resourceId, "restApiId": _restApiId, "statusCode": _statusCode, "patchOperations": Nothing }
 
 
 
@@ -4671,7 +4670,7 @@ newUpdateMethodResponseRequest' _httpMethod _resourceId _restApiId _statusCode c
 newtype UpdateModelRequest = UpdateModelRequest 
   { "restApiId" :: (String)
   , "modelName" :: (String)
-  , "patchOperations" :: NullOrUndefined (ListOfPatchOperation)
+  , "patchOperations" :: Maybe (ListOfPatchOperation)
   }
 derive instance newtypeUpdateModelRequest :: Newtype UpdateModelRequest _
 derive instance repGenericUpdateModelRequest :: Generic UpdateModelRequest _
@@ -4681,12 +4680,12 @@ instance encodeUpdateModelRequest :: Encode UpdateModelRequest where encode = ge
 
 -- | Constructs UpdateModelRequest from required parameters
 newUpdateModelRequest :: String -> String -> UpdateModelRequest
-newUpdateModelRequest _modelName _restApiId = UpdateModelRequest { "modelName": _modelName, "restApiId": _restApiId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateModelRequest _modelName _restApiId = UpdateModelRequest { "modelName": _modelName, "restApiId": _restApiId, "patchOperations": Nothing }
 
 -- | Constructs UpdateModelRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateModelRequest' :: String -> String -> ( { "restApiId" :: (String) , "modelName" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } -> {"restApiId" :: (String) , "modelName" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } ) -> UpdateModelRequest
-newUpdateModelRequest' _modelName _restApiId customize = (UpdateModelRequest <<< customize) { "modelName": _modelName, "restApiId": _restApiId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateModelRequest' :: String -> String -> ( { "restApiId" :: (String) , "modelName" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } -> {"restApiId" :: (String) , "modelName" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } ) -> UpdateModelRequest
+newUpdateModelRequest' _modelName _restApiId customize = (UpdateModelRequest <<< customize) { "modelName": _modelName, "restApiId": _restApiId, "patchOperations": Nothing }
 
 
 
@@ -4694,7 +4693,7 @@ newUpdateModelRequest' _modelName _restApiId customize = (UpdateModelRequest <<<
 newtype UpdateRequestValidatorRequest = UpdateRequestValidatorRequest 
   { "restApiId" :: (String)
   , "requestValidatorId" :: (String)
-  , "patchOperations" :: NullOrUndefined (ListOfPatchOperation)
+  , "patchOperations" :: Maybe (ListOfPatchOperation)
   }
 derive instance newtypeUpdateRequestValidatorRequest :: Newtype UpdateRequestValidatorRequest _
 derive instance repGenericUpdateRequestValidatorRequest :: Generic UpdateRequestValidatorRequest _
@@ -4704,12 +4703,12 @@ instance encodeUpdateRequestValidatorRequest :: Encode UpdateRequestValidatorReq
 
 -- | Constructs UpdateRequestValidatorRequest from required parameters
 newUpdateRequestValidatorRequest :: String -> String -> UpdateRequestValidatorRequest
-newUpdateRequestValidatorRequest _requestValidatorId _restApiId = UpdateRequestValidatorRequest { "requestValidatorId": _requestValidatorId, "restApiId": _restApiId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateRequestValidatorRequest _requestValidatorId _restApiId = UpdateRequestValidatorRequest { "requestValidatorId": _requestValidatorId, "restApiId": _restApiId, "patchOperations": Nothing }
 
 -- | Constructs UpdateRequestValidatorRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateRequestValidatorRequest' :: String -> String -> ( { "restApiId" :: (String) , "requestValidatorId" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } -> {"restApiId" :: (String) , "requestValidatorId" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } ) -> UpdateRequestValidatorRequest
-newUpdateRequestValidatorRequest' _requestValidatorId _restApiId customize = (UpdateRequestValidatorRequest <<< customize) { "requestValidatorId": _requestValidatorId, "restApiId": _restApiId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateRequestValidatorRequest' :: String -> String -> ( { "restApiId" :: (String) , "requestValidatorId" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } -> {"restApiId" :: (String) , "requestValidatorId" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } ) -> UpdateRequestValidatorRequest
+newUpdateRequestValidatorRequest' _requestValidatorId _restApiId customize = (UpdateRequestValidatorRequest <<< customize) { "requestValidatorId": _requestValidatorId, "restApiId": _restApiId, "patchOperations": Nothing }
 
 
 
@@ -4717,7 +4716,7 @@ newUpdateRequestValidatorRequest' _requestValidatorId _restApiId customize = (Up
 newtype UpdateResourceRequest = UpdateResourceRequest 
   { "restApiId" :: (String)
   , "resourceId" :: (String)
-  , "patchOperations" :: NullOrUndefined (ListOfPatchOperation)
+  , "patchOperations" :: Maybe (ListOfPatchOperation)
   }
 derive instance newtypeUpdateResourceRequest :: Newtype UpdateResourceRequest _
 derive instance repGenericUpdateResourceRequest :: Generic UpdateResourceRequest _
@@ -4727,19 +4726,19 @@ instance encodeUpdateResourceRequest :: Encode UpdateResourceRequest where encod
 
 -- | Constructs UpdateResourceRequest from required parameters
 newUpdateResourceRequest :: String -> String -> UpdateResourceRequest
-newUpdateResourceRequest _resourceId _restApiId = UpdateResourceRequest { "resourceId": _resourceId, "restApiId": _restApiId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateResourceRequest _resourceId _restApiId = UpdateResourceRequest { "resourceId": _resourceId, "restApiId": _restApiId, "patchOperations": Nothing }
 
 -- | Constructs UpdateResourceRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateResourceRequest' :: String -> String -> ( { "restApiId" :: (String) , "resourceId" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } -> {"restApiId" :: (String) , "resourceId" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } ) -> UpdateResourceRequest
-newUpdateResourceRequest' _resourceId _restApiId customize = (UpdateResourceRequest <<< customize) { "resourceId": _resourceId, "restApiId": _restApiId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateResourceRequest' :: String -> String -> ( { "restApiId" :: (String) , "resourceId" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } -> {"restApiId" :: (String) , "resourceId" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } ) -> UpdateResourceRequest
+newUpdateResourceRequest' _resourceId _restApiId customize = (UpdateResourceRequest <<< customize) { "resourceId": _resourceId, "restApiId": _restApiId, "patchOperations": Nothing }
 
 
 
 -- | <p>Request to update an existing <a>RestApi</a> resource in your collection.</p>
 newtype UpdateRestApiRequest = UpdateRestApiRequest 
   { "restApiId" :: (String)
-  , "patchOperations" :: NullOrUndefined (ListOfPatchOperation)
+  , "patchOperations" :: Maybe (ListOfPatchOperation)
   }
 derive instance newtypeUpdateRestApiRequest :: Newtype UpdateRestApiRequest _
 derive instance repGenericUpdateRestApiRequest :: Generic UpdateRestApiRequest _
@@ -4749,12 +4748,12 @@ instance encodeUpdateRestApiRequest :: Encode UpdateRestApiRequest where encode 
 
 -- | Constructs UpdateRestApiRequest from required parameters
 newUpdateRestApiRequest :: String -> UpdateRestApiRequest
-newUpdateRestApiRequest _restApiId = UpdateRestApiRequest { "restApiId": _restApiId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateRestApiRequest _restApiId = UpdateRestApiRequest { "restApiId": _restApiId, "patchOperations": Nothing }
 
 -- | Constructs UpdateRestApiRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateRestApiRequest' :: String -> ( { "restApiId" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } -> {"restApiId" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } ) -> UpdateRestApiRequest
-newUpdateRestApiRequest' _restApiId customize = (UpdateRestApiRequest <<< customize) { "restApiId": _restApiId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateRestApiRequest' :: String -> ( { "restApiId" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } -> {"restApiId" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } ) -> UpdateRestApiRequest
+newUpdateRestApiRequest' _restApiId customize = (UpdateRestApiRequest <<< customize) { "restApiId": _restApiId, "patchOperations": Nothing }
 
 
 
@@ -4762,7 +4761,7 @@ newUpdateRestApiRequest' _restApiId customize = (UpdateRestApiRequest <<< custom
 newtype UpdateStageRequest = UpdateStageRequest 
   { "restApiId" :: (String)
   , "stageName" :: (String)
-  , "patchOperations" :: NullOrUndefined (ListOfPatchOperation)
+  , "patchOperations" :: Maybe (ListOfPatchOperation)
   }
 derive instance newtypeUpdateStageRequest :: Newtype UpdateStageRequest _
 derive instance repGenericUpdateStageRequest :: Generic UpdateStageRequest _
@@ -4772,19 +4771,19 @@ instance encodeUpdateStageRequest :: Encode UpdateStageRequest where encode = ge
 
 -- | Constructs UpdateStageRequest from required parameters
 newUpdateStageRequest :: String -> String -> UpdateStageRequest
-newUpdateStageRequest _restApiId _stageName = UpdateStageRequest { "restApiId": _restApiId, "stageName": _stageName, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateStageRequest _restApiId _stageName = UpdateStageRequest { "restApiId": _restApiId, "stageName": _stageName, "patchOperations": Nothing }
 
 -- | Constructs UpdateStageRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateStageRequest' :: String -> String -> ( { "restApiId" :: (String) , "stageName" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } -> {"restApiId" :: (String) , "stageName" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } ) -> UpdateStageRequest
-newUpdateStageRequest' _restApiId _stageName customize = (UpdateStageRequest <<< customize) { "restApiId": _restApiId, "stageName": _stageName, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateStageRequest' :: String -> String -> ( { "restApiId" :: (String) , "stageName" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } -> {"restApiId" :: (String) , "stageName" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } ) -> UpdateStageRequest
+newUpdateStageRequest' _restApiId _stageName customize = (UpdateStageRequest <<< customize) { "restApiId": _restApiId, "stageName": _stageName, "patchOperations": Nothing }
 
 
 
 -- | <p>The PATCH request to update a usage plan of a given plan Id.</p>
 newtype UpdateUsagePlanRequest = UpdateUsagePlanRequest 
   { "usagePlanId" :: (String)
-  , "patchOperations" :: NullOrUndefined (ListOfPatchOperation)
+  , "patchOperations" :: Maybe (ListOfPatchOperation)
   }
 derive instance newtypeUpdateUsagePlanRequest :: Newtype UpdateUsagePlanRequest _
 derive instance repGenericUpdateUsagePlanRequest :: Generic UpdateUsagePlanRequest _
@@ -4794,12 +4793,12 @@ instance encodeUpdateUsagePlanRequest :: Encode UpdateUsagePlanRequest where enc
 
 -- | Constructs UpdateUsagePlanRequest from required parameters
 newUpdateUsagePlanRequest :: String -> UpdateUsagePlanRequest
-newUpdateUsagePlanRequest _usagePlanId = UpdateUsagePlanRequest { "usagePlanId": _usagePlanId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateUsagePlanRequest _usagePlanId = UpdateUsagePlanRequest { "usagePlanId": _usagePlanId, "patchOperations": Nothing }
 
 -- | Constructs UpdateUsagePlanRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateUsagePlanRequest' :: String -> ( { "usagePlanId" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } -> {"usagePlanId" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } ) -> UpdateUsagePlanRequest
-newUpdateUsagePlanRequest' _usagePlanId customize = (UpdateUsagePlanRequest <<< customize) { "usagePlanId": _usagePlanId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateUsagePlanRequest' :: String -> ( { "usagePlanId" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } -> {"usagePlanId" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } ) -> UpdateUsagePlanRequest
+newUpdateUsagePlanRequest' _usagePlanId customize = (UpdateUsagePlanRequest <<< customize) { "usagePlanId": _usagePlanId, "patchOperations": Nothing }
 
 
 
@@ -4807,7 +4806,7 @@ newUpdateUsagePlanRequest' _usagePlanId customize = (UpdateUsagePlanRequest <<< 
 newtype UpdateUsageRequest = UpdateUsageRequest 
   { "usagePlanId" :: (String)
   , "keyId" :: (String)
-  , "patchOperations" :: NullOrUndefined (ListOfPatchOperation)
+  , "patchOperations" :: Maybe (ListOfPatchOperation)
   }
 derive instance newtypeUpdateUsageRequest :: Newtype UpdateUsageRequest _
 derive instance repGenericUpdateUsageRequest :: Generic UpdateUsageRequest _
@@ -4817,19 +4816,19 @@ instance encodeUpdateUsageRequest :: Encode UpdateUsageRequest where encode = ge
 
 -- | Constructs UpdateUsageRequest from required parameters
 newUpdateUsageRequest :: String -> String -> UpdateUsageRequest
-newUpdateUsageRequest _keyId _usagePlanId = UpdateUsageRequest { "keyId": _keyId, "usagePlanId": _usagePlanId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateUsageRequest _keyId _usagePlanId = UpdateUsageRequest { "keyId": _keyId, "usagePlanId": _usagePlanId, "patchOperations": Nothing }
 
 -- | Constructs UpdateUsageRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateUsageRequest' :: String -> String -> ( { "usagePlanId" :: (String) , "keyId" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } -> {"usagePlanId" :: (String) , "keyId" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } ) -> UpdateUsageRequest
-newUpdateUsageRequest' _keyId _usagePlanId customize = (UpdateUsageRequest <<< customize) { "keyId": _keyId, "usagePlanId": _usagePlanId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateUsageRequest' :: String -> String -> ( { "usagePlanId" :: (String) , "keyId" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } -> {"usagePlanId" :: (String) , "keyId" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } ) -> UpdateUsageRequest
+newUpdateUsageRequest' _keyId _usagePlanId customize = (UpdateUsageRequest <<< customize) { "keyId": _keyId, "usagePlanId": _usagePlanId, "patchOperations": Nothing }
 
 
 
 -- | <p>Updates an existing <a>VpcLink</a> of a specified identifier.</p>
 newtype UpdateVpcLinkRequest = UpdateVpcLinkRequest 
   { "vpcLinkId" :: (String)
-  , "patchOperations" :: NullOrUndefined (ListOfPatchOperation)
+  , "patchOperations" :: Maybe (ListOfPatchOperation)
   }
 derive instance newtypeUpdateVpcLinkRequest :: Newtype UpdateVpcLinkRequest _
 derive instance repGenericUpdateVpcLinkRequest :: Generic UpdateVpcLinkRequest _
@@ -4839,22 +4838,22 @@ instance encodeUpdateVpcLinkRequest :: Encode UpdateVpcLinkRequest where encode 
 
 -- | Constructs UpdateVpcLinkRequest from required parameters
 newUpdateVpcLinkRequest :: String -> UpdateVpcLinkRequest
-newUpdateVpcLinkRequest _vpcLinkId = UpdateVpcLinkRequest { "vpcLinkId": _vpcLinkId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateVpcLinkRequest _vpcLinkId = UpdateVpcLinkRequest { "vpcLinkId": _vpcLinkId, "patchOperations": Nothing }
 
 -- | Constructs UpdateVpcLinkRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateVpcLinkRequest' :: String -> ( { "vpcLinkId" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } -> {"vpcLinkId" :: (String) , "patchOperations" :: NullOrUndefined (ListOfPatchOperation) } ) -> UpdateVpcLinkRequest
-newUpdateVpcLinkRequest' _vpcLinkId customize = (UpdateVpcLinkRequest <<< customize) { "vpcLinkId": _vpcLinkId, "patchOperations": (NullOrUndefined Nothing) }
+newUpdateVpcLinkRequest' :: String -> ( { "vpcLinkId" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } -> {"vpcLinkId" :: (String) , "patchOperations" :: Maybe (ListOfPatchOperation) } ) -> UpdateVpcLinkRequest
+newUpdateVpcLinkRequest' _vpcLinkId customize = (UpdateVpcLinkRequest <<< customize) { "vpcLinkId": _vpcLinkId, "patchOperations": Nothing }
 
 
 
 -- | <p>Represents the usage data of a usage plan.</p> <div class="remarks"/> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html">Create and Use Usage Plans</a>, <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-usage-plans-with-console.html#api-gateway-usage-plan-manage-usage">Manage Usage in a Usage Plan</a> </div>
 newtype Usage = Usage 
-  { "usagePlanId" :: NullOrUndefined (String)
-  , "startDate" :: NullOrUndefined (String)
-  , "endDate" :: NullOrUndefined (String)
-  , "position" :: NullOrUndefined (String)
-  , "items" :: NullOrUndefined (MapOfKeyUsages)
+  { "usagePlanId" :: Maybe (String)
+  , "startDate" :: Maybe (String)
+  , "endDate" :: Maybe (String)
+  , "position" :: Maybe (String)
+  , "items" :: Maybe (MapOfKeyUsages)
   }
 derive instance newtypeUsage :: Newtype Usage _
 derive instance repGenericUsage :: Generic Usage _
@@ -4864,24 +4863,24 @@ instance encodeUsage :: Encode Usage where encode = genericEncode options
 
 -- | Constructs Usage from required parameters
 newUsage :: Usage
-newUsage  = Usage { "endDate": (NullOrUndefined Nothing), "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing), "startDate": (NullOrUndefined Nothing), "usagePlanId": (NullOrUndefined Nothing) }
+newUsage  = Usage { "endDate": Nothing, "items": Nothing, "position": Nothing, "startDate": Nothing, "usagePlanId": Nothing }
 
 -- | Constructs Usage's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUsage' :: ( { "usagePlanId" :: NullOrUndefined (String) , "startDate" :: NullOrUndefined (String) , "endDate" :: NullOrUndefined (String) , "position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (MapOfKeyUsages) } -> {"usagePlanId" :: NullOrUndefined (String) , "startDate" :: NullOrUndefined (String) , "endDate" :: NullOrUndefined (String) , "position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (MapOfKeyUsages) } ) -> Usage
-newUsage'  customize = (Usage <<< customize) { "endDate": (NullOrUndefined Nothing), "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing), "startDate": (NullOrUndefined Nothing), "usagePlanId": (NullOrUndefined Nothing) }
+newUsage' :: ( { "usagePlanId" :: Maybe (String) , "startDate" :: Maybe (String) , "endDate" :: Maybe (String) , "position" :: Maybe (String) , "items" :: Maybe (MapOfKeyUsages) } -> {"usagePlanId" :: Maybe (String) , "startDate" :: Maybe (String) , "endDate" :: Maybe (String) , "position" :: Maybe (String) , "items" :: Maybe (MapOfKeyUsages) } ) -> Usage
+newUsage'  customize = (Usage <<< customize) { "endDate": Nothing, "items": Nothing, "position": Nothing, "startDate": Nothing, "usagePlanId": Nothing }
 
 
 
 -- | <p>Represents a usage plan than can specify who can assess associated API stages with specified request limits and quotas.</p> <div class="remarks"> <p>In a usage plan, you associate an API by specifying the API's Id and a stage name of the specified API. You add plan customers by adding API keys to the plan. </p> </div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html">Create and Use Usage Plans</a> </div>
 newtype UsagePlan = UsagePlan 
-  { "id" :: NullOrUndefined (String)
-  , "name" :: NullOrUndefined (String)
-  , "description" :: NullOrUndefined (String)
-  , "apiStages" :: NullOrUndefined (ListOfApiStage)
-  , "throttle" :: NullOrUndefined (ThrottleSettings)
-  , "quota" :: NullOrUndefined (QuotaSettings)
-  , "productCode" :: NullOrUndefined (String)
+  { "id" :: Maybe (String)
+  , "name" :: Maybe (String)
+  , "description" :: Maybe (String)
+  , "apiStages" :: Maybe (ListOfApiStage)
+  , "throttle" :: Maybe (ThrottleSettings)
+  , "quota" :: Maybe (QuotaSettings)
+  , "productCode" :: Maybe (String)
   }
 derive instance newtypeUsagePlan :: Newtype UsagePlan _
 derive instance repGenericUsagePlan :: Generic UsagePlan _
@@ -4891,21 +4890,21 @@ instance encodeUsagePlan :: Encode UsagePlan where encode = genericEncode option
 
 -- | Constructs UsagePlan from required parameters
 newUsagePlan :: UsagePlan
-newUsagePlan  = UsagePlan { "apiStages": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "productCode": (NullOrUndefined Nothing), "quota": (NullOrUndefined Nothing), "throttle": (NullOrUndefined Nothing) }
+newUsagePlan  = UsagePlan { "apiStages": Nothing, "description": Nothing, "id": Nothing, "name": Nothing, "productCode": Nothing, "quota": Nothing, "throttle": Nothing }
 
 -- | Constructs UsagePlan's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUsagePlan' :: ( { "id" :: NullOrUndefined (String) , "name" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "apiStages" :: NullOrUndefined (ListOfApiStage) , "throttle" :: NullOrUndefined (ThrottleSettings) , "quota" :: NullOrUndefined (QuotaSettings) , "productCode" :: NullOrUndefined (String) } -> {"id" :: NullOrUndefined (String) , "name" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "apiStages" :: NullOrUndefined (ListOfApiStage) , "throttle" :: NullOrUndefined (ThrottleSettings) , "quota" :: NullOrUndefined (QuotaSettings) , "productCode" :: NullOrUndefined (String) } ) -> UsagePlan
-newUsagePlan'  customize = (UsagePlan <<< customize) { "apiStages": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "productCode": (NullOrUndefined Nothing), "quota": (NullOrUndefined Nothing), "throttle": (NullOrUndefined Nothing) }
+newUsagePlan' :: ( { "id" :: Maybe (String) , "name" :: Maybe (String) , "description" :: Maybe (String) , "apiStages" :: Maybe (ListOfApiStage) , "throttle" :: Maybe (ThrottleSettings) , "quota" :: Maybe (QuotaSettings) , "productCode" :: Maybe (String) } -> {"id" :: Maybe (String) , "name" :: Maybe (String) , "description" :: Maybe (String) , "apiStages" :: Maybe (ListOfApiStage) , "throttle" :: Maybe (ThrottleSettings) , "quota" :: Maybe (QuotaSettings) , "productCode" :: Maybe (String) } ) -> UsagePlan
+newUsagePlan'  customize = (UsagePlan <<< customize) { "apiStages": Nothing, "description": Nothing, "id": Nothing, "name": Nothing, "productCode": Nothing, "quota": Nothing, "throttle": Nothing }
 
 
 
 -- | <p>Represents a usage plan key to identify a plan customer.</p> <div class="remarks"> <p>To associate an API stage with a selected API key in a usage plan, you must create a UsagePlanKey resource to represent the selected <a>ApiKey</a>.</p> </div>" <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html">Create and Use Usage Plans</a> </div>
 newtype UsagePlanKey = UsagePlanKey 
-  { "id" :: NullOrUndefined (String)
-  , "type" :: NullOrUndefined (String)
-  , "value" :: NullOrUndefined (String)
-  , "name" :: NullOrUndefined (String)
+  { "id" :: Maybe (String)
+  , "type" :: Maybe (String)
+  , "value" :: Maybe (String)
+  , "name" :: Maybe (String)
   }
 derive instance newtypeUsagePlanKey :: Newtype UsagePlanKey _
 derive instance repGenericUsagePlanKey :: Generic UsagePlanKey _
@@ -4915,19 +4914,19 @@ instance encodeUsagePlanKey :: Encode UsagePlanKey where encode = genericEncode 
 
 -- | Constructs UsagePlanKey from required parameters
 newUsagePlanKey :: UsagePlanKey
-newUsagePlanKey  = UsagePlanKey { "id": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing), "value": (NullOrUndefined Nothing) }
+newUsagePlanKey  = UsagePlanKey { "id": Nothing, "name": Nothing, "type": Nothing, "value": Nothing }
 
 -- | Constructs UsagePlanKey's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUsagePlanKey' :: ( { "id" :: NullOrUndefined (String) , "type" :: NullOrUndefined (String) , "value" :: NullOrUndefined (String) , "name" :: NullOrUndefined (String) } -> {"id" :: NullOrUndefined (String) , "type" :: NullOrUndefined (String) , "value" :: NullOrUndefined (String) , "name" :: NullOrUndefined (String) } ) -> UsagePlanKey
-newUsagePlanKey'  customize = (UsagePlanKey <<< customize) { "id": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing), "value": (NullOrUndefined Nothing) }
+newUsagePlanKey' :: ( { "id" :: Maybe (String) , "type" :: Maybe (String) , "value" :: Maybe (String) , "name" :: Maybe (String) } -> {"id" :: Maybe (String) , "type" :: Maybe (String) , "value" :: Maybe (String) , "name" :: Maybe (String) } ) -> UsagePlanKey
+newUsagePlanKey'  customize = (UsagePlanKey <<< customize) { "id": Nothing, "name": Nothing, "type": Nothing, "value": Nothing }
 
 
 
 -- | <p>Represents the collection of usage plan keys added to usage plans for the associated API keys and, possibly, other types of keys.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html">Create and Use Usage Plans</a> </div>
 newtype UsagePlanKeys = UsagePlanKeys 
-  { "position" :: NullOrUndefined (String)
-  , "items" :: NullOrUndefined (ListOfUsagePlanKey)
+  { "position" :: Maybe (String)
+  , "items" :: Maybe (ListOfUsagePlanKey)
   }
 derive instance newtypeUsagePlanKeys :: Newtype UsagePlanKeys _
 derive instance repGenericUsagePlanKeys :: Generic UsagePlanKeys _
@@ -4937,19 +4936,19 @@ instance encodeUsagePlanKeys :: Encode UsagePlanKeys where encode = genericEncod
 
 -- | Constructs UsagePlanKeys from required parameters
 newUsagePlanKeys :: UsagePlanKeys
-newUsagePlanKeys  = UsagePlanKeys { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newUsagePlanKeys  = UsagePlanKeys { "items": Nothing, "position": Nothing }
 
 -- | Constructs UsagePlanKeys's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUsagePlanKeys' :: ( { "position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfUsagePlanKey) } -> {"position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfUsagePlanKey) } ) -> UsagePlanKeys
-newUsagePlanKeys'  customize = (UsagePlanKeys <<< customize) { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newUsagePlanKeys' :: ( { "position" :: Maybe (String) , "items" :: Maybe (ListOfUsagePlanKey) } -> {"position" :: Maybe (String) , "items" :: Maybe (ListOfUsagePlanKey) } ) -> UsagePlanKeys
+newUsagePlanKeys'  customize = (UsagePlanKeys <<< customize) { "items": Nothing, "position": Nothing }
 
 
 
 -- | <p>Represents a collection of usage plans for an AWS account.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html">Create and Use Usage Plans</a> </div>
 newtype UsagePlans = UsagePlans 
-  { "position" :: NullOrUndefined (String)
-  , "items" :: NullOrUndefined (ListOfUsagePlan)
+  { "position" :: Maybe (String)
+  , "items" :: Maybe (ListOfUsagePlan)
   }
 derive instance newtypeUsagePlans :: Newtype UsagePlans _
 derive instance repGenericUsagePlans :: Generic UsagePlans _
@@ -4959,23 +4958,23 @@ instance encodeUsagePlans :: Encode UsagePlans where encode = genericEncode opti
 
 -- | Constructs UsagePlans from required parameters
 newUsagePlans :: UsagePlans
-newUsagePlans  = UsagePlans { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newUsagePlans  = UsagePlans { "items": Nothing, "position": Nothing }
 
 -- | Constructs UsagePlans's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUsagePlans' :: ( { "position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfUsagePlan) } -> {"position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfUsagePlan) } ) -> UsagePlans
-newUsagePlans'  customize = (UsagePlans <<< customize) { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newUsagePlans' :: ( { "position" :: Maybe (String) , "items" :: Maybe (ListOfUsagePlan) } -> {"position" :: Maybe (String) , "items" :: Maybe (ListOfUsagePlan) } ) -> UsagePlans
+newUsagePlans'  customize = (UsagePlans <<< customize) { "items": Nothing, "position": Nothing }
 
 
 
 -- | <p>A API Gateway VPC link for a <a>RestApi</a> to access resources in an Amazon Virtual Private Cloud (VPC).</p> <div class="remarks"> <p><p>To enable access to a resource in an Amazon Virtual Private Cloud through Amazon API Gateway, you, as an API developer, create a <a>VpcLink</a> resource targeted for one or more network load balancers of the VPC and then integrate an API method with a private integration that uses the <a>VpcLink</a>. The private integration has an integration type of <code>HTTP</code> or <code>HTTP_PROXY</code> and has a connection type of <code>VPC_LINK</code>. The integration uses the <code>connectionId</code> property to identify the <a>VpcLink</a> used.</p> </p> </div>
 newtype VpcLink = VpcLink 
-  { "id" :: NullOrUndefined (String)
-  , "name" :: NullOrUndefined (String)
-  , "description" :: NullOrUndefined (String)
-  , "targetArns" :: NullOrUndefined (ListOfString)
-  , "status" :: NullOrUndefined (VpcLinkStatus)
-  , "statusMessage" :: NullOrUndefined (String)
+  { "id" :: Maybe (String)
+  , "name" :: Maybe (String)
+  , "description" :: Maybe (String)
+  , "targetArns" :: Maybe (ListOfString)
+  , "status" :: Maybe (VpcLinkStatus)
+  , "statusMessage" :: Maybe (String)
   }
 derive instance newtypeVpcLink :: Newtype VpcLink _
 derive instance repGenericVpcLink :: Generic VpcLink _
@@ -4985,12 +4984,12 @@ instance encodeVpcLink :: Encode VpcLink where encode = genericEncode options
 
 -- | Constructs VpcLink from required parameters
 newVpcLink :: VpcLink
-newVpcLink  = VpcLink { "description": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "statusMessage": (NullOrUndefined Nothing), "targetArns": (NullOrUndefined Nothing) }
+newVpcLink  = VpcLink { "description": Nothing, "id": Nothing, "name": Nothing, "status": Nothing, "statusMessage": Nothing, "targetArns": Nothing }
 
 -- | Constructs VpcLink's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newVpcLink' :: ( { "id" :: NullOrUndefined (String) , "name" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "targetArns" :: NullOrUndefined (ListOfString) , "status" :: NullOrUndefined (VpcLinkStatus) , "statusMessage" :: NullOrUndefined (String) } -> {"id" :: NullOrUndefined (String) , "name" :: NullOrUndefined (String) , "description" :: NullOrUndefined (String) , "targetArns" :: NullOrUndefined (ListOfString) , "status" :: NullOrUndefined (VpcLinkStatus) , "statusMessage" :: NullOrUndefined (String) } ) -> VpcLink
-newVpcLink'  customize = (VpcLink <<< customize) { "description": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "statusMessage": (NullOrUndefined Nothing), "targetArns": (NullOrUndefined Nothing) }
+newVpcLink' :: ( { "id" :: Maybe (String) , "name" :: Maybe (String) , "description" :: Maybe (String) , "targetArns" :: Maybe (ListOfString) , "status" :: Maybe (VpcLinkStatus) , "statusMessage" :: Maybe (String) } -> {"id" :: Maybe (String) , "name" :: Maybe (String) , "description" :: Maybe (String) , "targetArns" :: Maybe (ListOfString) , "status" :: Maybe (VpcLinkStatus) , "statusMessage" :: Maybe (String) } ) -> VpcLink
+newVpcLink'  customize = (VpcLink <<< customize) { "description": Nothing, "id": Nothing, "name": Nothing, "status": Nothing, "statusMessage": Nothing, "targetArns": Nothing }
 
 
 
@@ -5005,8 +5004,8 @@ instance encodeVpcLinkStatus :: Encode VpcLinkStatus where encode = genericEncod
 
 -- | <p>The collection of VPC links under the caller's account in a region.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-with-private-integration.html">Getting Started with Private Integrations</a>, <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-private-integration.html">Set up Private Integrations</a> </div>
 newtype VpcLinks = VpcLinks 
-  { "position" :: NullOrUndefined (String)
-  , "items" :: NullOrUndefined (ListOfVpcLink)
+  { "position" :: Maybe (String)
+  , "items" :: Maybe (ListOfVpcLink)
   }
 derive instance newtypeVpcLinks :: Newtype VpcLinks _
 derive instance repGenericVpcLinks :: Generic VpcLinks _
@@ -5016,10 +5015,10 @@ instance encodeVpcLinks :: Encode VpcLinks where encode = genericEncode options
 
 -- | Constructs VpcLinks from required parameters
 newVpcLinks :: VpcLinks
-newVpcLinks  = VpcLinks { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newVpcLinks  = VpcLinks { "items": Nothing, "position": Nothing }
 
 -- | Constructs VpcLinks's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newVpcLinks' :: ( { "position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfVpcLink) } -> {"position" :: NullOrUndefined (String) , "items" :: NullOrUndefined (ListOfVpcLink) } ) -> VpcLinks
-newVpcLinks'  customize = (VpcLinks <<< customize) { "items": (NullOrUndefined Nothing), "position": (NullOrUndefined Nothing) }
+newVpcLinks' :: ( { "position" :: Maybe (String) , "items" :: Maybe (ListOfVpcLink) } -> {"position" :: Maybe (String) , "items" :: Maybe (ListOfVpcLink) } ) -> VpcLinks
+newVpcLinks'  customize = (VpcLinks <<< customize) { "items": Nothing, "position": Nothing }
 

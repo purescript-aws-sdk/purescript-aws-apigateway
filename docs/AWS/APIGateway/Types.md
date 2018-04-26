@@ -10,7 +10,7 @@ options :: Options
 
 ``` purescript
 newtype AccessLogSettings
-  = AccessLogSettings { format :: NullOrUndefined (String), destinationArn :: NullOrUndefined (String) }
+  = AccessLogSettings { format :: Maybe (String), destinationArn :: Maybe (String) }
 ```
 
 <p>Access log settings, including the access log format and access log destination ARN.</p>
@@ -35,7 +35,7 @@ Constructs AccessLogSettings from required parameters
 #### `newAccessLogSettings'`
 
 ``` purescript
-newAccessLogSettings' :: ({ format :: NullOrUndefined (String), destinationArn :: NullOrUndefined (String) } -> { format :: NullOrUndefined (String), destinationArn :: NullOrUndefined (String) }) -> AccessLogSettings
+newAccessLogSettings' :: ({ format :: Maybe (String), destinationArn :: Maybe (String) } -> { format :: Maybe (String), destinationArn :: Maybe (String) }) -> AccessLogSettings
 ```
 
 Constructs AccessLogSettings's fields from required parameters
@@ -44,7 +44,7 @@ Constructs AccessLogSettings's fields from required parameters
 
 ``` purescript
 newtype Account
-  = Account { cloudwatchRoleArn :: NullOrUndefined (String), throttleSettings :: NullOrUndefined (ThrottleSettings), features :: NullOrUndefined (ListOfString), apiKeyVersion :: NullOrUndefined (String) }
+  = Account { cloudwatchRoleArn :: Maybe (String), throttleSettings :: Maybe (ThrottleSettings), features :: Maybe (ListOfString), apiKeyVersion :: Maybe (String) }
 ```
 
 <p>Represents an AWS account that is associated with API Gateway.</p> <div class="remarks"> <p>To view the account info, call <code>GET</code> on this resource.</p> <h4>Error Codes</h4> <p>The following exception may be thrown when the request fails.</p> <ul> <li>UnauthorizedException</li> <li>NotFoundException</li> <li>TooManyRequestsException</li> </ul> <p>For detailed error code information, including the corresponding HTTP Status Codes, see <a href="http://docs.aws.amazon.com/apigateway/api-reference/handling-errors/#api-error-codes">API Gateway Error Codes</a></p> <h4>Example: Get the information about an account.</h4> <h5>Request</h5> <pre><code>GET /account HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20160531T184618Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash} </code></pre> <h5>Response</h5> <p>The successful response returns a <code>200 OK</code> status code and a payload similar to the following:</p> <pre><code>{ "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/account-apigateway-{rel}.html", "name": "account", "templated": true }, "self": { "href": "/account" }, "account:update": { "href": "/account" } }, "cloudwatchRoleArn": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "throttleSettings": { "rateLimit": 500, "burstLimit": 1000 } } </code></pre> <p>In addition to making the REST API call directly, you can use the AWS CLI and an AWS SDK to access this resource.</p> </div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-limits.html">API Gateway Limits</a> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html">Developer Guide</a>, <a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-account.html">AWS CLI</a> </div>
@@ -69,7 +69,7 @@ Constructs Account from required parameters
 #### `newAccount'`
 
 ``` purescript
-newAccount' :: ({ cloudwatchRoleArn :: NullOrUndefined (String), throttleSettings :: NullOrUndefined (ThrottleSettings), features :: NullOrUndefined (ListOfString), apiKeyVersion :: NullOrUndefined (String) } -> { cloudwatchRoleArn :: NullOrUndefined (String), throttleSettings :: NullOrUndefined (ThrottleSettings), features :: NullOrUndefined (ListOfString), apiKeyVersion :: NullOrUndefined (String) }) -> Account
+newAccount' :: ({ cloudwatchRoleArn :: Maybe (String), throttleSettings :: Maybe (ThrottleSettings), features :: Maybe (ListOfString), apiKeyVersion :: Maybe (String) } -> { cloudwatchRoleArn :: Maybe (String), throttleSettings :: Maybe (ThrottleSettings), features :: Maybe (ListOfString), apiKeyVersion :: Maybe (String) }) -> Account
 ```
 
 Constructs Account's fields from required parameters
@@ -78,7 +78,7 @@ Constructs Account's fields from required parameters
 
 ``` purescript
 newtype ApiKey
-  = ApiKey { id :: NullOrUndefined (String), value :: NullOrUndefined (String), name :: NullOrUndefined (String), customerId :: NullOrUndefined (String), description :: NullOrUndefined (String), enabled :: NullOrUndefined (Boolean), createdDate :: NullOrUndefined (Timestamp), lastUpdatedDate :: NullOrUndefined (Timestamp), stageKeys :: NullOrUndefined (ListOfString) }
+  = ApiKey { id :: Maybe (String), value :: Maybe (String), name :: Maybe (String), customerId :: Maybe (String), description :: Maybe (String), enabled :: Maybe (Boolean), createdDate :: Maybe (Timestamp), lastUpdatedDate :: Maybe (Timestamp), stageKeys :: Maybe (ListOfString) }
 ```
 
 <p>A resource that can be distributed to callers for executing <a>Method</a> resources that require an API key. API keys can be mapped to any <a>Stage</a> on any <a>RestApi</a>, which indicates that the callers with the API key can make requests to that stage.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-api-keys.html">Use API Keys</a> </div>
@@ -103,7 +103,7 @@ Constructs ApiKey from required parameters
 #### `newApiKey'`
 
 ``` purescript
-newApiKey' :: ({ id :: NullOrUndefined (String), value :: NullOrUndefined (String), name :: NullOrUndefined (String), customerId :: NullOrUndefined (String), description :: NullOrUndefined (String), enabled :: NullOrUndefined (Boolean), createdDate :: NullOrUndefined (Timestamp), lastUpdatedDate :: NullOrUndefined (Timestamp), stageKeys :: NullOrUndefined (ListOfString) } -> { id :: NullOrUndefined (String), value :: NullOrUndefined (String), name :: NullOrUndefined (String), customerId :: NullOrUndefined (String), description :: NullOrUndefined (String), enabled :: NullOrUndefined (Boolean), createdDate :: NullOrUndefined (Timestamp), lastUpdatedDate :: NullOrUndefined (Timestamp), stageKeys :: NullOrUndefined (ListOfString) }) -> ApiKey
+newApiKey' :: ({ id :: Maybe (String), value :: Maybe (String), name :: Maybe (String), customerId :: Maybe (String), description :: Maybe (String), enabled :: Maybe (Boolean), createdDate :: Maybe (Timestamp), lastUpdatedDate :: Maybe (Timestamp), stageKeys :: Maybe (ListOfString) } -> { id :: Maybe (String), value :: Maybe (String), name :: Maybe (String), customerId :: Maybe (String), description :: Maybe (String), enabled :: Maybe (Boolean), createdDate :: Maybe (Timestamp), lastUpdatedDate :: Maybe (Timestamp), stageKeys :: Maybe (ListOfString) }) -> ApiKey
 ```
 
 Constructs ApiKey's fields from required parameters
@@ -112,7 +112,7 @@ Constructs ApiKey's fields from required parameters
 
 ``` purescript
 newtype ApiKeyIds
-  = ApiKeyIds { ids :: NullOrUndefined (ListOfString), warnings :: NullOrUndefined (ListOfString) }
+  = ApiKeyIds { ids :: Maybe (ListOfString), warnings :: Maybe (ListOfString) }
 ```
 
 <p>The identifier of an <a>ApiKey</a> used in a <a>UsagePlan</a>.</p>
@@ -137,7 +137,7 @@ Constructs ApiKeyIds from required parameters
 #### `newApiKeyIds'`
 
 ``` purescript
-newApiKeyIds' :: ({ ids :: NullOrUndefined (ListOfString), warnings :: NullOrUndefined (ListOfString) } -> { ids :: NullOrUndefined (ListOfString), warnings :: NullOrUndefined (ListOfString) }) -> ApiKeyIds
+newApiKeyIds' :: ({ ids :: Maybe (ListOfString), warnings :: Maybe (ListOfString) } -> { ids :: Maybe (ListOfString), warnings :: Maybe (ListOfString) }) -> ApiKeyIds
 ```
 
 Constructs ApiKeyIds's fields from required parameters
@@ -162,7 +162,7 @@ Encode ApiKeySourceType
 
 ``` purescript
 newtype ApiKeys
-  = ApiKeys { warnings :: NullOrUndefined (ListOfString), position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfApiKey) }
+  = ApiKeys { warnings :: Maybe (ListOfString), position :: Maybe (String), items :: Maybe (ListOfApiKey) }
 ```
 
 <p>Represents a collection of API keys as represented by an <a>ApiKeys</a> resource.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-api-keys.html">Use API Keys</a> </div>
@@ -187,7 +187,7 @@ Constructs ApiKeys from required parameters
 #### `newApiKeys'`
 
 ``` purescript
-newApiKeys' :: ({ warnings :: NullOrUndefined (ListOfString), position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfApiKey) } -> { warnings :: NullOrUndefined (ListOfString), position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfApiKey) }) -> ApiKeys
+newApiKeys' :: ({ warnings :: Maybe (ListOfString), position :: Maybe (String), items :: Maybe (ListOfApiKey) } -> { warnings :: Maybe (ListOfString), position :: Maybe (String), items :: Maybe (ListOfApiKey) }) -> ApiKeys
 ```
 
 Constructs ApiKeys's fields from required parameters
@@ -212,7 +212,7 @@ Encode ApiKeysFormat
 
 ``` purescript
 newtype ApiStage
-  = ApiStage { apiId :: NullOrUndefined (String), stage :: NullOrUndefined (String) }
+  = ApiStage { apiId :: Maybe (String), stage :: Maybe (String) }
 ```
 
 <p>API stage name of the associated API stage in a usage plan.</p>
@@ -237,7 +237,7 @@ Constructs ApiStage from required parameters
 #### `newApiStage'`
 
 ``` purescript
-newApiStage' :: ({ apiId :: NullOrUndefined (String), stage :: NullOrUndefined (String) } -> { apiId :: NullOrUndefined (String), stage :: NullOrUndefined (String) }) -> ApiStage
+newApiStage' :: ({ apiId :: Maybe (String), stage :: Maybe (String) } -> { apiId :: Maybe (String), stage :: Maybe (String) }) -> ApiStage
 ```
 
 Constructs ApiStage's fields from required parameters
@@ -246,7 +246,7 @@ Constructs ApiStage's fields from required parameters
 
 ``` purescript
 newtype Authorizer
-  = Authorizer { id :: NullOrUndefined (String), name :: NullOrUndefined (String), "type" :: NullOrUndefined (AuthorizerType), providerARNs :: NullOrUndefined (ListOfARNs), authType :: NullOrUndefined (String), authorizerUri :: NullOrUndefined (String), authorizerCredentials :: NullOrUndefined (String), identitySource :: NullOrUndefined (String), identityValidationExpression :: NullOrUndefined (String), authorizerResultTtlInSeconds :: NullOrUndefined (NullableInteger) }
+  = Authorizer { id :: Maybe (String), name :: Maybe (String), "type" :: Maybe (AuthorizerType), providerARNs :: Maybe (ListOfARNs), authType :: Maybe (String), authorizerUri :: Maybe (String), authorizerCredentials :: Maybe (String), identitySource :: Maybe (String), identityValidationExpression :: Maybe (String), authorizerResultTtlInSeconds :: Maybe (NullableInteger) }
 ```
 
 <p>Represents an authorization layer for methods. If enabled on a method, API Gateway will activate the authorizer when a client calls the method.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html">Enable custom authorization</a> </div>
@@ -271,7 +271,7 @@ Constructs Authorizer from required parameters
 #### `newAuthorizer'`
 
 ``` purescript
-newAuthorizer' :: ({ id :: NullOrUndefined (String), name :: NullOrUndefined (String), "type" :: NullOrUndefined (AuthorizerType), providerARNs :: NullOrUndefined (ListOfARNs), authType :: NullOrUndefined (String), authorizerUri :: NullOrUndefined (String), authorizerCredentials :: NullOrUndefined (String), identitySource :: NullOrUndefined (String), identityValidationExpression :: NullOrUndefined (String), authorizerResultTtlInSeconds :: NullOrUndefined (NullableInteger) } -> { id :: NullOrUndefined (String), name :: NullOrUndefined (String), "type" :: NullOrUndefined (AuthorizerType), providerARNs :: NullOrUndefined (ListOfARNs), authType :: NullOrUndefined (String), authorizerUri :: NullOrUndefined (String), authorizerCredentials :: NullOrUndefined (String), identitySource :: NullOrUndefined (String), identityValidationExpression :: NullOrUndefined (String), authorizerResultTtlInSeconds :: NullOrUndefined (NullableInteger) }) -> Authorizer
+newAuthorizer' :: ({ id :: Maybe (String), name :: Maybe (String), "type" :: Maybe (AuthorizerType), providerARNs :: Maybe (ListOfARNs), authType :: Maybe (String), authorizerUri :: Maybe (String), authorizerCredentials :: Maybe (String), identitySource :: Maybe (String), identityValidationExpression :: Maybe (String), authorizerResultTtlInSeconds :: Maybe (NullableInteger) } -> { id :: Maybe (String), name :: Maybe (String), "type" :: Maybe (AuthorizerType), providerARNs :: Maybe (ListOfARNs), authType :: Maybe (String), authorizerUri :: Maybe (String), authorizerCredentials :: Maybe (String), identitySource :: Maybe (String), identityValidationExpression :: Maybe (String), authorizerResultTtlInSeconds :: Maybe (NullableInteger) }) -> Authorizer
 ```
 
 Constructs Authorizer's fields from required parameters
@@ -298,7 +298,7 @@ Encode AuthorizerType
 
 ``` purescript
 newtype Authorizers
-  = Authorizers { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfAuthorizer) }
+  = Authorizers { position :: Maybe (String), items :: Maybe (ListOfAuthorizer) }
 ```
 
 <p>Represents a collection of <a>Authorizer</a> resources.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html">Enable custom authorization</a> </div>
@@ -323,7 +323,7 @@ Constructs Authorizers from required parameters
 #### `newAuthorizers'`
 
 ``` purescript
-newAuthorizers' :: ({ position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfAuthorizer) } -> { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfAuthorizer) }) -> Authorizers
+newAuthorizers' :: ({ position :: Maybe (String), items :: Maybe (ListOfAuthorizer) } -> { position :: Maybe (String), items :: Maybe (ListOfAuthorizer) }) -> Authorizers
 ```
 
 Constructs Authorizers's fields from required parameters
@@ -332,7 +332,7 @@ Constructs Authorizers's fields from required parameters
 
 ``` purescript
 newtype BadRequestException
-  = BadRequestException { message :: NullOrUndefined (String) }
+  = BadRequestException { message :: Maybe (String) }
 ```
 
 <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
@@ -357,7 +357,7 @@ Constructs BadRequestException from required parameters
 #### `newBadRequestException'`
 
 ``` purescript
-newBadRequestException' :: ({ message :: NullOrUndefined (String) } -> { message :: NullOrUndefined (String) }) -> BadRequestException
+newBadRequestException' :: ({ message :: Maybe (String) } -> { message :: Maybe (String) }) -> BadRequestException
 ```
 
 Constructs BadRequestException's fields from required parameters
@@ -366,7 +366,7 @@ Constructs BadRequestException's fields from required parameters
 
 ``` purescript
 newtype BasePathMapping
-  = BasePathMapping { basePath :: NullOrUndefined (String), restApiId :: NullOrUndefined (String), stage :: NullOrUndefined (String) }
+  = BasePathMapping { basePath :: Maybe (String), restApiId :: Maybe (String), stage :: Maybe (String) }
 ```
 
 <p>Represents the base path that callers of the API must provide as part of the URL after the domain name.</p> <div class="remarks">A custom domain name plus a <code>BasePathMapping</code> specification identifies a deployed <a>RestApi</a> in a given stage of the owner <a>Account</a>.</div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html">Use Custom Domain Names</a> </div>
@@ -391,7 +391,7 @@ Constructs BasePathMapping from required parameters
 #### `newBasePathMapping'`
 
 ``` purescript
-newBasePathMapping' :: ({ basePath :: NullOrUndefined (String), restApiId :: NullOrUndefined (String), stage :: NullOrUndefined (String) } -> { basePath :: NullOrUndefined (String), restApiId :: NullOrUndefined (String), stage :: NullOrUndefined (String) }) -> BasePathMapping
+newBasePathMapping' :: ({ basePath :: Maybe (String), restApiId :: Maybe (String), stage :: Maybe (String) } -> { basePath :: Maybe (String), restApiId :: Maybe (String), stage :: Maybe (String) }) -> BasePathMapping
 ```
 
 Constructs BasePathMapping's fields from required parameters
@@ -400,7 +400,7 @@ Constructs BasePathMapping's fields from required parameters
 
 ``` purescript
 newtype BasePathMappings
-  = BasePathMappings { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfBasePathMapping) }
+  = BasePathMappings { position :: Maybe (String), items :: Maybe (ListOfBasePathMapping) }
 ```
 
 <p>Represents a collection of <a>BasePathMapping</a> resources.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html">Use Custom Domain Names</a> </div>
@@ -425,7 +425,7 @@ Constructs BasePathMappings from required parameters
 #### `newBasePathMappings'`
 
 ``` purescript
-newBasePathMappings' :: ({ position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfBasePathMapping) } -> { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfBasePathMapping) }) -> BasePathMappings
+newBasePathMappings' :: ({ position :: Maybe (String), items :: Maybe (ListOfBasePathMapping) } -> { position :: Maybe (String), items :: Maybe (ListOfBasePathMapping) }) -> BasePathMappings
 ```
 
 Constructs BasePathMappings's fields from required parameters
@@ -470,7 +470,7 @@ Encode CacheClusterStatus
 
 ``` purescript
 newtype CanarySettings
-  = CanarySettings { percentTraffic :: NullOrUndefined (Number), deploymentId :: NullOrUndefined (String), stageVariableOverrides :: NullOrUndefined (MapOfStringToString), useStageCache :: NullOrUndefined (Boolean) }
+  = CanarySettings { percentTraffic :: Maybe (Number), deploymentId :: Maybe (String), stageVariableOverrides :: Maybe (MapOfStringToString), useStageCache :: Maybe (Boolean) }
 ```
 
 <p>Configuration settings of a canary deployment.</p>
@@ -495,7 +495,7 @@ Constructs CanarySettings from required parameters
 #### `newCanarySettings'`
 
 ``` purescript
-newCanarySettings' :: ({ percentTraffic :: NullOrUndefined (Number), deploymentId :: NullOrUndefined (String), stageVariableOverrides :: NullOrUndefined (MapOfStringToString), useStageCache :: NullOrUndefined (Boolean) } -> { percentTraffic :: NullOrUndefined (Number), deploymentId :: NullOrUndefined (String), stageVariableOverrides :: NullOrUndefined (MapOfStringToString), useStageCache :: NullOrUndefined (Boolean) }) -> CanarySettings
+newCanarySettings' :: ({ percentTraffic :: Maybe (Number), deploymentId :: Maybe (String), stageVariableOverrides :: Maybe (MapOfStringToString), useStageCache :: Maybe (Boolean) } -> { percentTraffic :: Maybe (Number), deploymentId :: Maybe (String), stageVariableOverrides :: Maybe (MapOfStringToString), useStageCache :: Maybe (Boolean) }) -> CanarySettings
 ```
 
 Constructs CanarySettings's fields from required parameters
@@ -504,7 +504,7 @@ Constructs CanarySettings's fields from required parameters
 
 ``` purescript
 newtype ClientCertificate
-  = ClientCertificate { clientCertificateId :: NullOrUndefined (String), description :: NullOrUndefined (String), pemEncodedCertificate :: NullOrUndefined (String), createdDate :: NullOrUndefined (Timestamp), expirationDate :: NullOrUndefined (Timestamp) }
+  = ClientCertificate { clientCertificateId :: Maybe (String), description :: Maybe (String), pemEncodedCertificate :: Maybe (String), createdDate :: Maybe (Timestamp), expirationDate :: Maybe (Timestamp) }
 ```
 
 <p>Represents a client certificate used to configure client-side SSL authentication while sending requests to the integration endpoint.</p> <div class="remarks">Client certificates are used to authenticate an API by the backend server. To authenticate an API client (or user), use IAM roles and policies, a custom <a>Authorizer</a> or an Amazon Cognito user pool.</div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html">Use Client-Side Certificate</a> </div>
@@ -529,7 +529,7 @@ Constructs ClientCertificate from required parameters
 #### `newClientCertificate'`
 
 ``` purescript
-newClientCertificate' :: ({ clientCertificateId :: NullOrUndefined (String), description :: NullOrUndefined (String), pemEncodedCertificate :: NullOrUndefined (String), createdDate :: NullOrUndefined (Timestamp), expirationDate :: NullOrUndefined (Timestamp) } -> { clientCertificateId :: NullOrUndefined (String), description :: NullOrUndefined (String), pemEncodedCertificate :: NullOrUndefined (String), createdDate :: NullOrUndefined (Timestamp), expirationDate :: NullOrUndefined (Timestamp) }) -> ClientCertificate
+newClientCertificate' :: ({ clientCertificateId :: Maybe (String), description :: Maybe (String), pemEncodedCertificate :: Maybe (String), createdDate :: Maybe (Timestamp), expirationDate :: Maybe (Timestamp) } -> { clientCertificateId :: Maybe (String), description :: Maybe (String), pemEncodedCertificate :: Maybe (String), createdDate :: Maybe (Timestamp), expirationDate :: Maybe (Timestamp) }) -> ClientCertificate
 ```
 
 Constructs ClientCertificate's fields from required parameters
@@ -538,7 +538,7 @@ Constructs ClientCertificate's fields from required parameters
 
 ``` purescript
 newtype ClientCertificates
-  = ClientCertificates { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfClientCertificate) }
+  = ClientCertificates { position :: Maybe (String), items :: Maybe (ListOfClientCertificate) }
 ```
 
 <p>Represents a collection of <a>ClientCertificate</a> resources.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html">Use Client-Side Certificate</a> </div>
@@ -563,7 +563,7 @@ Constructs ClientCertificates from required parameters
 #### `newClientCertificates'`
 
 ``` purescript
-newClientCertificates' :: ({ position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfClientCertificate) } -> { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfClientCertificate) }) -> ClientCertificates
+newClientCertificates' :: ({ position :: Maybe (String), items :: Maybe (ListOfClientCertificate) } -> { position :: Maybe (String), items :: Maybe (ListOfClientCertificate) }) -> ClientCertificates
 ```
 
 Constructs ClientCertificates's fields from required parameters
@@ -572,7 +572,7 @@ Constructs ClientCertificates's fields from required parameters
 
 ``` purescript
 newtype ConflictException
-  = ConflictException { message :: NullOrUndefined (String) }
+  = ConflictException { message :: Maybe (String) }
 ```
 
 <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
@@ -597,7 +597,7 @@ Constructs ConflictException from required parameters
 #### `newConflictException'`
 
 ``` purescript
-newConflictException' :: ({ message :: NullOrUndefined (String) } -> { message :: NullOrUndefined (String) }) -> ConflictException
+newConflictException' :: ({ message :: Maybe (String) } -> { message :: Maybe (String) }) -> ConflictException
 ```
 
 Constructs ConflictException's fields from required parameters
@@ -638,7 +638,7 @@ Encode ContentHandlingStrategy
 
 ``` purescript
 newtype CreateApiKeyRequest
-  = CreateApiKeyRequest { name :: NullOrUndefined (String), description :: NullOrUndefined (String), enabled :: NullOrUndefined (Boolean), generateDistinctId :: NullOrUndefined (Boolean), value :: NullOrUndefined (String), stageKeys :: NullOrUndefined (ListOfStageKeys), customerId :: NullOrUndefined (String) }
+  = CreateApiKeyRequest { name :: Maybe (String), description :: Maybe (String), enabled :: Maybe (Boolean), generateDistinctId :: Maybe (Boolean), value :: Maybe (String), stageKeys :: Maybe (ListOfStageKeys), customerId :: Maybe (String) }
 ```
 
 <p>Request to create an <a>ApiKey</a> resource.</p>
@@ -663,7 +663,7 @@ Constructs CreateApiKeyRequest from required parameters
 #### `newCreateApiKeyRequest'`
 
 ``` purescript
-newCreateApiKeyRequest' :: ({ name :: NullOrUndefined (String), description :: NullOrUndefined (String), enabled :: NullOrUndefined (Boolean), generateDistinctId :: NullOrUndefined (Boolean), value :: NullOrUndefined (String), stageKeys :: NullOrUndefined (ListOfStageKeys), customerId :: NullOrUndefined (String) } -> { name :: NullOrUndefined (String), description :: NullOrUndefined (String), enabled :: NullOrUndefined (Boolean), generateDistinctId :: NullOrUndefined (Boolean), value :: NullOrUndefined (String), stageKeys :: NullOrUndefined (ListOfStageKeys), customerId :: NullOrUndefined (String) }) -> CreateApiKeyRequest
+newCreateApiKeyRequest' :: ({ name :: Maybe (String), description :: Maybe (String), enabled :: Maybe (Boolean), generateDistinctId :: Maybe (Boolean), value :: Maybe (String), stageKeys :: Maybe (ListOfStageKeys), customerId :: Maybe (String) } -> { name :: Maybe (String), description :: Maybe (String), enabled :: Maybe (Boolean), generateDistinctId :: Maybe (Boolean), value :: Maybe (String), stageKeys :: Maybe (ListOfStageKeys), customerId :: Maybe (String) }) -> CreateApiKeyRequest
 ```
 
 Constructs CreateApiKeyRequest's fields from required parameters
@@ -672,7 +672,7 @@ Constructs CreateApiKeyRequest's fields from required parameters
 
 ``` purescript
 newtype CreateAuthorizerRequest
-  = CreateAuthorizerRequest { restApiId :: String, name :: String, "type" :: AuthorizerType, providerARNs :: NullOrUndefined (ListOfARNs), authType :: NullOrUndefined (String), authorizerUri :: NullOrUndefined (String), authorizerCredentials :: NullOrUndefined (String), identitySource :: NullOrUndefined (String), identityValidationExpression :: NullOrUndefined (String), authorizerResultTtlInSeconds :: NullOrUndefined (NullableInteger) }
+  = CreateAuthorizerRequest { restApiId :: String, name :: String, "type" :: AuthorizerType, providerARNs :: Maybe (ListOfARNs), authType :: Maybe (String), authorizerUri :: Maybe (String), authorizerCredentials :: Maybe (String), identitySource :: Maybe (String), identityValidationExpression :: Maybe (String), authorizerResultTtlInSeconds :: Maybe (NullableInteger) }
 ```
 
 <p>Request to add a new <a>Authorizer</a> to an existing <a>RestApi</a> resource.</p>
@@ -697,7 +697,7 @@ Constructs CreateAuthorizerRequest from required parameters
 #### `newCreateAuthorizerRequest'`
 
 ``` purescript
-newCreateAuthorizerRequest' :: String -> String -> AuthorizerType -> ({ restApiId :: String, name :: String, "type" :: AuthorizerType, providerARNs :: NullOrUndefined (ListOfARNs), authType :: NullOrUndefined (String), authorizerUri :: NullOrUndefined (String), authorizerCredentials :: NullOrUndefined (String), identitySource :: NullOrUndefined (String), identityValidationExpression :: NullOrUndefined (String), authorizerResultTtlInSeconds :: NullOrUndefined (NullableInteger) } -> { restApiId :: String, name :: String, "type" :: AuthorizerType, providerARNs :: NullOrUndefined (ListOfARNs), authType :: NullOrUndefined (String), authorizerUri :: NullOrUndefined (String), authorizerCredentials :: NullOrUndefined (String), identitySource :: NullOrUndefined (String), identityValidationExpression :: NullOrUndefined (String), authorizerResultTtlInSeconds :: NullOrUndefined (NullableInteger) }) -> CreateAuthorizerRequest
+newCreateAuthorizerRequest' :: String -> String -> AuthorizerType -> ({ restApiId :: String, name :: String, "type" :: AuthorizerType, providerARNs :: Maybe (ListOfARNs), authType :: Maybe (String), authorizerUri :: Maybe (String), authorizerCredentials :: Maybe (String), identitySource :: Maybe (String), identityValidationExpression :: Maybe (String), authorizerResultTtlInSeconds :: Maybe (NullableInteger) } -> { restApiId :: String, name :: String, "type" :: AuthorizerType, providerARNs :: Maybe (ListOfARNs), authType :: Maybe (String), authorizerUri :: Maybe (String), authorizerCredentials :: Maybe (String), identitySource :: Maybe (String), identityValidationExpression :: Maybe (String), authorizerResultTtlInSeconds :: Maybe (NullableInteger) }) -> CreateAuthorizerRequest
 ```
 
 Constructs CreateAuthorizerRequest's fields from required parameters
@@ -706,7 +706,7 @@ Constructs CreateAuthorizerRequest's fields from required parameters
 
 ``` purescript
 newtype CreateBasePathMappingRequest
-  = CreateBasePathMappingRequest { domainName :: String, basePath :: NullOrUndefined (String), restApiId :: String, stage :: NullOrUndefined (String) }
+  = CreateBasePathMappingRequest { domainName :: String, basePath :: Maybe (String), restApiId :: String, stage :: Maybe (String) }
 ```
 
 <p>Requests API Gateway to create a new <a>BasePathMapping</a> resource.</p>
@@ -731,7 +731,7 @@ Constructs CreateBasePathMappingRequest from required parameters
 #### `newCreateBasePathMappingRequest'`
 
 ``` purescript
-newCreateBasePathMappingRequest' :: String -> String -> ({ domainName :: String, basePath :: NullOrUndefined (String), restApiId :: String, stage :: NullOrUndefined (String) } -> { domainName :: String, basePath :: NullOrUndefined (String), restApiId :: String, stage :: NullOrUndefined (String) }) -> CreateBasePathMappingRequest
+newCreateBasePathMappingRequest' :: String -> String -> ({ domainName :: String, basePath :: Maybe (String), restApiId :: String, stage :: Maybe (String) } -> { domainName :: String, basePath :: Maybe (String), restApiId :: String, stage :: Maybe (String) }) -> CreateBasePathMappingRequest
 ```
 
 Constructs CreateBasePathMappingRequest's fields from required parameters
@@ -740,7 +740,7 @@ Constructs CreateBasePathMappingRequest's fields from required parameters
 
 ``` purescript
 newtype CreateDeploymentRequest
-  = CreateDeploymentRequest { restApiId :: String, stageName :: NullOrUndefined (String), stageDescription :: NullOrUndefined (String), description :: NullOrUndefined (String), cacheClusterEnabled :: NullOrUndefined (NullableBoolean), cacheClusterSize :: NullOrUndefined (CacheClusterSize), variables :: NullOrUndefined (MapOfStringToString), canarySettings :: NullOrUndefined (DeploymentCanarySettings) }
+  = CreateDeploymentRequest { restApiId :: String, stageName :: Maybe (String), stageDescription :: Maybe (String), description :: Maybe (String), cacheClusterEnabled :: Maybe (NullableBoolean), cacheClusterSize :: Maybe (CacheClusterSize), variables :: Maybe (MapOfStringToString), canarySettings :: Maybe (DeploymentCanarySettings) }
 ```
 
 <p>Requests API Gateway to create a <a>Deployment</a> resource.</p>
@@ -765,7 +765,7 @@ Constructs CreateDeploymentRequest from required parameters
 #### `newCreateDeploymentRequest'`
 
 ``` purescript
-newCreateDeploymentRequest' :: String -> ({ restApiId :: String, stageName :: NullOrUndefined (String), stageDescription :: NullOrUndefined (String), description :: NullOrUndefined (String), cacheClusterEnabled :: NullOrUndefined (NullableBoolean), cacheClusterSize :: NullOrUndefined (CacheClusterSize), variables :: NullOrUndefined (MapOfStringToString), canarySettings :: NullOrUndefined (DeploymentCanarySettings) } -> { restApiId :: String, stageName :: NullOrUndefined (String), stageDescription :: NullOrUndefined (String), description :: NullOrUndefined (String), cacheClusterEnabled :: NullOrUndefined (NullableBoolean), cacheClusterSize :: NullOrUndefined (CacheClusterSize), variables :: NullOrUndefined (MapOfStringToString), canarySettings :: NullOrUndefined (DeploymentCanarySettings) }) -> CreateDeploymentRequest
+newCreateDeploymentRequest' :: String -> ({ restApiId :: String, stageName :: Maybe (String), stageDescription :: Maybe (String), description :: Maybe (String), cacheClusterEnabled :: Maybe (NullableBoolean), cacheClusterSize :: Maybe (CacheClusterSize), variables :: Maybe (MapOfStringToString), canarySettings :: Maybe (DeploymentCanarySettings) } -> { restApiId :: String, stageName :: Maybe (String), stageDescription :: Maybe (String), description :: Maybe (String), cacheClusterEnabled :: Maybe (NullableBoolean), cacheClusterSize :: Maybe (CacheClusterSize), variables :: Maybe (MapOfStringToString), canarySettings :: Maybe (DeploymentCanarySettings) }) -> CreateDeploymentRequest
 ```
 
 Constructs CreateDeploymentRequest's fields from required parameters
@@ -808,7 +808,7 @@ Constructs CreateDocumentationPartRequest's fields from required parameters
 
 ``` purescript
 newtype CreateDocumentationVersionRequest
-  = CreateDocumentationVersionRequest { restApiId :: String, documentationVersion :: String, stageName :: NullOrUndefined (String), description :: NullOrUndefined (String) }
+  = CreateDocumentationVersionRequest { restApiId :: String, documentationVersion :: String, stageName :: Maybe (String), description :: Maybe (String) }
 ```
 
 <p>Creates a new documentation version of a given API.</p>
@@ -833,7 +833,7 @@ Constructs CreateDocumentationVersionRequest from required parameters
 #### `newCreateDocumentationVersionRequest'`
 
 ``` purescript
-newCreateDocumentationVersionRequest' :: String -> String -> ({ restApiId :: String, documentationVersion :: String, stageName :: NullOrUndefined (String), description :: NullOrUndefined (String) } -> { restApiId :: String, documentationVersion :: String, stageName :: NullOrUndefined (String), description :: NullOrUndefined (String) }) -> CreateDocumentationVersionRequest
+newCreateDocumentationVersionRequest' :: String -> String -> ({ restApiId :: String, documentationVersion :: String, stageName :: Maybe (String), description :: Maybe (String) } -> { restApiId :: String, documentationVersion :: String, stageName :: Maybe (String), description :: Maybe (String) }) -> CreateDocumentationVersionRequest
 ```
 
 Constructs CreateDocumentationVersionRequest's fields from required parameters
@@ -842,7 +842,7 @@ Constructs CreateDocumentationVersionRequest's fields from required parameters
 
 ``` purescript
 newtype CreateDomainNameRequest
-  = CreateDomainNameRequest { domainName :: String, certificateName :: NullOrUndefined (String), certificateBody :: NullOrUndefined (String), certificatePrivateKey :: NullOrUndefined (String), certificateChain :: NullOrUndefined (String), certificateArn :: NullOrUndefined (String), regionalCertificateName :: NullOrUndefined (String), regionalCertificateArn :: NullOrUndefined (String), endpointConfiguration :: NullOrUndefined (EndpointConfiguration) }
+  = CreateDomainNameRequest { domainName :: String, certificateName :: Maybe (String), certificateBody :: Maybe (String), certificatePrivateKey :: Maybe (String), certificateChain :: Maybe (String), certificateArn :: Maybe (String), regionalCertificateName :: Maybe (String), regionalCertificateArn :: Maybe (String), endpointConfiguration :: Maybe (EndpointConfiguration) }
 ```
 
 <p>A request to create a new domain name.</p>
@@ -867,7 +867,7 @@ Constructs CreateDomainNameRequest from required parameters
 #### `newCreateDomainNameRequest'`
 
 ``` purescript
-newCreateDomainNameRequest' :: String -> ({ domainName :: String, certificateName :: NullOrUndefined (String), certificateBody :: NullOrUndefined (String), certificatePrivateKey :: NullOrUndefined (String), certificateChain :: NullOrUndefined (String), certificateArn :: NullOrUndefined (String), regionalCertificateName :: NullOrUndefined (String), regionalCertificateArn :: NullOrUndefined (String), endpointConfiguration :: NullOrUndefined (EndpointConfiguration) } -> { domainName :: String, certificateName :: NullOrUndefined (String), certificateBody :: NullOrUndefined (String), certificatePrivateKey :: NullOrUndefined (String), certificateChain :: NullOrUndefined (String), certificateArn :: NullOrUndefined (String), regionalCertificateName :: NullOrUndefined (String), regionalCertificateArn :: NullOrUndefined (String), endpointConfiguration :: NullOrUndefined (EndpointConfiguration) }) -> CreateDomainNameRequest
+newCreateDomainNameRequest' :: String -> ({ domainName :: String, certificateName :: Maybe (String), certificateBody :: Maybe (String), certificatePrivateKey :: Maybe (String), certificateChain :: Maybe (String), certificateArn :: Maybe (String), regionalCertificateName :: Maybe (String), regionalCertificateArn :: Maybe (String), endpointConfiguration :: Maybe (EndpointConfiguration) } -> { domainName :: String, certificateName :: Maybe (String), certificateBody :: Maybe (String), certificatePrivateKey :: Maybe (String), certificateChain :: Maybe (String), certificateArn :: Maybe (String), regionalCertificateName :: Maybe (String), regionalCertificateArn :: Maybe (String), endpointConfiguration :: Maybe (EndpointConfiguration) }) -> CreateDomainNameRequest
 ```
 
 Constructs CreateDomainNameRequest's fields from required parameters
@@ -876,7 +876,7 @@ Constructs CreateDomainNameRequest's fields from required parameters
 
 ``` purescript
 newtype CreateModelRequest
-  = CreateModelRequest { restApiId :: String, name :: String, description :: NullOrUndefined (String), schema :: NullOrUndefined (String), contentType :: String }
+  = CreateModelRequest { restApiId :: String, name :: String, description :: Maybe (String), schema :: Maybe (String), contentType :: String }
 ```
 
 <p>Request to add a new <a>Model</a> to an existing <a>RestApi</a> resource.</p>
@@ -901,7 +901,7 @@ Constructs CreateModelRequest from required parameters
 #### `newCreateModelRequest'`
 
 ``` purescript
-newCreateModelRequest' :: String -> String -> String -> ({ restApiId :: String, name :: String, description :: NullOrUndefined (String), schema :: NullOrUndefined (String), contentType :: String } -> { restApiId :: String, name :: String, description :: NullOrUndefined (String), schema :: NullOrUndefined (String), contentType :: String }) -> CreateModelRequest
+newCreateModelRequest' :: String -> String -> String -> ({ restApiId :: String, name :: String, description :: Maybe (String), schema :: Maybe (String), contentType :: String } -> { restApiId :: String, name :: String, description :: Maybe (String), schema :: Maybe (String), contentType :: String }) -> CreateModelRequest
 ```
 
 Constructs CreateModelRequest's fields from required parameters
@@ -910,7 +910,7 @@ Constructs CreateModelRequest's fields from required parameters
 
 ``` purescript
 newtype CreateRequestValidatorRequest
-  = CreateRequestValidatorRequest { restApiId :: String, name :: NullOrUndefined (String), validateRequestBody :: NullOrUndefined (Boolean), validateRequestParameters :: NullOrUndefined (Boolean) }
+  = CreateRequestValidatorRequest { restApiId :: String, name :: Maybe (String), validateRequestBody :: Maybe (Boolean), validateRequestParameters :: Maybe (Boolean) }
 ```
 
 <p>Creates a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
@@ -935,7 +935,7 @@ Constructs CreateRequestValidatorRequest from required parameters
 #### `newCreateRequestValidatorRequest'`
 
 ``` purescript
-newCreateRequestValidatorRequest' :: String -> ({ restApiId :: String, name :: NullOrUndefined (String), validateRequestBody :: NullOrUndefined (Boolean), validateRequestParameters :: NullOrUndefined (Boolean) } -> { restApiId :: String, name :: NullOrUndefined (String), validateRequestBody :: NullOrUndefined (Boolean), validateRequestParameters :: NullOrUndefined (Boolean) }) -> CreateRequestValidatorRequest
+newCreateRequestValidatorRequest' :: String -> ({ restApiId :: String, name :: Maybe (String), validateRequestBody :: Maybe (Boolean), validateRequestParameters :: Maybe (Boolean) } -> { restApiId :: String, name :: Maybe (String), validateRequestBody :: Maybe (Boolean), validateRequestParameters :: Maybe (Boolean) }) -> CreateRequestValidatorRequest
 ```
 
 Constructs CreateRequestValidatorRequest's fields from required parameters
@@ -978,7 +978,7 @@ Constructs CreateResourceRequest's fields from required parameters
 
 ``` purescript
 newtype CreateRestApiRequest
-  = CreateRestApiRequest { name :: String, description :: NullOrUndefined (String), version :: NullOrUndefined (String), cloneFrom :: NullOrUndefined (String), binaryMediaTypes :: NullOrUndefined (ListOfString), minimumCompressionSize :: NullOrUndefined (NullableInteger), apiKeySource :: NullOrUndefined (ApiKeySourceType), endpointConfiguration :: NullOrUndefined (EndpointConfiguration) }
+  = CreateRestApiRequest { name :: String, description :: Maybe (String), version :: Maybe (String), cloneFrom :: Maybe (String), binaryMediaTypes :: Maybe (ListOfString), minimumCompressionSize :: Maybe (NullableInteger), apiKeySource :: Maybe (ApiKeySourceType), endpointConfiguration :: Maybe (EndpointConfiguration) }
 ```
 
 <p>The POST Request to add a new <a>RestApi</a> resource to your collection.</p>
@@ -1003,7 +1003,7 @@ Constructs CreateRestApiRequest from required parameters
 #### `newCreateRestApiRequest'`
 
 ``` purescript
-newCreateRestApiRequest' :: String -> ({ name :: String, description :: NullOrUndefined (String), version :: NullOrUndefined (String), cloneFrom :: NullOrUndefined (String), binaryMediaTypes :: NullOrUndefined (ListOfString), minimumCompressionSize :: NullOrUndefined (NullableInteger), apiKeySource :: NullOrUndefined (ApiKeySourceType), endpointConfiguration :: NullOrUndefined (EndpointConfiguration) } -> { name :: String, description :: NullOrUndefined (String), version :: NullOrUndefined (String), cloneFrom :: NullOrUndefined (String), binaryMediaTypes :: NullOrUndefined (ListOfString), minimumCompressionSize :: NullOrUndefined (NullableInteger), apiKeySource :: NullOrUndefined (ApiKeySourceType), endpointConfiguration :: NullOrUndefined (EndpointConfiguration) }) -> CreateRestApiRequest
+newCreateRestApiRequest' :: String -> ({ name :: String, description :: Maybe (String), version :: Maybe (String), cloneFrom :: Maybe (String), binaryMediaTypes :: Maybe (ListOfString), minimumCompressionSize :: Maybe (NullableInteger), apiKeySource :: Maybe (ApiKeySourceType), endpointConfiguration :: Maybe (EndpointConfiguration) } -> { name :: String, description :: Maybe (String), version :: Maybe (String), cloneFrom :: Maybe (String), binaryMediaTypes :: Maybe (ListOfString), minimumCompressionSize :: Maybe (NullableInteger), apiKeySource :: Maybe (ApiKeySourceType), endpointConfiguration :: Maybe (EndpointConfiguration) }) -> CreateRestApiRequest
 ```
 
 Constructs CreateRestApiRequest's fields from required parameters
@@ -1012,7 +1012,7 @@ Constructs CreateRestApiRequest's fields from required parameters
 
 ``` purescript
 newtype CreateStageRequest
-  = CreateStageRequest { restApiId :: String, stageName :: String, deploymentId :: String, description :: NullOrUndefined (String), cacheClusterEnabled :: NullOrUndefined (Boolean), cacheClusterSize :: NullOrUndefined (CacheClusterSize), variables :: NullOrUndefined (MapOfStringToString), documentationVersion :: NullOrUndefined (String), canarySettings :: NullOrUndefined (CanarySettings), tags :: NullOrUndefined (MapOfStringToString) }
+  = CreateStageRequest { restApiId :: String, stageName :: String, deploymentId :: String, description :: Maybe (String), cacheClusterEnabled :: Maybe (Boolean), cacheClusterSize :: Maybe (CacheClusterSize), variables :: Maybe (MapOfStringToString), documentationVersion :: Maybe (String), canarySettings :: Maybe (CanarySettings), tags :: Maybe (MapOfStringToString) }
 ```
 
 <p>Requests API Gateway to create a <a>Stage</a> resource.</p>
@@ -1037,7 +1037,7 @@ Constructs CreateStageRequest from required parameters
 #### `newCreateStageRequest'`
 
 ``` purescript
-newCreateStageRequest' :: String -> String -> String -> ({ restApiId :: String, stageName :: String, deploymentId :: String, description :: NullOrUndefined (String), cacheClusterEnabled :: NullOrUndefined (Boolean), cacheClusterSize :: NullOrUndefined (CacheClusterSize), variables :: NullOrUndefined (MapOfStringToString), documentationVersion :: NullOrUndefined (String), canarySettings :: NullOrUndefined (CanarySettings), tags :: NullOrUndefined (MapOfStringToString) } -> { restApiId :: String, stageName :: String, deploymentId :: String, description :: NullOrUndefined (String), cacheClusterEnabled :: NullOrUndefined (Boolean), cacheClusterSize :: NullOrUndefined (CacheClusterSize), variables :: NullOrUndefined (MapOfStringToString), documentationVersion :: NullOrUndefined (String), canarySettings :: NullOrUndefined (CanarySettings), tags :: NullOrUndefined (MapOfStringToString) }) -> CreateStageRequest
+newCreateStageRequest' :: String -> String -> String -> ({ restApiId :: String, stageName :: String, deploymentId :: String, description :: Maybe (String), cacheClusterEnabled :: Maybe (Boolean), cacheClusterSize :: Maybe (CacheClusterSize), variables :: Maybe (MapOfStringToString), documentationVersion :: Maybe (String), canarySettings :: Maybe (CanarySettings), tags :: Maybe (MapOfStringToString) } -> { restApiId :: String, stageName :: String, deploymentId :: String, description :: Maybe (String), cacheClusterEnabled :: Maybe (Boolean), cacheClusterSize :: Maybe (CacheClusterSize), variables :: Maybe (MapOfStringToString), documentationVersion :: Maybe (String), canarySettings :: Maybe (CanarySettings), tags :: Maybe (MapOfStringToString) }) -> CreateStageRequest
 ```
 
 Constructs CreateStageRequest's fields from required parameters
@@ -1080,7 +1080,7 @@ Constructs CreateUsagePlanKeyRequest's fields from required parameters
 
 ``` purescript
 newtype CreateUsagePlanRequest
-  = CreateUsagePlanRequest { name :: String, description :: NullOrUndefined (String), apiStages :: NullOrUndefined (ListOfApiStage), throttle :: NullOrUndefined (ThrottleSettings), quota :: NullOrUndefined (QuotaSettings) }
+  = CreateUsagePlanRequest { name :: String, description :: Maybe (String), apiStages :: Maybe (ListOfApiStage), throttle :: Maybe (ThrottleSettings), quota :: Maybe (QuotaSettings) }
 ```
 
 <p>The POST request to create a usage plan with the name, description, throttle limits and quota limits, as well as the associated API stages, specified in the payload.</p>
@@ -1105,7 +1105,7 @@ Constructs CreateUsagePlanRequest from required parameters
 #### `newCreateUsagePlanRequest'`
 
 ``` purescript
-newCreateUsagePlanRequest' :: String -> ({ name :: String, description :: NullOrUndefined (String), apiStages :: NullOrUndefined (ListOfApiStage), throttle :: NullOrUndefined (ThrottleSettings), quota :: NullOrUndefined (QuotaSettings) } -> { name :: String, description :: NullOrUndefined (String), apiStages :: NullOrUndefined (ListOfApiStage), throttle :: NullOrUndefined (ThrottleSettings), quota :: NullOrUndefined (QuotaSettings) }) -> CreateUsagePlanRequest
+newCreateUsagePlanRequest' :: String -> ({ name :: String, description :: Maybe (String), apiStages :: Maybe (ListOfApiStage), throttle :: Maybe (ThrottleSettings), quota :: Maybe (QuotaSettings) } -> { name :: String, description :: Maybe (String), apiStages :: Maybe (ListOfApiStage), throttle :: Maybe (ThrottleSettings), quota :: Maybe (QuotaSettings) }) -> CreateUsagePlanRequest
 ```
 
 Constructs CreateUsagePlanRequest's fields from required parameters
@@ -1114,7 +1114,7 @@ Constructs CreateUsagePlanRequest's fields from required parameters
 
 ``` purescript
 newtype CreateVpcLinkRequest
-  = CreateVpcLinkRequest { name :: String, description :: NullOrUndefined (String), targetArns :: ListOfString }
+  = CreateVpcLinkRequest { name :: String, description :: Maybe (String), targetArns :: ListOfString }
 ```
 
 <p>Creates a VPC link, under the caller's account in a selected region, in an asynchronous operation that typically takes 2-4 minutes to complete and become operational. The caller must have permissions to create and update VPC Endpoint services.</p>
@@ -1139,7 +1139,7 @@ Constructs CreateVpcLinkRequest from required parameters
 #### `newCreateVpcLinkRequest'`
 
 ``` purescript
-newCreateVpcLinkRequest' :: String -> ListOfString -> ({ name :: String, description :: NullOrUndefined (String), targetArns :: ListOfString } -> { name :: String, description :: NullOrUndefined (String), targetArns :: ListOfString }) -> CreateVpcLinkRequest
+newCreateVpcLinkRequest' :: String -> ListOfString -> ({ name :: String, description :: Maybe (String), targetArns :: ListOfString } -> { name :: String, description :: Maybe (String), targetArns :: ListOfString }) -> CreateVpcLinkRequest
 ```
 
 Constructs CreateVpcLinkRequest's fields from required parameters
@@ -1862,7 +1862,7 @@ Constructs DeleteVpcLinkRequest's fields from required parameters
 
 ``` purescript
 newtype Deployment
-  = Deployment { id :: NullOrUndefined (String), description :: NullOrUndefined (String), createdDate :: NullOrUndefined (Timestamp), apiSummary :: NullOrUndefined (PathToMapOfMethodSnapshot) }
+  = Deployment { id :: Maybe (String), description :: Maybe (String), createdDate :: Maybe (Timestamp), apiSummary :: Maybe (PathToMapOfMethodSnapshot) }
 ```
 
 <p>An immutable representation of a <a>RestApi</a> resource that can be called by users using <a>Stages</a>. A deployment must be associated with a <a>Stage</a> for it to be callable over the Internet.</p> <div class="remarks">To create a deployment, call <code>POST</code> on the <a>Deployments</a> resource of a <a>RestApi</a>. To view, update, or delete a deployment, call <code>GET</code>, <code>PATCH</code>, or <code>DELETE</code> on the specified deployment resource (<code>/restapis/{restapi_id}/deployments/{deployment_id}</code>).</div> <div class="seeAlso"><a>RestApi</a>, <a>Deployments</a>, <a>Stage</a>, <a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-deployment.html">AWS CLI</a>, <a href="https://aws.amazon.com/tools/">AWS SDKs</a> </div>
@@ -1887,7 +1887,7 @@ Constructs Deployment from required parameters
 #### `newDeployment'`
 
 ``` purescript
-newDeployment' :: ({ id :: NullOrUndefined (String), description :: NullOrUndefined (String), createdDate :: NullOrUndefined (Timestamp), apiSummary :: NullOrUndefined (PathToMapOfMethodSnapshot) } -> { id :: NullOrUndefined (String), description :: NullOrUndefined (String), createdDate :: NullOrUndefined (Timestamp), apiSummary :: NullOrUndefined (PathToMapOfMethodSnapshot) }) -> Deployment
+newDeployment' :: ({ id :: Maybe (String), description :: Maybe (String), createdDate :: Maybe (Timestamp), apiSummary :: Maybe (PathToMapOfMethodSnapshot) } -> { id :: Maybe (String), description :: Maybe (String), createdDate :: Maybe (Timestamp), apiSummary :: Maybe (PathToMapOfMethodSnapshot) }) -> Deployment
 ```
 
 Constructs Deployment's fields from required parameters
@@ -1896,7 +1896,7 @@ Constructs Deployment's fields from required parameters
 
 ``` purescript
 newtype DeploymentCanarySettings
-  = DeploymentCanarySettings { percentTraffic :: NullOrUndefined (Number), stageVariableOverrides :: NullOrUndefined (MapOfStringToString), useStageCache :: NullOrUndefined (Boolean) }
+  = DeploymentCanarySettings { percentTraffic :: Maybe (Number), stageVariableOverrides :: Maybe (MapOfStringToString), useStageCache :: Maybe (Boolean) }
 ```
 
 <p>The input configuration for a canary deployment.</p>
@@ -1921,7 +1921,7 @@ Constructs DeploymentCanarySettings from required parameters
 #### `newDeploymentCanarySettings'`
 
 ``` purescript
-newDeploymentCanarySettings' :: ({ percentTraffic :: NullOrUndefined (Number), stageVariableOverrides :: NullOrUndefined (MapOfStringToString), useStageCache :: NullOrUndefined (Boolean) } -> { percentTraffic :: NullOrUndefined (Number), stageVariableOverrides :: NullOrUndefined (MapOfStringToString), useStageCache :: NullOrUndefined (Boolean) }) -> DeploymentCanarySettings
+newDeploymentCanarySettings' :: ({ percentTraffic :: Maybe (Number), stageVariableOverrides :: Maybe (MapOfStringToString), useStageCache :: Maybe (Boolean) } -> { percentTraffic :: Maybe (Number), stageVariableOverrides :: Maybe (MapOfStringToString), useStageCache :: Maybe (Boolean) }) -> DeploymentCanarySettings
 ```
 
 Constructs DeploymentCanarySettings's fields from required parameters
@@ -1930,7 +1930,7 @@ Constructs DeploymentCanarySettings's fields from required parameters
 
 ``` purescript
 newtype Deployments
-  = Deployments { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfDeployment) }
+  = Deployments { position :: Maybe (String), items :: Maybe (ListOfDeployment) }
 ```
 
 <p>Represents a collection resource that contains zero or more references to your existing deployments, and links that guide you on how to interact with your collection. The collection offers a paginated view of the contained deployments.</p> <div class="remarks">To create a new deployment of a <a>RestApi</a>, make a <code>POST</code> request against this resource. To view, update, or delete an existing deployment, make a <code>GET</code>, <code>PATCH</code>, or <code>DELETE</code> request, respectively, on a specified <a>Deployment</a> resource.</div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html">Deploying an API</a>, <a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-deployment.html">AWS CLI</a>, <a href="https://aws.amazon.com/tools/">AWS SDKs</a> </div>
@@ -1955,7 +1955,7 @@ Constructs Deployments from required parameters
 #### `newDeployments'`
 
 ``` purescript
-newDeployments' :: ({ position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfDeployment) } -> { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfDeployment) }) -> Deployments
+newDeployments' :: ({ position :: Maybe (String), items :: Maybe (ListOfDeployment) } -> { position :: Maybe (String), items :: Maybe (ListOfDeployment) }) -> Deployments
 ```
 
 Constructs Deployments's fields from required parameters
@@ -1964,7 +1964,7 @@ Constructs Deployments's fields from required parameters
 
 ``` purescript
 newtype DocumentationPart
-  = DocumentationPart { id :: NullOrUndefined (String), location :: NullOrUndefined (DocumentationPartLocation), properties :: NullOrUndefined (String) }
+  = DocumentationPart { id :: Maybe (String), location :: Maybe (DocumentationPartLocation), properties :: Maybe (String) }
 ```
 
 <p>A documentation part for a targeted API entity.</p> <div class="remarks"> <p>A documentation part consists of a content map (<code>properties</code>) and a target (<code>location</code>). The target specifies an API entity to which the documentation content applies. The supported API entity types are <code>API</code>, <code>AUTHORIZER</code>, <code>MODEL</code>, <code>RESOURCE</code>, <code>METHOD</code>, <code>PATH_PARAMETER</code>, <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>, <code>REQUEST_BODY</code>, <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and <code>RESPONSE_BODY</code>. Valid <code>location</code> fields depend on the API entity type. All valid fields are not required.</p> <p>The content map is a JSON string of API-specific key-value pairs. Although an API can use any shape for the content map, only the Swagger-compliant documentation fields will be injected into the associated API entity definition in the exported Swagger definition file.</p></div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an API</a>, <a>DocumentationParts</a> </div>
@@ -1989,7 +1989,7 @@ Constructs DocumentationPart from required parameters
 #### `newDocumentationPart'`
 
 ``` purescript
-newDocumentationPart' :: ({ id :: NullOrUndefined (String), location :: NullOrUndefined (DocumentationPartLocation), properties :: NullOrUndefined (String) } -> { id :: NullOrUndefined (String), location :: NullOrUndefined (DocumentationPartLocation), properties :: NullOrUndefined (String) }) -> DocumentationPart
+newDocumentationPart' :: ({ id :: Maybe (String), location :: Maybe (DocumentationPartLocation), properties :: Maybe (String) } -> { id :: Maybe (String), location :: Maybe (DocumentationPartLocation), properties :: Maybe (String) }) -> DocumentationPart
 ```
 
 Constructs DocumentationPart's fields from required parameters
@@ -1998,7 +1998,7 @@ Constructs DocumentationPart's fields from required parameters
 
 ``` purescript
 newtype DocumentationPartIds
-  = DocumentationPartIds { ids :: NullOrUndefined (ListOfString), warnings :: NullOrUndefined (ListOfString) }
+  = DocumentationPartIds { ids :: Maybe (ListOfString), warnings :: Maybe (ListOfString) }
 ```
 
 <p>A collection of the imported <a>DocumentationPart</a> identifiers.</p> <div class="remarks">This is used to return the result when documentation parts in an external (e.g., Swagger) file are imported into API Gateway</div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an API</a>, <a href="http://docs.aws.amazon.com/apigateway/api-reference/link-relation/documentationpart-import/">documentationpart:import</a>, <a>DocumentationPart</a> </div>
@@ -2023,7 +2023,7 @@ Constructs DocumentationPartIds from required parameters
 #### `newDocumentationPartIds'`
 
 ``` purescript
-newDocumentationPartIds' :: ({ ids :: NullOrUndefined (ListOfString), warnings :: NullOrUndefined (ListOfString) } -> { ids :: NullOrUndefined (ListOfString), warnings :: NullOrUndefined (ListOfString) }) -> DocumentationPartIds
+newDocumentationPartIds' :: ({ ids :: Maybe (ListOfString), warnings :: Maybe (ListOfString) } -> { ids :: Maybe (ListOfString), warnings :: Maybe (ListOfString) }) -> DocumentationPartIds
 ```
 
 Constructs DocumentationPartIds's fields from required parameters
@@ -2032,7 +2032,7 @@ Constructs DocumentationPartIds's fields from required parameters
 
 ``` purescript
 newtype DocumentationPartLocation
-  = DocumentationPartLocation { "type" :: DocumentationPartType, path :: NullOrUndefined (String), method :: NullOrUndefined (String), statusCode :: NullOrUndefined (DocumentationPartLocationStatusCode), name :: NullOrUndefined (String) }
+  = DocumentationPartLocation { "type" :: DocumentationPartType, path :: Maybe (String), method :: Maybe (String), statusCode :: Maybe (DocumentationPartLocationStatusCode), name :: Maybe (String) }
 ```
 
 <p>Specifies the target API entity to which the documentation applies.</p>
@@ -2057,7 +2057,7 @@ Constructs DocumentationPartLocation from required parameters
 #### `newDocumentationPartLocation'`
 
 ``` purescript
-newDocumentationPartLocation' :: DocumentationPartType -> ({ "type" :: DocumentationPartType, path :: NullOrUndefined (String), method :: NullOrUndefined (String), statusCode :: NullOrUndefined (DocumentationPartLocationStatusCode), name :: NullOrUndefined (String) } -> { "type" :: DocumentationPartType, path :: NullOrUndefined (String), method :: NullOrUndefined (String), statusCode :: NullOrUndefined (DocumentationPartLocationStatusCode), name :: NullOrUndefined (String) }) -> DocumentationPartLocation
+newDocumentationPartLocation' :: DocumentationPartType -> ({ "type" :: DocumentationPartType, path :: Maybe (String), method :: Maybe (String), statusCode :: Maybe (DocumentationPartLocationStatusCode), name :: Maybe (String) } -> { "type" :: DocumentationPartType, path :: Maybe (String), method :: Maybe (String), statusCode :: Maybe (DocumentationPartLocationStatusCode), name :: Maybe (String) }) -> DocumentationPartLocation
 ```
 
 Constructs DocumentationPartLocation's fields from required parameters
@@ -2098,7 +2098,7 @@ Encode DocumentationPartType
 
 ``` purescript
 newtype DocumentationParts
-  = DocumentationParts { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfDocumentationPart) }
+  = DocumentationParts { position :: Maybe (String), items :: Maybe (ListOfDocumentationPart) }
 ```
 
 <p>The collection of documentation parts of an API.</p> <div class="remarks"/> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an API</a>, <a>DocumentationPart</a> </div>
@@ -2123,7 +2123,7 @@ Constructs DocumentationParts from required parameters
 #### `newDocumentationParts'`
 
 ``` purescript
-newDocumentationParts' :: ({ position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfDocumentationPart) } -> { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfDocumentationPart) }) -> DocumentationParts
+newDocumentationParts' :: ({ position :: Maybe (String), items :: Maybe (ListOfDocumentationPart) } -> { position :: Maybe (String), items :: Maybe (ListOfDocumentationPart) }) -> DocumentationParts
 ```
 
 Constructs DocumentationParts's fields from required parameters
@@ -2132,7 +2132,7 @@ Constructs DocumentationParts's fields from required parameters
 
 ``` purescript
 newtype DocumentationVersion
-  = DocumentationVersion { version :: NullOrUndefined (String), createdDate :: NullOrUndefined (Timestamp), description :: NullOrUndefined (String) }
+  = DocumentationVersion { version :: Maybe (String), createdDate :: Maybe (Timestamp), description :: Maybe (String) }
 ```
 
 <p>A snapshot of the documentation of an API.</p> <div class="remarks"><p>Publishing API documentation involves creating a documentation version associated with an API stage and exporting the versioned documentation to an external (e.g., Swagger) file.</p></div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an API</a>, <a>DocumentationPart</a>, <a>DocumentationVersions</a> </div>
@@ -2157,7 +2157,7 @@ Constructs DocumentationVersion from required parameters
 #### `newDocumentationVersion'`
 
 ``` purescript
-newDocumentationVersion' :: ({ version :: NullOrUndefined (String), createdDate :: NullOrUndefined (Timestamp), description :: NullOrUndefined (String) } -> { version :: NullOrUndefined (String), createdDate :: NullOrUndefined (Timestamp), description :: NullOrUndefined (String) }) -> DocumentationVersion
+newDocumentationVersion' :: ({ version :: Maybe (String), createdDate :: Maybe (Timestamp), description :: Maybe (String) } -> { version :: Maybe (String), createdDate :: Maybe (Timestamp), description :: Maybe (String) }) -> DocumentationVersion
 ```
 
 Constructs DocumentationVersion's fields from required parameters
@@ -2166,7 +2166,7 @@ Constructs DocumentationVersion's fields from required parameters
 
 ``` purescript
 newtype DocumentationVersions
-  = DocumentationVersions { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfDocumentationVersion) }
+  = DocumentationVersions { position :: Maybe (String), items :: Maybe (ListOfDocumentationVersion) }
 ```
 
 <p>The collection of documentation snapshots of an API. </p> <div class="remarks"><p>Use the <a>DocumentationVersions</a> to manage documentation snapshots associated with various API stages.</p></div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html">Documenting an API</a>, <a>DocumentationPart</a>, <a>DocumentationVersion</a> </div>
@@ -2191,7 +2191,7 @@ Constructs DocumentationVersions from required parameters
 #### `newDocumentationVersions'`
 
 ``` purescript
-newDocumentationVersions' :: ({ position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfDocumentationVersion) } -> { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfDocumentationVersion) }) -> DocumentationVersions
+newDocumentationVersions' :: ({ position :: Maybe (String), items :: Maybe (ListOfDocumentationVersion) } -> { position :: Maybe (String), items :: Maybe (ListOfDocumentationVersion) }) -> DocumentationVersions
 ```
 
 Constructs DocumentationVersions's fields from required parameters
@@ -2200,7 +2200,7 @@ Constructs DocumentationVersions's fields from required parameters
 
 ``` purescript
 newtype DomainName
-  = DomainName { domainName :: NullOrUndefined (String), certificateName :: NullOrUndefined (String), certificateArn :: NullOrUndefined (String), certificateUploadDate :: NullOrUndefined (Timestamp), regionalDomainName :: NullOrUndefined (String), regionalHostedZoneId :: NullOrUndefined (String), regionalCertificateName :: NullOrUndefined (String), regionalCertificateArn :: NullOrUndefined (String), distributionDomainName :: NullOrUndefined (String), distributionHostedZoneId :: NullOrUndefined (String), endpointConfiguration :: NullOrUndefined (EndpointConfiguration) }
+  = DomainName { domainName :: Maybe (String), certificateName :: Maybe (String), certificateArn :: Maybe (String), certificateUploadDate :: Maybe (Timestamp), regionalDomainName :: Maybe (String), regionalHostedZoneId :: Maybe (String), regionalCertificateName :: Maybe (String), regionalCertificateArn :: Maybe (String), distributionDomainName :: Maybe (String), distributionHostedZoneId :: Maybe (String), endpointConfiguration :: Maybe (EndpointConfiguration) }
 ```
 
 <p>Represents a custom domain name as a user-friendly host name of an API (<a>RestApi</a>).</p> <div class="Remarks"> <p>When you deploy an API, API Gateway creates a default host name for the API. This default API host name is of the <code>{restapi-id}.execute-api.{region}.amazonaws.com</code> format. With the default host name, you can access the API's root resource with the URL of <code>https://{restapi-id}.execute-api.{region}.amazonaws.com/{stage}/</code>. When you set up a custom domain name of <code>apis.example.com</code> for this API, you can then access the same resource using the URL of the <code>https://apis.examples.com/myApi</code>, where <code>myApi</code> is the base path mapping (<a>BasePathMapping</a>) of your API under the custom domain name. </p> </div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html">Set a Custom Host Name for an API</a> </div>
@@ -2225,7 +2225,7 @@ Constructs DomainName from required parameters
 #### `newDomainName'`
 
 ``` purescript
-newDomainName' :: ({ domainName :: NullOrUndefined (String), certificateName :: NullOrUndefined (String), certificateArn :: NullOrUndefined (String), certificateUploadDate :: NullOrUndefined (Timestamp), regionalDomainName :: NullOrUndefined (String), regionalHostedZoneId :: NullOrUndefined (String), regionalCertificateName :: NullOrUndefined (String), regionalCertificateArn :: NullOrUndefined (String), distributionDomainName :: NullOrUndefined (String), distributionHostedZoneId :: NullOrUndefined (String), endpointConfiguration :: NullOrUndefined (EndpointConfiguration) } -> { domainName :: NullOrUndefined (String), certificateName :: NullOrUndefined (String), certificateArn :: NullOrUndefined (String), certificateUploadDate :: NullOrUndefined (Timestamp), regionalDomainName :: NullOrUndefined (String), regionalHostedZoneId :: NullOrUndefined (String), regionalCertificateName :: NullOrUndefined (String), regionalCertificateArn :: NullOrUndefined (String), distributionDomainName :: NullOrUndefined (String), distributionHostedZoneId :: NullOrUndefined (String), endpointConfiguration :: NullOrUndefined (EndpointConfiguration) }) -> DomainName
+newDomainName' :: ({ domainName :: Maybe (String), certificateName :: Maybe (String), certificateArn :: Maybe (String), certificateUploadDate :: Maybe (Timestamp), regionalDomainName :: Maybe (String), regionalHostedZoneId :: Maybe (String), regionalCertificateName :: Maybe (String), regionalCertificateArn :: Maybe (String), distributionDomainName :: Maybe (String), distributionHostedZoneId :: Maybe (String), endpointConfiguration :: Maybe (EndpointConfiguration) } -> { domainName :: Maybe (String), certificateName :: Maybe (String), certificateArn :: Maybe (String), certificateUploadDate :: Maybe (Timestamp), regionalDomainName :: Maybe (String), regionalHostedZoneId :: Maybe (String), regionalCertificateName :: Maybe (String), regionalCertificateArn :: Maybe (String), distributionDomainName :: Maybe (String), distributionHostedZoneId :: Maybe (String), endpointConfiguration :: Maybe (EndpointConfiguration) }) -> DomainName
 ```
 
 Constructs DomainName's fields from required parameters
@@ -2234,7 +2234,7 @@ Constructs DomainName's fields from required parameters
 
 ``` purescript
 newtype DomainNames
-  = DomainNames { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfDomainName) }
+  = DomainNames { position :: Maybe (String), items :: Maybe (ListOfDomainName) }
 ```
 
 <p>Represents a collection of <a>DomainName</a> resources.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html">Use Client-Side Certificate</a> </div>
@@ -2259,7 +2259,7 @@ Constructs DomainNames from required parameters
 #### `newDomainNames'`
 
 ``` purescript
-newDomainNames' :: ({ position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfDomainName) } -> { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfDomainName) }) -> DomainNames
+newDomainNames' :: ({ position :: Maybe (String), items :: Maybe (ListOfDomainName) } -> { position :: Maybe (String), items :: Maybe (ListOfDomainName) }) -> DomainNames
 ```
 
 Constructs DomainNames's fields from required parameters
@@ -2268,7 +2268,7 @@ Constructs DomainNames's fields from required parameters
 
 ``` purescript
 newtype EndpointConfiguration
-  = EndpointConfiguration { types :: NullOrUndefined (ListOfEndpointType) }
+  = EndpointConfiguration { types :: Maybe (ListOfEndpointType) }
 ```
 
 <p>The endpoint configuration to indicate the types of endpoints an API (<a>RestApi</a>) or its custom domain name (<a>DomainName</a>) has. </p>
@@ -2293,7 +2293,7 @@ Constructs EndpointConfiguration from required parameters
 #### `newEndpointConfiguration'`
 
 ``` purescript
-newEndpointConfiguration' :: ({ types :: NullOrUndefined (ListOfEndpointType) } -> { types :: NullOrUndefined (ListOfEndpointType) }) -> EndpointConfiguration
+newEndpointConfiguration' :: ({ types :: Maybe (ListOfEndpointType) } -> { types :: Maybe (ListOfEndpointType) }) -> EndpointConfiguration
 ```
 
 Constructs EndpointConfiguration's fields from required parameters
@@ -2320,7 +2320,7 @@ Encode EndpointType
 
 ``` purescript
 newtype ExportResponse
-  = ExportResponse { contentType :: NullOrUndefined (String), contentDisposition :: NullOrUndefined (String), body :: NullOrUndefined (String) }
+  = ExportResponse { contentType :: Maybe (String), contentDisposition :: Maybe (String), body :: Maybe (String) }
 ```
 
 <p>The binary blob response to <a>GetExport</a>, which contains the generated SDK.</p>
@@ -2345,7 +2345,7 @@ Constructs ExportResponse from required parameters
 #### `newExportResponse'`
 
 ``` purescript
-newExportResponse' :: ({ contentType :: NullOrUndefined (String), contentDisposition :: NullOrUndefined (String), body :: NullOrUndefined (String) } -> { contentType :: NullOrUndefined (String), contentDisposition :: NullOrUndefined (String), body :: NullOrUndefined (String) }) -> ExportResponse
+newExportResponse' :: ({ contentType :: Maybe (String), contentDisposition :: Maybe (String), body :: Maybe (String) } -> { contentType :: Maybe (String), contentDisposition :: Maybe (String), body :: Maybe (String) }) -> ExportResponse
 ```
 
 Constructs ExportResponse's fields from required parameters
@@ -2422,7 +2422,7 @@ Constructs FlushStageCacheRequest's fields from required parameters
 
 ``` purescript
 newtype GatewayResponse
-  = GatewayResponse { responseType :: NullOrUndefined (GatewayResponseType), statusCode :: NullOrUndefined (StatusCode), responseParameters :: NullOrUndefined (MapOfStringToString), responseTemplates :: NullOrUndefined (MapOfStringToString), defaultResponse :: NullOrUndefined (Boolean) }
+  = GatewayResponse { responseType :: Maybe (GatewayResponseType), statusCode :: Maybe (StatusCode), responseParameters :: Maybe (MapOfStringToString), responseTemplates :: Maybe (MapOfStringToString), defaultResponse :: Maybe (Boolean) }
 ```
 
 <p>A gateway response of a given response type and status code, with optional response parameters and mapping templates.</p> <div class="remarks"> For more information about valid gateway response types, see <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html">Gateway Response Types Supported by API Gateway</a> <div class="example"> <h4>Example: Get a Gateway Response of a given response type</h4> <h5>Request</h5> <p>This example shows how to get a gateway response of the <code>MISSING_AUTHENTICATION_TOKEN</code> type.</p> <pre><code>GET /restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN HTTP/1.1 Host: beta-apigateway.us-east-1.amazonaws.com Content-Type: application/json X-Amz-Date: 20170503T202516Z Authorization: AWS4-HMAC-SHA256 Credential={access-key-id}/20170503/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature=1b52460e3159c1a26cff29093855d50ea141c1c5b937528fecaf60f51129697a Cache-Control: no-cache Postman-Token: 3b2a1ce9-c848-2e26-2e2f-9c2caefbed45 </code></pre> <p>The response type is specified as a URL path.</p> <h5>Response</h5> <p>The successful operation returns the <code>200 OK</code> status code and a payload similar to the following:</p> <pre><code>{ "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-gatewayresponse-{rel}.html", "name": "gatewayresponse", "templated": true }, "self": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, "gatewayresponse:delete": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" } }, "defaultResponse": false, "responseParameters": { "gatewayresponse.header.x-request-path": "method.request.path.petId", "gatewayresponse.header.Access-Control-Allow-Origin": "&apos;a.b.c&apos;", "gatewayresponse.header.x-request-query": "method.request.querystring.q", "gatewayresponse.header.x-request-header": "method.request.header.Accept" }, "responseTemplates": { "application/json": "{\n \"message\": $context.error.messageString,\n \"type\": \"$context.error.responseType\",\n \"stage\": \"$context.stage\",\n \"resourcePath\": \"$context.resourcePath\",\n \"stageVariables.a\": \"$stageVariables.a\",\n \"statusCode\": \"&apos;404&apos;\"\n}" }, "responseType": "MISSING_AUTHENTICATION_TOKEN", "statusCode": "404" }</code></pre> <p></p> </div> </div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html">Customize Gateway Responses</a> </div>
@@ -2447,7 +2447,7 @@ Constructs GatewayResponse from required parameters
 #### `newGatewayResponse'`
 
 ``` purescript
-newGatewayResponse' :: ({ responseType :: NullOrUndefined (GatewayResponseType), statusCode :: NullOrUndefined (StatusCode), responseParameters :: NullOrUndefined (MapOfStringToString), responseTemplates :: NullOrUndefined (MapOfStringToString), defaultResponse :: NullOrUndefined (Boolean) } -> { responseType :: NullOrUndefined (GatewayResponseType), statusCode :: NullOrUndefined (StatusCode), responseParameters :: NullOrUndefined (MapOfStringToString), responseTemplates :: NullOrUndefined (MapOfStringToString), defaultResponse :: NullOrUndefined (Boolean) }) -> GatewayResponse
+newGatewayResponse' :: ({ responseType :: Maybe (GatewayResponseType), statusCode :: Maybe (StatusCode), responseParameters :: Maybe (MapOfStringToString), responseTemplates :: Maybe (MapOfStringToString), defaultResponse :: Maybe (Boolean) } -> { responseType :: Maybe (GatewayResponseType), statusCode :: Maybe (StatusCode), responseParameters :: Maybe (MapOfStringToString), responseTemplates :: Maybe (MapOfStringToString), defaultResponse :: Maybe (Boolean) }) -> GatewayResponse
 ```
 
 Constructs GatewayResponse's fields from required parameters
@@ -2472,7 +2472,7 @@ Encode GatewayResponseType
 
 ``` purescript
 newtype GatewayResponses
-  = GatewayResponses { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfGatewayResponse) }
+  = GatewayResponses { position :: Maybe (String), items :: Maybe (ListOfGatewayResponse) }
 ```
 
 <p>The collection of the <a>GatewayResponse</a> instances of a <a>RestApi</a> as a <code>responseType</code>-to-<a>GatewayResponse</a> object map of key-value pairs. As such, pagination is not supported for querying this collection.</p> <div class="remarks"> For more information about valid gateway response types, see <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html">Gateway Response Types Supported by API Gateway</a> <div class="example"> <h4>Example: Get the collection of gateway responses of an API</h4> <h5>Request</h5> <p>This example request shows how to retrieve the <a>GatewayResponses</a> collection from an API.</p> <pre><code>GET /restapis/o81lxisefl/gatewayresponses HTTP/1.1 Host: beta-apigateway.us-east-1.amazonaws.com Content-Type: application/json X-Amz-Date: 20170503T220604Z Authorization: AWS4-HMAC-SHA256 Credential={access-key-id}/20170503/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature=59b42fe54a76a5de8adf2c67baa6d39206f8e9ad49a1d77ccc6a5da3103a398a Cache-Control: no-cache Postman-Token: 5637af27-dc29-fc5c-9dfe-0645d52cb515 </code></pre> <p></p> <h5>Response</h5> <p>The successful operation returns the <code>200 OK</code> status code and a payload similar to the following:</p> <pre><code>{ "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-gatewayresponse-{rel}.html", "name": "gatewayresponse", "templated": true }, "self": { "href": "/restapis/o81lxisefl/gatewayresponses" }, "first": { "href": "/restapis/o81lxisefl/gatewayresponses" }, "gatewayresponse:by-type": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "item": [ { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_FAILURE" }, { "href": "/restapis/o81lxisefl/gatewayresponses/RESOURCE_NOT_FOUND" }, { "href": "/restapis/o81lxisefl/gatewayresponses/REQUEST_TOO_LARGE" }, { "href": "/restapis/o81lxisefl/gatewayresponses/THROTTLED" }, { "href": "/restapis/o81lxisefl/gatewayresponses/UNSUPPORTED_MEDIA_TYPE" }, { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_CONFIGURATION_ERROR" }, { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_5XX" }, { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_4XX" }, { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_PARAMETERS" }, { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_BODY" }, { "href": "/restapis/o81lxisefl/gatewayresponses/EXPIRED_TOKEN" }, { "href": "/restapis/o81lxisefl/gatewayresponses/ACCESS_DENIED" }, { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_API_KEY" }, { "href": "/restapis/o81lxisefl/gatewayresponses/UNAUTHORIZED" }, { "href": "/restapis/o81lxisefl/gatewayresponses/API_CONFIGURATION_ERROR" }, { "href": "/restapis/o81lxisefl/gatewayresponses/QUOTA_EXCEEDED" }, { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_TIMEOUT" }, { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_SIGNATURE" }, { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_FAILURE" } ] }, "_embedded": { "item": [ { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_FAILURE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_FAILURE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "INTEGRATION_FAILURE", "statusCode": "504" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/RESOURCE_NOT_FOUND" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/RESOURCE_NOT_FOUND" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "RESOURCE_NOT_FOUND", "statusCode": "404" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/REQUEST_TOO_LARGE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/REQUEST_TOO_LARGE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "REQUEST_TOO_LARGE", "statusCode": "413" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/THROTTLED" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/THROTTLED" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "THROTTLED", "statusCode": "429" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/UNSUPPORTED_MEDIA_TYPE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/UNSUPPORTED_MEDIA_TYPE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "UNSUPPORTED_MEDIA_TYPE", "statusCode": "415" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_CONFIGURATION_ERROR" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_CONFIGURATION_ERROR" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "AUTHORIZER_CONFIGURATION_ERROR", "statusCode": "500" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_5XX" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_5XX" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "DEFAULT_5XX" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_4XX" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/DEFAULT_4XX" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "DEFAULT_4XX" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_PARAMETERS" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_PARAMETERS" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "BAD_REQUEST_PARAMETERS", "statusCode": "400" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_BODY" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/BAD_REQUEST_BODY" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "BAD_REQUEST_BODY", "statusCode": "400" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/EXPIRED_TOKEN" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/EXPIRED_TOKEN" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "EXPIRED_TOKEN", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/ACCESS_DENIED" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/ACCESS_DENIED" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "ACCESS_DENIED", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_API_KEY" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_API_KEY" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "INVALID_API_KEY", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/UNAUTHORIZED" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/UNAUTHORIZED" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "UNAUTHORIZED", "statusCode": "401" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/API_CONFIGURATION_ERROR" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/API_CONFIGURATION_ERROR" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "API_CONFIGURATION_ERROR", "statusCode": "500" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/QUOTA_EXCEEDED" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/QUOTA_EXCEEDED" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "QUOTA_EXCEEDED", "statusCode": "429" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_TIMEOUT" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/INTEGRATION_TIMEOUT" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "INTEGRATION_TIMEOUT", "statusCode": "504" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/MISSING_AUTHENTICATION_TOKEN" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "MISSING_AUTHENTICATION_TOKEN", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_SIGNATURE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/INVALID_SIGNATURE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "INVALID_SIGNATURE", "statusCode": "403" }, { "_links": { "self": { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_FAILURE" }, "gatewayresponse:put": { "href": "/restapis/o81lxisefl/gatewayresponses/{response_type}", "templated": true }, "gatewayresponse:update": { "href": "/restapis/o81lxisefl/gatewayresponses/AUTHORIZER_FAILURE" } }, "defaultResponse": true, "responseParameters": {}, "responseTemplates": { "application/json": "{\"message\":$context.error.messageString}" }, "responseType": "AUTHORIZER_FAILURE", "statusCode": "500" } ] } }</code></pre> <p></p> </div> </div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html">Customize Gateway Responses</a> </div>
@@ -2497,7 +2497,7 @@ Constructs GatewayResponses from required parameters
 #### `newGatewayResponses'`
 
 ``` purescript
-newGatewayResponses' :: ({ position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfGatewayResponse) } -> { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfGatewayResponse) }) -> GatewayResponses
+newGatewayResponses' :: ({ position :: Maybe (String), items :: Maybe (ListOfGatewayResponse) } -> { position :: Maybe (String), items :: Maybe (ListOfGatewayResponse) }) -> GatewayResponses
 ```
 
 Constructs GatewayResponses's fields from required parameters
@@ -2506,7 +2506,7 @@ Constructs GatewayResponses's fields from required parameters
 
 ``` purescript
 newtype GenerateClientCertificateRequest
-  = GenerateClientCertificateRequest { description :: NullOrUndefined (String) }
+  = GenerateClientCertificateRequest { description :: Maybe (String) }
 ```
 
 <p>A request to generate a <a>ClientCertificate</a> resource.</p>
@@ -2531,7 +2531,7 @@ Constructs GenerateClientCertificateRequest from required parameters
 #### `newGenerateClientCertificateRequest'`
 
 ``` purescript
-newGenerateClientCertificateRequest' :: ({ description :: NullOrUndefined (String) } -> { description :: NullOrUndefined (String) }) -> GenerateClientCertificateRequest
+newGenerateClientCertificateRequest' :: ({ description :: Maybe (String) } -> { description :: Maybe (String) }) -> GenerateClientCertificateRequest
 ```
 
 Constructs GenerateClientCertificateRequest's fields from required parameters
@@ -2558,7 +2558,7 @@ Encode GetAccountRequest
 
 ``` purescript
 newtype GetApiKeyRequest
-  = GetApiKeyRequest { apiKey :: String, includeValue :: NullOrUndefined (NullableBoolean) }
+  = GetApiKeyRequest { apiKey :: String, includeValue :: Maybe (NullableBoolean) }
 ```
 
 <p>A request to get information about the current <a>ApiKey</a> resource.</p>
@@ -2583,7 +2583,7 @@ Constructs GetApiKeyRequest from required parameters
 #### `newGetApiKeyRequest'`
 
 ``` purescript
-newGetApiKeyRequest' :: String -> ({ apiKey :: String, includeValue :: NullOrUndefined (NullableBoolean) } -> { apiKey :: String, includeValue :: NullOrUndefined (NullableBoolean) }) -> GetApiKeyRequest
+newGetApiKeyRequest' :: String -> ({ apiKey :: String, includeValue :: Maybe (NullableBoolean) } -> { apiKey :: String, includeValue :: Maybe (NullableBoolean) }) -> GetApiKeyRequest
 ```
 
 Constructs GetApiKeyRequest's fields from required parameters
@@ -2592,7 +2592,7 @@ Constructs GetApiKeyRequest's fields from required parameters
 
 ``` purescript
 newtype GetApiKeysRequest
-  = GetApiKeysRequest { position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger), nameQuery :: NullOrUndefined (String), customerId :: NullOrUndefined (String), includeValues :: NullOrUndefined (NullableBoolean) }
+  = GetApiKeysRequest { position :: Maybe (String), limit :: Maybe (NullableInteger), nameQuery :: Maybe (String), customerId :: Maybe (String), includeValues :: Maybe (NullableBoolean) }
 ```
 
 <p>A request to get information about the current <a>ApiKeys</a> resource.</p>
@@ -2617,7 +2617,7 @@ Constructs GetApiKeysRequest from required parameters
 #### `newGetApiKeysRequest'`
 
 ``` purescript
-newGetApiKeysRequest' :: ({ position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger), nameQuery :: NullOrUndefined (String), customerId :: NullOrUndefined (String), includeValues :: NullOrUndefined (NullableBoolean) } -> { position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger), nameQuery :: NullOrUndefined (String), customerId :: NullOrUndefined (String), includeValues :: NullOrUndefined (NullableBoolean) }) -> GetApiKeysRequest
+newGetApiKeysRequest' :: ({ position :: Maybe (String), limit :: Maybe (NullableInteger), nameQuery :: Maybe (String), customerId :: Maybe (String), includeValues :: Maybe (NullableBoolean) } -> { position :: Maybe (String), limit :: Maybe (NullableInteger), nameQuery :: Maybe (String), customerId :: Maybe (String), includeValues :: Maybe (NullableBoolean) }) -> GetApiKeysRequest
 ```
 
 Constructs GetApiKeysRequest's fields from required parameters
@@ -2660,7 +2660,7 @@ Constructs GetAuthorizerRequest's fields from required parameters
 
 ``` purescript
 newtype GetAuthorizersRequest
-  = GetAuthorizersRequest { restApiId :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }
+  = GetAuthorizersRequest { restApiId :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) }
 ```
 
 <p>Request to describe an existing <a>Authorizers</a> resource.</p>
@@ -2685,7 +2685,7 @@ Constructs GetAuthorizersRequest from required parameters
 #### `newGetAuthorizersRequest'`
 
 ``` purescript
-newGetAuthorizersRequest' :: String -> ({ restApiId :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) } -> { restApiId :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }) -> GetAuthorizersRequest
+newGetAuthorizersRequest' :: String -> ({ restApiId :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) } -> { restApiId :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) }) -> GetAuthorizersRequest
 ```
 
 Constructs GetAuthorizersRequest's fields from required parameters
@@ -2728,7 +2728,7 @@ Constructs GetBasePathMappingRequest's fields from required parameters
 
 ``` purescript
 newtype GetBasePathMappingsRequest
-  = GetBasePathMappingsRequest { domainName :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }
+  = GetBasePathMappingsRequest { domainName :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) }
 ```
 
 <p>A request to get information about a collection of <a>BasePathMapping</a> resources.</p>
@@ -2753,7 +2753,7 @@ Constructs GetBasePathMappingsRequest from required parameters
 #### `newGetBasePathMappingsRequest'`
 
 ``` purescript
-newGetBasePathMappingsRequest' :: String -> ({ domainName :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) } -> { domainName :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }) -> GetBasePathMappingsRequest
+newGetBasePathMappingsRequest' :: String -> ({ domainName :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) } -> { domainName :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) }) -> GetBasePathMappingsRequest
 ```
 
 Constructs GetBasePathMappingsRequest's fields from required parameters
@@ -2796,7 +2796,7 @@ Constructs GetClientCertificateRequest's fields from required parameters
 
 ``` purescript
 newtype GetClientCertificatesRequest
-  = GetClientCertificatesRequest { position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }
+  = GetClientCertificatesRequest { position :: Maybe (String), limit :: Maybe (NullableInteger) }
 ```
 
 <p>A request to get information about a collection of <a>ClientCertificate</a> resources.</p>
@@ -2821,7 +2821,7 @@ Constructs GetClientCertificatesRequest from required parameters
 #### `newGetClientCertificatesRequest'`
 
 ``` purescript
-newGetClientCertificatesRequest' :: ({ position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) } -> { position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }) -> GetClientCertificatesRequest
+newGetClientCertificatesRequest' :: ({ position :: Maybe (String), limit :: Maybe (NullableInteger) } -> { position :: Maybe (String), limit :: Maybe (NullableInteger) }) -> GetClientCertificatesRequest
 ```
 
 Constructs GetClientCertificatesRequest's fields from required parameters
@@ -2830,7 +2830,7 @@ Constructs GetClientCertificatesRequest's fields from required parameters
 
 ``` purescript
 newtype GetDeploymentRequest
-  = GetDeploymentRequest { restApiId :: String, deploymentId :: String, embed :: NullOrUndefined (ListOfString) }
+  = GetDeploymentRequest { restApiId :: String, deploymentId :: String, embed :: Maybe (ListOfString) }
 ```
 
 <p>Requests API Gateway to get information about a <a>Deployment</a> resource.</p>
@@ -2855,7 +2855,7 @@ Constructs GetDeploymentRequest from required parameters
 #### `newGetDeploymentRequest'`
 
 ``` purescript
-newGetDeploymentRequest' :: String -> String -> ({ restApiId :: String, deploymentId :: String, embed :: NullOrUndefined (ListOfString) } -> { restApiId :: String, deploymentId :: String, embed :: NullOrUndefined (ListOfString) }) -> GetDeploymentRequest
+newGetDeploymentRequest' :: String -> String -> ({ restApiId :: String, deploymentId :: String, embed :: Maybe (ListOfString) } -> { restApiId :: String, deploymentId :: String, embed :: Maybe (ListOfString) }) -> GetDeploymentRequest
 ```
 
 Constructs GetDeploymentRequest's fields from required parameters
@@ -2864,7 +2864,7 @@ Constructs GetDeploymentRequest's fields from required parameters
 
 ``` purescript
 newtype GetDeploymentsRequest
-  = GetDeploymentsRequest { restApiId :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }
+  = GetDeploymentsRequest { restApiId :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) }
 ```
 
 <p>Requests API Gateway to get information about a <a>Deployments</a> collection.</p>
@@ -2889,7 +2889,7 @@ Constructs GetDeploymentsRequest from required parameters
 #### `newGetDeploymentsRequest'`
 
 ``` purescript
-newGetDeploymentsRequest' :: String -> ({ restApiId :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) } -> { restApiId :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }) -> GetDeploymentsRequest
+newGetDeploymentsRequest' :: String -> ({ restApiId :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) } -> { restApiId :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) }) -> GetDeploymentsRequest
 ```
 
 Constructs GetDeploymentsRequest's fields from required parameters
@@ -2932,7 +2932,7 @@ Constructs GetDocumentationPartRequest's fields from required parameters
 
 ``` purescript
 newtype GetDocumentationPartsRequest
-  = GetDocumentationPartsRequest { restApiId :: String, "type" :: NullOrUndefined (DocumentationPartType), nameQuery :: NullOrUndefined (String), path :: NullOrUndefined (String), position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger), locationStatus :: NullOrUndefined (LocationStatusType) }
+  = GetDocumentationPartsRequest { restApiId :: String, "type" :: Maybe (DocumentationPartType), nameQuery :: Maybe (String), path :: Maybe (String), position :: Maybe (String), limit :: Maybe (NullableInteger), locationStatus :: Maybe (LocationStatusType) }
 ```
 
 <p>Gets the documentation parts of an API. The result may be filtered by the type, name, or path of API entities (targets).</p>
@@ -2957,7 +2957,7 @@ Constructs GetDocumentationPartsRequest from required parameters
 #### `newGetDocumentationPartsRequest'`
 
 ``` purescript
-newGetDocumentationPartsRequest' :: String -> ({ restApiId :: String, "type" :: NullOrUndefined (DocumentationPartType), nameQuery :: NullOrUndefined (String), path :: NullOrUndefined (String), position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger), locationStatus :: NullOrUndefined (LocationStatusType) } -> { restApiId :: String, "type" :: NullOrUndefined (DocumentationPartType), nameQuery :: NullOrUndefined (String), path :: NullOrUndefined (String), position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger), locationStatus :: NullOrUndefined (LocationStatusType) }) -> GetDocumentationPartsRequest
+newGetDocumentationPartsRequest' :: String -> ({ restApiId :: String, "type" :: Maybe (DocumentationPartType), nameQuery :: Maybe (String), path :: Maybe (String), position :: Maybe (String), limit :: Maybe (NullableInteger), locationStatus :: Maybe (LocationStatusType) } -> { restApiId :: String, "type" :: Maybe (DocumentationPartType), nameQuery :: Maybe (String), path :: Maybe (String), position :: Maybe (String), limit :: Maybe (NullableInteger), locationStatus :: Maybe (LocationStatusType) }) -> GetDocumentationPartsRequest
 ```
 
 Constructs GetDocumentationPartsRequest's fields from required parameters
@@ -3000,7 +3000,7 @@ Constructs GetDocumentationVersionRequest's fields from required parameters
 
 ``` purescript
 newtype GetDocumentationVersionsRequest
-  = GetDocumentationVersionsRequest { restApiId :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }
+  = GetDocumentationVersionsRequest { restApiId :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) }
 ```
 
 <p>Gets the documentation versions of an API.</p>
@@ -3025,7 +3025,7 @@ Constructs GetDocumentationVersionsRequest from required parameters
 #### `newGetDocumentationVersionsRequest'`
 
 ``` purescript
-newGetDocumentationVersionsRequest' :: String -> ({ restApiId :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) } -> { restApiId :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }) -> GetDocumentationVersionsRequest
+newGetDocumentationVersionsRequest' :: String -> ({ restApiId :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) } -> { restApiId :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) }) -> GetDocumentationVersionsRequest
 ```
 
 Constructs GetDocumentationVersionsRequest's fields from required parameters
@@ -3068,7 +3068,7 @@ Constructs GetDomainNameRequest's fields from required parameters
 
 ``` purescript
 newtype GetDomainNamesRequest
-  = GetDomainNamesRequest { position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }
+  = GetDomainNamesRequest { position :: Maybe (String), limit :: Maybe (NullableInteger) }
 ```
 
 <p>Request to describe a collection of <a>DomainName</a> resources.</p>
@@ -3093,7 +3093,7 @@ Constructs GetDomainNamesRequest from required parameters
 #### `newGetDomainNamesRequest'`
 
 ``` purescript
-newGetDomainNamesRequest' :: ({ position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) } -> { position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }) -> GetDomainNamesRequest
+newGetDomainNamesRequest' :: ({ position :: Maybe (String), limit :: Maybe (NullableInteger) } -> { position :: Maybe (String), limit :: Maybe (NullableInteger) }) -> GetDomainNamesRequest
 ```
 
 Constructs GetDomainNamesRequest's fields from required parameters
@@ -3102,7 +3102,7 @@ Constructs GetDomainNamesRequest's fields from required parameters
 
 ``` purescript
 newtype GetExportRequest
-  = GetExportRequest { restApiId :: String, stageName :: String, exportType :: String, parameters :: NullOrUndefined (MapOfStringToString), accepts :: NullOrUndefined (String) }
+  = GetExportRequest { restApiId :: String, stageName :: String, exportType :: String, parameters :: Maybe (MapOfStringToString), accepts :: Maybe (String) }
 ```
 
 <p>Request a new export of a <a>RestApi</a> for a particular <a>Stage</a>.</p>
@@ -3127,7 +3127,7 @@ Constructs GetExportRequest from required parameters
 #### `newGetExportRequest'`
 
 ``` purescript
-newGetExportRequest' :: String -> String -> String -> ({ restApiId :: String, stageName :: String, exportType :: String, parameters :: NullOrUndefined (MapOfStringToString), accepts :: NullOrUndefined (String) } -> { restApiId :: String, stageName :: String, exportType :: String, parameters :: NullOrUndefined (MapOfStringToString), accepts :: NullOrUndefined (String) }) -> GetExportRequest
+newGetExportRequest' :: String -> String -> String -> ({ restApiId :: String, stageName :: String, exportType :: String, parameters :: Maybe (MapOfStringToString), accepts :: Maybe (String) } -> { restApiId :: String, stageName :: String, exportType :: String, parameters :: Maybe (MapOfStringToString), accepts :: Maybe (String) }) -> GetExportRequest
 ```
 
 Constructs GetExportRequest's fields from required parameters
@@ -3170,7 +3170,7 @@ Constructs GetGatewayResponseRequest's fields from required parameters
 
 ``` purescript
 newtype GetGatewayResponsesRequest
-  = GetGatewayResponsesRequest { restApiId :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }
+  = GetGatewayResponsesRequest { restApiId :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) }
 ```
 
 <p>Gets the <a>GatewayResponses</a> collection on the given <a>RestApi</a>. If an API developer has not added any definitions for gateway responses, the result will be the API Gateway-generated default <a>GatewayResponses</a> collection for the supported response types.</p>
@@ -3195,7 +3195,7 @@ Constructs GetGatewayResponsesRequest from required parameters
 #### `newGetGatewayResponsesRequest'`
 
 ``` purescript
-newGetGatewayResponsesRequest' :: String -> ({ restApiId :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) } -> { restApiId :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }) -> GetGatewayResponsesRequest
+newGetGatewayResponsesRequest' :: String -> ({ restApiId :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) } -> { restApiId :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) }) -> GetGatewayResponsesRequest
 ```
 
 Constructs GetGatewayResponsesRequest's fields from required parameters
@@ -3340,7 +3340,7 @@ Constructs GetMethodResponseRequest's fields from required parameters
 
 ``` purescript
 newtype GetModelRequest
-  = GetModelRequest { restApiId :: String, modelName :: String, flatten :: NullOrUndefined (Boolean) }
+  = GetModelRequest { restApiId :: String, modelName :: String, flatten :: Maybe (Boolean) }
 ```
 
 <p>Request to list information about a model in an existing <a>RestApi</a> resource.</p>
@@ -3365,7 +3365,7 @@ Constructs GetModelRequest from required parameters
 #### `newGetModelRequest'`
 
 ``` purescript
-newGetModelRequest' :: String -> String -> ({ restApiId :: String, modelName :: String, flatten :: NullOrUndefined (Boolean) } -> { restApiId :: String, modelName :: String, flatten :: NullOrUndefined (Boolean) }) -> GetModelRequest
+newGetModelRequest' :: String -> String -> ({ restApiId :: String, modelName :: String, flatten :: Maybe (Boolean) } -> { restApiId :: String, modelName :: String, flatten :: Maybe (Boolean) }) -> GetModelRequest
 ```
 
 Constructs GetModelRequest's fields from required parameters
@@ -3408,7 +3408,7 @@ Constructs GetModelTemplateRequest's fields from required parameters
 
 ``` purescript
 newtype GetModelsRequest
-  = GetModelsRequest { restApiId :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }
+  = GetModelsRequest { restApiId :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) }
 ```
 
 <p>Request to list existing <a>Models</a> defined for a <a>RestApi</a> resource.</p>
@@ -3433,7 +3433,7 @@ Constructs GetModelsRequest from required parameters
 #### `newGetModelsRequest'`
 
 ``` purescript
-newGetModelsRequest' :: String -> ({ restApiId :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) } -> { restApiId :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }) -> GetModelsRequest
+newGetModelsRequest' :: String -> ({ restApiId :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) } -> { restApiId :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) }) -> GetModelsRequest
 ```
 
 Constructs GetModelsRequest's fields from required parameters
@@ -3476,7 +3476,7 @@ Constructs GetRequestValidatorRequest's fields from required parameters
 
 ``` purescript
 newtype GetRequestValidatorsRequest
-  = GetRequestValidatorsRequest { restApiId :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }
+  = GetRequestValidatorsRequest { restApiId :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) }
 ```
 
 <p>Gets the <a>RequestValidators</a> collection of a given <a>RestApi</a>.</p>
@@ -3501,7 +3501,7 @@ Constructs GetRequestValidatorsRequest from required parameters
 #### `newGetRequestValidatorsRequest'`
 
 ``` purescript
-newGetRequestValidatorsRequest' :: String -> ({ restApiId :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) } -> { restApiId :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }) -> GetRequestValidatorsRequest
+newGetRequestValidatorsRequest' :: String -> ({ restApiId :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) } -> { restApiId :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) }) -> GetRequestValidatorsRequest
 ```
 
 Constructs GetRequestValidatorsRequest's fields from required parameters
@@ -3510,7 +3510,7 @@ Constructs GetRequestValidatorsRequest's fields from required parameters
 
 ``` purescript
 newtype GetResourceRequest
-  = GetResourceRequest { restApiId :: String, resourceId :: String, embed :: NullOrUndefined (ListOfString) }
+  = GetResourceRequest { restApiId :: String, resourceId :: String, embed :: Maybe (ListOfString) }
 ```
 
 <p>Request to list information about a resource.</p>
@@ -3535,7 +3535,7 @@ Constructs GetResourceRequest from required parameters
 #### `newGetResourceRequest'`
 
 ``` purescript
-newGetResourceRequest' :: String -> String -> ({ restApiId :: String, resourceId :: String, embed :: NullOrUndefined (ListOfString) } -> { restApiId :: String, resourceId :: String, embed :: NullOrUndefined (ListOfString) }) -> GetResourceRequest
+newGetResourceRequest' :: String -> String -> ({ restApiId :: String, resourceId :: String, embed :: Maybe (ListOfString) } -> { restApiId :: String, resourceId :: String, embed :: Maybe (ListOfString) }) -> GetResourceRequest
 ```
 
 Constructs GetResourceRequest's fields from required parameters
@@ -3544,7 +3544,7 @@ Constructs GetResourceRequest's fields from required parameters
 
 ``` purescript
 newtype GetResourcesRequest
-  = GetResourcesRequest { restApiId :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger), embed :: NullOrUndefined (ListOfString) }
+  = GetResourcesRequest { restApiId :: String, position :: Maybe (String), limit :: Maybe (NullableInteger), embed :: Maybe (ListOfString) }
 ```
 
 <p>Request to list information about a collection of resources.</p>
@@ -3569,7 +3569,7 @@ Constructs GetResourcesRequest from required parameters
 #### `newGetResourcesRequest'`
 
 ``` purescript
-newGetResourcesRequest' :: String -> ({ restApiId :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger), embed :: NullOrUndefined (ListOfString) } -> { restApiId :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger), embed :: NullOrUndefined (ListOfString) }) -> GetResourcesRequest
+newGetResourcesRequest' :: String -> ({ restApiId :: String, position :: Maybe (String), limit :: Maybe (NullableInteger), embed :: Maybe (ListOfString) } -> { restApiId :: String, position :: Maybe (String), limit :: Maybe (NullableInteger), embed :: Maybe (ListOfString) }) -> GetResourcesRequest
 ```
 
 Constructs GetResourcesRequest's fields from required parameters
@@ -3612,7 +3612,7 @@ Constructs GetRestApiRequest's fields from required parameters
 
 ``` purescript
 newtype GetRestApisRequest
-  = GetRestApisRequest { position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }
+  = GetRestApisRequest { position :: Maybe (String), limit :: Maybe (NullableInteger) }
 ```
 
 <p>The GET request to list existing <a>RestApis</a> defined for your collection.</p>
@@ -3637,7 +3637,7 @@ Constructs GetRestApisRequest from required parameters
 #### `newGetRestApisRequest'`
 
 ``` purescript
-newGetRestApisRequest' :: ({ position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) } -> { position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }) -> GetRestApisRequest
+newGetRestApisRequest' :: ({ position :: Maybe (String), limit :: Maybe (NullableInteger) } -> { position :: Maybe (String), limit :: Maybe (NullableInteger) }) -> GetRestApisRequest
 ```
 
 Constructs GetRestApisRequest's fields from required parameters
@@ -3646,7 +3646,7 @@ Constructs GetRestApisRequest's fields from required parameters
 
 ``` purescript
 newtype GetSdkRequest
-  = GetSdkRequest { restApiId :: String, stageName :: String, sdkType :: String, parameters :: NullOrUndefined (MapOfStringToString) }
+  = GetSdkRequest { restApiId :: String, stageName :: String, sdkType :: String, parameters :: Maybe (MapOfStringToString) }
 ```
 
 <p>Request a new generated client SDK for a <a>RestApi</a> and <a>Stage</a>.</p>
@@ -3671,7 +3671,7 @@ Constructs GetSdkRequest from required parameters
 #### `newGetSdkRequest'`
 
 ``` purescript
-newGetSdkRequest' :: String -> String -> String -> ({ restApiId :: String, stageName :: String, sdkType :: String, parameters :: NullOrUndefined (MapOfStringToString) } -> { restApiId :: String, stageName :: String, sdkType :: String, parameters :: NullOrUndefined (MapOfStringToString) }) -> GetSdkRequest
+newGetSdkRequest' :: String -> String -> String -> ({ restApiId :: String, stageName :: String, sdkType :: String, parameters :: Maybe (MapOfStringToString) } -> { restApiId :: String, stageName :: String, sdkType :: String, parameters :: Maybe (MapOfStringToString) }) -> GetSdkRequest
 ```
 
 Constructs GetSdkRequest's fields from required parameters
@@ -3714,7 +3714,7 @@ Constructs GetSdkTypeRequest's fields from required parameters
 
 ``` purescript
 newtype GetSdkTypesRequest
-  = GetSdkTypesRequest { position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }
+  = GetSdkTypesRequest { position :: Maybe (String), limit :: Maybe (NullableInteger) }
 ```
 
 <p>Get the <a>SdkTypes</a> collection.</p>
@@ -3739,7 +3739,7 @@ Constructs GetSdkTypesRequest from required parameters
 #### `newGetSdkTypesRequest'`
 
 ``` purescript
-newGetSdkTypesRequest' :: ({ position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) } -> { position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }) -> GetSdkTypesRequest
+newGetSdkTypesRequest' :: ({ position :: Maybe (String), limit :: Maybe (NullableInteger) } -> { position :: Maybe (String), limit :: Maybe (NullableInteger) }) -> GetSdkTypesRequest
 ```
 
 Constructs GetSdkTypesRequest's fields from required parameters
@@ -3782,7 +3782,7 @@ Constructs GetStageRequest's fields from required parameters
 
 ``` purescript
 newtype GetStagesRequest
-  = GetStagesRequest { restApiId :: String, deploymentId :: NullOrUndefined (String) }
+  = GetStagesRequest { restApiId :: String, deploymentId :: Maybe (String) }
 ```
 
 <p>Requests API Gateway to get information about one or more <a>Stage</a> resources.</p>
@@ -3807,7 +3807,7 @@ Constructs GetStagesRequest from required parameters
 #### `newGetStagesRequest'`
 
 ``` purescript
-newGetStagesRequest' :: String -> ({ restApiId :: String, deploymentId :: NullOrUndefined (String) } -> { restApiId :: String, deploymentId :: NullOrUndefined (String) }) -> GetStagesRequest
+newGetStagesRequest' :: String -> ({ restApiId :: String, deploymentId :: Maybe (String) } -> { restApiId :: String, deploymentId :: Maybe (String) }) -> GetStagesRequest
 ```
 
 Constructs GetStagesRequest's fields from required parameters
@@ -3816,7 +3816,7 @@ Constructs GetStagesRequest's fields from required parameters
 
 ``` purescript
 newtype GetTagsRequest
-  = GetTagsRequest { resourceArn :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }
+  = GetTagsRequest { resourceArn :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) }
 ```
 
 <p>Gets the Tags collection for a given resource.</p>
@@ -3841,7 +3841,7 @@ Constructs GetTagsRequest from required parameters
 #### `newGetTagsRequest'`
 
 ``` purescript
-newGetTagsRequest' :: String -> ({ resourceArn :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) } -> { resourceArn :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }) -> GetTagsRequest
+newGetTagsRequest' :: String -> ({ resourceArn :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) } -> { resourceArn :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) }) -> GetTagsRequest
 ```
 
 Constructs GetTagsRequest's fields from required parameters
@@ -3884,7 +3884,7 @@ Constructs GetUsagePlanKeyRequest's fields from required parameters
 
 ``` purescript
 newtype GetUsagePlanKeysRequest
-  = GetUsagePlanKeysRequest { usagePlanId :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger), nameQuery :: NullOrUndefined (String) }
+  = GetUsagePlanKeysRequest { usagePlanId :: String, position :: Maybe (String), limit :: Maybe (NullableInteger), nameQuery :: Maybe (String) }
 ```
 
 <p>The GET request to get all the usage plan keys representing the API keys added to a specified usage plan.</p>
@@ -3909,7 +3909,7 @@ Constructs GetUsagePlanKeysRequest from required parameters
 #### `newGetUsagePlanKeysRequest'`
 
 ``` purescript
-newGetUsagePlanKeysRequest' :: String -> ({ usagePlanId :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger), nameQuery :: NullOrUndefined (String) } -> { usagePlanId :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger), nameQuery :: NullOrUndefined (String) }) -> GetUsagePlanKeysRequest
+newGetUsagePlanKeysRequest' :: String -> ({ usagePlanId :: String, position :: Maybe (String), limit :: Maybe (NullableInteger), nameQuery :: Maybe (String) } -> { usagePlanId :: String, position :: Maybe (String), limit :: Maybe (NullableInteger), nameQuery :: Maybe (String) }) -> GetUsagePlanKeysRequest
 ```
 
 Constructs GetUsagePlanKeysRequest's fields from required parameters
@@ -3952,7 +3952,7 @@ Constructs GetUsagePlanRequest's fields from required parameters
 
 ``` purescript
 newtype GetUsagePlansRequest
-  = GetUsagePlansRequest { position :: NullOrUndefined (String), keyId :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }
+  = GetUsagePlansRequest { position :: Maybe (String), keyId :: Maybe (String), limit :: Maybe (NullableInteger) }
 ```
 
 <p>The GET request to get all the usage plans of the caller's account.</p>
@@ -3977,7 +3977,7 @@ Constructs GetUsagePlansRequest from required parameters
 #### `newGetUsagePlansRequest'`
 
 ``` purescript
-newGetUsagePlansRequest' :: ({ position :: NullOrUndefined (String), keyId :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) } -> { position :: NullOrUndefined (String), keyId :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }) -> GetUsagePlansRequest
+newGetUsagePlansRequest' :: ({ position :: Maybe (String), keyId :: Maybe (String), limit :: Maybe (NullableInteger) } -> { position :: Maybe (String), keyId :: Maybe (String), limit :: Maybe (NullableInteger) }) -> GetUsagePlansRequest
 ```
 
 Constructs GetUsagePlansRequest's fields from required parameters
@@ -3986,7 +3986,7 @@ Constructs GetUsagePlansRequest's fields from required parameters
 
 ``` purescript
 newtype GetUsageRequest
-  = GetUsageRequest { usagePlanId :: String, keyId :: NullOrUndefined (String), startDate :: String, endDate :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }
+  = GetUsageRequest { usagePlanId :: String, keyId :: Maybe (String), startDate :: String, endDate :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) }
 ```
 
 <p>The GET request to get the usage data of a usage plan in a specified time interval.</p>
@@ -4011,7 +4011,7 @@ Constructs GetUsageRequest from required parameters
 #### `newGetUsageRequest'`
 
 ``` purescript
-newGetUsageRequest' :: String -> String -> String -> ({ usagePlanId :: String, keyId :: NullOrUndefined (String), startDate :: String, endDate :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) } -> { usagePlanId :: String, keyId :: NullOrUndefined (String), startDate :: String, endDate :: String, position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }) -> GetUsageRequest
+newGetUsageRequest' :: String -> String -> String -> ({ usagePlanId :: String, keyId :: Maybe (String), startDate :: String, endDate :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) } -> { usagePlanId :: String, keyId :: Maybe (String), startDate :: String, endDate :: String, position :: Maybe (String), limit :: Maybe (NullableInteger) }) -> GetUsageRequest
 ```
 
 Constructs GetUsageRequest's fields from required parameters
@@ -4054,7 +4054,7 @@ Constructs GetVpcLinkRequest's fields from required parameters
 
 ``` purescript
 newtype GetVpcLinksRequest
-  = GetVpcLinksRequest { position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }
+  = GetVpcLinksRequest { position :: Maybe (String), limit :: Maybe (NullableInteger) }
 ```
 
 <p>Gets the <a>VpcLinks</a> collection under the caller's account in a selected region.</p>
@@ -4079,7 +4079,7 @@ Constructs GetVpcLinksRequest from required parameters
 #### `newGetVpcLinksRequest'`
 
 ``` purescript
-newGetVpcLinksRequest' :: ({ position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) } -> { position :: NullOrUndefined (String), limit :: NullOrUndefined (NullableInteger) }) -> GetVpcLinksRequest
+newGetVpcLinksRequest' :: ({ position :: Maybe (String), limit :: Maybe (NullableInteger) } -> { position :: Maybe (String), limit :: Maybe (NullableInteger) }) -> GetVpcLinksRequest
 ```
 
 Constructs GetVpcLinksRequest's fields from required parameters
@@ -4088,7 +4088,7 @@ Constructs GetVpcLinksRequest's fields from required parameters
 
 ``` purescript
 newtype ImportApiKeysRequest
-  = ImportApiKeysRequest { body :: String, format :: ApiKeysFormat, failOnWarnings :: NullOrUndefined (Boolean) }
+  = ImportApiKeysRequest { body :: String, format :: ApiKeysFormat, failOnWarnings :: Maybe (Boolean) }
 ```
 
 <p>The POST request to import API keys from an external source, such as a CSV-formatted file.</p>
@@ -4113,7 +4113,7 @@ Constructs ImportApiKeysRequest from required parameters
 #### `newImportApiKeysRequest'`
 
 ``` purescript
-newImportApiKeysRequest' :: String -> ApiKeysFormat -> ({ body :: String, format :: ApiKeysFormat, failOnWarnings :: NullOrUndefined (Boolean) } -> { body :: String, format :: ApiKeysFormat, failOnWarnings :: NullOrUndefined (Boolean) }) -> ImportApiKeysRequest
+newImportApiKeysRequest' :: String -> ApiKeysFormat -> ({ body :: String, format :: ApiKeysFormat, failOnWarnings :: Maybe (Boolean) } -> { body :: String, format :: ApiKeysFormat, failOnWarnings :: Maybe (Boolean) }) -> ImportApiKeysRequest
 ```
 
 Constructs ImportApiKeysRequest's fields from required parameters
@@ -4122,7 +4122,7 @@ Constructs ImportApiKeysRequest's fields from required parameters
 
 ``` purescript
 newtype ImportDocumentationPartsRequest
-  = ImportDocumentationPartsRequest { restApiId :: String, mode :: NullOrUndefined (PutMode), failOnWarnings :: NullOrUndefined (Boolean), body :: String }
+  = ImportDocumentationPartsRequest { restApiId :: String, mode :: Maybe (PutMode), failOnWarnings :: Maybe (Boolean), body :: String }
 ```
 
 <p>Import documentation parts from an external (e.g., Swagger) definition file. </p>
@@ -4147,7 +4147,7 @@ Constructs ImportDocumentationPartsRequest from required parameters
 #### `newImportDocumentationPartsRequest'`
 
 ``` purescript
-newImportDocumentationPartsRequest' :: String -> String -> ({ restApiId :: String, mode :: NullOrUndefined (PutMode), failOnWarnings :: NullOrUndefined (Boolean), body :: String } -> { restApiId :: String, mode :: NullOrUndefined (PutMode), failOnWarnings :: NullOrUndefined (Boolean), body :: String }) -> ImportDocumentationPartsRequest
+newImportDocumentationPartsRequest' :: String -> String -> ({ restApiId :: String, mode :: Maybe (PutMode), failOnWarnings :: Maybe (Boolean), body :: String } -> { restApiId :: String, mode :: Maybe (PutMode), failOnWarnings :: Maybe (Boolean), body :: String }) -> ImportDocumentationPartsRequest
 ```
 
 Constructs ImportDocumentationPartsRequest's fields from required parameters
@@ -4156,7 +4156,7 @@ Constructs ImportDocumentationPartsRequest's fields from required parameters
 
 ``` purescript
 newtype ImportRestApiRequest
-  = ImportRestApiRequest { failOnWarnings :: NullOrUndefined (Boolean), parameters :: NullOrUndefined (MapOfStringToString), body :: String }
+  = ImportRestApiRequest { failOnWarnings :: Maybe (Boolean), parameters :: Maybe (MapOfStringToString), body :: String }
 ```
 
 <p>A POST request to import an API to API Gateway using an input of an API definition file.</p>
@@ -4181,7 +4181,7 @@ Constructs ImportRestApiRequest from required parameters
 #### `newImportRestApiRequest'`
 
 ``` purescript
-newImportRestApiRequest' :: String -> ({ failOnWarnings :: NullOrUndefined (Boolean), parameters :: NullOrUndefined (MapOfStringToString), body :: String } -> { failOnWarnings :: NullOrUndefined (Boolean), parameters :: NullOrUndefined (MapOfStringToString), body :: String }) -> ImportRestApiRequest
+newImportRestApiRequest' :: String -> ({ failOnWarnings :: Maybe (Boolean), parameters :: Maybe (MapOfStringToString), body :: String } -> { failOnWarnings :: Maybe (Boolean), parameters :: Maybe (MapOfStringToString), body :: String }) -> ImportRestApiRequest
 ```
 
 Constructs ImportRestApiRequest's fields from required parameters
@@ -4190,7 +4190,7 @@ Constructs ImportRestApiRequest's fields from required parameters
 
 ``` purescript
 newtype Integration
-  = Integration { "type" :: NullOrUndefined (IntegrationType), httpMethod :: NullOrUndefined (String), uri :: NullOrUndefined (String), connectionType :: NullOrUndefined (ConnectionType), connectionId :: NullOrUndefined (String), credentials :: NullOrUndefined (String), requestParameters :: NullOrUndefined (MapOfStringToString), requestTemplates :: NullOrUndefined (MapOfStringToString), passthroughBehavior :: NullOrUndefined (String), contentHandling :: NullOrUndefined (ContentHandlingStrategy), timeoutInMillis :: NullOrUndefined (Int), cacheNamespace :: NullOrUndefined (String), cacheKeyParameters :: NullOrUndefined (ListOfString), integrationResponses :: NullOrUndefined (MapOfIntegrationResponse) }
+  = Integration { "type" :: Maybe (IntegrationType), httpMethod :: Maybe (String), uri :: Maybe (String), connectionType :: Maybe (ConnectionType), connectionId :: Maybe (String), credentials :: Maybe (String), requestParameters :: Maybe (MapOfStringToString), requestTemplates :: Maybe (MapOfStringToString), passthroughBehavior :: Maybe (String), contentHandling :: Maybe (ContentHandlingStrategy), timeoutInMillis :: Maybe (Int), cacheNamespace :: Maybe (String), cacheKeyParameters :: Maybe (ListOfString), integrationResponses :: Maybe (MapOfIntegrationResponse) }
 ```
 
 <p>Represents an HTTP, HTTP_PROXY, AWS, AWS_PROXY, or Mock integration.</p> <div class="remarks">In the API Gateway console, the built-in Lambda integration is an AWS integration.</div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Creating an API</a> </div>
@@ -4215,7 +4215,7 @@ Constructs Integration from required parameters
 #### `newIntegration'`
 
 ``` purescript
-newIntegration' :: ({ "type" :: NullOrUndefined (IntegrationType), httpMethod :: NullOrUndefined (String), uri :: NullOrUndefined (String), connectionType :: NullOrUndefined (ConnectionType), connectionId :: NullOrUndefined (String), credentials :: NullOrUndefined (String), requestParameters :: NullOrUndefined (MapOfStringToString), requestTemplates :: NullOrUndefined (MapOfStringToString), passthroughBehavior :: NullOrUndefined (String), contentHandling :: NullOrUndefined (ContentHandlingStrategy), timeoutInMillis :: NullOrUndefined (Int), cacheNamespace :: NullOrUndefined (String), cacheKeyParameters :: NullOrUndefined (ListOfString), integrationResponses :: NullOrUndefined (MapOfIntegrationResponse) } -> { "type" :: NullOrUndefined (IntegrationType), httpMethod :: NullOrUndefined (String), uri :: NullOrUndefined (String), connectionType :: NullOrUndefined (ConnectionType), connectionId :: NullOrUndefined (String), credentials :: NullOrUndefined (String), requestParameters :: NullOrUndefined (MapOfStringToString), requestTemplates :: NullOrUndefined (MapOfStringToString), passthroughBehavior :: NullOrUndefined (String), contentHandling :: NullOrUndefined (ContentHandlingStrategy), timeoutInMillis :: NullOrUndefined (Int), cacheNamespace :: NullOrUndefined (String), cacheKeyParameters :: NullOrUndefined (ListOfString), integrationResponses :: NullOrUndefined (MapOfIntegrationResponse) }) -> Integration
+newIntegration' :: ({ "type" :: Maybe (IntegrationType), httpMethod :: Maybe (String), uri :: Maybe (String), connectionType :: Maybe (ConnectionType), connectionId :: Maybe (String), credentials :: Maybe (String), requestParameters :: Maybe (MapOfStringToString), requestTemplates :: Maybe (MapOfStringToString), passthroughBehavior :: Maybe (String), contentHandling :: Maybe (ContentHandlingStrategy), timeoutInMillis :: Maybe (Int), cacheNamespace :: Maybe (String), cacheKeyParameters :: Maybe (ListOfString), integrationResponses :: Maybe (MapOfIntegrationResponse) } -> { "type" :: Maybe (IntegrationType), httpMethod :: Maybe (String), uri :: Maybe (String), connectionType :: Maybe (ConnectionType), connectionId :: Maybe (String), credentials :: Maybe (String), requestParameters :: Maybe (MapOfStringToString), requestTemplates :: Maybe (MapOfStringToString), passthroughBehavior :: Maybe (String), contentHandling :: Maybe (ContentHandlingStrategy), timeoutInMillis :: Maybe (Int), cacheNamespace :: Maybe (String), cacheKeyParameters :: Maybe (ListOfString), integrationResponses :: Maybe (MapOfIntegrationResponse) }) -> Integration
 ```
 
 Constructs Integration's fields from required parameters
@@ -4224,7 +4224,7 @@ Constructs Integration's fields from required parameters
 
 ``` purescript
 newtype IntegrationResponse
-  = IntegrationResponse { statusCode :: NullOrUndefined (StatusCode), selectionPattern :: NullOrUndefined (String), responseParameters :: NullOrUndefined (MapOfStringToString), responseTemplates :: NullOrUndefined (MapOfStringToString), contentHandling :: NullOrUndefined (ContentHandlingStrategy) }
+  = IntegrationResponse { statusCode :: Maybe (StatusCode), selectionPattern :: Maybe (String), responseParameters :: Maybe (MapOfStringToString), responseTemplates :: Maybe (MapOfStringToString), contentHandling :: Maybe (ContentHandlingStrategy) }
 ```
 
 <p>Represents an integration response. The status code must map to an existing <a>MethodResponse</a>, and parameters and templates can be used to transform the back-end response.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Creating an API</a> </div>
@@ -4249,7 +4249,7 @@ Constructs IntegrationResponse from required parameters
 #### `newIntegrationResponse'`
 
 ``` purescript
-newIntegrationResponse' :: ({ statusCode :: NullOrUndefined (StatusCode), selectionPattern :: NullOrUndefined (String), responseParameters :: NullOrUndefined (MapOfStringToString), responseTemplates :: NullOrUndefined (MapOfStringToString), contentHandling :: NullOrUndefined (ContentHandlingStrategy) } -> { statusCode :: NullOrUndefined (StatusCode), selectionPattern :: NullOrUndefined (String), responseParameters :: NullOrUndefined (MapOfStringToString), responseTemplates :: NullOrUndefined (MapOfStringToString), contentHandling :: NullOrUndefined (ContentHandlingStrategy) }) -> IntegrationResponse
+newIntegrationResponse' :: ({ statusCode :: Maybe (StatusCode), selectionPattern :: Maybe (String), responseParameters :: Maybe (MapOfStringToString), responseTemplates :: Maybe (MapOfStringToString), contentHandling :: Maybe (ContentHandlingStrategy) } -> { statusCode :: Maybe (StatusCode), selectionPattern :: Maybe (String), responseParameters :: Maybe (MapOfStringToString), responseTemplates :: Maybe (MapOfStringToString), contentHandling :: Maybe (ContentHandlingStrategy) }) -> IntegrationResponse
 ```
 
 Constructs IntegrationResponse's fields from required parameters
@@ -4276,7 +4276,7 @@ Encode IntegrationType
 
 ``` purescript
 newtype LimitExceededException
-  = LimitExceededException { retryAfterSeconds :: NullOrUndefined (String), message :: NullOrUndefined (String) }
+  = LimitExceededException { retryAfterSeconds :: Maybe (String), message :: Maybe (String) }
 ```
 
 <p>The request exceeded the rate limit. Retry after the specified time period.</p>
@@ -4301,7 +4301,7 @@ Constructs LimitExceededException from required parameters
 #### `newLimitExceededException'`
 
 ``` purescript
-newLimitExceededException' :: ({ retryAfterSeconds :: NullOrUndefined (String), message :: NullOrUndefined (String) } -> { retryAfterSeconds :: NullOrUndefined (String), message :: NullOrUndefined (String) }) -> LimitExceededException
+newLimitExceededException' :: ({ retryAfterSeconds :: Maybe (String), message :: Maybe (String) } -> { retryAfterSeconds :: Maybe (String), message :: Maybe (String) }) -> LimitExceededException
 ```
 
 Constructs LimitExceededException's fields from required parameters
@@ -4920,7 +4920,7 @@ Encode MapOfStringToString
 
 ``` purescript
 newtype Method
-  = Method { httpMethod :: NullOrUndefined (String), authorizationType :: NullOrUndefined (String), authorizerId :: NullOrUndefined (String), apiKeyRequired :: NullOrUndefined (NullableBoolean), requestValidatorId :: NullOrUndefined (String), operationName :: NullOrUndefined (String), requestParameters :: NullOrUndefined (MapOfStringToBoolean), requestModels :: NullOrUndefined (MapOfStringToString), methodResponses :: NullOrUndefined (MapOfMethodResponse), methodIntegration :: NullOrUndefined (Integration), authorizationScopes :: NullOrUndefined (ListOfString) }
+  = Method { httpMethod :: Maybe (String), authorizationType :: Maybe (String), authorizerId :: Maybe (String), apiKeyRequired :: Maybe (NullableBoolean), requestValidatorId :: Maybe (String), operationName :: Maybe (String), requestParameters :: Maybe (MapOfStringToBoolean), requestModels :: Maybe (MapOfStringToString), methodResponses :: Maybe (MapOfMethodResponse), methodIntegration :: Maybe (Integration), authorizationScopes :: Maybe (ListOfString) }
 ```
 
 <p> Represents a client-facing interface by which the client calls the API to access back-end resources. A <b>Method</b> resource is integrated with an <a>Integration</a> resource. Both consist of a request and one or more responses. The method request takes the client input that is passed to the back end through the integration request. A method response returns the output from the back end to the client through an integration response. A method request is embodied in a <b>Method</b> resource, whereas an integration request is embodied in an <a>Integration</a> resource. On the other hand, a method response is represented by a <a>MethodResponse</a> resource, whereas an integration response is represented by an <a>IntegrationResponse</a> resource. </p> <div class="remarks"> <p/> <h4>Example: Retrive the GET method on a specified resource</h4> <h5>Request</h5> <p>The following example request retrieves the information about the GET method on an API resource (<code>3kzxbg5sa2</code>) of an API (<code>fugvjdxtri</code>). </p> <pre><code>GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20160603T210259Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160603/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}</code></pre> <h5>Response</h5> <p>The successful response returns a <code>200 OK</code> status code and a payload similar to the following:</p> <pre><code>{ "_links": { "curies": [ { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html", "name": "method", "templated": true }, { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true } ], "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET", "name": "GET", "title": "GET" }, "integration:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "method:integration": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "method:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "method:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET" }, "methodresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}", "templated": true } }, "apiKeyRequired": true, "authorizationType": "NONE", "httpMethod": "GET", "_embedded": { "method:integration": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integration:responses": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "3kzxbg5sa2", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestParameters": { "integration.request.header.Content-Type": "'application/x-amz-json-1.1'" }, "requestTemplates": { "application/json": "{\n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-east-1:kinesis:action/ListStreams", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E\")" }, "statusCode": "200" } } }, "method:responses": { "_links": { "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "name": "200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" } } }</code></pre> <p>In the example above, the response template for the <code>200 OK</code> response maps the JSON output from the <code>ListStreams</code> action in the back end to an XML output. The mapping template is URL-encoded as <code>%3CkinesisStreams%3E%23foreach(%24stream%20in%20%24input.path(%27%24.StreamNames%27))%3Cstream%3E%3Cname%3E%24stream%3C%2Fname%3E%3C%2Fstream%3E%23end%3C%2FkinesisStreams%3E</code> and the output is decoded using the <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#util-templat-reference">$util.urlDecode()</a> helper function.</p> </div> <div class="seeAlso"> <a>MethodResponse</a>, <a>Integration</a>, <a>IntegrationResponse</a>, <a>Resource</a>, <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings.html">Set up an API's method</a> </div>
@@ -4945,7 +4945,7 @@ Constructs Method from required parameters
 #### `newMethod'`
 
 ``` purescript
-newMethod' :: ({ httpMethod :: NullOrUndefined (String), authorizationType :: NullOrUndefined (String), authorizerId :: NullOrUndefined (String), apiKeyRequired :: NullOrUndefined (NullableBoolean), requestValidatorId :: NullOrUndefined (String), operationName :: NullOrUndefined (String), requestParameters :: NullOrUndefined (MapOfStringToBoolean), requestModels :: NullOrUndefined (MapOfStringToString), methodResponses :: NullOrUndefined (MapOfMethodResponse), methodIntegration :: NullOrUndefined (Integration), authorizationScopes :: NullOrUndefined (ListOfString) } -> { httpMethod :: NullOrUndefined (String), authorizationType :: NullOrUndefined (String), authorizerId :: NullOrUndefined (String), apiKeyRequired :: NullOrUndefined (NullableBoolean), requestValidatorId :: NullOrUndefined (String), operationName :: NullOrUndefined (String), requestParameters :: NullOrUndefined (MapOfStringToBoolean), requestModels :: NullOrUndefined (MapOfStringToString), methodResponses :: NullOrUndefined (MapOfMethodResponse), methodIntegration :: NullOrUndefined (Integration), authorizationScopes :: NullOrUndefined (ListOfString) }) -> Method
+newMethod' :: ({ httpMethod :: Maybe (String), authorizationType :: Maybe (String), authorizerId :: Maybe (String), apiKeyRequired :: Maybe (NullableBoolean), requestValidatorId :: Maybe (String), operationName :: Maybe (String), requestParameters :: Maybe (MapOfStringToBoolean), requestModels :: Maybe (MapOfStringToString), methodResponses :: Maybe (MapOfMethodResponse), methodIntegration :: Maybe (Integration), authorizationScopes :: Maybe (ListOfString) } -> { httpMethod :: Maybe (String), authorizationType :: Maybe (String), authorizerId :: Maybe (String), apiKeyRequired :: Maybe (NullableBoolean), requestValidatorId :: Maybe (String), operationName :: Maybe (String), requestParameters :: Maybe (MapOfStringToBoolean), requestModels :: Maybe (MapOfStringToString), methodResponses :: Maybe (MapOfMethodResponse), methodIntegration :: Maybe (Integration), authorizationScopes :: Maybe (ListOfString) }) -> Method
 ```
 
 Constructs Method's fields from required parameters
@@ -4954,7 +4954,7 @@ Constructs Method's fields from required parameters
 
 ``` purescript
 newtype MethodResponse
-  = MethodResponse { statusCode :: NullOrUndefined (StatusCode), responseParameters :: NullOrUndefined (MapOfStringToBoolean), responseModels :: NullOrUndefined (MapOfStringToString) }
+  = MethodResponse { statusCode :: Maybe (StatusCode), responseParameters :: Maybe (MapOfStringToBoolean), responseModels :: Maybe (MapOfStringToString) }
 ```
 
 <p>Represents a method response of a given HTTP status code returned to the client. The method response is passed from the back end through the associated integration response that can be transformed using a mapping template. </p> <div class="remarks"> <p/> <h4>Example: A <b>MethodResponse</b> instance of an API</h4> <h5>Request</h5> <p>The example request retrieves a <b>MethodResponse</b> of the 200 status code.</p> <pre><code>GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200 HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20160603T222952Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160603/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}</code></pre> <h5>Response</h5> <p>The successful response returns <code>200 OK</code> status and a payload as follows:</p> <pre><code>{ "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html", "name": "methodresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200", "title": "200" }, "methodresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" }, "methodresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200" } }, "responseModels": { "application/json": "Empty" }, "responseParameters": { "method.response.header.Content-Type": false }, "statusCode": "200" }</code></pre> <p/> </div> <div class="seeAlso"> <a>Method</a>, <a>IntegrationResponse</a>, <a>Integration</a> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Creating an API</a> </div>
@@ -4979,7 +4979,7 @@ Constructs MethodResponse from required parameters
 #### `newMethodResponse'`
 
 ``` purescript
-newMethodResponse' :: ({ statusCode :: NullOrUndefined (StatusCode), responseParameters :: NullOrUndefined (MapOfStringToBoolean), responseModels :: NullOrUndefined (MapOfStringToString) } -> { statusCode :: NullOrUndefined (StatusCode), responseParameters :: NullOrUndefined (MapOfStringToBoolean), responseModels :: NullOrUndefined (MapOfStringToString) }) -> MethodResponse
+newMethodResponse' :: ({ statusCode :: Maybe (StatusCode), responseParameters :: Maybe (MapOfStringToBoolean), responseModels :: Maybe (MapOfStringToString) } -> { statusCode :: Maybe (StatusCode), responseParameters :: Maybe (MapOfStringToBoolean), responseModels :: Maybe (MapOfStringToString) }) -> MethodResponse
 ```
 
 Constructs MethodResponse's fields from required parameters
@@ -4988,7 +4988,7 @@ Constructs MethodResponse's fields from required parameters
 
 ``` purescript
 newtype MethodSetting
-  = MethodSetting { metricsEnabled :: NullOrUndefined (Boolean), loggingLevel :: NullOrUndefined (String), dataTraceEnabled :: NullOrUndefined (Boolean), throttlingBurstLimit :: NullOrUndefined (Int), throttlingRateLimit :: NullOrUndefined (Number), cachingEnabled :: NullOrUndefined (Boolean), cacheTtlInSeconds :: NullOrUndefined (Int), cacheDataEncrypted :: NullOrUndefined (Boolean), requireAuthorizationForCacheControl :: NullOrUndefined (Boolean), unauthorizedCacheControlHeaderStrategy :: NullOrUndefined (UnauthorizedCacheControlHeaderStrategy) }
+  = MethodSetting { metricsEnabled :: Maybe (Boolean), loggingLevel :: Maybe (String), dataTraceEnabled :: Maybe (Boolean), throttlingBurstLimit :: Maybe (Int), throttlingRateLimit :: Maybe (Number), cachingEnabled :: Maybe (Boolean), cacheTtlInSeconds :: Maybe (Int), cacheDataEncrypted :: Maybe (Boolean), requireAuthorizationForCacheControl :: Maybe (Boolean), unauthorizedCacheControlHeaderStrategy :: Maybe (UnauthorizedCacheControlHeaderStrategy) }
 ```
 
 <p>Specifies the method setting properties.</p>
@@ -5013,7 +5013,7 @@ Constructs MethodSetting from required parameters
 #### `newMethodSetting'`
 
 ``` purescript
-newMethodSetting' :: ({ metricsEnabled :: NullOrUndefined (Boolean), loggingLevel :: NullOrUndefined (String), dataTraceEnabled :: NullOrUndefined (Boolean), throttlingBurstLimit :: NullOrUndefined (Int), throttlingRateLimit :: NullOrUndefined (Number), cachingEnabled :: NullOrUndefined (Boolean), cacheTtlInSeconds :: NullOrUndefined (Int), cacheDataEncrypted :: NullOrUndefined (Boolean), requireAuthorizationForCacheControl :: NullOrUndefined (Boolean), unauthorizedCacheControlHeaderStrategy :: NullOrUndefined (UnauthorizedCacheControlHeaderStrategy) } -> { metricsEnabled :: NullOrUndefined (Boolean), loggingLevel :: NullOrUndefined (String), dataTraceEnabled :: NullOrUndefined (Boolean), throttlingBurstLimit :: NullOrUndefined (Int), throttlingRateLimit :: NullOrUndefined (Number), cachingEnabled :: NullOrUndefined (Boolean), cacheTtlInSeconds :: NullOrUndefined (Int), cacheDataEncrypted :: NullOrUndefined (Boolean), requireAuthorizationForCacheControl :: NullOrUndefined (Boolean), unauthorizedCacheControlHeaderStrategy :: NullOrUndefined (UnauthorizedCacheControlHeaderStrategy) }) -> MethodSetting
+newMethodSetting' :: ({ metricsEnabled :: Maybe (Boolean), loggingLevel :: Maybe (String), dataTraceEnabled :: Maybe (Boolean), throttlingBurstLimit :: Maybe (Int), throttlingRateLimit :: Maybe (Number), cachingEnabled :: Maybe (Boolean), cacheTtlInSeconds :: Maybe (Int), cacheDataEncrypted :: Maybe (Boolean), requireAuthorizationForCacheControl :: Maybe (Boolean), unauthorizedCacheControlHeaderStrategy :: Maybe (UnauthorizedCacheControlHeaderStrategy) } -> { metricsEnabled :: Maybe (Boolean), loggingLevel :: Maybe (String), dataTraceEnabled :: Maybe (Boolean), throttlingBurstLimit :: Maybe (Int), throttlingRateLimit :: Maybe (Number), cachingEnabled :: Maybe (Boolean), cacheTtlInSeconds :: Maybe (Int), cacheDataEncrypted :: Maybe (Boolean), requireAuthorizationForCacheControl :: Maybe (Boolean), unauthorizedCacheControlHeaderStrategy :: Maybe (UnauthorizedCacheControlHeaderStrategy) }) -> MethodSetting
 ```
 
 Constructs MethodSetting's fields from required parameters
@@ -5022,7 +5022,7 @@ Constructs MethodSetting's fields from required parameters
 
 ``` purescript
 newtype MethodSnapshot
-  = MethodSnapshot { authorizationType :: NullOrUndefined (String), apiKeyRequired :: NullOrUndefined (Boolean) }
+  = MethodSnapshot { authorizationType :: Maybe (String), apiKeyRequired :: Maybe (Boolean) }
 ```
 
 <p>Represents a summary of a <a>Method</a> resource, given a particular date and time.</p>
@@ -5047,7 +5047,7 @@ Constructs MethodSnapshot from required parameters
 #### `newMethodSnapshot'`
 
 ``` purescript
-newMethodSnapshot' :: ({ authorizationType :: NullOrUndefined (String), apiKeyRequired :: NullOrUndefined (Boolean) } -> { authorizationType :: NullOrUndefined (String), apiKeyRequired :: NullOrUndefined (Boolean) }) -> MethodSnapshot
+newMethodSnapshot' :: ({ authorizationType :: Maybe (String), apiKeyRequired :: Maybe (Boolean) } -> { authorizationType :: Maybe (String), apiKeyRequired :: Maybe (Boolean) }) -> MethodSnapshot
 ```
 
 Constructs MethodSnapshot's fields from required parameters
@@ -5056,7 +5056,7 @@ Constructs MethodSnapshot's fields from required parameters
 
 ``` purescript
 newtype Model
-  = Model { id :: NullOrUndefined (String), name :: NullOrUndefined (String), description :: NullOrUndefined (String), schema :: NullOrUndefined (String), contentType :: NullOrUndefined (String) }
+  = Model { id :: Maybe (String), name :: Maybe (String), description :: Maybe (String), schema :: Maybe (String), contentType :: Maybe (String) }
 ```
 
 <p>Represents the data structure of a method's request or response payload.</p> <div class="remarks"> <p>A request model defines the data structure of the client-supplied request payload. A response model defines the data structure of the response payload returned by the back end. Although not required, models are useful for mapping payloads between the front end and back end.</p> <p>A model is used for generating an API's SDK, validating the input request body, and creating a skeletal mapping template.</p> </div> <div class="seeAlso"> <a>Method</a>, <a>MethodResponse</a>, <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html">Models and Mappings</a> </div>
@@ -5081,7 +5081,7 @@ Constructs Model from required parameters
 #### `newModel'`
 
 ``` purescript
-newModel' :: ({ id :: NullOrUndefined (String), name :: NullOrUndefined (String), description :: NullOrUndefined (String), schema :: NullOrUndefined (String), contentType :: NullOrUndefined (String) } -> { id :: NullOrUndefined (String), name :: NullOrUndefined (String), description :: NullOrUndefined (String), schema :: NullOrUndefined (String), contentType :: NullOrUndefined (String) }) -> Model
+newModel' :: ({ id :: Maybe (String), name :: Maybe (String), description :: Maybe (String), schema :: Maybe (String), contentType :: Maybe (String) } -> { id :: Maybe (String), name :: Maybe (String), description :: Maybe (String), schema :: Maybe (String), contentType :: Maybe (String) }) -> Model
 ```
 
 Constructs Model's fields from required parameters
@@ -5090,7 +5090,7 @@ Constructs Model's fields from required parameters
 
 ``` purescript
 newtype Models
-  = Models { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfModel) }
+  = Models { position :: Maybe (String), items :: Maybe (ListOfModel) }
 ```
 
 <p>Represents a collection of <a>Model</a> resources.</p> <div class="seeAlso"> <a>Method</a>, <a>MethodResponse</a>, <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html">Models and Mappings</a> </div>
@@ -5115,7 +5115,7 @@ Constructs Models from required parameters
 #### `newModels'`
 
 ``` purescript
-newModels' :: ({ position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfModel) } -> { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfModel) }) -> Models
+newModels' :: ({ position :: Maybe (String), items :: Maybe (ListOfModel) } -> { position :: Maybe (String), items :: Maybe (ListOfModel) }) -> Models
 ```
 
 Constructs Models's fields from required parameters
@@ -5124,7 +5124,7 @@ Constructs Models's fields from required parameters
 
 ``` purescript
 newtype NotFoundException
-  = NotFoundException { message :: NullOrUndefined (String) }
+  = NotFoundException { message :: Maybe (String) }
 ```
 
 <p>The requested resource is not found. Make sure that the request URI is correct.</p>
@@ -5149,7 +5149,7 @@ Constructs NotFoundException from required parameters
 #### `newNotFoundException'`
 
 ``` purescript
-newNotFoundException' :: ({ message :: NullOrUndefined (String) } -> { message :: NullOrUndefined (String) }) -> NotFoundException
+newNotFoundException' :: ({ message :: Maybe (String) } -> { message :: Maybe (String) }) -> NotFoundException
 ```
 
 Constructs NotFoundException's fields from required parameters
@@ -5206,7 +5206,7 @@ Encode Op
 
 ``` purescript
 newtype PatchOperation
-  = PatchOperation { op :: NullOrUndefined (Op), path :: NullOrUndefined (String), value :: NullOrUndefined (String), from :: NullOrUndefined (String) }
+  = PatchOperation { op :: Maybe (Op), path :: Maybe (String), value :: Maybe (String), from :: Maybe (String) }
 ```
 
 A single patch operation to apply to the specified resource. Please refer to http://tools.ietf.org/html/rfc6902#section-4 for an explanation of how each operation is used.
@@ -5231,7 +5231,7 @@ Constructs PatchOperation from required parameters
 #### `newPatchOperation'`
 
 ``` purescript
-newPatchOperation' :: ({ op :: NullOrUndefined (Op), path :: NullOrUndefined (String), value :: NullOrUndefined (String), from :: NullOrUndefined (String) } -> { op :: NullOrUndefined (Op), path :: NullOrUndefined (String), value :: NullOrUndefined (String), from :: NullOrUndefined (String) }) -> PatchOperation
+newPatchOperation' :: ({ op :: Maybe (Op), path :: Maybe (String), value :: Maybe (String), from :: Maybe (String) } -> { op :: Maybe (Op), path :: Maybe (String), value :: Maybe (String), from :: Maybe (String) }) -> PatchOperation
 ```
 
 Constructs PatchOperation's fields from required parameters
@@ -5272,7 +5272,7 @@ Encode ProviderARN
 
 ``` purescript
 newtype PutGatewayResponseRequest
-  = PutGatewayResponseRequest { restApiId :: String, responseType :: GatewayResponseType, statusCode :: NullOrUndefined (StatusCode), responseParameters :: NullOrUndefined (MapOfStringToString), responseTemplates :: NullOrUndefined (MapOfStringToString) }
+  = PutGatewayResponseRequest { restApiId :: String, responseType :: GatewayResponseType, statusCode :: Maybe (StatusCode), responseParameters :: Maybe (MapOfStringToString), responseTemplates :: Maybe (MapOfStringToString) }
 ```
 
 <p>Creates a customization of a <a>GatewayResponse</a> of a specified response type and status code on the given <a>RestApi</a>.</p>
@@ -5297,7 +5297,7 @@ Constructs PutGatewayResponseRequest from required parameters
 #### `newPutGatewayResponseRequest'`
 
 ``` purescript
-newPutGatewayResponseRequest' :: GatewayResponseType -> String -> ({ restApiId :: String, responseType :: GatewayResponseType, statusCode :: NullOrUndefined (StatusCode), responseParameters :: NullOrUndefined (MapOfStringToString), responseTemplates :: NullOrUndefined (MapOfStringToString) } -> { restApiId :: String, responseType :: GatewayResponseType, statusCode :: NullOrUndefined (StatusCode), responseParameters :: NullOrUndefined (MapOfStringToString), responseTemplates :: NullOrUndefined (MapOfStringToString) }) -> PutGatewayResponseRequest
+newPutGatewayResponseRequest' :: GatewayResponseType -> String -> ({ restApiId :: String, responseType :: GatewayResponseType, statusCode :: Maybe (StatusCode), responseParameters :: Maybe (MapOfStringToString), responseTemplates :: Maybe (MapOfStringToString) } -> { restApiId :: String, responseType :: GatewayResponseType, statusCode :: Maybe (StatusCode), responseParameters :: Maybe (MapOfStringToString), responseTemplates :: Maybe (MapOfStringToString) }) -> PutGatewayResponseRequest
 ```
 
 Constructs PutGatewayResponseRequest's fields from required parameters
@@ -5306,7 +5306,7 @@ Constructs PutGatewayResponseRequest's fields from required parameters
 
 ``` purescript
 newtype PutIntegrationRequest
-  = PutIntegrationRequest { restApiId :: String, resourceId :: String, httpMethod :: String, "type" :: IntegrationType, integrationHttpMethod :: NullOrUndefined (String), uri :: NullOrUndefined (String), connectionType :: NullOrUndefined (ConnectionType), connectionId :: NullOrUndefined (String), credentials :: NullOrUndefined (String), requestParameters :: NullOrUndefined (MapOfStringToString), requestTemplates :: NullOrUndefined (MapOfStringToString), passthroughBehavior :: NullOrUndefined (String), cacheNamespace :: NullOrUndefined (String), cacheKeyParameters :: NullOrUndefined (ListOfString), contentHandling :: NullOrUndefined (ContentHandlingStrategy), timeoutInMillis :: NullOrUndefined (NullableInteger) }
+  = PutIntegrationRequest { restApiId :: String, resourceId :: String, httpMethod :: String, "type" :: IntegrationType, integrationHttpMethod :: Maybe (String), uri :: Maybe (String), connectionType :: Maybe (ConnectionType), connectionId :: Maybe (String), credentials :: Maybe (String), requestParameters :: Maybe (MapOfStringToString), requestTemplates :: Maybe (MapOfStringToString), passthroughBehavior :: Maybe (String), cacheNamespace :: Maybe (String), cacheKeyParameters :: Maybe (ListOfString), contentHandling :: Maybe (ContentHandlingStrategy), timeoutInMillis :: Maybe (NullableInteger) }
 ```
 
 <p>Sets up a method's integration.</p>
@@ -5331,7 +5331,7 @@ Constructs PutIntegrationRequest from required parameters
 #### `newPutIntegrationRequest'`
 
 ``` purescript
-newPutIntegrationRequest' :: String -> String -> String -> IntegrationType -> ({ restApiId :: String, resourceId :: String, httpMethod :: String, "type" :: IntegrationType, integrationHttpMethod :: NullOrUndefined (String), uri :: NullOrUndefined (String), connectionType :: NullOrUndefined (ConnectionType), connectionId :: NullOrUndefined (String), credentials :: NullOrUndefined (String), requestParameters :: NullOrUndefined (MapOfStringToString), requestTemplates :: NullOrUndefined (MapOfStringToString), passthroughBehavior :: NullOrUndefined (String), cacheNamespace :: NullOrUndefined (String), cacheKeyParameters :: NullOrUndefined (ListOfString), contentHandling :: NullOrUndefined (ContentHandlingStrategy), timeoutInMillis :: NullOrUndefined (NullableInteger) } -> { restApiId :: String, resourceId :: String, httpMethod :: String, "type" :: IntegrationType, integrationHttpMethod :: NullOrUndefined (String), uri :: NullOrUndefined (String), connectionType :: NullOrUndefined (ConnectionType), connectionId :: NullOrUndefined (String), credentials :: NullOrUndefined (String), requestParameters :: NullOrUndefined (MapOfStringToString), requestTemplates :: NullOrUndefined (MapOfStringToString), passthroughBehavior :: NullOrUndefined (String), cacheNamespace :: NullOrUndefined (String), cacheKeyParameters :: NullOrUndefined (ListOfString), contentHandling :: NullOrUndefined (ContentHandlingStrategy), timeoutInMillis :: NullOrUndefined (NullableInteger) }) -> PutIntegrationRequest
+newPutIntegrationRequest' :: String -> String -> String -> IntegrationType -> ({ restApiId :: String, resourceId :: String, httpMethod :: String, "type" :: IntegrationType, integrationHttpMethod :: Maybe (String), uri :: Maybe (String), connectionType :: Maybe (ConnectionType), connectionId :: Maybe (String), credentials :: Maybe (String), requestParameters :: Maybe (MapOfStringToString), requestTemplates :: Maybe (MapOfStringToString), passthroughBehavior :: Maybe (String), cacheNamespace :: Maybe (String), cacheKeyParameters :: Maybe (ListOfString), contentHandling :: Maybe (ContentHandlingStrategy), timeoutInMillis :: Maybe (NullableInteger) } -> { restApiId :: String, resourceId :: String, httpMethod :: String, "type" :: IntegrationType, integrationHttpMethod :: Maybe (String), uri :: Maybe (String), connectionType :: Maybe (ConnectionType), connectionId :: Maybe (String), credentials :: Maybe (String), requestParameters :: Maybe (MapOfStringToString), requestTemplates :: Maybe (MapOfStringToString), passthroughBehavior :: Maybe (String), cacheNamespace :: Maybe (String), cacheKeyParameters :: Maybe (ListOfString), contentHandling :: Maybe (ContentHandlingStrategy), timeoutInMillis :: Maybe (NullableInteger) }) -> PutIntegrationRequest
 ```
 
 Constructs PutIntegrationRequest's fields from required parameters
@@ -5340,7 +5340,7 @@ Constructs PutIntegrationRequest's fields from required parameters
 
 ``` purescript
 newtype PutIntegrationResponseRequest
-  = PutIntegrationResponseRequest { restApiId :: String, resourceId :: String, httpMethod :: String, statusCode :: StatusCode, selectionPattern :: NullOrUndefined (String), responseParameters :: NullOrUndefined (MapOfStringToString), responseTemplates :: NullOrUndefined (MapOfStringToString), contentHandling :: NullOrUndefined (ContentHandlingStrategy) }
+  = PutIntegrationResponseRequest { restApiId :: String, resourceId :: String, httpMethod :: String, statusCode :: StatusCode, selectionPattern :: Maybe (String), responseParameters :: Maybe (MapOfStringToString), responseTemplates :: Maybe (MapOfStringToString), contentHandling :: Maybe (ContentHandlingStrategy) }
 ```
 
 <p>Represents a put integration response request.</p>
@@ -5365,7 +5365,7 @@ Constructs PutIntegrationResponseRequest from required parameters
 #### `newPutIntegrationResponseRequest'`
 
 ``` purescript
-newPutIntegrationResponseRequest' :: String -> String -> String -> StatusCode -> ({ restApiId :: String, resourceId :: String, httpMethod :: String, statusCode :: StatusCode, selectionPattern :: NullOrUndefined (String), responseParameters :: NullOrUndefined (MapOfStringToString), responseTemplates :: NullOrUndefined (MapOfStringToString), contentHandling :: NullOrUndefined (ContentHandlingStrategy) } -> { restApiId :: String, resourceId :: String, httpMethod :: String, statusCode :: StatusCode, selectionPattern :: NullOrUndefined (String), responseParameters :: NullOrUndefined (MapOfStringToString), responseTemplates :: NullOrUndefined (MapOfStringToString), contentHandling :: NullOrUndefined (ContentHandlingStrategy) }) -> PutIntegrationResponseRequest
+newPutIntegrationResponseRequest' :: String -> String -> String -> StatusCode -> ({ restApiId :: String, resourceId :: String, httpMethod :: String, statusCode :: StatusCode, selectionPattern :: Maybe (String), responseParameters :: Maybe (MapOfStringToString), responseTemplates :: Maybe (MapOfStringToString), contentHandling :: Maybe (ContentHandlingStrategy) } -> { restApiId :: String, resourceId :: String, httpMethod :: String, statusCode :: StatusCode, selectionPattern :: Maybe (String), responseParameters :: Maybe (MapOfStringToString), responseTemplates :: Maybe (MapOfStringToString), contentHandling :: Maybe (ContentHandlingStrategy) }) -> PutIntegrationResponseRequest
 ```
 
 Constructs PutIntegrationResponseRequest's fields from required parameters
@@ -5374,7 +5374,7 @@ Constructs PutIntegrationResponseRequest's fields from required parameters
 
 ``` purescript
 newtype PutMethodRequest
-  = PutMethodRequest { restApiId :: String, resourceId :: String, httpMethod :: String, authorizationType :: String, authorizerId :: NullOrUndefined (String), apiKeyRequired :: NullOrUndefined (Boolean), operationName :: NullOrUndefined (String), requestParameters :: NullOrUndefined (MapOfStringToBoolean), requestModels :: NullOrUndefined (MapOfStringToString), requestValidatorId :: NullOrUndefined (String), authorizationScopes :: NullOrUndefined (ListOfString) }
+  = PutMethodRequest { restApiId :: String, resourceId :: String, httpMethod :: String, authorizationType :: String, authorizerId :: Maybe (String), apiKeyRequired :: Maybe (Boolean), operationName :: Maybe (String), requestParameters :: Maybe (MapOfStringToBoolean), requestModels :: Maybe (MapOfStringToString), requestValidatorId :: Maybe (String), authorizationScopes :: Maybe (ListOfString) }
 ```
 
 <p>Request to add a method to an existing <a>Resource</a> resource.</p>
@@ -5399,7 +5399,7 @@ Constructs PutMethodRequest from required parameters
 #### `newPutMethodRequest'`
 
 ``` purescript
-newPutMethodRequest' :: String -> String -> String -> String -> ({ restApiId :: String, resourceId :: String, httpMethod :: String, authorizationType :: String, authorizerId :: NullOrUndefined (String), apiKeyRequired :: NullOrUndefined (Boolean), operationName :: NullOrUndefined (String), requestParameters :: NullOrUndefined (MapOfStringToBoolean), requestModels :: NullOrUndefined (MapOfStringToString), requestValidatorId :: NullOrUndefined (String), authorizationScopes :: NullOrUndefined (ListOfString) } -> { restApiId :: String, resourceId :: String, httpMethod :: String, authorizationType :: String, authorizerId :: NullOrUndefined (String), apiKeyRequired :: NullOrUndefined (Boolean), operationName :: NullOrUndefined (String), requestParameters :: NullOrUndefined (MapOfStringToBoolean), requestModels :: NullOrUndefined (MapOfStringToString), requestValidatorId :: NullOrUndefined (String), authorizationScopes :: NullOrUndefined (ListOfString) }) -> PutMethodRequest
+newPutMethodRequest' :: String -> String -> String -> String -> ({ restApiId :: String, resourceId :: String, httpMethod :: String, authorizationType :: String, authorizerId :: Maybe (String), apiKeyRequired :: Maybe (Boolean), operationName :: Maybe (String), requestParameters :: Maybe (MapOfStringToBoolean), requestModels :: Maybe (MapOfStringToString), requestValidatorId :: Maybe (String), authorizationScopes :: Maybe (ListOfString) } -> { restApiId :: String, resourceId :: String, httpMethod :: String, authorizationType :: String, authorizerId :: Maybe (String), apiKeyRequired :: Maybe (Boolean), operationName :: Maybe (String), requestParameters :: Maybe (MapOfStringToBoolean), requestModels :: Maybe (MapOfStringToString), requestValidatorId :: Maybe (String), authorizationScopes :: Maybe (ListOfString) }) -> PutMethodRequest
 ```
 
 Constructs PutMethodRequest's fields from required parameters
@@ -5408,7 +5408,7 @@ Constructs PutMethodRequest's fields from required parameters
 
 ``` purescript
 newtype PutMethodResponseRequest
-  = PutMethodResponseRequest { restApiId :: String, resourceId :: String, httpMethod :: String, statusCode :: StatusCode, responseParameters :: NullOrUndefined (MapOfStringToBoolean), responseModels :: NullOrUndefined (MapOfStringToString) }
+  = PutMethodResponseRequest { restApiId :: String, resourceId :: String, httpMethod :: String, statusCode :: StatusCode, responseParameters :: Maybe (MapOfStringToBoolean), responseModels :: Maybe (MapOfStringToString) }
 ```
 
 <p>Request to add a <a>MethodResponse</a> to an existing <a>Method</a> resource.</p>
@@ -5433,7 +5433,7 @@ Constructs PutMethodResponseRequest from required parameters
 #### `newPutMethodResponseRequest'`
 
 ``` purescript
-newPutMethodResponseRequest' :: String -> String -> String -> StatusCode -> ({ restApiId :: String, resourceId :: String, httpMethod :: String, statusCode :: StatusCode, responseParameters :: NullOrUndefined (MapOfStringToBoolean), responseModels :: NullOrUndefined (MapOfStringToString) } -> { restApiId :: String, resourceId :: String, httpMethod :: String, statusCode :: StatusCode, responseParameters :: NullOrUndefined (MapOfStringToBoolean), responseModels :: NullOrUndefined (MapOfStringToString) }) -> PutMethodResponseRequest
+newPutMethodResponseRequest' :: String -> String -> String -> StatusCode -> ({ restApiId :: String, resourceId :: String, httpMethod :: String, statusCode :: StatusCode, responseParameters :: Maybe (MapOfStringToBoolean), responseModels :: Maybe (MapOfStringToString) } -> { restApiId :: String, resourceId :: String, httpMethod :: String, statusCode :: StatusCode, responseParameters :: Maybe (MapOfStringToBoolean), responseModels :: Maybe (MapOfStringToString) }) -> PutMethodResponseRequest
 ```
 
 Constructs PutMethodResponseRequest's fields from required parameters
@@ -5458,7 +5458,7 @@ Encode PutMode
 
 ``` purescript
 newtype PutRestApiRequest
-  = PutRestApiRequest { restApiId :: String, mode :: NullOrUndefined (PutMode), failOnWarnings :: NullOrUndefined (Boolean), parameters :: NullOrUndefined (MapOfStringToString), body :: String }
+  = PutRestApiRequest { restApiId :: String, mode :: Maybe (PutMode), failOnWarnings :: Maybe (Boolean), parameters :: Maybe (MapOfStringToString), body :: String }
 ```
 
 <p>A PUT request to update an existing API, with external API definitions specified as the request body.</p>
@@ -5483,7 +5483,7 @@ Constructs PutRestApiRequest from required parameters
 #### `newPutRestApiRequest'`
 
 ``` purescript
-newPutRestApiRequest' :: String -> String -> ({ restApiId :: String, mode :: NullOrUndefined (PutMode), failOnWarnings :: NullOrUndefined (Boolean), parameters :: NullOrUndefined (MapOfStringToString), body :: String } -> { restApiId :: String, mode :: NullOrUndefined (PutMode), failOnWarnings :: NullOrUndefined (Boolean), parameters :: NullOrUndefined (MapOfStringToString), body :: String }) -> PutRestApiRequest
+newPutRestApiRequest' :: String -> String -> ({ restApiId :: String, mode :: Maybe (PutMode), failOnWarnings :: Maybe (Boolean), parameters :: Maybe (MapOfStringToString), body :: String } -> { restApiId :: String, mode :: Maybe (PutMode), failOnWarnings :: Maybe (Boolean), parameters :: Maybe (MapOfStringToString), body :: String }) -> PutRestApiRequest
 ```
 
 Constructs PutRestApiRequest's fields from required parameters
@@ -5508,7 +5508,7 @@ Encode QuotaPeriodType
 
 ``` purescript
 newtype QuotaSettings
-  = QuotaSettings { limit :: NullOrUndefined (Int), offset :: NullOrUndefined (Int), period :: NullOrUndefined (QuotaPeriodType) }
+  = QuotaSettings { limit :: Maybe (Int), offset :: Maybe (Int), period :: Maybe (QuotaPeriodType) }
 ```
 
 <p>Quotas configured for a usage plan.</p>
@@ -5533,7 +5533,7 @@ Constructs QuotaSettings from required parameters
 #### `newQuotaSettings'`
 
 ``` purescript
-newQuotaSettings' :: ({ limit :: NullOrUndefined (Int), offset :: NullOrUndefined (Int), period :: NullOrUndefined (QuotaPeriodType) } -> { limit :: NullOrUndefined (Int), offset :: NullOrUndefined (Int), period :: NullOrUndefined (QuotaPeriodType) }) -> QuotaSettings
+newQuotaSettings' :: ({ limit :: Maybe (Int), offset :: Maybe (Int), period :: Maybe (QuotaPeriodType) } -> { limit :: Maybe (Int), offset :: Maybe (Int), period :: Maybe (QuotaPeriodType) }) -> QuotaSettings
 ```
 
 Constructs QuotaSettings's fields from required parameters
@@ -5542,7 +5542,7 @@ Constructs QuotaSettings's fields from required parameters
 
 ``` purescript
 newtype RequestValidator
-  = RequestValidator { id :: NullOrUndefined (String), name :: NullOrUndefined (String), validateRequestBody :: NullOrUndefined (Boolean), validateRequestParameters :: NullOrUndefined (Boolean) }
+  = RequestValidator { id :: Maybe (String), name :: Maybe (String), validateRequestBody :: Maybe (Boolean), validateRequestParameters :: Maybe (Boolean) }
 ```
 
 <p>A set of validation rules for incoming <a>Method</a> requests.</p> <div class="remarks"> <p>In Swagger, a <a>RequestValidator</a> of an API is defined by the <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions.html#api-gateway-swagger-extensions-request-validators.requestValidator.html">x-amazon-apigateway-request-validators.requestValidator</a> object. It the referenced using the <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions.html#api-gateway-swagger-extensions-request-validator">x-amazon-apigateway-request-validator</a> property.</p> </div> <div class="seeAlso"><a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html">Enable Basic Request Validation in API Gateway</a></div>
@@ -5567,7 +5567,7 @@ Constructs RequestValidator from required parameters
 #### `newRequestValidator'`
 
 ``` purescript
-newRequestValidator' :: ({ id :: NullOrUndefined (String), name :: NullOrUndefined (String), validateRequestBody :: NullOrUndefined (Boolean), validateRequestParameters :: NullOrUndefined (Boolean) } -> { id :: NullOrUndefined (String), name :: NullOrUndefined (String), validateRequestBody :: NullOrUndefined (Boolean), validateRequestParameters :: NullOrUndefined (Boolean) }) -> RequestValidator
+newRequestValidator' :: ({ id :: Maybe (String), name :: Maybe (String), validateRequestBody :: Maybe (Boolean), validateRequestParameters :: Maybe (Boolean) } -> { id :: Maybe (String), name :: Maybe (String), validateRequestBody :: Maybe (Boolean), validateRequestParameters :: Maybe (Boolean) }) -> RequestValidator
 ```
 
 Constructs RequestValidator's fields from required parameters
@@ -5576,7 +5576,7 @@ Constructs RequestValidator's fields from required parameters
 
 ``` purescript
 newtype RequestValidators
-  = RequestValidators { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfRequestValidator) }
+  = RequestValidators { position :: Maybe (String), items :: Maybe (ListOfRequestValidator) }
 ```
 
 <p>A collection of <a>RequestValidator</a> resources of a given <a>RestApi</a>.</p> <div class="remarks"> <p>In Swagger, the <a>RequestValidators</a> of an API is defined by the <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions.html#api-gateway-swagger-extensions-request-validators.html">x-amazon-apigateway-request-validators</a> extension.</p> </div> <div class="seeAlso"><a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html">Enable Basic Request Validation in API Gateway</a></div>
@@ -5601,7 +5601,7 @@ Constructs RequestValidators from required parameters
 #### `newRequestValidators'`
 
 ``` purescript
-newRequestValidators' :: ({ position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfRequestValidator) } -> { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfRequestValidator) }) -> RequestValidators
+newRequestValidators' :: ({ position :: Maybe (String), items :: Maybe (ListOfRequestValidator) } -> { position :: Maybe (String), items :: Maybe (ListOfRequestValidator) }) -> RequestValidators
 ```
 
 Constructs RequestValidators's fields from required parameters
@@ -5610,7 +5610,7 @@ Constructs RequestValidators's fields from required parameters
 
 ``` purescript
 newtype Resource
-  = Resource { id :: NullOrUndefined (String), parentId :: NullOrUndefined (String), pathPart :: NullOrUndefined (String), path :: NullOrUndefined (String), resourceMethods :: NullOrUndefined (MapOfMethod) }
+  = Resource { id :: Maybe (String), parentId :: Maybe (String), pathPart :: Maybe (String), path :: Maybe (String), resourceMethods :: Maybe (MapOfMethod) }
 ```
 
 <p>Represents an API resource.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Create an API</a> </div>
@@ -5635,7 +5635,7 @@ Constructs Resource from required parameters
 #### `newResource'`
 
 ``` purescript
-newResource' :: ({ id :: NullOrUndefined (String), parentId :: NullOrUndefined (String), pathPart :: NullOrUndefined (String), path :: NullOrUndefined (String), resourceMethods :: NullOrUndefined (MapOfMethod) } -> { id :: NullOrUndefined (String), parentId :: NullOrUndefined (String), pathPart :: NullOrUndefined (String), path :: NullOrUndefined (String), resourceMethods :: NullOrUndefined (MapOfMethod) }) -> Resource
+newResource' :: ({ id :: Maybe (String), parentId :: Maybe (String), pathPart :: Maybe (String), path :: Maybe (String), resourceMethods :: Maybe (MapOfMethod) } -> { id :: Maybe (String), parentId :: Maybe (String), pathPart :: Maybe (String), path :: Maybe (String), resourceMethods :: Maybe (MapOfMethod) }) -> Resource
 ```
 
 Constructs Resource's fields from required parameters
@@ -5644,7 +5644,7 @@ Constructs Resource's fields from required parameters
 
 ``` purescript
 newtype Resources
-  = Resources { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfResource) }
+  = Resources { position :: Maybe (String), items :: Maybe (ListOfResource) }
 ```
 
 <p>Represents a collection of <a>Resource</a> resources.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Create an API</a> </div>
@@ -5669,7 +5669,7 @@ Constructs Resources from required parameters
 #### `newResources'`
 
 ``` purescript
-newResources' :: ({ position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfResource) } -> { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfResource) }) -> Resources
+newResources' :: ({ position :: Maybe (String), items :: Maybe (ListOfResource) } -> { position :: Maybe (String), items :: Maybe (ListOfResource) }) -> Resources
 ```
 
 Constructs Resources's fields from required parameters
@@ -5678,7 +5678,7 @@ Constructs Resources's fields from required parameters
 
 ``` purescript
 newtype RestApi
-  = RestApi { id :: NullOrUndefined (String), name :: NullOrUndefined (String), description :: NullOrUndefined (String), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (String), warnings :: NullOrUndefined (ListOfString), binaryMediaTypes :: NullOrUndefined (ListOfString), minimumCompressionSize :: NullOrUndefined (NullableInteger), apiKeySource :: NullOrUndefined (ApiKeySourceType), endpointConfiguration :: NullOrUndefined (EndpointConfiguration) }
+  = RestApi { id :: Maybe (String), name :: Maybe (String), description :: Maybe (String), createdDate :: Maybe (Timestamp), version :: Maybe (String), warnings :: Maybe (ListOfString), binaryMediaTypes :: Maybe (ListOfString), minimumCompressionSize :: Maybe (NullableInteger), apiKeySource :: Maybe (ApiKeySourceType), endpointConfiguration :: Maybe (EndpointConfiguration) }
 ```
 
 <p>Represents a REST API.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Create an API</a> </div>
@@ -5703,7 +5703,7 @@ Constructs RestApi from required parameters
 #### `newRestApi'`
 
 ``` purescript
-newRestApi' :: ({ id :: NullOrUndefined (String), name :: NullOrUndefined (String), description :: NullOrUndefined (String), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (String), warnings :: NullOrUndefined (ListOfString), binaryMediaTypes :: NullOrUndefined (ListOfString), minimumCompressionSize :: NullOrUndefined (NullableInteger), apiKeySource :: NullOrUndefined (ApiKeySourceType), endpointConfiguration :: NullOrUndefined (EndpointConfiguration) } -> { id :: NullOrUndefined (String), name :: NullOrUndefined (String), description :: NullOrUndefined (String), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (String), warnings :: NullOrUndefined (ListOfString), binaryMediaTypes :: NullOrUndefined (ListOfString), minimumCompressionSize :: NullOrUndefined (NullableInteger), apiKeySource :: NullOrUndefined (ApiKeySourceType), endpointConfiguration :: NullOrUndefined (EndpointConfiguration) }) -> RestApi
+newRestApi' :: ({ id :: Maybe (String), name :: Maybe (String), description :: Maybe (String), createdDate :: Maybe (Timestamp), version :: Maybe (String), warnings :: Maybe (ListOfString), binaryMediaTypes :: Maybe (ListOfString), minimumCompressionSize :: Maybe (NullableInteger), apiKeySource :: Maybe (ApiKeySourceType), endpointConfiguration :: Maybe (EndpointConfiguration) } -> { id :: Maybe (String), name :: Maybe (String), description :: Maybe (String), createdDate :: Maybe (Timestamp), version :: Maybe (String), warnings :: Maybe (ListOfString), binaryMediaTypes :: Maybe (ListOfString), minimumCompressionSize :: Maybe (NullableInteger), apiKeySource :: Maybe (ApiKeySourceType), endpointConfiguration :: Maybe (EndpointConfiguration) }) -> RestApi
 ```
 
 Constructs RestApi's fields from required parameters
@@ -5712,7 +5712,7 @@ Constructs RestApi's fields from required parameters
 
 ``` purescript
 newtype RestApis
-  = RestApis { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfRestApi) }
+  = RestApis { position :: Maybe (String), items :: Maybe (ListOfRestApi) }
 ```
 
 <p>Contains references to your APIs and links that guide you in how to interact with your collection. A collection offers a paginated view of your APIs.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html">Create an API</a> </div>
@@ -5737,7 +5737,7 @@ Constructs RestApis from required parameters
 #### `newRestApis'`
 
 ``` purescript
-newRestApis' :: ({ position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfRestApi) } -> { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfRestApi) }) -> RestApis
+newRestApis' :: ({ position :: Maybe (String), items :: Maybe (ListOfRestApi) } -> { position :: Maybe (String), items :: Maybe (ListOfRestApi) }) -> RestApis
 ```
 
 Constructs RestApis's fields from required parameters
@@ -5746,7 +5746,7 @@ Constructs RestApis's fields from required parameters
 
 ``` purescript
 newtype SdkConfigurationProperty
-  = SdkConfigurationProperty { name :: NullOrUndefined (String), friendlyName :: NullOrUndefined (String), description :: NullOrUndefined (String), required :: NullOrUndefined (Boolean), defaultValue :: NullOrUndefined (String) }
+  = SdkConfigurationProperty { name :: Maybe (String), friendlyName :: Maybe (String), description :: Maybe (String), required :: Maybe (Boolean), defaultValue :: Maybe (String) }
 ```
 
 <p>A configuration property of an SDK type.</p>
@@ -5771,7 +5771,7 @@ Constructs SdkConfigurationProperty from required parameters
 #### `newSdkConfigurationProperty'`
 
 ``` purescript
-newSdkConfigurationProperty' :: ({ name :: NullOrUndefined (String), friendlyName :: NullOrUndefined (String), description :: NullOrUndefined (String), required :: NullOrUndefined (Boolean), defaultValue :: NullOrUndefined (String) } -> { name :: NullOrUndefined (String), friendlyName :: NullOrUndefined (String), description :: NullOrUndefined (String), required :: NullOrUndefined (Boolean), defaultValue :: NullOrUndefined (String) }) -> SdkConfigurationProperty
+newSdkConfigurationProperty' :: ({ name :: Maybe (String), friendlyName :: Maybe (String), description :: Maybe (String), required :: Maybe (Boolean), defaultValue :: Maybe (String) } -> { name :: Maybe (String), friendlyName :: Maybe (String), description :: Maybe (String), required :: Maybe (Boolean), defaultValue :: Maybe (String) }) -> SdkConfigurationProperty
 ```
 
 Constructs SdkConfigurationProperty's fields from required parameters
@@ -5780,7 +5780,7 @@ Constructs SdkConfigurationProperty's fields from required parameters
 
 ``` purescript
 newtype SdkResponse
-  = SdkResponse { contentType :: NullOrUndefined (String), contentDisposition :: NullOrUndefined (String), body :: NullOrUndefined (String) }
+  = SdkResponse { contentType :: Maybe (String), contentDisposition :: Maybe (String), body :: Maybe (String) }
 ```
 
 <p>The binary blob response to <a>GetSdk</a>, which contains the generated SDK.</p>
@@ -5805,7 +5805,7 @@ Constructs SdkResponse from required parameters
 #### `newSdkResponse'`
 
 ``` purescript
-newSdkResponse' :: ({ contentType :: NullOrUndefined (String), contentDisposition :: NullOrUndefined (String), body :: NullOrUndefined (String) } -> { contentType :: NullOrUndefined (String), contentDisposition :: NullOrUndefined (String), body :: NullOrUndefined (String) }) -> SdkResponse
+newSdkResponse' :: ({ contentType :: Maybe (String), contentDisposition :: Maybe (String), body :: Maybe (String) } -> { contentType :: Maybe (String), contentDisposition :: Maybe (String), body :: Maybe (String) }) -> SdkResponse
 ```
 
 Constructs SdkResponse's fields from required parameters
@@ -5814,7 +5814,7 @@ Constructs SdkResponse's fields from required parameters
 
 ``` purescript
 newtype SdkType
-  = SdkType { id :: NullOrUndefined (String), friendlyName :: NullOrUndefined (String), description :: NullOrUndefined (String), configurationProperties :: NullOrUndefined (ListOfSdkConfigurationProperty) }
+  = SdkType { id :: Maybe (String), friendlyName :: Maybe (String), description :: Maybe (String), configurationProperties :: Maybe (ListOfSdkConfigurationProperty) }
 ```
 
 <p>A type of SDK that API Gateway can generate.</p>
@@ -5839,7 +5839,7 @@ Constructs SdkType from required parameters
 #### `newSdkType'`
 
 ``` purescript
-newSdkType' :: ({ id :: NullOrUndefined (String), friendlyName :: NullOrUndefined (String), description :: NullOrUndefined (String), configurationProperties :: NullOrUndefined (ListOfSdkConfigurationProperty) } -> { id :: NullOrUndefined (String), friendlyName :: NullOrUndefined (String), description :: NullOrUndefined (String), configurationProperties :: NullOrUndefined (ListOfSdkConfigurationProperty) }) -> SdkType
+newSdkType' :: ({ id :: Maybe (String), friendlyName :: Maybe (String), description :: Maybe (String), configurationProperties :: Maybe (ListOfSdkConfigurationProperty) } -> { id :: Maybe (String), friendlyName :: Maybe (String), description :: Maybe (String), configurationProperties :: Maybe (ListOfSdkConfigurationProperty) }) -> SdkType
 ```
 
 Constructs SdkType's fields from required parameters
@@ -5848,7 +5848,7 @@ Constructs SdkType's fields from required parameters
 
 ``` purescript
 newtype SdkTypes
-  = SdkTypes { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfSdkType) }
+  = SdkTypes { position :: Maybe (String), items :: Maybe (ListOfSdkType) }
 ```
 
 <p>The collection of <a>SdkType</a> instances.</p>
@@ -5873,7 +5873,7 @@ Constructs SdkTypes from required parameters
 #### `newSdkTypes'`
 
 ``` purescript
-newSdkTypes' :: ({ position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfSdkType) } -> { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfSdkType) }) -> SdkTypes
+newSdkTypes' :: ({ position :: Maybe (String), items :: Maybe (ListOfSdkType) } -> { position :: Maybe (String), items :: Maybe (ListOfSdkType) }) -> SdkTypes
 ```
 
 Constructs SdkTypes's fields from required parameters
@@ -5882,7 +5882,7 @@ Constructs SdkTypes's fields from required parameters
 
 ``` purescript
 newtype ServiceUnavailableException
-  = ServiceUnavailableException { retryAfterSeconds :: NullOrUndefined (String), message :: NullOrUndefined (String) }
+  = ServiceUnavailableException { retryAfterSeconds :: Maybe (String), message :: Maybe (String) }
 ```
 
 <p>The requested service is not available. For details see the accompanying error message. Retry after the specified time period.</p>
@@ -5907,7 +5907,7 @@ Constructs ServiceUnavailableException from required parameters
 #### `newServiceUnavailableException'`
 
 ``` purescript
-newServiceUnavailableException' :: ({ retryAfterSeconds :: NullOrUndefined (String), message :: NullOrUndefined (String) } -> { retryAfterSeconds :: NullOrUndefined (String), message :: NullOrUndefined (String) }) -> ServiceUnavailableException
+newServiceUnavailableException' :: ({ retryAfterSeconds :: Maybe (String), message :: Maybe (String) } -> { retryAfterSeconds :: Maybe (String), message :: Maybe (String) }) -> ServiceUnavailableException
 ```
 
 Constructs ServiceUnavailableException's fields from required parameters
@@ -5916,7 +5916,7 @@ Constructs ServiceUnavailableException's fields from required parameters
 
 ``` purescript
 newtype Stage
-  = Stage { deploymentId :: NullOrUndefined (String), clientCertificateId :: NullOrUndefined (String), stageName :: NullOrUndefined (String), description :: NullOrUndefined (String), cacheClusterEnabled :: NullOrUndefined (Boolean), cacheClusterSize :: NullOrUndefined (CacheClusterSize), cacheClusterStatus :: NullOrUndefined (CacheClusterStatus), methodSettings :: NullOrUndefined (MapOfMethodSettings), variables :: NullOrUndefined (MapOfStringToString), documentationVersion :: NullOrUndefined (String), accessLogSettings :: NullOrUndefined (AccessLogSettings), canarySettings :: NullOrUndefined (CanarySettings), tags :: NullOrUndefined (MapOfStringToString), createdDate :: NullOrUndefined (Timestamp), lastUpdatedDate :: NullOrUndefined (Timestamp) }
+  = Stage { deploymentId :: Maybe (String), clientCertificateId :: Maybe (String), stageName :: Maybe (String), description :: Maybe (String), cacheClusterEnabled :: Maybe (Boolean), cacheClusterSize :: Maybe (CacheClusterSize), cacheClusterStatus :: Maybe (CacheClusterStatus), methodSettings :: Maybe (MapOfMethodSettings), variables :: Maybe (MapOfStringToString), documentationVersion :: Maybe (String), accessLogSettings :: Maybe (AccessLogSettings), canarySettings :: Maybe (CanarySettings), tags :: Maybe (MapOfStringToString), createdDate :: Maybe (Timestamp), lastUpdatedDate :: Maybe (Timestamp) }
 ```
 
 <p>Represents a unique identifier for a version of a deployed <a>RestApi</a> that is callable by users.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html">Deploy an API</a> </div>
@@ -5941,7 +5941,7 @@ Constructs Stage from required parameters
 #### `newStage'`
 
 ``` purescript
-newStage' :: ({ deploymentId :: NullOrUndefined (String), clientCertificateId :: NullOrUndefined (String), stageName :: NullOrUndefined (String), description :: NullOrUndefined (String), cacheClusterEnabled :: NullOrUndefined (Boolean), cacheClusterSize :: NullOrUndefined (CacheClusterSize), cacheClusterStatus :: NullOrUndefined (CacheClusterStatus), methodSettings :: NullOrUndefined (MapOfMethodSettings), variables :: NullOrUndefined (MapOfStringToString), documentationVersion :: NullOrUndefined (String), accessLogSettings :: NullOrUndefined (AccessLogSettings), canarySettings :: NullOrUndefined (CanarySettings), tags :: NullOrUndefined (MapOfStringToString), createdDate :: NullOrUndefined (Timestamp), lastUpdatedDate :: NullOrUndefined (Timestamp) } -> { deploymentId :: NullOrUndefined (String), clientCertificateId :: NullOrUndefined (String), stageName :: NullOrUndefined (String), description :: NullOrUndefined (String), cacheClusterEnabled :: NullOrUndefined (Boolean), cacheClusterSize :: NullOrUndefined (CacheClusterSize), cacheClusterStatus :: NullOrUndefined (CacheClusterStatus), methodSettings :: NullOrUndefined (MapOfMethodSettings), variables :: NullOrUndefined (MapOfStringToString), documentationVersion :: NullOrUndefined (String), accessLogSettings :: NullOrUndefined (AccessLogSettings), canarySettings :: NullOrUndefined (CanarySettings), tags :: NullOrUndefined (MapOfStringToString), createdDate :: NullOrUndefined (Timestamp), lastUpdatedDate :: NullOrUndefined (Timestamp) }) -> Stage
+newStage' :: ({ deploymentId :: Maybe (String), clientCertificateId :: Maybe (String), stageName :: Maybe (String), description :: Maybe (String), cacheClusterEnabled :: Maybe (Boolean), cacheClusterSize :: Maybe (CacheClusterSize), cacheClusterStatus :: Maybe (CacheClusterStatus), methodSettings :: Maybe (MapOfMethodSettings), variables :: Maybe (MapOfStringToString), documentationVersion :: Maybe (String), accessLogSettings :: Maybe (AccessLogSettings), canarySettings :: Maybe (CanarySettings), tags :: Maybe (MapOfStringToString), createdDate :: Maybe (Timestamp), lastUpdatedDate :: Maybe (Timestamp) } -> { deploymentId :: Maybe (String), clientCertificateId :: Maybe (String), stageName :: Maybe (String), description :: Maybe (String), cacheClusterEnabled :: Maybe (Boolean), cacheClusterSize :: Maybe (CacheClusterSize), cacheClusterStatus :: Maybe (CacheClusterStatus), methodSettings :: Maybe (MapOfMethodSettings), variables :: Maybe (MapOfStringToString), documentationVersion :: Maybe (String), accessLogSettings :: Maybe (AccessLogSettings), canarySettings :: Maybe (CanarySettings), tags :: Maybe (MapOfStringToString), createdDate :: Maybe (Timestamp), lastUpdatedDate :: Maybe (Timestamp) }) -> Stage
 ```
 
 Constructs Stage's fields from required parameters
@@ -5950,7 +5950,7 @@ Constructs Stage's fields from required parameters
 
 ``` purescript
 newtype StageKey
-  = StageKey { restApiId :: NullOrUndefined (String), stageName :: NullOrUndefined (String) }
+  = StageKey { restApiId :: Maybe (String), stageName :: Maybe (String) }
 ```
 
 <p>A reference to a unique stage identified in the format <code>{restApiId}/{stage}</code>.</p>
@@ -5975,7 +5975,7 @@ Constructs StageKey from required parameters
 #### `newStageKey'`
 
 ``` purescript
-newStageKey' :: ({ restApiId :: NullOrUndefined (String), stageName :: NullOrUndefined (String) } -> { restApiId :: NullOrUndefined (String), stageName :: NullOrUndefined (String) }) -> StageKey
+newStageKey' :: ({ restApiId :: Maybe (String), stageName :: Maybe (String) } -> { restApiId :: Maybe (String), stageName :: Maybe (String) }) -> StageKey
 ```
 
 Constructs StageKey's fields from required parameters
@@ -5984,7 +5984,7 @@ Constructs StageKey's fields from required parameters
 
 ``` purescript
 newtype Stages
-  = Stages { item :: NullOrUndefined (ListOfStage) }
+  = Stages { item :: Maybe (ListOfStage) }
 ```
 
 <p>A list of <a>Stage</a> resources that are associated with the <a>ApiKey</a> resource.</p> <div class="seeAlso"><a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/stages.html">Deploying API in Stages</a></div>
@@ -6009,7 +6009,7 @@ Constructs Stages from required parameters
 #### `newStages'`
 
 ``` purescript
-newStages' :: ({ item :: NullOrUndefined (ListOfStage) } -> { item :: NullOrUndefined (ListOfStage) }) -> Stages
+newStages' :: ({ item :: Maybe (ListOfStage) } -> { item :: Maybe (ListOfStage) }) -> Stages
 ```
 
 Constructs Stages's fields from required parameters
@@ -6070,7 +6070,7 @@ Constructs TagResourceRequest's fields from required parameters
 
 ``` purescript
 newtype Tags
-  = Tags { tags :: NullOrUndefined (MapOfStringToString) }
+  = Tags { tags :: Maybe (MapOfStringToString) }
 ```
 
 <p>A collection of Tags associated with a given resource.</p>
@@ -6095,7 +6095,7 @@ Constructs Tags from required parameters
 #### `newTags'`
 
 ``` purescript
-newTags' :: ({ tags :: NullOrUndefined (MapOfStringToString) } -> { tags :: NullOrUndefined (MapOfStringToString) }) -> Tags
+newTags' :: ({ tags :: Maybe (MapOfStringToString) } -> { tags :: Maybe (MapOfStringToString) }) -> Tags
 ```
 
 Constructs Tags's fields from required parameters
@@ -6104,7 +6104,7 @@ Constructs Tags's fields from required parameters
 
 ``` purescript
 newtype Template
-  = Template { value :: NullOrUndefined (String) }
+  = Template { value :: Maybe (String) }
 ```
 
 <p>Represents a mapping template used to transform a payload.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-mappings">Mapping Templates</a> </div>
@@ -6129,7 +6129,7 @@ Constructs Template from required parameters
 #### `newTemplate'`
 
 ``` purescript
-newTemplate' :: ({ value :: NullOrUndefined (String) } -> { value :: NullOrUndefined (String) }) -> Template
+newTemplate' :: ({ value :: Maybe (String) } -> { value :: Maybe (String) }) -> Template
 ```
 
 Constructs Template's fields from required parameters
@@ -6138,7 +6138,7 @@ Constructs Template's fields from required parameters
 
 ``` purescript
 newtype TestInvokeAuthorizerRequest
-  = TestInvokeAuthorizerRequest { restApiId :: String, authorizerId :: String, headers :: NullOrUndefined (MapOfHeaderValues), pathWithQueryString :: NullOrUndefined (String), body :: NullOrUndefined (String), stageVariables :: NullOrUndefined (MapOfStringToString), additionalContext :: NullOrUndefined (MapOfStringToString) }
+  = TestInvokeAuthorizerRequest { restApiId :: String, authorizerId :: String, headers :: Maybe (MapOfHeaderValues), pathWithQueryString :: Maybe (String), body :: Maybe (String), stageVariables :: Maybe (MapOfStringToString), additionalContext :: Maybe (MapOfStringToString) }
 ```
 
 <p>Make a request to simulate the execution of an <a>Authorizer</a>.</p>
@@ -6163,7 +6163,7 @@ Constructs TestInvokeAuthorizerRequest from required parameters
 #### `newTestInvokeAuthorizerRequest'`
 
 ``` purescript
-newTestInvokeAuthorizerRequest' :: String -> String -> ({ restApiId :: String, authorizerId :: String, headers :: NullOrUndefined (MapOfHeaderValues), pathWithQueryString :: NullOrUndefined (String), body :: NullOrUndefined (String), stageVariables :: NullOrUndefined (MapOfStringToString), additionalContext :: NullOrUndefined (MapOfStringToString) } -> { restApiId :: String, authorizerId :: String, headers :: NullOrUndefined (MapOfHeaderValues), pathWithQueryString :: NullOrUndefined (String), body :: NullOrUndefined (String), stageVariables :: NullOrUndefined (MapOfStringToString), additionalContext :: NullOrUndefined (MapOfStringToString) }) -> TestInvokeAuthorizerRequest
+newTestInvokeAuthorizerRequest' :: String -> String -> ({ restApiId :: String, authorizerId :: String, headers :: Maybe (MapOfHeaderValues), pathWithQueryString :: Maybe (String), body :: Maybe (String), stageVariables :: Maybe (MapOfStringToString), additionalContext :: Maybe (MapOfStringToString) } -> { restApiId :: String, authorizerId :: String, headers :: Maybe (MapOfHeaderValues), pathWithQueryString :: Maybe (String), body :: Maybe (String), stageVariables :: Maybe (MapOfStringToString), additionalContext :: Maybe (MapOfStringToString) }) -> TestInvokeAuthorizerRequest
 ```
 
 Constructs TestInvokeAuthorizerRequest's fields from required parameters
@@ -6172,7 +6172,7 @@ Constructs TestInvokeAuthorizerRequest's fields from required parameters
 
 ``` purescript
 newtype TestInvokeAuthorizerResponse
-  = TestInvokeAuthorizerResponse { clientStatus :: NullOrUndefined (Int), log :: NullOrUndefined (String), latency :: NullOrUndefined (Number), principalId :: NullOrUndefined (String), policy :: NullOrUndefined (String), authorization :: NullOrUndefined (MapOfStringToList), claims :: NullOrUndefined (MapOfStringToString) }
+  = TestInvokeAuthorizerResponse { clientStatus :: Maybe (Int), log :: Maybe (String), latency :: Maybe (Number), principalId :: Maybe (String), policy :: Maybe (String), authorization :: Maybe (MapOfStringToList), claims :: Maybe (MapOfStringToString) }
 ```
 
 <p>Represents the response of the test invoke request for a custom <a>Authorizer</a></p>
@@ -6197,7 +6197,7 @@ Constructs TestInvokeAuthorizerResponse from required parameters
 #### `newTestInvokeAuthorizerResponse'`
 
 ``` purescript
-newTestInvokeAuthorizerResponse' :: ({ clientStatus :: NullOrUndefined (Int), log :: NullOrUndefined (String), latency :: NullOrUndefined (Number), principalId :: NullOrUndefined (String), policy :: NullOrUndefined (String), authorization :: NullOrUndefined (MapOfStringToList), claims :: NullOrUndefined (MapOfStringToString) } -> { clientStatus :: NullOrUndefined (Int), log :: NullOrUndefined (String), latency :: NullOrUndefined (Number), principalId :: NullOrUndefined (String), policy :: NullOrUndefined (String), authorization :: NullOrUndefined (MapOfStringToList), claims :: NullOrUndefined (MapOfStringToString) }) -> TestInvokeAuthorizerResponse
+newTestInvokeAuthorizerResponse' :: ({ clientStatus :: Maybe (Int), log :: Maybe (String), latency :: Maybe (Number), principalId :: Maybe (String), policy :: Maybe (String), authorization :: Maybe (MapOfStringToList), claims :: Maybe (MapOfStringToString) } -> { clientStatus :: Maybe (Int), log :: Maybe (String), latency :: Maybe (Number), principalId :: Maybe (String), policy :: Maybe (String), authorization :: Maybe (MapOfStringToList), claims :: Maybe (MapOfStringToString) }) -> TestInvokeAuthorizerResponse
 ```
 
 Constructs TestInvokeAuthorizerResponse's fields from required parameters
@@ -6206,7 +6206,7 @@ Constructs TestInvokeAuthorizerResponse's fields from required parameters
 
 ``` purescript
 newtype TestInvokeMethodRequest
-  = TestInvokeMethodRequest { restApiId :: String, resourceId :: String, httpMethod :: String, pathWithQueryString :: NullOrUndefined (String), body :: NullOrUndefined (String), headers :: NullOrUndefined (MapOfHeaderValues), clientCertificateId :: NullOrUndefined (String), stageVariables :: NullOrUndefined (MapOfStringToString) }
+  = TestInvokeMethodRequest { restApiId :: String, resourceId :: String, httpMethod :: String, pathWithQueryString :: Maybe (String), body :: Maybe (String), headers :: Maybe (MapOfHeaderValues), clientCertificateId :: Maybe (String), stageVariables :: Maybe (MapOfStringToString) }
 ```
 
 <p>Make a request to simulate the execution of a <a>Method</a>.</p>
@@ -6231,7 +6231,7 @@ Constructs TestInvokeMethodRequest from required parameters
 #### `newTestInvokeMethodRequest'`
 
 ``` purescript
-newTestInvokeMethodRequest' :: String -> String -> String -> ({ restApiId :: String, resourceId :: String, httpMethod :: String, pathWithQueryString :: NullOrUndefined (String), body :: NullOrUndefined (String), headers :: NullOrUndefined (MapOfHeaderValues), clientCertificateId :: NullOrUndefined (String), stageVariables :: NullOrUndefined (MapOfStringToString) } -> { restApiId :: String, resourceId :: String, httpMethod :: String, pathWithQueryString :: NullOrUndefined (String), body :: NullOrUndefined (String), headers :: NullOrUndefined (MapOfHeaderValues), clientCertificateId :: NullOrUndefined (String), stageVariables :: NullOrUndefined (MapOfStringToString) }) -> TestInvokeMethodRequest
+newTestInvokeMethodRequest' :: String -> String -> String -> ({ restApiId :: String, resourceId :: String, httpMethod :: String, pathWithQueryString :: Maybe (String), body :: Maybe (String), headers :: Maybe (MapOfHeaderValues), clientCertificateId :: Maybe (String), stageVariables :: Maybe (MapOfStringToString) } -> { restApiId :: String, resourceId :: String, httpMethod :: String, pathWithQueryString :: Maybe (String), body :: Maybe (String), headers :: Maybe (MapOfHeaderValues), clientCertificateId :: Maybe (String), stageVariables :: Maybe (MapOfStringToString) }) -> TestInvokeMethodRequest
 ```
 
 Constructs TestInvokeMethodRequest's fields from required parameters
@@ -6240,7 +6240,7 @@ Constructs TestInvokeMethodRequest's fields from required parameters
 
 ``` purescript
 newtype TestInvokeMethodResponse
-  = TestInvokeMethodResponse { status :: NullOrUndefined (Int), body :: NullOrUndefined (String), headers :: NullOrUndefined (MapOfHeaderValues), log :: NullOrUndefined (String), latency :: NullOrUndefined (Number) }
+  = TestInvokeMethodResponse { status :: Maybe (Int), body :: Maybe (String), headers :: Maybe (MapOfHeaderValues), log :: Maybe (String), latency :: Maybe (Number) }
 ```
 
 <p>Represents the response of the test invoke request in the HTTP method.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-test-method.html#how-to-test-method-console">Test API using the API Gateway console</a> </div>
@@ -6265,7 +6265,7 @@ Constructs TestInvokeMethodResponse from required parameters
 #### `newTestInvokeMethodResponse'`
 
 ``` purescript
-newTestInvokeMethodResponse' :: ({ status :: NullOrUndefined (Int), body :: NullOrUndefined (String), headers :: NullOrUndefined (MapOfHeaderValues), log :: NullOrUndefined (String), latency :: NullOrUndefined (Number) } -> { status :: NullOrUndefined (Int), body :: NullOrUndefined (String), headers :: NullOrUndefined (MapOfHeaderValues), log :: NullOrUndefined (String), latency :: NullOrUndefined (Number) }) -> TestInvokeMethodResponse
+newTestInvokeMethodResponse' :: ({ status :: Maybe (Int), body :: Maybe (String), headers :: Maybe (MapOfHeaderValues), log :: Maybe (String), latency :: Maybe (Number) } -> { status :: Maybe (Int), body :: Maybe (String), headers :: Maybe (MapOfHeaderValues), log :: Maybe (String), latency :: Maybe (Number) }) -> TestInvokeMethodResponse
 ```
 
 Constructs TestInvokeMethodResponse's fields from required parameters
@@ -6274,7 +6274,7 @@ Constructs TestInvokeMethodResponse's fields from required parameters
 
 ``` purescript
 newtype ThrottleSettings
-  = ThrottleSettings { burstLimit :: NullOrUndefined (Int), rateLimit :: NullOrUndefined (Number) }
+  = ThrottleSettings { burstLimit :: Maybe (Int), rateLimit :: Maybe (Number) }
 ```
 
 <p> The API request rate limits.</p>
@@ -6299,7 +6299,7 @@ Constructs ThrottleSettings from required parameters
 #### `newThrottleSettings'`
 
 ``` purescript
-newThrottleSettings' :: ({ burstLimit :: NullOrUndefined (Int), rateLimit :: NullOrUndefined (Number) } -> { burstLimit :: NullOrUndefined (Int), rateLimit :: NullOrUndefined (Number) }) -> ThrottleSettings
+newThrottleSettings' :: ({ burstLimit :: Maybe (Int), rateLimit :: Maybe (Number) } -> { burstLimit :: Maybe (Int), rateLimit :: Maybe (Number) }) -> ThrottleSettings
 ```
 
 Constructs ThrottleSettings's fields from required parameters
@@ -6308,7 +6308,7 @@ Constructs ThrottleSettings's fields from required parameters
 
 ``` purescript
 newtype TooManyRequestsException
-  = TooManyRequestsException { retryAfterSeconds :: NullOrUndefined (String), message :: NullOrUndefined (String) }
+  = TooManyRequestsException { retryAfterSeconds :: Maybe (String), message :: Maybe (String) }
 ```
 
 <p>The request has reached its throttling limit. Retry after the specified time period.</p>
@@ -6333,7 +6333,7 @@ Constructs TooManyRequestsException from required parameters
 #### `newTooManyRequestsException'`
 
 ``` purescript
-newTooManyRequestsException' :: ({ retryAfterSeconds :: NullOrUndefined (String), message :: NullOrUndefined (String) } -> { retryAfterSeconds :: NullOrUndefined (String), message :: NullOrUndefined (String) }) -> TooManyRequestsException
+newTooManyRequestsException' :: ({ retryAfterSeconds :: Maybe (String), message :: Maybe (String) } -> { retryAfterSeconds :: Maybe (String), message :: Maybe (String) }) -> TooManyRequestsException
 ```
 
 Constructs TooManyRequestsException's fields from required parameters
@@ -6358,7 +6358,7 @@ Encode UnauthorizedCacheControlHeaderStrategy
 
 ``` purescript
 newtype UnauthorizedException
-  = UnauthorizedException { message :: NullOrUndefined (String) }
+  = UnauthorizedException { message :: Maybe (String) }
 ```
 
 <p>The request is denied because the caller has insufficient permissions.</p>
@@ -6383,7 +6383,7 @@ Constructs UnauthorizedException from required parameters
 #### `newUnauthorizedException'`
 
 ``` purescript
-newUnauthorizedException' :: ({ message :: NullOrUndefined (String) } -> { message :: NullOrUndefined (String) }) -> UnauthorizedException
+newUnauthorizedException' :: ({ message :: Maybe (String) } -> { message :: Maybe (String) }) -> UnauthorizedException
 ```
 
 Constructs UnauthorizedException's fields from required parameters
@@ -6426,7 +6426,7 @@ Constructs UntagResourceRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateAccountRequest
-  = UpdateAccountRequest { patchOperations :: NullOrUndefined (ListOfPatchOperation) }
+  = UpdateAccountRequest { patchOperations :: Maybe (ListOfPatchOperation) }
 ```
 
 <p>Requests API Gateway to change information about the current <a>Account</a> resource.</p>
@@ -6451,7 +6451,7 @@ Constructs UpdateAccountRequest from required parameters
 #### `newUpdateAccountRequest'`
 
 ``` purescript
-newUpdateAccountRequest' :: ({ patchOperations :: NullOrUndefined (ListOfPatchOperation) } -> { patchOperations :: NullOrUndefined (ListOfPatchOperation) }) -> UpdateAccountRequest
+newUpdateAccountRequest' :: ({ patchOperations :: Maybe (ListOfPatchOperation) } -> { patchOperations :: Maybe (ListOfPatchOperation) }) -> UpdateAccountRequest
 ```
 
 Constructs UpdateAccountRequest's fields from required parameters
@@ -6460,7 +6460,7 @@ Constructs UpdateAccountRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateApiKeyRequest
-  = UpdateApiKeyRequest { apiKey :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }
+  = UpdateApiKeyRequest { apiKey :: String, patchOperations :: Maybe (ListOfPatchOperation) }
 ```
 
 <p>A request to change information about an <a>ApiKey</a> resource.</p>
@@ -6485,7 +6485,7 @@ Constructs UpdateApiKeyRequest from required parameters
 #### `newUpdateApiKeyRequest'`
 
 ``` purescript
-newUpdateApiKeyRequest' :: String -> ({ apiKey :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) } -> { apiKey :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }) -> UpdateApiKeyRequest
+newUpdateApiKeyRequest' :: String -> ({ apiKey :: String, patchOperations :: Maybe (ListOfPatchOperation) } -> { apiKey :: String, patchOperations :: Maybe (ListOfPatchOperation) }) -> UpdateApiKeyRequest
 ```
 
 Constructs UpdateApiKeyRequest's fields from required parameters
@@ -6494,7 +6494,7 @@ Constructs UpdateApiKeyRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateAuthorizerRequest
-  = UpdateAuthorizerRequest { restApiId :: String, authorizerId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }
+  = UpdateAuthorizerRequest { restApiId :: String, authorizerId :: String, patchOperations :: Maybe (ListOfPatchOperation) }
 ```
 
 <p>Request to update an existing <a>Authorizer</a> resource.</p>
@@ -6519,7 +6519,7 @@ Constructs UpdateAuthorizerRequest from required parameters
 #### `newUpdateAuthorizerRequest'`
 
 ``` purescript
-newUpdateAuthorizerRequest' :: String -> String -> ({ restApiId :: String, authorizerId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) } -> { restApiId :: String, authorizerId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }) -> UpdateAuthorizerRequest
+newUpdateAuthorizerRequest' :: String -> String -> ({ restApiId :: String, authorizerId :: String, patchOperations :: Maybe (ListOfPatchOperation) } -> { restApiId :: String, authorizerId :: String, patchOperations :: Maybe (ListOfPatchOperation) }) -> UpdateAuthorizerRequest
 ```
 
 Constructs UpdateAuthorizerRequest's fields from required parameters
@@ -6528,7 +6528,7 @@ Constructs UpdateAuthorizerRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateBasePathMappingRequest
-  = UpdateBasePathMappingRequest { domainName :: String, basePath :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }
+  = UpdateBasePathMappingRequest { domainName :: String, basePath :: String, patchOperations :: Maybe (ListOfPatchOperation) }
 ```
 
 <p>A request to change information about the <a>BasePathMapping</a> resource.</p>
@@ -6553,7 +6553,7 @@ Constructs UpdateBasePathMappingRequest from required parameters
 #### `newUpdateBasePathMappingRequest'`
 
 ``` purescript
-newUpdateBasePathMappingRequest' :: String -> String -> ({ domainName :: String, basePath :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) } -> { domainName :: String, basePath :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }) -> UpdateBasePathMappingRequest
+newUpdateBasePathMappingRequest' :: String -> String -> ({ domainName :: String, basePath :: String, patchOperations :: Maybe (ListOfPatchOperation) } -> { domainName :: String, basePath :: String, patchOperations :: Maybe (ListOfPatchOperation) }) -> UpdateBasePathMappingRequest
 ```
 
 Constructs UpdateBasePathMappingRequest's fields from required parameters
@@ -6562,7 +6562,7 @@ Constructs UpdateBasePathMappingRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateClientCertificateRequest
-  = UpdateClientCertificateRequest { clientCertificateId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }
+  = UpdateClientCertificateRequest { clientCertificateId :: String, patchOperations :: Maybe (ListOfPatchOperation) }
 ```
 
 <p>A request to change information about an <a>ClientCertificate</a> resource.</p>
@@ -6587,7 +6587,7 @@ Constructs UpdateClientCertificateRequest from required parameters
 #### `newUpdateClientCertificateRequest'`
 
 ``` purescript
-newUpdateClientCertificateRequest' :: String -> ({ clientCertificateId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) } -> { clientCertificateId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }) -> UpdateClientCertificateRequest
+newUpdateClientCertificateRequest' :: String -> ({ clientCertificateId :: String, patchOperations :: Maybe (ListOfPatchOperation) } -> { clientCertificateId :: String, patchOperations :: Maybe (ListOfPatchOperation) }) -> UpdateClientCertificateRequest
 ```
 
 Constructs UpdateClientCertificateRequest's fields from required parameters
@@ -6596,7 +6596,7 @@ Constructs UpdateClientCertificateRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateDeploymentRequest
-  = UpdateDeploymentRequest { restApiId :: String, deploymentId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }
+  = UpdateDeploymentRequest { restApiId :: String, deploymentId :: String, patchOperations :: Maybe (ListOfPatchOperation) }
 ```
 
 <p>Requests API Gateway to change information about a <a>Deployment</a> resource.</p>
@@ -6621,7 +6621,7 @@ Constructs UpdateDeploymentRequest from required parameters
 #### `newUpdateDeploymentRequest'`
 
 ``` purescript
-newUpdateDeploymentRequest' :: String -> String -> ({ restApiId :: String, deploymentId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) } -> { restApiId :: String, deploymentId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }) -> UpdateDeploymentRequest
+newUpdateDeploymentRequest' :: String -> String -> ({ restApiId :: String, deploymentId :: String, patchOperations :: Maybe (ListOfPatchOperation) } -> { restApiId :: String, deploymentId :: String, patchOperations :: Maybe (ListOfPatchOperation) }) -> UpdateDeploymentRequest
 ```
 
 Constructs UpdateDeploymentRequest's fields from required parameters
@@ -6630,7 +6630,7 @@ Constructs UpdateDeploymentRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateDocumentationPartRequest
-  = UpdateDocumentationPartRequest { restApiId :: String, documentationPartId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }
+  = UpdateDocumentationPartRequest { restApiId :: String, documentationPartId :: String, patchOperations :: Maybe (ListOfPatchOperation) }
 ```
 
 <p>Updates an existing documentation part of a given API.</p>
@@ -6655,7 +6655,7 @@ Constructs UpdateDocumentationPartRequest from required parameters
 #### `newUpdateDocumentationPartRequest'`
 
 ``` purescript
-newUpdateDocumentationPartRequest' :: String -> String -> ({ restApiId :: String, documentationPartId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) } -> { restApiId :: String, documentationPartId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }) -> UpdateDocumentationPartRequest
+newUpdateDocumentationPartRequest' :: String -> String -> ({ restApiId :: String, documentationPartId :: String, patchOperations :: Maybe (ListOfPatchOperation) } -> { restApiId :: String, documentationPartId :: String, patchOperations :: Maybe (ListOfPatchOperation) }) -> UpdateDocumentationPartRequest
 ```
 
 Constructs UpdateDocumentationPartRequest's fields from required parameters
@@ -6664,7 +6664,7 @@ Constructs UpdateDocumentationPartRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateDocumentationVersionRequest
-  = UpdateDocumentationVersionRequest { restApiId :: String, documentationVersion :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }
+  = UpdateDocumentationVersionRequest { restApiId :: String, documentationVersion :: String, patchOperations :: Maybe (ListOfPatchOperation) }
 ```
 
 <p>Updates an existing documentation version of an API.</p>
@@ -6689,7 +6689,7 @@ Constructs UpdateDocumentationVersionRequest from required parameters
 #### `newUpdateDocumentationVersionRequest'`
 
 ``` purescript
-newUpdateDocumentationVersionRequest' :: String -> String -> ({ restApiId :: String, documentationVersion :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) } -> { restApiId :: String, documentationVersion :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }) -> UpdateDocumentationVersionRequest
+newUpdateDocumentationVersionRequest' :: String -> String -> ({ restApiId :: String, documentationVersion :: String, patchOperations :: Maybe (ListOfPatchOperation) } -> { restApiId :: String, documentationVersion :: String, patchOperations :: Maybe (ListOfPatchOperation) }) -> UpdateDocumentationVersionRequest
 ```
 
 Constructs UpdateDocumentationVersionRequest's fields from required parameters
@@ -6698,7 +6698,7 @@ Constructs UpdateDocumentationVersionRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateDomainNameRequest
-  = UpdateDomainNameRequest { domainName :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }
+  = UpdateDomainNameRequest { domainName :: String, patchOperations :: Maybe (ListOfPatchOperation) }
 ```
 
 <p>A request to change information about the <a>DomainName</a> resource.</p>
@@ -6723,7 +6723,7 @@ Constructs UpdateDomainNameRequest from required parameters
 #### `newUpdateDomainNameRequest'`
 
 ``` purescript
-newUpdateDomainNameRequest' :: String -> ({ domainName :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) } -> { domainName :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }) -> UpdateDomainNameRequest
+newUpdateDomainNameRequest' :: String -> ({ domainName :: String, patchOperations :: Maybe (ListOfPatchOperation) } -> { domainName :: String, patchOperations :: Maybe (ListOfPatchOperation) }) -> UpdateDomainNameRequest
 ```
 
 Constructs UpdateDomainNameRequest's fields from required parameters
@@ -6732,7 +6732,7 @@ Constructs UpdateDomainNameRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateGatewayResponseRequest
-  = UpdateGatewayResponseRequest { restApiId :: String, responseType :: GatewayResponseType, patchOperations :: NullOrUndefined (ListOfPatchOperation) }
+  = UpdateGatewayResponseRequest { restApiId :: String, responseType :: GatewayResponseType, patchOperations :: Maybe (ListOfPatchOperation) }
 ```
 
 <p>Updates a <a>GatewayResponse</a> of a specified response type on the given <a>RestApi</a>.</p>
@@ -6757,7 +6757,7 @@ Constructs UpdateGatewayResponseRequest from required parameters
 #### `newUpdateGatewayResponseRequest'`
 
 ``` purescript
-newUpdateGatewayResponseRequest' :: GatewayResponseType -> String -> ({ restApiId :: String, responseType :: GatewayResponseType, patchOperations :: NullOrUndefined (ListOfPatchOperation) } -> { restApiId :: String, responseType :: GatewayResponseType, patchOperations :: NullOrUndefined (ListOfPatchOperation) }) -> UpdateGatewayResponseRequest
+newUpdateGatewayResponseRequest' :: GatewayResponseType -> String -> ({ restApiId :: String, responseType :: GatewayResponseType, patchOperations :: Maybe (ListOfPatchOperation) } -> { restApiId :: String, responseType :: GatewayResponseType, patchOperations :: Maybe (ListOfPatchOperation) }) -> UpdateGatewayResponseRequest
 ```
 
 Constructs UpdateGatewayResponseRequest's fields from required parameters
@@ -6766,7 +6766,7 @@ Constructs UpdateGatewayResponseRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateIntegrationRequest
-  = UpdateIntegrationRequest { restApiId :: String, resourceId :: String, httpMethod :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }
+  = UpdateIntegrationRequest { restApiId :: String, resourceId :: String, httpMethod :: String, patchOperations :: Maybe (ListOfPatchOperation) }
 ```
 
 <p>Represents an update integration request.</p>
@@ -6791,7 +6791,7 @@ Constructs UpdateIntegrationRequest from required parameters
 #### `newUpdateIntegrationRequest'`
 
 ``` purescript
-newUpdateIntegrationRequest' :: String -> String -> String -> ({ restApiId :: String, resourceId :: String, httpMethod :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) } -> { restApiId :: String, resourceId :: String, httpMethod :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }) -> UpdateIntegrationRequest
+newUpdateIntegrationRequest' :: String -> String -> String -> ({ restApiId :: String, resourceId :: String, httpMethod :: String, patchOperations :: Maybe (ListOfPatchOperation) } -> { restApiId :: String, resourceId :: String, httpMethod :: String, patchOperations :: Maybe (ListOfPatchOperation) }) -> UpdateIntegrationRequest
 ```
 
 Constructs UpdateIntegrationRequest's fields from required parameters
@@ -6800,7 +6800,7 @@ Constructs UpdateIntegrationRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateIntegrationResponseRequest
-  = UpdateIntegrationResponseRequest { restApiId :: String, resourceId :: String, httpMethod :: String, statusCode :: StatusCode, patchOperations :: NullOrUndefined (ListOfPatchOperation) }
+  = UpdateIntegrationResponseRequest { restApiId :: String, resourceId :: String, httpMethod :: String, statusCode :: StatusCode, patchOperations :: Maybe (ListOfPatchOperation) }
 ```
 
 <p>Represents an update integration response request.</p>
@@ -6825,7 +6825,7 @@ Constructs UpdateIntegrationResponseRequest from required parameters
 #### `newUpdateIntegrationResponseRequest'`
 
 ``` purescript
-newUpdateIntegrationResponseRequest' :: String -> String -> String -> StatusCode -> ({ restApiId :: String, resourceId :: String, httpMethod :: String, statusCode :: StatusCode, patchOperations :: NullOrUndefined (ListOfPatchOperation) } -> { restApiId :: String, resourceId :: String, httpMethod :: String, statusCode :: StatusCode, patchOperations :: NullOrUndefined (ListOfPatchOperation) }) -> UpdateIntegrationResponseRequest
+newUpdateIntegrationResponseRequest' :: String -> String -> String -> StatusCode -> ({ restApiId :: String, resourceId :: String, httpMethod :: String, statusCode :: StatusCode, patchOperations :: Maybe (ListOfPatchOperation) } -> { restApiId :: String, resourceId :: String, httpMethod :: String, statusCode :: StatusCode, patchOperations :: Maybe (ListOfPatchOperation) }) -> UpdateIntegrationResponseRequest
 ```
 
 Constructs UpdateIntegrationResponseRequest's fields from required parameters
@@ -6834,7 +6834,7 @@ Constructs UpdateIntegrationResponseRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateMethodRequest
-  = UpdateMethodRequest { restApiId :: String, resourceId :: String, httpMethod :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }
+  = UpdateMethodRequest { restApiId :: String, resourceId :: String, httpMethod :: String, patchOperations :: Maybe (ListOfPatchOperation) }
 ```
 
 <p>Request to update an existing <a>Method</a> resource.</p>
@@ -6859,7 +6859,7 @@ Constructs UpdateMethodRequest from required parameters
 #### `newUpdateMethodRequest'`
 
 ``` purescript
-newUpdateMethodRequest' :: String -> String -> String -> ({ restApiId :: String, resourceId :: String, httpMethod :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) } -> { restApiId :: String, resourceId :: String, httpMethod :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }) -> UpdateMethodRequest
+newUpdateMethodRequest' :: String -> String -> String -> ({ restApiId :: String, resourceId :: String, httpMethod :: String, patchOperations :: Maybe (ListOfPatchOperation) } -> { restApiId :: String, resourceId :: String, httpMethod :: String, patchOperations :: Maybe (ListOfPatchOperation) }) -> UpdateMethodRequest
 ```
 
 Constructs UpdateMethodRequest's fields from required parameters
@@ -6868,7 +6868,7 @@ Constructs UpdateMethodRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateMethodResponseRequest
-  = UpdateMethodResponseRequest { restApiId :: String, resourceId :: String, httpMethod :: String, statusCode :: StatusCode, patchOperations :: NullOrUndefined (ListOfPatchOperation) }
+  = UpdateMethodResponseRequest { restApiId :: String, resourceId :: String, httpMethod :: String, statusCode :: StatusCode, patchOperations :: Maybe (ListOfPatchOperation) }
 ```
 
 <p>A request to update an existing <a>MethodResponse</a> resource.</p>
@@ -6893,7 +6893,7 @@ Constructs UpdateMethodResponseRequest from required parameters
 #### `newUpdateMethodResponseRequest'`
 
 ``` purescript
-newUpdateMethodResponseRequest' :: String -> String -> String -> StatusCode -> ({ restApiId :: String, resourceId :: String, httpMethod :: String, statusCode :: StatusCode, patchOperations :: NullOrUndefined (ListOfPatchOperation) } -> { restApiId :: String, resourceId :: String, httpMethod :: String, statusCode :: StatusCode, patchOperations :: NullOrUndefined (ListOfPatchOperation) }) -> UpdateMethodResponseRequest
+newUpdateMethodResponseRequest' :: String -> String -> String -> StatusCode -> ({ restApiId :: String, resourceId :: String, httpMethod :: String, statusCode :: StatusCode, patchOperations :: Maybe (ListOfPatchOperation) } -> { restApiId :: String, resourceId :: String, httpMethod :: String, statusCode :: StatusCode, patchOperations :: Maybe (ListOfPatchOperation) }) -> UpdateMethodResponseRequest
 ```
 
 Constructs UpdateMethodResponseRequest's fields from required parameters
@@ -6902,7 +6902,7 @@ Constructs UpdateMethodResponseRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateModelRequest
-  = UpdateModelRequest { restApiId :: String, modelName :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }
+  = UpdateModelRequest { restApiId :: String, modelName :: String, patchOperations :: Maybe (ListOfPatchOperation) }
 ```
 
 <p>Request to update an existing model in an existing <a>RestApi</a> resource.</p>
@@ -6927,7 +6927,7 @@ Constructs UpdateModelRequest from required parameters
 #### `newUpdateModelRequest'`
 
 ``` purescript
-newUpdateModelRequest' :: String -> String -> ({ restApiId :: String, modelName :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) } -> { restApiId :: String, modelName :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }) -> UpdateModelRequest
+newUpdateModelRequest' :: String -> String -> ({ restApiId :: String, modelName :: String, patchOperations :: Maybe (ListOfPatchOperation) } -> { restApiId :: String, modelName :: String, patchOperations :: Maybe (ListOfPatchOperation) }) -> UpdateModelRequest
 ```
 
 Constructs UpdateModelRequest's fields from required parameters
@@ -6936,7 +6936,7 @@ Constructs UpdateModelRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateRequestValidatorRequest
-  = UpdateRequestValidatorRequest { restApiId :: String, requestValidatorId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }
+  = UpdateRequestValidatorRequest { restApiId :: String, requestValidatorId :: String, patchOperations :: Maybe (ListOfPatchOperation) }
 ```
 
 <p>Updates a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
@@ -6961,7 +6961,7 @@ Constructs UpdateRequestValidatorRequest from required parameters
 #### `newUpdateRequestValidatorRequest'`
 
 ``` purescript
-newUpdateRequestValidatorRequest' :: String -> String -> ({ restApiId :: String, requestValidatorId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) } -> { restApiId :: String, requestValidatorId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }) -> UpdateRequestValidatorRequest
+newUpdateRequestValidatorRequest' :: String -> String -> ({ restApiId :: String, requestValidatorId :: String, patchOperations :: Maybe (ListOfPatchOperation) } -> { restApiId :: String, requestValidatorId :: String, patchOperations :: Maybe (ListOfPatchOperation) }) -> UpdateRequestValidatorRequest
 ```
 
 Constructs UpdateRequestValidatorRequest's fields from required parameters
@@ -6970,7 +6970,7 @@ Constructs UpdateRequestValidatorRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateResourceRequest
-  = UpdateResourceRequest { restApiId :: String, resourceId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }
+  = UpdateResourceRequest { restApiId :: String, resourceId :: String, patchOperations :: Maybe (ListOfPatchOperation) }
 ```
 
 <p>Request to change information about a <a>Resource</a> resource.</p>
@@ -6995,7 +6995,7 @@ Constructs UpdateResourceRequest from required parameters
 #### `newUpdateResourceRequest'`
 
 ``` purescript
-newUpdateResourceRequest' :: String -> String -> ({ restApiId :: String, resourceId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) } -> { restApiId :: String, resourceId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }) -> UpdateResourceRequest
+newUpdateResourceRequest' :: String -> String -> ({ restApiId :: String, resourceId :: String, patchOperations :: Maybe (ListOfPatchOperation) } -> { restApiId :: String, resourceId :: String, patchOperations :: Maybe (ListOfPatchOperation) }) -> UpdateResourceRequest
 ```
 
 Constructs UpdateResourceRequest's fields from required parameters
@@ -7004,7 +7004,7 @@ Constructs UpdateResourceRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateRestApiRequest
-  = UpdateRestApiRequest { restApiId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }
+  = UpdateRestApiRequest { restApiId :: String, patchOperations :: Maybe (ListOfPatchOperation) }
 ```
 
 <p>Request to update an existing <a>RestApi</a> resource in your collection.</p>
@@ -7029,7 +7029,7 @@ Constructs UpdateRestApiRequest from required parameters
 #### `newUpdateRestApiRequest'`
 
 ``` purescript
-newUpdateRestApiRequest' :: String -> ({ restApiId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) } -> { restApiId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }) -> UpdateRestApiRequest
+newUpdateRestApiRequest' :: String -> ({ restApiId :: String, patchOperations :: Maybe (ListOfPatchOperation) } -> { restApiId :: String, patchOperations :: Maybe (ListOfPatchOperation) }) -> UpdateRestApiRequest
 ```
 
 Constructs UpdateRestApiRequest's fields from required parameters
@@ -7038,7 +7038,7 @@ Constructs UpdateRestApiRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateStageRequest
-  = UpdateStageRequest { restApiId :: String, stageName :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }
+  = UpdateStageRequest { restApiId :: String, stageName :: String, patchOperations :: Maybe (ListOfPatchOperation) }
 ```
 
 <p>Requests API Gateway to change information about a <a>Stage</a> resource.</p>
@@ -7063,7 +7063,7 @@ Constructs UpdateStageRequest from required parameters
 #### `newUpdateStageRequest'`
 
 ``` purescript
-newUpdateStageRequest' :: String -> String -> ({ restApiId :: String, stageName :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) } -> { restApiId :: String, stageName :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }) -> UpdateStageRequest
+newUpdateStageRequest' :: String -> String -> ({ restApiId :: String, stageName :: String, patchOperations :: Maybe (ListOfPatchOperation) } -> { restApiId :: String, stageName :: String, patchOperations :: Maybe (ListOfPatchOperation) }) -> UpdateStageRequest
 ```
 
 Constructs UpdateStageRequest's fields from required parameters
@@ -7072,7 +7072,7 @@ Constructs UpdateStageRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateUsagePlanRequest
-  = UpdateUsagePlanRequest { usagePlanId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }
+  = UpdateUsagePlanRequest { usagePlanId :: String, patchOperations :: Maybe (ListOfPatchOperation) }
 ```
 
 <p>The PATCH request to update a usage plan of a given plan Id.</p>
@@ -7097,7 +7097,7 @@ Constructs UpdateUsagePlanRequest from required parameters
 #### `newUpdateUsagePlanRequest'`
 
 ``` purescript
-newUpdateUsagePlanRequest' :: String -> ({ usagePlanId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) } -> { usagePlanId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }) -> UpdateUsagePlanRequest
+newUpdateUsagePlanRequest' :: String -> ({ usagePlanId :: String, patchOperations :: Maybe (ListOfPatchOperation) } -> { usagePlanId :: String, patchOperations :: Maybe (ListOfPatchOperation) }) -> UpdateUsagePlanRequest
 ```
 
 Constructs UpdateUsagePlanRequest's fields from required parameters
@@ -7106,7 +7106,7 @@ Constructs UpdateUsagePlanRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateUsageRequest
-  = UpdateUsageRequest { usagePlanId :: String, keyId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }
+  = UpdateUsageRequest { usagePlanId :: String, keyId :: String, patchOperations :: Maybe (ListOfPatchOperation) }
 ```
 
 <p>The PATCH request to grant a temporary extension to the remaining quota of a usage plan associated with a specified API key.</p>
@@ -7131,7 +7131,7 @@ Constructs UpdateUsageRequest from required parameters
 #### `newUpdateUsageRequest'`
 
 ``` purescript
-newUpdateUsageRequest' :: String -> String -> ({ usagePlanId :: String, keyId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) } -> { usagePlanId :: String, keyId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }) -> UpdateUsageRequest
+newUpdateUsageRequest' :: String -> String -> ({ usagePlanId :: String, keyId :: String, patchOperations :: Maybe (ListOfPatchOperation) } -> { usagePlanId :: String, keyId :: String, patchOperations :: Maybe (ListOfPatchOperation) }) -> UpdateUsageRequest
 ```
 
 Constructs UpdateUsageRequest's fields from required parameters
@@ -7140,7 +7140,7 @@ Constructs UpdateUsageRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateVpcLinkRequest
-  = UpdateVpcLinkRequest { vpcLinkId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }
+  = UpdateVpcLinkRequest { vpcLinkId :: String, patchOperations :: Maybe (ListOfPatchOperation) }
 ```
 
 <p>Updates an existing <a>VpcLink</a> of a specified identifier.</p>
@@ -7165,7 +7165,7 @@ Constructs UpdateVpcLinkRequest from required parameters
 #### `newUpdateVpcLinkRequest'`
 
 ``` purescript
-newUpdateVpcLinkRequest' :: String -> ({ vpcLinkId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) } -> { vpcLinkId :: String, patchOperations :: NullOrUndefined (ListOfPatchOperation) }) -> UpdateVpcLinkRequest
+newUpdateVpcLinkRequest' :: String -> ({ vpcLinkId :: String, patchOperations :: Maybe (ListOfPatchOperation) } -> { vpcLinkId :: String, patchOperations :: Maybe (ListOfPatchOperation) }) -> UpdateVpcLinkRequest
 ```
 
 Constructs UpdateVpcLinkRequest's fields from required parameters
@@ -7174,7 +7174,7 @@ Constructs UpdateVpcLinkRequest's fields from required parameters
 
 ``` purescript
 newtype Usage
-  = Usage { usagePlanId :: NullOrUndefined (String), startDate :: NullOrUndefined (String), endDate :: NullOrUndefined (String), position :: NullOrUndefined (String), items :: NullOrUndefined (MapOfKeyUsages) }
+  = Usage { usagePlanId :: Maybe (String), startDate :: Maybe (String), endDate :: Maybe (String), position :: Maybe (String), items :: Maybe (MapOfKeyUsages) }
 ```
 
 <p>Represents the usage data of a usage plan.</p> <div class="remarks"/> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html">Create and Use Usage Plans</a>, <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-usage-plans-with-console.html#api-gateway-usage-plan-manage-usage">Manage Usage in a Usage Plan</a> </div>
@@ -7199,7 +7199,7 @@ Constructs Usage from required parameters
 #### `newUsage'`
 
 ``` purescript
-newUsage' :: ({ usagePlanId :: NullOrUndefined (String), startDate :: NullOrUndefined (String), endDate :: NullOrUndefined (String), position :: NullOrUndefined (String), items :: NullOrUndefined (MapOfKeyUsages) } -> { usagePlanId :: NullOrUndefined (String), startDate :: NullOrUndefined (String), endDate :: NullOrUndefined (String), position :: NullOrUndefined (String), items :: NullOrUndefined (MapOfKeyUsages) }) -> Usage
+newUsage' :: ({ usagePlanId :: Maybe (String), startDate :: Maybe (String), endDate :: Maybe (String), position :: Maybe (String), items :: Maybe (MapOfKeyUsages) } -> { usagePlanId :: Maybe (String), startDate :: Maybe (String), endDate :: Maybe (String), position :: Maybe (String), items :: Maybe (MapOfKeyUsages) }) -> Usage
 ```
 
 Constructs Usage's fields from required parameters
@@ -7208,7 +7208,7 @@ Constructs Usage's fields from required parameters
 
 ``` purescript
 newtype UsagePlan
-  = UsagePlan { id :: NullOrUndefined (String), name :: NullOrUndefined (String), description :: NullOrUndefined (String), apiStages :: NullOrUndefined (ListOfApiStage), throttle :: NullOrUndefined (ThrottleSettings), quota :: NullOrUndefined (QuotaSettings), productCode :: NullOrUndefined (String) }
+  = UsagePlan { id :: Maybe (String), name :: Maybe (String), description :: Maybe (String), apiStages :: Maybe (ListOfApiStage), throttle :: Maybe (ThrottleSettings), quota :: Maybe (QuotaSettings), productCode :: Maybe (String) }
 ```
 
 <p>Represents a usage plan than can specify who can assess associated API stages with specified request limits and quotas.</p> <div class="remarks"> <p>In a usage plan, you associate an API by specifying the API's Id and a stage name of the specified API. You add plan customers by adding API keys to the plan. </p> </div> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html">Create and Use Usage Plans</a> </div>
@@ -7233,7 +7233,7 @@ Constructs UsagePlan from required parameters
 #### `newUsagePlan'`
 
 ``` purescript
-newUsagePlan' :: ({ id :: NullOrUndefined (String), name :: NullOrUndefined (String), description :: NullOrUndefined (String), apiStages :: NullOrUndefined (ListOfApiStage), throttle :: NullOrUndefined (ThrottleSettings), quota :: NullOrUndefined (QuotaSettings), productCode :: NullOrUndefined (String) } -> { id :: NullOrUndefined (String), name :: NullOrUndefined (String), description :: NullOrUndefined (String), apiStages :: NullOrUndefined (ListOfApiStage), throttle :: NullOrUndefined (ThrottleSettings), quota :: NullOrUndefined (QuotaSettings), productCode :: NullOrUndefined (String) }) -> UsagePlan
+newUsagePlan' :: ({ id :: Maybe (String), name :: Maybe (String), description :: Maybe (String), apiStages :: Maybe (ListOfApiStage), throttle :: Maybe (ThrottleSettings), quota :: Maybe (QuotaSettings), productCode :: Maybe (String) } -> { id :: Maybe (String), name :: Maybe (String), description :: Maybe (String), apiStages :: Maybe (ListOfApiStage), throttle :: Maybe (ThrottleSettings), quota :: Maybe (QuotaSettings), productCode :: Maybe (String) }) -> UsagePlan
 ```
 
 Constructs UsagePlan's fields from required parameters
@@ -7242,7 +7242,7 @@ Constructs UsagePlan's fields from required parameters
 
 ``` purescript
 newtype UsagePlanKey
-  = UsagePlanKey { id :: NullOrUndefined (String), "type" :: NullOrUndefined (String), value :: NullOrUndefined (String), name :: NullOrUndefined (String) }
+  = UsagePlanKey { id :: Maybe (String), "type" :: Maybe (String), value :: Maybe (String), name :: Maybe (String) }
 ```
 
 <p>Represents a usage plan key to identify a plan customer.</p> <div class="remarks"> <p>To associate an API stage with a selected API key in a usage plan, you must create a UsagePlanKey resource to represent the selected <a>ApiKey</a>.</p> </div>" <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html">Create and Use Usage Plans</a> </div>
@@ -7267,7 +7267,7 @@ Constructs UsagePlanKey from required parameters
 #### `newUsagePlanKey'`
 
 ``` purescript
-newUsagePlanKey' :: ({ id :: NullOrUndefined (String), "type" :: NullOrUndefined (String), value :: NullOrUndefined (String), name :: NullOrUndefined (String) } -> { id :: NullOrUndefined (String), "type" :: NullOrUndefined (String), value :: NullOrUndefined (String), name :: NullOrUndefined (String) }) -> UsagePlanKey
+newUsagePlanKey' :: ({ id :: Maybe (String), "type" :: Maybe (String), value :: Maybe (String), name :: Maybe (String) } -> { id :: Maybe (String), "type" :: Maybe (String), value :: Maybe (String), name :: Maybe (String) }) -> UsagePlanKey
 ```
 
 Constructs UsagePlanKey's fields from required parameters
@@ -7276,7 +7276,7 @@ Constructs UsagePlanKey's fields from required parameters
 
 ``` purescript
 newtype UsagePlanKeys
-  = UsagePlanKeys { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfUsagePlanKey) }
+  = UsagePlanKeys { position :: Maybe (String), items :: Maybe (ListOfUsagePlanKey) }
 ```
 
 <p>Represents the collection of usage plan keys added to usage plans for the associated API keys and, possibly, other types of keys.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html">Create and Use Usage Plans</a> </div>
@@ -7301,7 +7301,7 @@ Constructs UsagePlanKeys from required parameters
 #### `newUsagePlanKeys'`
 
 ``` purescript
-newUsagePlanKeys' :: ({ position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfUsagePlanKey) } -> { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfUsagePlanKey) }) -> UsagePlanKeys
+newUsagePlanKeys' :: ({ position :: Maybe (String), items :: Maybe (ListOfUsagePlanKey) } -> { position :: Maybe (String), items :: Maybe (ListOfUsagePlanKey) }) -> UsagePlanKeys
 ```
 
 Constructs UsagePlanKeys's fields from required parameters
@@ -7310,7 +7310,7 @@ Constructs UsagePlanKeys's fields from required parameters
 
 ``` purescript
 newtype UsagePlans
-  = UsagePlans { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfUsagePlan) }
+  = UsagePlans { position :: Maybe (String), items :: Maybe (ListOfUsagePlan) }
 ```
 
 <p>Represents a collection of usage plans for an AWS account.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html">Create and Use Usage Plans</a> </div>
@@ -7335,7 +7335,7 @@ Constructs UsagePlans from required parameters
 #### `newUsagePlans'`
 
 ``` purescript
-newUsagePlans' :: ({ position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfUsagePlan) } -> { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfUsagePlan) }) -> UsagePlans
+newUsagePlans' :: ({ position :: Maybe (String), items :: Maybe (ListOfUsagePlan) } -> { position :: Maybe (String), items :: Maybe (ListOfUsagePlan) }) -> UsagePlans
 ```
 
 Constructs UsagePlans's fields from required parameters
@@ -7344,7 +7344,7 @@ Constructs UsagePlans's fields from required parameters
 
 ``` purescript
 newtype VpcLink
-  = VpcLink { id :: NullOrUndefined (String), name :: NullOrUndefined (String), description :: NullOrUndefined (String), targetArns :: NullOrUndefined (ListOfString), status :: NullOrUndefined (VpcLinkStatus), statusMessage :: NullOrUndefined (String) }
+  = VpcLink { id :: Maybe (String), name :: Maybe (String), description :: Maybe (String), targetArns :: Maybe (ListOfString), status :: Maybe (VpcLinkStatus), statusMessage :: Maybe (String) }
 ```
 
 <p>A API Gateway VPC link for a <a>RestApi</a> to access resources in an Amazon Virtual Private Cloud (VPC).</p> <div class="remarks"> <p><p>To enable access to a resource in an Amazon Virtual Private Cloud through Amazon API Gateway, you, as an API developer, create a <a>VpcLink</a> resource targeted for one or more network load balancers of the VPC and then integrate an API method with a private integration that uses the <a>VpcLink</a>. The private integration has an integration type of <code>HTTP</code> or <code>HTTP_PROXY</code> and has a connection type of <code>VPC_LINK</code>. The integration uses the <code>connectionId</code> property to identify the <a>VpcLink</a> used.</p> </p> </div>
@@ -7369,7 +7369,7 @@ Constructs VpcLink from required parameters
 #### `newVpcLink'`
 
 ``` purescript
-newVpcLink' :: ({ id :: NullOrUndefined (String), name :: NullOrUndefined (String), description :: NullOrUndefined (String), targetArns :: NullOrUndefined (ListOfString), status :: NullOrUndefined (VpcLinkStatus), statusMessage :: NullOrUndefined (String) } -> { id :: NullOrUndefined (String), name :: NullOrUndefined (String), description :: NullOrUndefined (String), targetArns :: NullOrUndefined (ListOfString), status :: NullOrUndefined (VpcLinkStatus), statusMessage :: NullOrUndefined (String) }) -> VpcLink
+newVpcLink' :: ({ id :: Maybe (String), name :: Maybe (String), description :: Maybe (String), targetArns :: Maybe (ListOfString), status :: Maybe (VpcLinkStatus), statusMessage :: Maybe (String) } -> { id :: Maybe (String), name :: Maybe (String), description :: Maybe (String), targetArns :: Maybe (ListOfString), status :: Maybe (VpcLinkStatus), statusMessage :: Maybe (String) }) -> VpcLink
 ```
 
 Constructs VpcLink's fields from required parameters
@@ -7394,7 +7394,7 @@ Encode VpcLinkStatus
 
 ``` purescript
 newtype VpcLinks
-  = VpcLinks { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfVpcLink) }
+  = VpcLinks { position :: Maybe (String), items :: Maybe (ListOfVpcLink) }
 ```
 
 <p>The collection of VPC links under the caller's account in a region.</p> <div class="seeAlso"> <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-with-private-integration.html">Getting Started with Private Integrations</a>, <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-private-integration.html">Set up Private Integrations</a> </div>
@@ -7419,7 +7419,7 @@ Constructs VpcLinks from required parameters
 #### `newVpcLinks'`
 
 ``` purescript
-newVpcLinks' :: ({ position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfVpcLink) } -> { position :: NullOrUndefined (String), items :: NullOrUndefined (ListOfVpcLink) }) -> VpcLinks
+newVpcLinks' :: ({ position :: Maybe (String), items :: Maybe (ListOfVpcLink) } -> { position :: Maybe (String), items :: Maybe (ListOfVpcLink) }) -> VpcLinks
 ```
 
 Constructs VpcLinks's fields from required parameters

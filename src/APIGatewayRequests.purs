@@ -101,137 +101,137 @@ createVpcLink (APIGateway.Service serviceImpl) = AWS.request serviceImpl method 
 
 
 -- | <p>Deletes the <a>ApiKey</a> resource.</p>
-deleteApiKey :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteApiKeyRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteApiKey :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteApiKeyRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteApiKey (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteApiKey"
 
 
 -- | <p>Deletes an existing <a>Authorizer</a> resource.</p> <div class="seeAlso"><a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/delete-authorizer.html">AWS CLI</a></div>
-deleteAuthorizer :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteAuthorizerRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteAuthorizer :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteAuthorizerRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteAuthorizer (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteAuthorizer"
 
 
 -- | <p>Deletes the <a>BasePathMapping</a> resource.</p>
-deleteBasePathMapping :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteBasePathMappingRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteBasePathMapping :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteBasePathMappingRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteBasePathMapping (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteBasePathMapping"
 
 
 -- | <p>Deletes the <a>ClientCertificate</a> resource.</p>
-deleteClientCertificate :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteClientCertificateRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteClientCertificate :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteClientCertificateRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteClientCertificate (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteClientCertificate"
 
 
 -- | <p>Deletes a <a>Deployment</a> resource. Deleting a deployment will only succeed if there are no <a>Stage</a> resources associated with it.</p>
-deleteDeployment :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteDeploymentRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteDeployment :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteDeploymentRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteDeployment (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteDeployment"
 
 
-deleteDocumentationPart :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteDocumentationPartRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteDocumentationPart :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteDocumentationPartRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteDocumentationPart (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteDocumentationPart"
 
 
-deleteDocumentationVersion :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteDocumentationVersionRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteDocumentationVersion :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteDocumentationVersionRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteDocumentationVersion (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteDocumentationVersion"
 
 
 -- | <p>Deletes the <a>DomainName</a> resource.</p>
-deleteDomainName :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteDomainNameRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteDomainName :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteDomainNameRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteDomainName (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteDomainName"
 
 
 -- | <p>Clears any customization of a <a>GatewayResponse</a> of a specified response type on the given <a>RestApi</a> and resets it with the default settings.</p>
-deleteGatewayResponse :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteGatewayResponseRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteGatewayResponse :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteGatewayResponseRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteGatewayResponse (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteGatewayResponse"
 
 
 -- | <p>Represents a delete integration.</p>
-deleteIntegration :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteIntegrationRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteIntegration :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteIntegrationRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteIntegration (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteIntegration"
 
 
 -- | <p>Represents a delete integration response.</p>
-deleteIntegrationResponse :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteIntegrationResponseRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteIntegrationResponse :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteIntegrationResponseRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteIntegrationResponse (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteIntegrationResponse"
 
 
 -- | <p>Deletes an existing <a>Method</a> resource.</p>
-deleteMethod :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteMethodRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteMethod :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteMethodRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteMethod (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteMethod"
 
 
 -- | <p>Deletes an existing <a>MethodResponse</a> resource.</p>
-deleteMethodResponse :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteMethodResponseRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteMethodResponse :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteMethodResponseRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteMethodResponse (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteMethodResponse"
 
 
 -- | <p>Deletes a model.</p>
-deleteModel :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteModelRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteModel :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteModelRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteModel (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteModel"
 
 
 -- | <p>Deletes a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
-deleteRequestValidator :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteRequestValidatorRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteRequestValidator :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteRequestValidatorRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteRequestValidator (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteRequestValidator"
 
 
 -- | <p>Deletes a <a>Resource</a> resource.</p>
-deleteResource :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteResourceRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteResource :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteResourceRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteResource (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteResource"
 
 
 -- | <p>Deletes the specified API.</p>
-deleteRestApi :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteRestApiRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteRestApi :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteRestApiRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteRestApi (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteRestApi"
 
 
 -- | <p>Deletes a <a>Stage</a> resource.</p>
-deleteStage :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteStageRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteStage :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteStageRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteStage (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteStage"
 
 
 -- | <p>Deletes a usage plan of a given plan Id.</p>
-deleteUsagePlan :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteUsagePlanRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteUsagePlan :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteUsagePlanRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteUsagePlan (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteUsagePlan"
 
 
 -- | <p>Deletes a usage plan key and remove the underlying API key from the associated usage plan.</p>
-deleteUsagePlanKey :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteUsagePlanKeyRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteUsagePlanKey :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteUsagePlanKeyRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteUsagePlanKey (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteUsagePlanKey"
 
 
 -- | <p>Deletes an existing <a>VpcLink</a> of a specified identifier.</p>
-deleteVpcLink :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteVpcLinkRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteVpcLink :: forall eff. APIGateway.Service -> APIGatewayTypes.DeleteVpcLinkRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteVpcLink (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteVpcLink"
 
 
 -- | <p>Flushes all authorizer cache entries on a stage.</p>
-flushStageAuthorizersCache :: forall eff. APIGateway.Service -> APIGatewayTypes.FlushStageAuthorizersCacheRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+flushStageAuthorizersCache :: forall eff. APIGateway.Service -> APIGatewayTypes.FlushStageAuthorizersCacheRequest -> Aff (exception :: EXCEPTION | eff) Unit
 flushStageAuthorizersCache (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "flushStageAuthorizersCache"
 
 
 -- | <p>Flushes a stage's cache.</p>
-flushStageCache :: forall eff. APIGateway.Service -> APIGatewayTypes.FlushStageCacheRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+flushStageCache :: forall eff. APIGateway.Service -> APIGatewayTypes.FlushStageCacheRequest -> Aff (exception :: EXCEPTION | eff) Unit
 flushStageCache (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "flushStageCache"
 
@@ -566,7 +566,7 @@ putRestApi (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  wh
 
 
 -- | <p>Adds or updates Tags on a gievn resource.</p>
-tagResource :: forall eff. APIGateway.Service -> APIGatewayTypes.TagResourceRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+tagResource :: forall eff. APIGateway.Service -> APIGatewayTypes.TagResourceRequest -> Aff (exception :: EXCEPTION | eff) Unit
 tagResource (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "tagResource"
 
@@ -584,7 +584,7 @@ testInvokeMethod (APIGateway.Service serviceImpl) = AWS.request serviceImpl meth
 
 
 -- | <p>Removes Tags from a given resource.</p>
-untagResource :: forall eff. APIGateway.Service -> APIGatewayTypes.UntagResourceRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+untagResource :: forall eff. APIGateway.Service -> APIGatewayTypes.UntagResourceRequest -> Aff (exception :: EXCEPTION | eff) Unit
 untagResource (APIGateway.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "untagResource"
 
